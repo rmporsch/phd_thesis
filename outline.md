@@ -15,10 +15,13 @@ Thesis Outline
 	* Past twin and adoption studies on aggression
 		* Children
 		* Adults
-4. GWAS and other molecular genetic studies 
-	* GWAS - Method and past results of aggressive behavior
-	* Others
+4. GWAS and other molecular genetic studies on humans
+	* general method of GWAS
+	* past GWAS results of aggressive behavior
 5. Gap in the literature
+	* Conclusion
+	* paragraph introducing studies
+
 
 # The Longitudinal Heritability of childhood aggression
 
@@ -53,7 +56,6 @@ Thesis Outline
 1. Introduction
 	* past GWAS
 	* past molecular studies and genes of interest
-	* goal of this GWAS
 2. Material and Methods
 	* Data
 	* Method
@@ -90,12 +92,14 @@ Thesis Outline
 2. Material and Methods
 	* Simulations
 	* Real Data
+		* UKB
+		* DDD data
 3. Results
 	* Simulation results
 	* Real data results
 4. Discussion
 
-# Estimation of Cultural Transmission via polygenic risk scors 
+# Estimation of Cultural Transmission via polygenic risk scores 
 
 (( ALSPAC data ))
 
