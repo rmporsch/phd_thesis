@@ -1,5 +1,8 @@
 \documentclass{book}
 \usepackage{amsmath}
+\usepackage[refsection=chapter, backend=bibtex8]{biblatex}
+
+\addglobalbib{/home/robert/Documents/library.bib}
 
 \title{The Genetics of Aggressive Behavior}
 \author{Robert M. Porsch}
@@ -7,8 +10,11 @@
 
 \begin{document}
 \maketitle
+\input{"introduction/intro.tex"}
 
 
 
 
+\printbibheading
+\bibbysection[heading=subbibliography]
 \end{document}
