@@ -4,6 +4,11 @@ Thesis Outline
 
 # The Genetics of Aggressive Behavior
 
+(( Literature Review ))
+
+1. Intro
+	* dramatic entry
+	* (( summary of the literature review ))
 1. Social impact of aggressive behavior
 	* Children
 	* Adults
@@ -22,6 +27,12 @@ Thesis Outline
 	* Conclusion
 	* paragraph introducing studies
 
+* types of aggressive behavior
+* investigated environmental causes
+* connected character traits
+* evolutionary theories of aggressive behavior
+* heritability estimations
+* molecular stuff
 
 # The Longitudinal Heritability of childhood aggression
 
