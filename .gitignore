@@ -1,0 +1,14 @@
+*.html
+*.bib
+*.bbl
+*.dvi
+*.pdf
+*.run.xml
+*.tex.latexmain
+*.aux
+*.blg
+*.log
+*.bcf
+*.ldb_latexmk
+*.fdb_latexmk
+*.fls
