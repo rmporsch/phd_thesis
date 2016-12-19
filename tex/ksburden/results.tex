@@ -1,0 +1,54 @@
+\section{Results}
+\label{sec:results}
+
+Across our simulations we have choosen a liability threshold $q$ of 1\% while we increased heritability from 0.2\% to 1\%.
+Simulation of KS, KSburden and burden was done in c++ while for we used the SKAT R-package for SKAT and SKAT-O. %TODO add citation
+
+\subsection{Type-I Error Rates}
+\label{sub:type_i_error_rates}
+
+Type-I error rate was accessed under the null for all tests and results are displayed in Table~1. 
+%TODO make type 1 error rate
+
+\subsection{Power Comparisons}
+\label{sub:power_comparisons}
+
+Statistical power of each scenario was evaluated with $10\times 100$ replications.
+Figure~\ref{fig:simulatedGeneRealData} displays the empirical power for each test under various scenarions.
+In each scenario we continously expanded a single causal region by 10\% of the total genes variants until the complete gene was covered by causal mutatations.
+We compared the power of the SKAT, SKAT-O, KS, burden (CMC, BURDEN), KSburden tests.
+As expected the KS test looses dramatically statistical power in situations if all variants in a given gene are causally related to the phenotype.
+In contrast if only a small fraction of the gene is causally relavant the KS tests outperforms both burden tests as well as SKAT.
+Further, the combined KSburden is less powerful that SKAT-O when 100\% of rare variants are causal but is able to outperform SKAT-O when only 50\% of variants are causal.
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=1.0\linewidth]{example-image-a}
+	\caption{Estimated statistical power for four different causal cluster size.\label{fig:simulatedGeneRealData}}
+\end{figure}
+
+We further simulated $10000$ p-values under the null for both burden and KS tests (Figure~\ref{fig:nullCor})
+As one can see we have strong evidence that the two tests are not dependent and in fact independent of each other.
+While this simulation cannot exclude the posibility that the two test statistics are independent it indicates that under most common situations the two test statistics can be considered independent.
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.8\linewidth]{example-image-a}
+	\caption{\label{fig:nullCor} Correlation between KSsum and Burden under the null}
+\end{figure}
+
+\subsection{Application to the DDD Hong Kong Data}
+\label{sub:application_to_the_ddd_hong_kong_data}
+
+In addtion to our simulation study we also applied our test on the DDD dataset.
+Figure~\ref{fig:ddd} shows the qq-plot for all applied tests.
+Unsurspringsly we were unable to find any significant associations, persumably due to the lack of statistical power in all tests.
+Nevertheless, we were able to identify two genes which approched genome wide significants.
+Namly XXX and XXXX (see table~%todo add table
+Further we would like to note that the correlation between the KS and burden test is wtih $somenumber$ close to $0$, thus indicating that both tests are independent in probable scenarios.
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.8\linewidth]{example-image-a}
+	\caption{\label{fig:ddd} QQ-plot for DDD}
+\end{figure}
