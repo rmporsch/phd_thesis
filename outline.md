@@ -7,31 +7,49 @@ Thesis Outline
 (( Literature Review ))
 
 1. Intro
-	* dramatic entry
-	* (( summary of the literature review ))
-1. Social impact of aggressive behavior
-	* Children
-	* Adults
-2. Studies of aggressive behavior
-	* Early studies
-	* Animal studies
-3. Twin and adoption studies
+	* Introduction to the topic
+	* Summary of the literature review
+2. Definition of Aggressive behavior
+	* general definition
+	* Types of aggressive behavior
+		* Hostile and Instrumental aggression
+		* direct and indirect aggression
+2. Evolutionary Theories about aggressive behavior
+	* sexual selection theory
+		* definition
+		* application to aggression
+	* evolutionary advantages
+	* evolutionary disadvantages
+	* stabilizing selection
+	* predictions 
+2. Environmental Risk factors
+	* Social Theories
+		* Cognitive Neoassociation Theory
+		* Social Learning Theory
+		* Social Interaction Theory
+	* investigated environmental causes
+		* Video games
+		* Media
+		* impulse control
+		* others
+	* predictions
+	* Comparison to Evolutionary theories
+4. Twin and adoption studies
 	* General Method of SEM
 	* Past twin and adoption studies on aggression
 		* Children
 		* Adults
-4. GWAS and other molecular genetic studies on humans
+	* heritability estimations
+3. Genetic Studies of aggressive behavior
+	* Early studies
+	* Animal studies
+5. GWAS and other molecular genetic studies on humans
 	* general method of GWAS
 	* past GWAS results of aggressive behavior
-5. Gap in the literature
+6. Gap in the literature
 	* Conclusion
 	* paragraph introducing studies
 
-* types of aggressive behavior
-* investigated environmental causes
-* connected character traits
-* evolutionary theories of aggressive behavior
-* heritability estimations
 * molecular stuff
 
 # The Longitudinal Heritability of childhood aggression
@@ -121,4 +139,4 @@ Thesis Outline
 3. Results
 	* Simulation results
 	* Real data results
-4. Discussion
+4 Discussion
