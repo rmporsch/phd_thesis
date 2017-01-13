@@ -1,0 +1,42 @@
+﻿\section{Methods}
+\subsection{Data}
+\subsubsection{The Netherlands Twin Register (NTR)}
+The NTR was established in 1987 and collects data in twins and multiples from birth onwards~\cite{vanBeijsterveldt2013}.
+Nationwide data collection is by mailed and/or online surveys.
+Parents of twins receive questionnaires when their twins are aged 1, 2, 3, 5, 7, 10, and 12 years of age.
+For the current analysis data of maternal rating at ages 7, 10, and 12 were analyzed for twin born between 1986 and 2005.
+To assess aggressive behavior the Child Behavior Checklist versions 4--18 and 6--18 was used~\cite{Achenbach2010}.
+The CBCL /6--18 is a revision of the CBCL/4--18.
+Because data were collected over the past 25 years both versions of the CBCL were used sequentially.
+Mothers were asked to rate the behavior of the child in the preceding 6 months on a 3-point scale; 0 if the problem item was not true of the child, 1 if the item was somewhat or sometimes true, and 2 if it was very true or often true.
+The syndrome scale Aggressive Behavior (AGG) was composed by adding the scores on syndrome-specific questions according to the 1991 profile~\cite{Achenbach2010}.
+AGG consists of 18 items.
+Data from subjects with more than three missing items were not included in the analyses.
+This occurred in less than 2.5\% of the received questionnaires.  Maternal ratings on AGG were available for 10,765 twin pairs at age 7, 8,557 twin pairs at age 10, and 7,176 twins pairs at age 12.
+Twin Early Development study (TEDS)
+TEDS was established in 1995 with three birth cohorts (1994 -96) obtained from UK birth records.
+In infancy and early childhood, questionnaires were posted to parents and teachers (with permission from parents), and school achievement records were also obtained~\cite{Haworth2012}.
+Data were gathered from telephone and in person interviews as well as increasingly from online internet assessments.
+The measure used consistently at all ages and all sources (including the twins themselves beginning at age 10) is the Strength and Difficulties Questionnaire (SDQ;~\cite{Goodman1997, Goodman2001}).
+For the current study parental (maternal or paternal) ratings were used.
+The SDQ is a 25-item questionnaire designed to measure common mental health problems during childhood and adolescence.
+Ratings are on a three-point scale.
+The conduct problem scale with five separate items was used to measure aggression within TEDS\@.
+Parental ratings were available for 6,897 twin pairs at age 7, 3,028 twin pairs at age 9 and 5,716 twin pairs at age 12.
+Reduced sample size at age 9 can be explained by a shift in contacting scheme from phone to in-person interviews.
+
+\subsection{Statistical Analysis}
+To gain a first impression of stability and heritability of aggression across age, longitudinal within person correlations, twin correlations and cross-twin-cross-age correlations were estimated for each cohort as a function of zygosity.
+Next, we applied longitudinal analyses to investigate to what extent preexisting and new genetic and environmental factors influence the dynamic development of aggression.
+Data from three time points (T1, T2, T3) in the two studies were analyzed, corresponding in NTR to data from ages 7, 10 and 12 years and in the TEDS cohort to ages 7, 9 and 12 years.
+A Cholesky decomposition was fitted to the raw data in which subsequent levels of problem behavior are influenced by latent variables (additive genetic, common environmental, and unique environmental variables) of the current as well as all prior ages (Figure 1).
+Hence, for each study (NTR and TEDS) and sex (males and females) the covariance matrix is expressed as a composition of 18 parameters (six parameters from the A, C and E variables to the phenotype, respectively).
+Using this decomposition, one can decompose variance into effects due to current and prior latent variables~\cite{Franić2014}.
+The significance of common environmental influences was tested by dropping the C effect from the model, and evaluating the drop in goodness of fit of the model.
+Sex-differences in parameter estimates (effects of A, C and E) were tested by comparing models that allowed for sex differences in variance components to models that constrained these estimates to be the same, as well as to a scalar model in which male variance components are proportional to female variance components.
+In addition, we tested the equality of heritability across the two studies, by constraining estimates of variance components of TEDS to be proportional to those of NTR by allowing for differences in unstandardized variance components between the two studies but constraining standardized components to be the same.
+All models allowed for mean differences between boys and girls and between different ages.
+Model comparisons were done by likelihood ratio tests.
+Parameter estimation was based on raw-data maximum likelihood in the open resource software OpenMx~\cite{Boker2011}.
+Based on the best fitting model we estimated the genetic and environmental influences on the variance of aggression at each age and the covariance between ages.
+In addition, we calculated the genetic and environmental correlations.
