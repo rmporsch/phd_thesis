@@ -1,0 +1,80 @@
+\section{Method}
+\label{sec:method}
+
+Considering a gene with the positions of nucleotides labeled numerically $1, 2, \ldots p$, in which the position of a rare variant is regarded as a random variable, $X$.
+The rare variants observed in each group (cases or controls) are considered a realizations of the random variable $X$.
+We can then calculate an empirical (cumulative) distribution function (ecdf) for each group ($F_A(x)$ for cases, $F_U(x)$ for controls), which is a monotonic step function, increasing from $0$ at the first position of the gene, to $1$ at the last position of the gene.
+For a group containing $\gamma$ rare variants occurring at positions $X_1, X_2, \ldots, X_\gamma$, the empirical distribution function of $X$ is given by
+
+\begin{equation}
+	F(x) = \frac{1}{\gamma}\sum^n_{i=1}I(X_i \leq x)
+\end{equation}
+
+in which $I(x)$ is the indicator function.
+The KS statistic $K$ is defined as the supremum of the absolute difference between the two empirical distribution functions.
+
+\begin{equation}
+	K_{ks} = \sup_x | F_A(x) - F_U(x) |
+\end{equation}
+
+While the KS test is distribution free when $F$ is continous, this is not the case with descrete data.
+However, application of the Kolmogorov distribution to obtain critical values for $K$ for discreate data yiels conservative estimates\cite{Walsh1963,Conover1972}. 
+Similar to previous previous applications of the KS test to count data we applied a permutation based approach to estimate p-values. 
+Hence p-values of the observed test statistic $k$ were estimated by $p_{permute} = \frac{\sum^b_{b=1} I(K_b \geq k)+1}{b+1}$ in which $K_b$ is the test statistic of the $b^{th}$ permutation sample.
+It is important to note that if $\gamma$ is large $F$ can be considered as continues therefore reducing the necessarity to perform computationaly intesive permutatations in large genes and samples. 
+
+The KS test makes the strong assumption that in a given genomic region only a certain causal cluster of rare variants are related to the phenotype in question.
+This hypothesis does not contradict that of the burden test which assumes that all variants under investigation have the same direction of effect, but can be seen as two sides of the same coin.
+Thus it is desirable to combine the two test statistics in order to obtain a combined test statistic.
+
+We can define the test statistic of the burden test as 
+\begin{equation}
+	K_{Burden} = {(\sum^p_{p=1} (y-0.5) \times G)}^2
+\end{equation}
+in which $y$ is the vector of case-control status and $G$ the genotye matrix of size $n \times \gamma$, in which $n$ is the number of samples.
+While one cannot definitly show $K_{KS} \perp K_{Burden}$, one can demonstrate via simulations that $Cor(K_{KS},K_{Burden})$ is approximatly $0$ under the null (see Figure~\ref{fig:correlation}).
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[width=0.8\linewidth]{example-image-a}
+	\caption{\label{fig:correlation} Correlation between $K_{ks}$ and $K_{burden}$}
+\end{figure}
+Thus one can combine the two estimated p-values by Fischer's method 
+\begin{equation}
+	\chi^2_4 \sim - 2 (\ln(p_{KS}) + \ln(p_{Burden}))
+\end{equation}
+in which the test statistic $\chi^2$ follows a $\chi^2$-distribution with $4$ degrees of freedom.
+We have choose to call this combined test statistic KSburden.
+
+Implementation of the KS, Burden and KSburden was done in c++ and can be found at \url{https://github.com/rmporsch/ksburden}.
+This repository also includes associated scripts and programs to repated simulations described within this paper.
+
+\subsection{Simulation Study}
+\label{sub:simulation_study}
+
+In order to simulate case control status as closly as possible to the actual data we made use of a subset of the UK10K.
+This subset contained $923$ exome sequenced individuals who were diagnosed with psychosis.
+After quality control (QC) we selected a random gene with median number of rare variants.
+We defined mutation as rare if the minior allele frequency (MAF) was below 1\%. 
+Within $p$ postion of the selected gene we assigned causal status to $p_1 \ldots p_t$ positions, in which $t$ represents the total number of causal variants.
+For simplicity we assigned the causal cluster at the beginning of the gene.
+Within our simulations we gradually increased the size of the causal cluster to eventually cover the whole gene. 
+
+The phenotype was simulated via a liability threshold model.
+Hence the phenotype $Y_i$ of the $i^{th}$ subject was generated via
+$Y = G\times E' + \epsilon$
+in which $G$ is the standardized genotype matrix of $n=923$ subjects from the UK10K dataset with $p$ variants.
+$E$ is the effect size of size $1\times p$ and $\epsilon$ is a standard normal distributed error term with a mean of $0$ and a standard deviation of $\sqrt{1-h^2}$, in which $h^2$ is the assumed heritability.
+We assigned case status for each subjects whose $Y_i$ is above a certain liability threshold $q$.
+This procedure was repeated until we collected $500,1000,2000,5000$ cases and controls respectivly.
+
+\subsection{DDD Data}
+\label{sub:ddd_data}
+
+In addition to our simulation study we also applied our test to real data.
+We selected $715$ samples from the Hong Kong degenerative disk disease (DDD) cohort which were whole exome sequencing using Illumina True seq capture kit.
+Participants were all Hong Kong residents with Chinese ancestry, aged 15 to 54 years.
+Each person underwent MRI of the whole spine and lumbar levels were assecessed by trained clinicians\cite{Li2016}.
+For the purpose of this study scores were normalized and subjects were dichotomised accrording to the extreme tails of the score distribution. 
+
+We used Picard/BWA/GATK pipeline for sequencing mapping and variants calling.
+Both sample level and variant level quality control were employed\cite{Purcell2014}.

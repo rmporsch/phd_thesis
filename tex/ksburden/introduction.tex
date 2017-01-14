@@ -1,0 +1,41 @@
+\section{Introduction}
+\label{sec:introduction}
+
+The development of sequencing based technologies and their drop in costs have provided rich opportunities to study the relationship between genetic variants and complex human traits\cite{Goodwin2016}.
+Especially rare variants, which can be defined as genetic variations occurring in less than 1\% of the population, have been suggested to play an important role in the etiology of human traits and potentially account for the missing heritability\cite{Jiang2013,Li2009a}. 
+
+Thus considerable effort has been made to develop and deploy statistical methods to discover important causal relationships between rare variants and complex traits\cite{Morris2010,Zeng2014,Daye2012,Manuscript2013}.
+In Genome wide association studies (GWAS) single variants are associated with the trait in question.
+This approach is largely unfeasible in rare variants due to their low frequency\cite{Lee2014}.
+Thus most approaches have been focused on combining multiple rare variants in order to increase statistical power.
+This can be either done on the gene or pathway level, but for simplicity we will only consider gene based tests within this paper.
+
+In general one can classify gene based tests into two larger categories, namely burden and variance-component tests\cite{Lee2014}.
+These separate methods have differing assumption about the underlying genetic architecture.
+Thus effort has been made to combine these two methods into an omnibus test.
+
+In general, burden tests aggregate single rare genetic variations.
+Thus assuming that all variants in a given genomic region have the same direction of effect.
+Violation of this assumption results in considerable reduction in statistical power.
+Examples of this methods include the Combined Multivariate and Collapsing (CMC) test\cite{Li2008}, as well as the weighted sum statistic\cite{Madsen2009}.
+Alternatively, variance-component tests do not assume uni-directional effect of all included variants. 
+These methods investigate the distribution of genetic effects for a genomic region and are robust to variants with differing direction of effects.
+Prominent example of variance-component tests are SKAT\cite{Wu2011} and C-Alpha\cite{Neale2011}.
+These tests are more powerful compared to the burden approach in cases when the majority of rare variants are of neutral effect or bi-directional effects are present.
+However, the burden tests in general outperform variance-component based tests when a large proportion of variants have the same direction of effect.
+This has lead to the development of omnibus tests to combine both approaches.
+An example if these omnibus tests is SKAT-O\cite{Lee2012a} which uses a linear combination of SKAT and burden tests statistics to derive a combined p-value.
+Alternative methods include the use of Fischer's methods to combine p-values from burden and SKAT\cite{Derkach2013a}.
+These omnibus tests, although less powerful if one of the assumptions of burden or variance-component tests hold true, have demonstrated robust power\cite{Lee2014}. 
+
+An often neglected aspect of rare variant tests are the position of these genetic variation.
+Multiple biological evidence has been reported in the past demonstrating clustering of causal rare variants within the genome\cite{Ionita-Laza2012}.%TODO needed citation [more than 2] 
+It is biological plausible to suggest that rare deleterious mutations causally related to a considered trait might be more likely to be located in protein functional domains or gene regulatory elements. %TODO ciation needed here
+A number of different tests have been proposed in order to take the location of rare variants into consideration when performing association tests.
+Examples of spatial approaches of rare variant association tests are IL-K\cite{Ionita-Laza2012}, KERNEL\cite{Schaid2013} and CLUSTER\cite{Lin2014}.
+These methods relay on kernel distance clustering and are therefore computational intensive. %TODO is it computational intensive???
+
+We are here proposing a way to assess the differences in spatial organization by assessing the distributional differences of rare variants between cases and controls.
+To do so we make use of the well known Kolmogorov-Smirnov (KS) test.
+We demonstrate, through extensive simulation, that our methods outperforms commonly used tests, such as SKAT and burden when the assumption of the KS-test are true.
+Further, we combine the KS and burden test to provide an omnibus approach to gene based tests.
