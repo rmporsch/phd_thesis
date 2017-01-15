@@ -1,0 +1,15 @@
+%latex.default(toz, file = "foo.tex", rowname = NULL, table.env = FALSE,     multicol = FALSE, digits = 3, center = "none")%
+\begin{tabular}{lllrrrrrrr}
+	\hline\hline
+	Study     & Reference                & Model                          & Parameters & -2ll       & df      & AIC        & $\Delta_{-2ll}$ & $\Delta_{df}$ & p\tabularnewline
+	\hline
+	NTR       & Full Cholesky            & Cholesky: Sex moderated AE     & $ 30$      & $297589$   & $55098$ & $187393$   & $127.8$         & $ 12$         & $< 0.0001$\tabularnewline
+	          & Full Cholesky            & Cholesky: no-sex moderated ACE & $ 24$      & $298058$   & $55104$ & $187850$   & $596.8$         & $ 18$         & $< 0.0001$\tabularnewline
+	          & Full Cholesky            & Cholesky: scaled sex ACE       & $ 27$      & $297563$   & $55101$ & $187361$   & $101.6$         & $ 15$         & $< 0.0001$\tabularnewline
+	TEDS      & Full Cholesky            & Cholesky: Sex moderated AE     & $ 30$      & $101529$   & $30983$ & $ 39563$   & $177.3$         & $ 12$         & $< 0.0001$\tabularnewline
+	          & Full Cholesky            & Cholesky: no-sex moderated ACE & $ 24$      & $101545$   & $30989$ & $ 39567$   & $193.1$         & $ 18$         & $< 0.0001$\tabularnewline
+	          & Full Cholesky            & Cholesky: scaled sex ACE       & $ 27$      & $101397$   & $30986$ & $ 39425$   & $ 45.2$         & $ 15$         & $< 0.0001$\tabularnewline
+	Combined  & Cholesky: Study specific &                                & $84$       & $398813.5$ & $86057$ & $226699.5$ &                 &               & \tabularnewline
+	          & Cholesky: Study specific & Cholesky: combined estimate    & $54$       & $399248.6$ & $86087$ & $227074.6$ & $435.073$       & $30$          & $< 0.0001$\tabularnewline
+	\hline
+\end{tabular}
