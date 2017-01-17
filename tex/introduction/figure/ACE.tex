@@ -1,0 +1,48 @@
+%\usetikzlibrary{external}
+%\tikzset{external/system call={latex \tikzexternalcheckshellescape -halt-on-error
+%		-interaction=batchmode -jobname "\image" "\texsource";
+%		dvips -o "\image".ps "\image".dvi ;
+%		ps2eps "\image.ps" "\image".eps}}
+%\tikzexternalize
+%\newcommand{\at}{\makeatletter @\makeatother}
+\begin{tikzpicture}[auto,node distance=.5cm,
+    latent/.style={circle,draw,very thick,inner sep=0pt,minimum size=15mm,align=center},
+    manifest/.style={rectangle,draw,very thick,inner sep=0pt,minimum width=45mm,minimum height=10mm},
+    paths/.style={->, ultra thick, >=stealth'},
+    twopaths2/.style={<->, ultra thick,bend left=90, >=stealth'},
+    twopaths1/.style={<->, ultra thick,bend right=90, >=stealth'},
+    mean/.style={draw, regular polygon, regular polygon sides=3, node distance=1cm, minimum height=15mm}
+]
+
+% Define observed variables
+\node [manifest] (T1) at (0,0) {T1};
+\node [manifest] (T2) [below=of T1, below=5cm of T1]  {T2};
+
+
+% Define latent variables
+\node [latent] (C1) [left=3.5cm of T1] {C1};
+\node [latent] (C2) [left=3.5cm of T2] {C2};
+\node [latent] (A1) [above=of C1] {A1};
+\node [latent] (A2) [above=of C2] {A2};
+\node [latent] (E1) [below=of C1] {E1};
+\node [latent] (E2) [below=of C2] {E2};
+
+\node [mean] (mu) at($(T1)!0.5!(T2)$)  {$\mu$};
+
+% paths to T1/T2
+\draw [paths] (A1.east) to node {$a$} (T1);
+\draw [paths] (A2.east) to node {$a$} (T2);
+\draw [paths] (C1.east) to node {$c$} (T1);
+\draw [paths] (C2.east) to node {$c$} (T2);
+\draw [paths] (E1.east) to node {$e$} (T1);
+\draw [paths] (E2.east) to node {$e$} (T2);
+
+% path from mean
+\draw [paths] (mu.south) to node [right] {} (T2);
+\draw [paths] (mu.north) to node [right] {} (T1);
+
+% variance
+\draw [twopaths1] (A1.west) to node  [bend left=90, left]{0.5 / 1} (A2.west);
+\draw [twopaths2] (C2.west) to node  [bend right=90, left]{1} (C1.west);
+
+\end{tikzpicture}
