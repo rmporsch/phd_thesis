@@ -19,8 +19,8 @@ Twins have always been of special interest to scholor.
 Indeed already the famous physician Hippocrates has been reported to be interested in twins (5th century BCE).
 The Roman politician and author Cicero described Hippocrates's observations of two ill brothers, suspected to be twins, with similar identical disease progression~\cite{Cicero44BC}.
 Much later Francis Galton was one of the first persons to use twins in order to investigate the effect of genes and the enviornment on human behavior~\cite{Rende1990} and with the discovery of two distinct types of twins, namely monozygotic and dizygotic twins, by~\citet{Simens1924}, twin studies became an estaiblised instrument in investigating genetic factors in humans.
-Monozygotic twins (MZ) develop from a single fertilized egg and therefore share all of their genetic variations.
-On the other hand, dizygotic twins (DZ) develop from two fertilized eggs and therefore share only 50\% of their genetic variations.
+\acrfull{mz} twins develop from a single fertilized egg and therefore share all of their genetic variations.
+On the other hand, \acrfull{dz} twins (DZ) develop from two fertilized eggs and therefore share only 50\% of their genetic variations.
 
 This distinction forms the basis of all twin studies and allows to state structural equations relating observed trait and theorized underlying genetic and enviormental effects.
 The genetic effects can be further distiguished between additive genetic effects (A) which represents the accumulated effect of all genetic variations and non-additive effects which represents interaction on the same genetic locus, also called dominance (D), and different loci (epistasis).
@@ -41,7 +41,7 @@ This is also called Falconer's formula (see Formula~\ref{eq:falcon}) and can be 
 \end{align}
 
 However, while the above is attractive it its simplicity, today's twin studies use structural equation models to model genetic and enviornment effects.
-Structural equation models (SEM) are more flexible in modeling specifc hypothesis, are able to test for sex differences as well are able to handle multivariate data~\cite{Rijsdijk2002}.
+\acrfull{sem} are more flexible in modeling specifc hypothesis, are able to test for sex differences as well are able to handle multivariate data~\cite{Rijsdijk2002}.
 Figure~\ref{fig:ace} displays a classical twin model.
 Additive genetic (A), common enviornment (C) and unique enviornment (E) are so called latent variables.
 Latent variables are not directly observed variables but are inferred from observed ones.
@@ -84,7 +84,7 @@ Therefore, should we fail to reject the null hypothesis that our model in Figure
 The use of SEM allows for great flexiblity and a variaty of models to be estimated.
 In the past few decades numerous twin studies on a variety of traits have been performed.
 It not only allowed us to test for differences in the genetic architecture between the sexes but also look at how the influence of genetic factors change over age.
-However, due to the new advancedment in acquiering genetic information of individual more research has been shifted to genome wide association studies (GWAS).
+However, due to the new advancedment in acquiering genetic information of individual more research has been shifted to \acrfull{gwas}.
 Hence, in the next section I will outline the methods applied GWAS\@.
 
 \subsection{Association studies of common variants}
@@ -92,7 +92,7 @@ Hence, in the next section I will outline the methods applied GWAS\@.
 
 Large scale genomic assocation studies have enabled researchers to investigate specific genetic factors associated with a certain trait.
 Hence, while twin studies were only able to give an estimate of the total contribution of genetic factors on a phenotype, these studies are able to elucidate the specific molecular basis of complex traits.
-Specifically, these genome wide association studies untilize single nucleotide polymorphism (SNP), to identify specific genetic markers associated with a certain trait.  
+Specifically, these genome wide association studies untilize single \acrfull{snp}, to identify specific genetic markers associated with a certain trait.  
 
 Most GWASs are population based studies and contain unrelated samples.
 Here it is important to note that all samples have distante relatives and the term `unrelated' is used loosly.
@@ -100,7 +100,7 @@ In fact it becomes increasingly difficult to establish the exact genetic relatio
 
 Nevertheless, an association between an SNP and a trait can arise out of multiple reasons.
 First, the association could represent the true effect and the particular SNP has a causal relationship to the trait in question.
-Second and more likely the associated SNP is a proxy of the causal SNP since both are in high linkage disequilirium (LD).
+Second and more likely the associated SNP is a proxy of the causal SNP since both are in high \acrfull{ld}.
 Third, the association is random fluctioation within the sample, and fourth the assocation is due to confounding errors such as population stratification or genotyping errors.
 
 The assocation between the $i$th SNP $G$ and a trait $Y$ can be expressed as a linear model for a continious and binary phenotype respectivly
@@ -119,11 +119,13 @@ Population stratification takes place when differences in the frequencies of all
 Rather it is caused by ancestral differences across populations.
 An association is affected by population stratification if the trait is more prevalent in one population while the allele frequencies vary across the populations as well.
 
-Commonly one can adjust for population stratification by the usage of principle components.
-
-
-
-
+Commonly one can adjust for population stratification by the usage of \acrfull{pca}.
+PCA is a procedure which transforms a set of correlated variables into a set of linear uncorrelated once, called principle components (\acrshort{pc}).
+The number of PC can be smaller or equal that of the number of intial variables and the first PC accounts for most of the variablity in the set of correlated variables.
+Each following PC explains the most variance constrained that it is othogonal to the previous.
+Using PCA on a matrix of genotypes results in a set of PC which explain the genetic variation within the sample.
+Given the sample is a mixture out of multiple population with different ancestry the computated PC will often have geographic interpretation.
+Therefore including PCs into the association model will adjust for population stratification arising due to differences in allele frequencies and disease prevalence.
 
 \subsection{Association studies on rare varitants}
 \label{sub:association_studies_on_rare_varitants}
