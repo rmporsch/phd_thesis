@@ -95,27 +95,43 @@ Hence, while twin studies were only able to give an estimate of the total contri
 Specifically, these genome wide association studies untilize single \acrfull{snp}, to identify specific genetic markers associated with a certain trait.
 SNPs are variations within the genome at a specifc postion and underly differences in traits and disease susceptibility. 
 
-During the last decade the cost of obtaining a person's genome reduced rapidly.
-This enabled the analysis of not only a few genetic markers but the whole genome.
-This anlysis is called \arcfull{gwas}.
-
-Most GWAS are population based studies of unrelated samples and analyse SNPs with a substential frequency within the population, usually $\ge 1\%$.
-Here it is important to note that all samples have distante relatives and the term `unrelated' is used loosly.
-In fact it becomes increasingly difficult to establish the exact genetic relationship between two participants by SNPs alone as further those subjects are appart within the family tree.
-
+Before explaining assocation studies in more detail it is important to mention the comcept of \acrfull{ld}.
+LD is `the nonrandom assocation of alleles at different loci'~\cite{Slatkin2008} and forms a marker of the population genetic mechanism that is at play within our genome.
+For example, two loci are said to be in high LD when allele $A$ at one loci co-occures with allele $B$ at a different loci at a higher frequency then you would expect if the two loci were independent.
+Hence the level of LD can be quantified as $D_{AB}=p_{AB} - p_{A}p_{B}$ in which in which $p_{AB}$ is the frequency that $A$ and $B$ occure together wile $p_A$ and $p_B$ is the frequency of $A$ and $B$ respectivly.
+Nevertheless, $D_{AB}$ depends on the frequencies of the alleles in questions and are therefore not always convinient.
+Therefore, LD between two loci is commonly measured in two different ways. 
+That is $D'$ and $r^2$.
+\citet{Lewontin1964} suggested to use
+\begin{equation}\label{eq:dprime}
+  D' = D/D_{\min}
+\end{equation}
+where 
+\begin{equation*}
+  D_{\min}= \begin{cases}
+    \max\{-p_A p_B,\,-(1-p_A)(1-p_B)\} & \text{when } D < 0\\
+    \min\{p_A (1-p_B),\,(1-p_A) p_B\} & \text{when } D > 0
+  \end{cases} 
+\end{equation*}
+Alternativly, one can also use the correaltion coefficient between the two loci 
+\begin{equation}\label{eq:r2}
+  r=\frac{D}{\sqrt{p_A(1-p_A)p_B (1-p_B)}}
+\end{equation}
+An important consequence for assocation studies is that an assocation between a trait and an allele is unlikely to be the actual causal SNP\@.
 An association between an SNP and a trait can arise out of multiple reasons.
 First, the association could represent the true effect and the particular SNP has a causal relationship to the trait in question.
 Second and more likely, the associated SNP is a proxy of the causal SNP since both are in high \acrfull{ld}.
 Third, the association is random fluctioation within the sample, and fourth the assocation is due to confounding errors such as population stratification or genotyping errors.
 
-The assocation between the $i$th SNP $G$ and a trait $Y$ can be expressed as a linear model for a continious and binary phenotype respectivly
-\begin{align}
-  Y &= \beta_{i}G_{i}+\epsilon \label{eq:gwas_identity}\\
-  P(Y=1) &= \beta_{i}G_{i}+\epsilon \label{eq:gwas_logistic}
-\end{align}
-in which $\epsilon$ is the error term.
+During the last decade the cost of obtaining a person's genome reduced rapidly.
+This enabled the analysis of not only a few genetic markers but the whole genome.
+This analysis is called \acrfull{gwas}.
+Most GWAS are population based studies of unrelated samples and analyse SNPs with a substential frequency within the population, usually $\ge 1\%$.
+Here it is important to note that all samples have distante relatives and the term `unrelated' is used loosly.
+In fact it becomes increasingly difficult to establish the exact genetic relationship between two participants by SNPs alone as further those subjects are appart within the family tree.
 
-While other methods to estiamte the effect of $G_i$ exist, such as the $\chi^2$-test, a linear model allows to include multiple covariates.
+The assocation between an SNP and a trait can be expressed as a linear regression model for a continious and binary phenotype respectivly
+While other methods to estiamte the effect exist, such as the $\chi^2$-test, a linear regression model allows to include multiple covariates.
 The inclusion of multiple covariates is crucial since it allows to adjust for confounding factors such as population stratification, sex, genotyping platforms and others.
 
 \subsubsection{Population Stratification}
@@ -145,12 +161,12 @@ This requires to consinder correlation among SNPs when deciding for a multiple t
 As a result~\citet{Dudbridge2008} estiamted a significant threshold of $7.2 \times 10^{-8}$ by analysing a large set of genotyped samples and their corresponding LD\@.
 Nevertheless, most assocation studies today use a threshold of $5\times 10^{-8}$. %TODO needs explanation and citation
 
-
 \subsubsection{Imputation and Quality Control}
 \label{ssub:imputation_and_quality_control}
 
+
 \vfill
-\arclong{gwas} are usefull in identifying molecular markers for traits and diseases.
+\acrlong{gwas} are usefull in identifying molecular markers for traits and diseases.
 While there are multiple possible confounding factors, such as population stratification, methods have been developed to approach these problems successfully.
 The process of conducting a GWAS is nowdays well defined.
 However, usually GWAS do not deal with genetic variations with a frequencies below 1\%.
