@@ -91,16 +91,21 @@ Hence, in the next section I will outline the methods applied GWAS\@.
 \label{sub:association_studies_of_common_variants}
 
 Large scale genomic assocation studies have enabled researchers to investigate specific genetic factors associated with a certain trait.
-Hence, while twin studies were only able to give an estimate of the total contribution of genetic factors on a phenotype, these studies are able to elucidate the specific molecular basis of complex traits.
-Specifically, these genome wide association studies untilize single \acrfull{snp}, to identify specific genetic markers associated with a certain trait.  
+Hence, while twin studies were only able to give an estimate of the total contribution of genetic factors on a phenotype, assocation studies are able to elucidate the specific molecular basis of complex traits.
+Specifically, these genome wide association studies untilize single \acrfull{snp}, to identify specific genetic markers associated with a certain trait.
+SNPs are variations within the genome at a specifc postion and underly differences in traits and disease susceptibility. 
 
-Most GWASs are population based studies and contain unrelated samples.
+During the last decade the cost of obtaining a person's genome reduced rapidly.
+This enabled the analysis of not only a few genetic markers but the whole genome.
+This anlysis is called \arcfull{gwas}.
+
+Most GWAS are population based studies of unrelated samples and analyse SNPs with a substential frequency within the population, usually $\ge 1\%$.
 Here it is important to note that all samples have distante relatives and the term `unrelated' is used loosly.
 In fact it becomes increasingly difficult to establish the exact genetic relationship between two participants by SNPs alone as further those subjects are appart within the family tree.
 
-Nevertheless, an association between an SNP and a trait can arise out of multiple reasons.
+An association between an SNP and a trait can arise out of multiple reasons.
 First, the association could represent the true effect and the particular SNP has a causal relationship to the trait in question.
-Second and more likely the associated SNP is a proxy of the causal SNP since both are in high \acrfull{ld}.
+Second and more likely, the associated SNP is a proxy of the causal SNP since both are in high \acrfull{ld}.
 Third, the association is random fluctioation within the sample, and fourth the assocation is due to confounding errors such as population stratification or genotyping errors.
 
 The assocation between the $i$th SNP $G$ and a trait $Y$ can be expressed as a linear model for a continious and binary phenotype respectivly
@@ -127,11 +132,51 @@ Using PCA on a matrix of genotypes results in a set of PC which explain the gene
 Given the sample is a mixture out of multiple population with different ancestry the computated PC will often have geographic interpretation.
 Therefore including PCs into the association model will adjust for population stratification arising due to differences in allele frequencies and disease prevalence.
 
+\subsubsection{Multiple Testing}
+\label{ssub:multiple_testing}
+By testing a large amount of SNP one would expect a number of significant assocation simply by chance.
+Therefore one needs to adjust the significant threshold.
+For example, one could simply adjust the significant threshold by the numver of tests performed, also called Bonferroni threshold.
+However, this would result in an overly conservative threshold and in a number of false negative associations~\cite{Benjamini1995}.
+Alternativly~\citet{Benjamini1995} developed the \acrfull{fdr} a more powerful multiple testing correction. 
+However, a further complication in genetics assocation studies arises from LD\@.
+Due to correlation among sets of SNPs computated test statistics are not independent.
+This requires to consinder correlation among SNPs when deciding for a multiple testing threshold.
+As a result~\citet{Dudbridge2008} estiamted a significant threshold of $7.2 \times 10^{-8}$ by analysing a large set of genotyped samples and their corresponding LD\@.
+Nevertheless, most assocation studies today use a threshold of $5\times 10^{-8}$. %TODO needs explanation and citation
+
+
+\subsubsection{Imputation and Quality Control}
+\label{ssub:imputation_and_quality_control}
+
+\vfill
+\arclong{gwas} are usefull in identifying molecular markers for traits and diseases.
+While there are multiple possible confounding factors, such as population stratification, methods have been developed to approach these problems successfully.
+The process of conducting a GWAS is nowdays well defined.
+However, usually GWAS do not deal with genetic variations with a frequencies below 1\%.
+Hence I will next give an overview of assocation studies of rare variants.
+
 \subsection{Association studies on rare varitants}
 \label{sub:association_studies_on_rare_varitants}
 
 \subsection{Heritability and Genetic Correlation}
 \label{sub:heritability_and_genetic_correlation}
+
+As already described above, studies on twins were able to assess the heritability of traits by consindering the inter-correlation among MZ and DZ twins.
+Therefore, one would expect that the variance explained by all SNPs combined would result in similar estimtes.
+Unfortunatly for many traits this is not the case.
+This problem is called the `Missing Heritability Problem'~\cite{Vineis2010}.
+A number of reasons have been suggested for the discrepancy between estimates in twin stuides and those in GWAS\@.
+First, the assumption in twin studies might be violated and estiamtes are too high.
+Second, GWASs only consinder common variants and rare variants might account for the missing heritability.
+Third, epistasis is only insufficiently captured in most studies and could account for the differences.
+Fourth, gene-enviornment interaction could also explain partly the differences between the two types of studies.
+While a single reason for the missing heritability seems unlikely it is still an ongoing research objective to account for the differences.
+
+Further, the estiamtion of heritability from genotyped data is not trivial.
+Several methods have been proposed in the past, most noteably GCTA and LD-score regression.
+
+GCTA uses a linear mixed model to fit the effects of all SNPs~\cite{Yang2011}.
 
 %In contrast, the narrow sense heritability only contains the accumulated effect of all genetic variants.
 %In contrast the narrow sense heritability can also be derived when using adopted siblings.
