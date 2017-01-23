@@ -1,0 +1,17 @@
+\begin{tikzpicture}[auto,node distance=.5cm,
+    latent/.style={circle,draw,very thick,inner sep=0pt,minimum size=10mm,align=center},
+    manifest/.style={rectangle,draw,very thick,inner sep=0pt,minimum width=45mm,minimum height=10mm},
+    paths/.style={->, ultra thick, >=stealth'},
+    twopaths2/.style={<->, ultra thick,bend left=90, >=stealth'},
+    twopaths1/.style={<->, ultra thick,bend right=90, >=stealth'},
+    mean/.style={draw, regular polygon, regular polygon sides=3, node distance=1cm, minimum height=10mm}
+]
+
+\node [latent] (G) at  (0,0) {G};
+\node [latent] (P1) at (2,0) {P1};
+\node [latent] (P2) at (4,0) {P2};
+
+\draw [paths] (G.east) to node [right] {} (P1);
+\draw [paths] (P1.east) to node [right] {} (P2);
+
+\end{tikzpicture}
