@@ -5,23 +5,54 @@ Aggression scores slightly declined in boys and girls when they grow up from age
 Figure 2 shows the mean aggression scores of CBCL and SDQ\@.
 Boys scored higher than girls, but for both scales, the sex differences attenuated with age.
 Variance is larger for boys than girls for both cohorts at all ages.
-Variances in MZ and DZ twins are very similar, ruling out important contributions of sibling interaction or rater contrast effects (Table I)~\cite{Eaves1978, Boomsma2014}.
-The longitudinal phenotypic correlations in boys and in girls (see table II) are high and reflect strong stability of aggressive behavior between ages 7 and 12.
-The twin correlations show a consistent higher correlation within MZ than DZ pairs suggesting additive genetic influences on aggression regardless of assessment instrument (see diagonal in Table III).
+Variances in MZ and DZ twins are very similar, ruling out important contributions of sibling interaction or rater contrast effects (Table~\ref{tab:summary})~\cite{Eaves1978, Boomsma2014}.
+\begin{table}[hbt]
+  \centering
+  \adjustbox{max width=\columnwidth}{\input{longHera/tables/descriptives.tex}}
+  \caption{Descriptive Summary Statistics}\label{tab:summary}
+\end{table}
+The longitudinal phenotypic correlations in boys and in girls (see Table~\ref{tab:long_correlation}) are high and reflect strong stability of aggressive behavior between ages 7 and 12.
+The twin correlations show a consistent higher correlation within MZ than DZ pairs suggesting additive genetic influences on aggression regardless of assessment instrument (see diagonal in Table~\ref{tab:cross_corr}).
 Correlations between same-sex and opposite-sex DZ twin pairs are similar, indicating no qualitative sex-differences.
 In addition, twin correlations seem similar across different age groups indicating comparable genetic influences throughout development.
-Genetic influences on the covariance of aggression between ages is also to be expected given the higher MZ than DZ cross-twin-cross-age correlations (see off-diagonal estimates in Table III). 
+Genetic influences on the covariance of aggression between ages is also to be expected given the higher MZ than DZ cross-twin-cross-age correlations (see off-diagonal estimates in Table~\ref{tab:cross_corr}). 
+
+\begin{table}
+  \centering
+  \input{longHera/tables/long_corr.tex}
+	\caption{Longitudinal Correlation for NTR and TEDS (Males Below the Diagional and Females Above)}\label{tab:long_correlation}
+\end{table}
+
+\begin{landscape}
+\begin{table}
+  \centering
+  \adjustbox{max width=\columnwidth}{\input{longHera/tables/corss_corr.tex}}
+  \caption{Twin Correlation and Cross Twin Cross Age Correlations}\label{tab:cross_corr}
+\end{table}
+\end{landscape}
 \subsection{Longitudinal Genetic Modelling}
 The twin and cross-twin-cross age correlations within NTR and TEDS suggest stable genetic influences on aggression and genetic influences on the stability of aggression.
 To investigate the genetic architecture in more detail, a Cholesky decomposition was applied to the raw data in the two studies.
 For model comparison we considered the fully saturated genetic model as a reference to test for the significance of common environment (C) shared by twins from the same family, and quantitative sex differences in parameter estimates.
 In addition we also investigated a sex specific scalar model, in which we constrained variance components of male and female twins to be proportional to each other, that is we specified equal standardized variance components between the sexes while allowing for differences in unstandardized variances components.
-Table IV presents the model fitting results and indicates significant effects for common environmental component in both studies (NTR: $\chi^2_{212}= 127.77$, p<0.0001 TEDS: $\chi^2_{212}= 177.28$, p<0.0001).
-Constraining parameters to be the same for boys and girls (NTR: $\chi^2_{218}= 596.82$, p<0.0001; TEDS: $\chi^2_{218}= 193.12$, p<0.0001), as well as constraining male variance components proportional to female estimates (NTR: $\chi^2_{215}= 101.63$, p<0.0001; TEDS: $\chi^2_{215}= 45.15$, p<0.0001) resulted in a significant worsening of model fit, which suggests small but significant sex differences.
-In order to test for similarities in genetic architecture of aggression as assessed with the CBCL and the SDQ we tested for equal standardized components by constraining parameters of TEDS to be proportional of those in NTR.
-This resulted in a significant worse fit compared to study specific estimates ($\chi^2_{230}= 435.07$, p<0.0001).
+Table~\ref{tab:modelComparison} presents the model fitting results and indicates significant effects for common environmental component in both studies (NTR: $\chi^2_{212}= 127.77$, $p<0.0001$ TEDS: $\chi^2_{212}= 177.28$, $p<0.0001$).
+\begin{table}
+  \adjustbox{max width=\columnwidth}{\input{longHera/tables/models.tex}}
+  \caption{Model Comparison of Longitudinal Analysis}\label{tab:modelComparison}
+\end{table}
+Constraining parameters to be the same for boys and girls (NTR: $\chi^2_{218}= 596.82$, $p<0.0001$; TEDS: $\chi^2_{218}= 193.12$, $p<0.0001$), as well as constraining male variance components proportional to female estimates (NTR: $\chi^2_{215}= 101.63$, $p<0.0001$; TEDS: $\chi^2_{215}= 45.15$, $p<0.0001$) resulted in a significant worsening of model fit, which suggests small but significant sex differences.
+In order to test for similarities in genetic architecture of aggression as assessed with the CBCL and the SDQ we tested for equal standardized components by constraining parameters of TEDS to be proportional of those in NTR\@.
+This resulted in a significant worse fit compared to study specific estimates ($\chi^2_{230}= 435.07$, $p<0.0001$).
 Thus, there are significant differences between the genetic architecture of aggression based on the CBCL (NTR) and the SDQ (TEDS).
-The differences are small, as may be seen from the study specific variance and covariance components for NTR and TEDS in table V.
+The differences are small, as may be seen from the study specific variance and covariance components for NTR and TEDS in Table~\ref{tab:var_components}.
+\begin{landscape}
+\begin{table}
+  \input{longHera/tables/variance_components.tex}
+  \caption{Unstandardized and Standardized Variance and Covariance Component (Diagional,
+    First Number is for Male, Second is for Female.
+    Diagonals, Above is Male, Below is Female)}\label{tab:var_components}
+\end{table}
+\end{landscape}
 The heritability of aggression at ages 7, 9/10 and 12 year ranges between 42\% and 78\%.  The lowest estimate (42\%) is observed for females at age 10 in the TEDS sample, while the highest estimates are observed for females at age 7 (78\%) and age 10 (76\%) in the NTR sample.
 A number of differences could be observed between NTR and TEDS.
 Heritability is somewhat lower in TEDS than NTR across sexes and differences between boy and girl estimates are slightly larger in NTR.
