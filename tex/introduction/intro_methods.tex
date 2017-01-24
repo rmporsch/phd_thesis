@@ -168,9 +168,6 @@ The process of conducting a GWAS is nowdays well defined.
 However, usually GWAS do not deal with genetic variations with a frequencies below 1\%.
 Hence I will next give an overview of assocation studies of rare variants.
 
-\subsection{Association studies on rare varitants}
-\label{sub:association_studies_on_rare_varitants}
-
 \subsection{Heritability and Genetic Correlation}
 \label{sub:heritability_and_genetic_correlation}
 
@@ -211,7 +208,7 @@ Test statistics of SNPs in high LD with the causal variant will be elevated prop
 Thus the more genetic variation an SNP tagges the higher the probability that it will tag a causal variant.
 LD-score regression makes use of this relationship and regresses the estimated $\chi^2$ from the association study on the LD-score, which measures the overall LD of variant $j = 1, \ldots, M$ as $\ell_j = \sum^M_{k=1} r^2_{jk}$. 
 The slope of this regression can then be interpretated as an estimate of heritability~\cite{Bulik-Sullivan2015}.
-Similar if we replace the $\chi^2$ of a single study by the product of the z-score of two seperate studies and regress it onto $\ell_j \sqrt{N_{1j}N_{2j}}$ the slope can be interpreted as the genetic covariance between trait 1 and 2~\ref{BulikSullivan2015a}.
+Similar if we replace the $\chi^2$ of a single study by the product of the z-score of two seperate studies and regress it onto $\ell_j \sqrt{N_{1}N_{2}}$ the slope can be interpreted as the genetic covariance between trait 1 and 2~\ref{BulikSullivan2015a}.
 
 These develpments have enabled rescent research to uncover the inter-correlation among a variety of different traits.
 However, genetic correlation can arise from a multitude of different sources.
@@ -229,20 +226,24 @@ Specifically, genetic components which cause trait $1$ in the parents might infl
 Nevertheless the genetic correlations estiamted by LD-score and GCTA are unable to distinguies between the possible sources of genetic correlations.
 
 \begin{figure}[htp]
-  \begin{subfigure}{0.5\textwidth}
-    \resizebox{0.8\linewidth}{!}{\input{introduction/figure/genetic_correlation/pleiotropy.tex}} 
+  \begin{subfigure}[t]{0.5\textwidth}
+    \centering
+    \resizebox{0.5\linewidth}{!}{\input{introduction/figure/genetic_correlation/pleiotropy.tex}} 
     \caption{Pleiotropy}\label{fig:pleiotropy}
   \end{subfigure}
-  \begin{subfigure}{0.5\textwidth}
-    \resizebox{0.8\linewidth}{!}{\input{introduction/figure/genetic_correlation/mediated_pleiotropy.tex}} 
+  \begin{subfigure}[t]{0.5\textwidth}
+    \centering
+    \resizebox{0.5\linewidth}{!}{\input{introduction/figure/genetic_correlation/mediated_pleiotropy.tex}} 
     \caption{Mediated Pleiotropy}\label{fig:mediated_pleiotropy}
   \end{subfigure}
-  \begin{subfigure}{0.5\textwidth}
-    \resizebox{\linewidth}{!}{\input{introduction/figure/genetic_correlation/assortative_mating.tex}} 
+  \begin{subfigure}[t]{0.5\textwidth}
+    \centering
+    \resizebox{0.6\linewidth}{!}{\input{introduction/figure/genetic_correlation/assortative_mating.tex}} 
     \caption{Assortative Mating}\label{fig:assortative_mating}
   \end{subfigure}
-  \begin{subfigure}{0.5\textwidth}
-    \resizebox{\linewidth}{!}{\input{introduction/figure/genetic_correlation/parental_effects.tex}}
+  \begin{subfigure}[t]{0.5\textwidth}
+    \centering
+    \resizebox{0.6\linewidth}{!}{\input{introduction/figure/genetic_correlation/parental_effects.tex}}
     \caption{Parental Effects}\label{fig:parental_effects}
   \end{subfigure}
   \caption{Different sources of genetic correlation according to~\citet{Pickrell2016}}\label{fig:genetic_correlation}
@@ -250,6 +251,52 @@ Nevertheless the genetic correlations estiamted by LD-score and GCTA are unable 
 
 To conclude, during the last few years large gains have been made in fostering our understanding of heritability and genetic correlations with the development of GCTA and LD-score.
 While these tools are able to estimate heritability and genetic correlations of a number of traits it remains difficult to distiguish between different sources of genetic correlations.
+
+\subsection{Association studies on rare varitants}
+\label{sub:association_studies_on_rare_varitants}
+
+A possible suscpect for the missing heritability are rare variants.
+Rare variants, commonly varians with a \acrfull{maf} of equal or below 1\%, have been suggested to explain the bulk of missing heritability~\cite{Jiang2013,Li2009a}.
+However, rare variants have a general low LD and are therefore difficult to impute.
+Further sequencing is more expensive than genotyping via a chip array therefore reducing the sample size in many popularion based studies.
+Nevertheless, in the last few year sequencing has become cheaper and has therefore allowed the assocation studies of rare variants~\cite{Goodwin2016}.
+
+Considerable effort has been made to develop and deploy statistical methods to discover important causal relationships between rare variants and complex traits~\cite{Morris2010,Zeng2014,Daye2012,Manuscript2013}.
+In Genome wide association studies (GWAS) single variants are associated with the trait in question.
+This approach is largely unfeasible in rare variants due to their low frequency~\cite{Lee2014}.
+Thus most approaches have been focused on combining multiple rare variants in order to increase statistical power.
+In general one can devide different approaches into burden and variance component tests.
+However, most tests can be described as a score test.
+Assuming that $y_i$ follows a distribution in the quasi-likelihood family~\cite{Lee2014}
+\begin{equation}
+  h(\mu_i) = \alpha_0 + \alpha'X_i +\beta'G_i
+\end{equation}
+in which $h(\mu) = \mu$ or $h(\mu) = logit(\mu)$, $\alpha'$ and $\beta'$ are the regression coefficients of the covariants and allele counts.
+The score statistic of the marginal model for variant $j$ is:
+\begin{equation}
+  S_j = \sum^n_{i=1} G_{ij}(y_i-\hat{\mu_i})
+\end{equation}
+where $\hat{\mu_i}$ is the estimated mean under $H_0: \beta = 0 $ and is obtained by $h(\mu_i) = \alpha_0 + \alpha'X_i$
+
+The simplest approach, called the burden test, tests the sum of computeted scores
+\begin{equation}\label{eq:burden}
+  Q = {(\sum^{m}_{j=1} w_{j} S_{j})}^2
+\end{equation}
+in which $w_j$ is the weight for variant $j$.
+However, the test assumes that all variants $j = 1, \ldots,m$ have the same direction of effect.
+Violation of this assumption will result in a loss of statistical power.
+
+In contrast variance component tests assume that $\beta'\sim N(0,w_j\tau)$ and test for $H_0: \tau = 0$.
+A commonly used variance component test, called SKAT~\cite{Lee2014} defines its test statistic as
+\begin{equation}\label{eq:skat}
+  Q = \sum^{m}_{j=1} w_{j}^2 S_{j}^2
+\end{equation}
+and is therefore robous to groupings of protective and damaging effects within the same region.
+However, also these tests suffer from a reduction in statistical power in cases of high proportions of causal variants with the same direction.
+This has led to the development of omnibus tests to combine burden and variance component tests.
+Most noteably SKAT-O has been develop to combine the test statistics of both SKAT and burden.
+While omnibus tests are often less powerful in cases one of the assumptions of participating tests are true, the general underlying genetic architecture is often unknown.
+Hence omnibus tests provide a value alternative to burden and variance component tests.
 
 
 %In contrast, the narrow sense heritability only contains the accumulated effect of all genetic variants.
