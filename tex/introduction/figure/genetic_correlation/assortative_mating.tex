@@ -1,0 +1,50 @@
+
+\begin{tikzpicture}[auto,node distance=.5cm,
+    latent/.style={circle,draw,very thick,inner sep=0pt,minimum size=10mm,align=center},
+    manifest/.style={rectangle,draw,very thick,inner sep=0pt,minimum width=45mm,minimum height=10mm},
+    paths/.style={->, ultra thick, >=stealth'},
+    paths2/.style={<->, ultra thick, >=stealth'},
+    twopaths2/.style={<->, ultra thick,bend left=90, >=stealth'},
+    twopaths1/.style={<->, ultra thick,bend right=90, >=stealth'},
+    mean/.style={draw, regular polygon, regular polygon sides=3, node distance=1cm, minimum height=10mm}
+]
+
+\node [latent] (P2) at (0,0) {P2};
+\node [latent] (P1) at (2,0) {P1};
+
+\node [latent] (G1) at (5,0) {G1};
+\node [latent] (G2) at (-3,0) {G2};
+
+\node [latent] (E1) at (4,2) {E};
+\node [latent] (E2) at (-2,2) {E};
+
+\node [latent] (P1c) at (2,-2) {P1};
+\node [latent] (P2c) at (0,-2) {P2};
+
+\node [latent] (G1c) at (5,-2) {G1};
+\node [latent] (G2c) at (-3,-2) {G2};
+
+\node [latent] (E1c) at (4,-4) {E};
+\node [latent] (E2c) at (-2,-4) {E};
+
+\draw [paths] (P1.east) to node [right] {} (G1);
+\draw [paths] (P2.west) to node [right] {} (G2);
+\draw [paths] (G1.south) to node [right] {} (G1c);
+\draw [paths] (G2.south) to node [right] {} (G2c);
+\draw [paths] (E1.south west) to node [right] {} (P1);
+\draw [paths] (E2.south east) to node [right] {} (P2);
+
+\draw [paths] (G1c.west) to node [right] {} (P1c);
+\draw [paths] (G2c.east) to node [right] {} (P2c);
+
+\draw [paths] (E1c.north west) to node [right] {} (P1c);
+\draw [paths] (E2c.north east) to node [right] {} (P2c);
+
+\draw [paths2] (P1.west) to node [right] {} (P2.east);
+
+
+\node [text width=1cm] at (5,1) {Father};
+\node [text width=1cm] at (-3,1) {Mother};
+\node [text width=1cm] at (-3,-3) {Child};
+
+\end{tikzpicture}
