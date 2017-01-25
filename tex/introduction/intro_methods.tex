@@ -1,0 +1,136 @@
+\section{Methods applied in genetic studies on humans}
+\label{sec:methods_applied_in_genetic_studies_on_humans}
+
+The investigation of the underlying gentic architecture of human traits is limited to non-experimental studies.
+Thus previous research has made use of population based studies to improve our understanding of underlying genetic components.
+One can broadly distinquish between two types of genetic studies on humans.
+Before the availability to identify specific genetic mutation within the human genome, researchers have make use of twins.
+Specifically, monozygotic and dizygotic twin pairs provide the unique ability to easaly estimate the contribution of genetic and enviormental components on a trait.
+However, more recently new molecular methods have been developed to identify genetic variations within the human genome.
+This has allowed researchers to identify specific genetic markers associated with a variety of human traits and diseases.
+
+Within this section I will describe commonly used methods in both twin and molecular based association studies.
+I will further describe methods used to estimate heritability and genetic correlations in association studies.
+
+\subsection{Twin based studies}
+\label{sub:twin_based_studies}
+
+Twins have always been of special interest to scholor.
+Indeed already the famous physician Hippocrates has been reported to be interested in twins (5th century BCE).
+The Roman politician and author Cicero described Hippocrates's observations of two ill brothers, suspected to be twins, with similar identical disease progression~\cite{Cicero44BC}.
+Much later Francis Galton was one of the first persons to use twins in order to investigate the effect of genes and the enviornment on human behavior~\cite{Rende1990} and with the discovery of two distinct types of twins, namely monozygotic and dizygotic twins, by~\citet{Simens1924}, twin studies became an estaiblised instrument in investigating genetic factors in humans.
+Monozygotic twins (MZ) develop from a single fertilized egg and therefore share all of their genetic variations.
+On the other hand, dizygotic twins (DZ) develop from two fertilized eggs and therefore share only 50\% of their genetic variations.
+
+This distinction forms the basis of all twin studies and allows to state structural equations relating observed trait and theorized underlying genetic and enviormental effects.
+The genetic effects can be further distiguished between additive genetic effects (A) which represents the accumulated effect of all genetic variations and non-additive effects which represents interaction on the same genetic locus, also called dominance (D), and different loci (epistasis).
+Enviornmental components are differentiated into shared enviornment (C) and unique enviornment (E).
+Therefore the total variance of a any particular trait P is the sum of A, D, C and E.
+
+Since one can assume different correaltions between MZ and DZ twins one can estimate components of P.
+While the correaltions between twins within C and E are the same in both MZ and DZ twins, namly $1$ and $0$ respectivly.
+However, MZ twins have a correlation of $1$ for both A and D, while DZ pairs have a correlation of $\frac{1}{2}$ and $\frac{1}{4}$ respectivly.
+Therefore differences within MZ twins can be attributed to E alone.
+Further, when we assume that DZ and MZ twins are exposed to the same degree of similarity within their enviornment, the differences in similarity between MZ and DZ twins is an estimate of A.
+This is also called Falconer's formula (see Formula~\ref{eq:falcon}) and can be used to estimate heritability, or the estimated of the relative importance of genetic effects.
+
+\begin{align}
+  h^2 &= 2(r_{MZ}-r_{DZ})\label{eq:falcon} \\ 
+  C &= r_{MZ} - h^2 \nonumber \\
+  E &= 1 - h^2 + c^2 \nonumber 
+\end{align}
+
+However, while the above is attractive it its simplicity, today's twin studies use structural equation models to model genetic and enviornment effects.
+Structural equation models (SEM) are more flexible in modeling specifc hypothesis, are able to test for sex differences as well are able to handle multivariate data~\cite{Rijsdijk2002}.
+Figure~\ref{fig:ace} displays a classical twin model.
+Additive genetic (A), common enviornment (C) and unique enviornment (E) are so called latent variables.
+Latent variables are not directly observed variables but are inferred from observed ones.
+Observed variables are commonly displayed in cornered boxes.
+The causal paths $a$, $c$, and $e$ represents the to estimate effect of the components on the trait T.
+The sqaure or these estimates are the variance components of A, C and E respectivly.
+The double headed arrows represents the correlations among A and C.
+
+\begin{figure}[htpb]
+  \centering
+  \scalebox{0.6}{\input{introduction/figure/ACE.tex}}
+  \caption{
+    Basic ACE model.
+    This basic model contains the latent variables A, C and E for twin 1 and 2, as well as the observed variable T with the mean $\mu$.
+  }\label{fig:ace}
+\end{figure}
+
+Thus one can also write the total covariance of MZ and DZ twin pairs as
+\begin{equation}
+  cov(MZ) = 
+  \begin{pmatrix}
+    a^2 + c^2 + e^2 & a^2 + c^2 \\
+    a^2 + c^2 & a^2 + c^2 + e^2
+  \end{pmatrix}
+\end{equation}
+and 
+\begin{equation}
+  cov(DZ) = 
+  \begin{pmatrix}
+    a^2 + c^2 + e^2 & \frac{1}{2}a^2 + c^2 \\
+    \frac{1}{2}a^2 + c^2 & a^2 + c^2 + e^2
+  \end{pmatrix}
+\end{equation}
+
+Modern SEM software is able to estiamte these parameters by minimising the a goodness-of-fit statistic between the observed and predicted covariance matrices.
+Most commonly this is done via a maximum-likelihood function.
+Further the overall goodness-of-fit of the model relativly to a perfect fit, meaning that parameters are considered as `free' and their maximum-likelihood estiamte will equal the sample covariance, are measured by a likelihood raio sqaure statistic ($\chi^2$).
+Therefore, should we fail to reject the null hypothesis that our model in Figure~\ref{fig:ace} is different from a perfect fitted model we have reason to assume that our genetic model fits the data.
+
+The use of SEM allows for great flexiblity and a variaty of models to be estimated.
+In the past few decades numerous twin studies on a variety of traits have been performed.
+It not only allowed us to test for differences in the genetic architecture between the sexes but also look at how the influence of genetic factors change over age.
+However, due to the new advancedment in acquiering genetic information of individual more research has been shifted to genome wide association studies (GWAS).
+Hence, in the next section I will outline the methods applied GWAS\@.
+
+\subsection{Association studies of common variants}
+\label{sub:association_studies_of_common_variants}
+
+Large scale genomic assocation studies have enabled researchers to investigate specific genetic factors associated with a certain trait.
+Hence, while twin studies were only able to give an estimate of the total contribution of genetic factors on a phenotype, these studies are able to elucidate the specific molecular basis of complex traits.
+Specifically, these genome wide association studies untilize single nucleotide polymorphism (SNP), to identify specific genetic markers associated with a certain trait.  
+
+Most GWASs are population based studies and contain unrelated samples.
+Here it is important to note that all samples have distante relatives and the term `unrelated' is used loosly.
+In fact it becomes increasingly difficult to establish the exact genetic relationship between two participants by SNPs alone as further those subjects are appart within the family tree.
+
+Nevertheless, an association between an SNP and a trait can arise out of multiple reasons.
+First, the association could represent the true effect and the particular SNP has a causal relationship to the trait in question.
+Second and more likely the associated SNP is a proxy of the causal SNP since both are in high linkage disequilirium (LD).
+Third, the association is random fluctioation within the sample, and fourth the assocation is due to confounding errors such as population stratification or genotyping errors.
+
+The assocation between the $i$th SNP $G$ and a trait $Y$ can be expressed as a linear model for a continious and binary phenotype respectivly
+\begin{align}
+  Y &= \beta_{i}G_{i}+\epsilon \label{eq:gwas_identity}\\
+  P(Y=1) &= \beta_{i}G_{i}+\epsilon \label{eq:gwas_logistic}
+\end{align}
+in which $\epsilon$ is the error term.
+
+While other methods to estiamte the effect of $G_i$ exist, such as the $\chi^2$-test, a linear model allows to include multiple covariates.
+The inclusion of multiple covariates is crucial since it allows to adjust for confounding factors such as population stratification, sex, genotyping platforms and others.
+
+\subsubsection{Population Stratification}
+\label{ssub:population_stratification}
+Population stratification takes place when differences in the frequencies of alleles among cases and controls are not due to an causal relationship between the SNP and the trait.
+Rather it is caused by ancestral differences across populations.
+An association is affected by population stratification if the trait is more prevalent in one population while the allele frequencies vary across the populations as well.
+
+Commonly one can adjust for population stratification by the usage of principle components.
+
+
+
+
+
+\subsection{Association studies on rare varitants}
+\label{sub:association_studies_on_rare_varitants}
+
+\subsection{Heritability and Genetic Correlation}
+\label{sub:heritability_and_genetic_correlation}
+
+%In contrast, the narrow sense heritability only contains the accumulated effect of all genetic variants.
+%In contrast the narrow sense heritability can also be derived when using adopted siblings.
+%If $r_{sib}$ is the correlation among siblings raised together and $r_{ad}$ the correlation of those raised appart then $h^2_{narrow} = r_{sib} - r_{ad}$.

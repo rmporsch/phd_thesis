@@ -22,35 +22,19 @@ Thesis Outline
 	* evolutionary disadvantages
 	* stabilizing selection
 	* predictions 
-2. Environmental Risk factors
-	* Social Theories
-		* Cognitive Neoassociation Theory
-		* Social Learning Theory
-		* Social Interaction Theory
-	* investigated environmental causes
-		* Video games
-		* Media
-		* impulse control
-		* others
-	* predictions
-	* Comparison to Evolutionary theories
-4. Twin and adoption studies
-	* General Method of SEM
-	* Past twin and adoption studies on aggression
-		* Children
-		* Adults
-	* heritability estimations
-3. Genetic Studies of aggressive behavior
-	* Early studies
-	* Animal studies
-5. GWAS and other molecular genetic studies on humans
-	* general method of GWAS
-	* past GWAS results of aggressive behavior
+3. Methods used to investigate the genetics of aggression in humans
+  * Twin and adoption studies
+    * General Method of SEM
+    * heritability estimations
+  * GWAS and other molecular genetic studies on humans
+    * general method of GWAS
+    * methods of rare variants
+    * Heritability estimations
+  * Missing heritability
+  * Genetic Correlation and cross-phenotype overlap
 6. Gap in the literature
 	* Conclusion
 	* paragraph introducing studies
-
-* molecular stuff
 
 # The Longitudinal Heritability of childhood aggression
 
