@@ -1,4 +1,4 @@
-\documentclass[draft]{book}
+\documentclass{book}
 \usepackage{amsmath}
 \usepackage[acronym]{glossaries}
 \usepackage[backend=biber, natbib=true]{biblatex}
@@ -8,8 +8,11 @@
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage{booktabs}
 \newtheorem{mydef}{Definition}
 \usetikzlibrary{positioning}
+\usepackage{adjustbox}
+\usepackage{lscape}
 \usepackage{setspace}
 \linespread{1.5}
 
@@ -24,4 +27,5 @@
 \maketitle
 \input{introduction/intro_lit.tex}
 \input{introduction/intro_methods.tex}
+%\input{longHera/longhera.tex}
 \end{document}
