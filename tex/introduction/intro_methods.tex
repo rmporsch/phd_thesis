@@ -263,16 +263,17 @@ While these tools are able to estimate heritability and genetic correlations of 
 \label{sub:association_studies_on_rare_varitants}
 
 A possible suspect for the missing heritability are rare variants.
-Rare variants, commonly with a \acrfull{maf} of equal or below 1\%, have been suggested to explain the bulk of the missing heritability~\cite{Jiang2013,Li2009a}.
-The drop in sequencing costs has allowed to investigate these rare variants~\cite{Goodwin2016}.
+Rare variants, commonly variant with a \acrfull{maf} of equal or below 1\%, have been suggested to explain the bulk of missing heritability~\cite{Jiang2013,Li2009a}.
+The drop in sequencing costs has allowed to conduct whole-exome and whole genome association studies ~\cite{Goodwin2016}.
 There are, nevertheless, a number of problems associated with analysis of rare mutations.
-While cost has dropped whole-exome and whole-genome sequencing, acquiring large set of samples remains expensive.
+While cost has dropped whole-exome and whole-genome sequencing of a large sample of subjects remains expensive.
+This has resulted to a number of underpowered studies.
 Hence, considerable effort has been made to develop and deploy statistical methods to improve statistical power of rare variant association studies~\cite{Morris2010,Zeng2014,Daye2012,Manuscript2013}.
 
 In GWAS single variants are associated with the trait in question.
 This approach is largely unfeasible in rare variants due to their low frequency~\cite{Lee2014}.
 Thus most approaches have been focused on combining multiple rare variants in order to increase statistical power.
-In general one can divide these combination approaches into burden and variance component tests.
+In general one can divide different approaches into burden and variance component tests.
 
 Assuming that $y_i$ follows a distribution in the quasi-likelihood family~\cite{Lee2014}
 \begin{equation}
@@ -285,7 +286,7 @@ The score statistic of the marginal model for variant $j$ is then
 \end{equation}
 where $\hat{\mu_i}$ is the estimated mean under $H_0: \beta = 0 $ and is obtained by $h(\mu_i) = \alpha_0 + \alpha'X_i$ and $n$ is the sample size
 
-The simplest approach, called the burden test, tests the weighted sum of the combined scores
+The simplest approach, called the burden test, tests the sum of commutated scores
 \begin{equation}\label{eq:burden}
   Q = {(\sum^{m}_{j=1} w_{j} S_{j})}^2
 \end{equation}
