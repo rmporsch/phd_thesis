@@ -18,7 +18,7 @@ Twins have always been of special interest to scholars.
 Indeed already Hippocrates has been reported to be interested in twins at around 5th century BCE\@.
 While the original accounts are lost the Roman politician and author Cicero described Hippocrates's observations of two ill brothers, suspected to be twins, with similar identical disease progression~\cite{Cicero44BC}.
 Much later Francis Galton was one of the first persons to use twins in order to investigate the effect of genes and the environment on human behavior~\cite{Rende1990} and with the discovery of two distinct types of twins, namely \acrfull{mz} and \acrfull{dz} twins, by~\citet{Simens1924}, twin studies became an established instrument in investigating genetic factors in humans.
-\acrfull{mz} twins develop from a single fertilized egg and therefore share all of their genetic variations.
+MZ twins develop from a single fertilized egg and therefore share all of their genetic variations.
 On the other hand, \acrfull{dz} twins develop from two fertilized eggs and share only 50\% of their genetic variations.
 
 This distinction forms the basis of all twin studies and allows to state structural equations relating observed trait and theorized underlying genetic and environmental effects.
@@ -213,7 +213,7 @@ Test statistics of SNPs in high LD with the causal variant will be elevated prop
 Thus the more genetic variation an SNP tags the higher the probability that it will tag a causal variant.
 LD-score regression makes use of this relationship and regresses the estimated $\chi^2$ from the association study on the LD-score, which measures the overall LD of variant $j = 1, \ldots, M$ as $\ell_j = \sum^M_{k=1} r^2_{jk}$. 
 The slope of this regression can then be interpreted as an estimate of heritability~\cite{Bulik-Sullivan2015}.
-Similar if we replace the $\chi^2$ of a single study by the product of the z-score of two separate studies and regress it onto $\ell_j \sqrt{N_{1}N_{2}}$ the slope can be interpreted as the genetic covariance between trait 1 and 2~\ref{BulikSullivan2015a}.
+Similar if we replace the $\chi^2$ of a single study by the product of the z-score of two separate studies and regress it onto $\ell_j \sqrt{N_{1}N_{2}}$ the slope can be interpreted as the genetic covariance between trait 1 and 2~\cite{Bulik-Sullivan2015a}.
 
 These developments have enabled recent research to uncover the inter-correlation among a variety of different traits.
 However, genetic correlation can arise from a multitude of different sources.
@@ -275,7 +275,8 @@ Assuming that $y_i$ for subject $i$ with mean $\mu_i$ follows a distribution in 
 \begin{equation}
   h(\mu_i) = \alpha_0 + \alpha'X_i +\beta'G_i
 \end{equation}
-in which $h(\mu) = \mu$ or $h(\mu) = logit(\mu)$, $\alpha = (\alpha_1, \ldots, \alpha_q)$ and $\beta = (\beta_1, \ldots, \beta_m)$ are the regression coefficients of the covariants and allele counts respectively.
+in which $h(\mu) = \mu$ or $h(\mu) = logit(\mu)$.
+The regression coefficients of the covariants and allele counts are $\alpha = (\alpha_1, \ldots, \alpha_q)$ as well as $\beta = (\beta_1, \ldots, \beta_m)$ respectively.
 The covariants are denoted as $X_i = (X_{i1}, \ldots, X_{iq})'$ and the allele counts as $G_{i1}, \ldots, G_{im}$.
 The score statistic of the marginal model for variant $j$ is then
 \begin{equation}
@@ -290,7 +291,7 @@ The simplest approach, called the burden test, tests the weighted sum of commuta
   Q = {(\sum^{m}_{j=1} w_{j} S_{j})}^2
 \end{equation}
 in which $w_j$ is the weight for variant $j$.
-Weights can be define my functional annotations, allele frequency or others.
+Weights can be define by functional annotations, allele frequency or others.
 The test assumes that all variants  have the same direction of effect.
 This is a rather strong assumption and violations result in a loss in statistical power~\cite{Derkach2013a}.
 
@@ -309,7 +310,8 @@ However, also SKAT suffer from a reduction in statistical power in cases of high
 Therefore, variance-component tests are generally more powerful than burden tests if a region has many non-causal variants or when the effects of a genomic regions are bi-directional.
 In contrast burden tests perform better in scenarios where most causal variants have the same direction of effect.
 This has led to the development of omnibus tests to combine burden and variance component tests, most notably SKAT-O~\cite{Lee2012}.
-\vfill
+\bigskip
+
 To conclude, I have outlined various statistical methods to investigate the genetic contribution of aggressive behavior.
 I have described the commonly applied twin model to estimate the contribution of genetic and environmental effects.
 Further, I outlined the principles of genome wide association studies as well as the use of GCTA and LD-score to estimate the narrow sense heritability from common SNPs.
