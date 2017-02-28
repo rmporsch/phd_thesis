@@ -3,7 +3,7 @@
 
 The investigation of the underlying genetic architecture of human traits is limited to non-experimental studies and one can broadly distinguish between two types.
 Twin studies and association studies.
-Before the availability to identify specific genetic mutation within the human genome, researchers have made use of twins.
+Before the availability to identify specific genetic variants within the human genome, researchers have made use of twins.
 Specifically, monozygotic and dizygotic twin pairs provide the ability to estimate the contribution of genetic and environmental components on a trait.
 However, more recently new molecular methods have been developed to identify specific genetic variations within the human genome.
 This has allowed researchers to identify specific genetic markers associated with a variety of human traits and diseases.
@@ -30,7 +30,7 @@ Since one can assume different correlations between MZ and DZ twin pairs one can
 While the correlations between twins within C and E are the same in both MZ and DZ twins, namely $1$ and $0$ respectively.
 MZ twins have a correlation of $1$ for both A and D, while DZ pairs have a correlation of $\frac{1}{2}$ and $\frac{1}{4}$ respectively.
 Therefore differences within MZ twins can be attributed to E alone.
-Further, when we assume that DZ and MZ twins are exposed to the same degree of similarity within their environment, the differences in similarity between MZ and DZ twins is an estimate of A.
+Further, when we assume that DZ and MZ twins are exposed to the same degree of similarity within their environment, the differences in similarity between MZ and DZ twins is an estimate of $A+D$.
 This is also called Falconer's formula (see Formula~\ref{eq:falcon}) and can be used to estimate heritability, or the relative importance of genetic effects.
 
 \begin{align}
@@ -94,13 +94,19 @@ Hence, in the next section I will outline the methods applied GWAS\@.
 
 Large scale genomic association studies have enabled researchers to investigate specific genetic factors associated with a certain trait.
 Hence, while twin studies were only able to give an estimate of the total contribution of genetic factors on a phenotype, association studies are able to elucidate the specific molecular basis of complex traits.
-Specifically, these genome wide association studies utilize \acrfull{snp} and other genetic variations, to identify specific genetic markers associated with a certain trait.
+Specifically, these genome wide association studies utilize common \acrfull{snp} and other genetic variations, to identify specific genetic markers associated with a certain trait.
+
+\paragraph{What are \acrfull{snp}}
+\label{par:what_are_snp}
 SNPs are variations within the genome at a specific position and underly differences in traits and disease susceptibility. 
+For example, the replacement of the nucleotide cytosine (C) with tymine at a certain position within a strech of DNA is considered a \acrfull{snp}.
+Most SNPs have no effect or little effect on specific traits.
 
 Before explaining association studies in more detail it is important to mention the concept of \acrfull{ld}.
 LD is `the nonrandom association of alleles at different loci'~\cite{Slatkin2008} and forms a marker of the population genetic mechanism that is at play within our genome.
 For example, two loci are said to be in high LD when allele $A$ at one loci co-occurs with allele $B$ at a different loci at a higher frequency then you would expect if the two loci were independent.
 Hence the level of LD can be quantified as $D_{AB}=p_{AB} - p_{A}p_{B}$ in which in which $p_{AB}$ is the frequency that $A$ and $B$ occurs together wile $p_A$ and $p_B$ is the frequency of $A$ and $B$ respectively.
+If $D_{AB} \neq 0$ A and B are said to be in linkage disequilibrium, otherwise the two alleles are in linkage equailibrium ($D_{AB}=0$).
 Nevertheless, $D_{AB}$ depends on the frequencies of the alleles in questions and are therefore not always convenient.
 Therefore, LD between two loci is commonly measured in two different ways. 
 That is $D'$ and $r^2$.
@@ -163,7 +169,7 @@ Indeed,~\citet{Peer2008} estimated, based on data from the International Haploty
 Therefore most GWASs have used a threshold of $5\times 10^{-8}$.
 However, due to the introduction of larger sample sizes as well as better technology we are able to genotype variants with lower allele frequency.
 This requires adjustment of the GWAS significant threshold since it also increases the number of independent tests.
-Hence~\citet{Fadista2016} recently suggested to use $3\times10^{-8}$, $2\times10^{-8}$, $1\times10^{-8}$ for variants with $MAF\ge1\%$, $MAF\ge0.5\%$ and$ MAF\ge1\%$.
+Hence~\citet{Fadista2016} recently suggested to use $3\times10^{-8}$, $2\times10^{-8}$, $1\times10^{-8}$ for variants with $MAF\ge1\%$, $MAF\ge0.5\%$ and$ MAF\ge0.1\%$.
 
 \acrshort{gwas} are useful in identifying molecular markers for traits and diseases.
 While there are multiple possible confounding factors, such as population stratification, methods have been developed to approach these problems successfully.
@@ -179,14 +185,39 @@ Therefore, one would expect that the variance explained by all genetic variants 
 Unfortunately, for many traits, this is not the case.
 This is called the `Missing Heritability Problem'~\cite{Vineis2010}.
 A number of reasons have been suggested for the discrepancy between estimates in twin studies and those in GWAS\@.
-First, the assumption in twin studies might be violated and estimates are too high.
+
+First, the assumptions in twin studies might be violated and estimates are too high.
+In particular, studies on twins assume that the influences of shared enviormental factors influences MZ and DZ twins to the same extend.
+However, one can argue that MZ twins are treated by parents, teachers and peers differently resulting in a potential violation of the this equal environment assumption. 
+
 Second, GWASs only consider common variants and rare variants might account for the missing heritability.
+While most rare variants have little or no effet on traits, some rare variants have very large effects.
+Indeed, a study on hight found that while most common variants only had small effects, some rare genetic variants resulted in a large increase in hight of up to $2cm$~\cite{Marouli2017}.
+This would indicate that rare variants can have a profound effect on common traits, suggesting that heritability estimations of common variantions alone might result in lower estimates.
+
 Third, epistasis is only insufficiently captured in most studies and could account for the differences.
+Indeed, many twin concordance rates indicate the presents of non-additive effects to some extend.
+Further, complex gene-gene interaction have been shown in a number of experimental studies in nonhuman animals on complex traits.
+Therefore suggesting that epistastic effect might play a major role in humans as well.
+However, models which include gene-gene or even gene-gene-gene and higher order interactions are very computational intensive and require large datasets~\cite{Lippert2013}. 
+
 Fourth, gene-environment interaction could also explain partly the differences between the two types of studies.
+Similar to gene-gene interactions gene-enviorment interactions are computationally intensive and require large samples.
+However, in contrast to epistastic effects gene-enviorment interactions are more complex and might change over age depending on the trait in question.
+Hence assesment of the impact of gene-enviorment interactions on the missing heritability is diffucult to estiamte~\cite{Do2016,Kaprio2012}.
+
 Fifth, gene regulatory components, such as RNA expression and methylation, might explain those differences.
+Indeed only recently large scale population based method have been made available to estimate the effect of regulatory componets on heritability~\cite{Trerotola2015}.
+Indeed gene expression altering epigenetic modifications have been shown to be heritable without affecting the underlying DNA sequence.
+This seperate model of inheritence, next to Mendelian heredity, would be undetectable in GWAS and could contribute to the missing heritability.
+
 While a single reason for the missing heritability seems unlikely it is still an ongoing research objective to account for the differences.
 Further, the estimation of the narrow sense heritability, or the additive genetic effects, from genotyped data is not trivial.
 Several methods have been proposed in the past, most notably \acrfull{gcta} and LD-score regression.
+In the next section I will describe both methods as well as their shortcomings.
+
+\subsection{\acrfull{gcta}}
+\label{sub:gcta}
 
 GCTA uses mixed linear model to the fit the effect of all SNPs by making use of the genetic relationship matrix of all included subjects~\cite{Yang2011}.
 If $\textbf{A}$ is the genetic relatedness matrix then
@@ -207,6 +238,9 @@ If $y_1 = X_1\beta_1 + g_1 + \epsilon_1$ for trait 1 and $y_2= X_2\beta_2 + g_2 
 in which $X$ and $Z$ are the incidence matrices for the effects of $\beta$ and $g$.
 However, GCTA requires considerable computation power as well as the availability of the raw genotyped data.
 Hence LD-score regression has been developed to estimate heritability on summary statistics only.
+
+\subsection{LD-score regression}
+\label{sub:ld_score_regression}
 
 LD-score regression makes use to the previously outlined LD among tagged and causal SNPs.
 Test statistics of SNPs in high LD with the causal variant will be elevated proportional to their LD\@.
