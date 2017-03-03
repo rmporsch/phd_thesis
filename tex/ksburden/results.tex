@@ -13,6 +13,11 @@ Type-I error rate was accessed under the null for all tests and results are disp
 \subsection{Relationship between KS and Burden}
 \label{sub:relationship_between_ks_and_burden}
 
+As described in the previous section we aimed to investigate the relationship between the KS and Burden test.
+The Figure~\ref{fig:correlation_ks_burden} displays the relationship among the test statistcs of both tests within all tested genes.
+As one can see there seems to be no realtionship between the two tests under the null of both tests.
+While this simulation cannot exclude the posibility that the two test statistics are independent it indicates that under most common situations the two test statistics can be considered independent.
+
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.8\linewidth]{example-image-a}
@@ -22,7 +27,6 @@ Type-I error rate was accessed under the null for all tests and results are disp
 \subsection{Power Comparisons}
 \label{sub:power_comparisons}
 
-Statistical power of each scenario was evaluated with $10\times 100$ replications.
 Figure~\ref{fig:simulatedGeneRealData} displays the empirical power for each test under various scenarions.
 In each scenario we continously expanded a single causal region by 10\% of the total genes variants until the complete gene was covered by causal mutatations.
 We compared the power of the SKAT, SKAT-O, KS, burden (CMC, BURDEN), KSburden tests.
@@ -32,16 +36,25 @@ Further, the combined KSburden is less powerful that SKAT-O when 100\% of rare v
 
 \begin{figure}[ht!]
 	\centering
-	\includegraphics[width=1.0\linewidth]{example-image-a}
-	\caption{Estimated statistical power for four different causal cluster size.\label{fig:simulatedGeneRealData}}
-\end{figure}
-
-We further simulated $10000$ p-values under the null for both burden and KS tests (Figure~\ref{fig:nullCor})
-As one can see we have strong evidence that the two tests are not dependent and in fact independent of each other.
-While this simulation cannot exclude the posibility that the two test statistics are independent it indicates that under most common situations the two test statistics can be considered independent.
-
-\begin{figure}[ht!]
-	\centering
+  \begin{subfigure}[t]{0.48\textwidth}
+    \centering
 	\includegraphics[width=0.8\linewidth]{example-image-a}
-	\caption{\label{fig:nullCor} Correlation between KSsum and Burden under the null}
+  \caption{Simulated Power for a causal region of 10\%}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.48\textwidth}
+    \centering
+	\includegraphics[width=0.8\linewidth]{example-image-a}
+  \caption{Simulated Power for a causal region of 30\%}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.48\textwidth}
+    \centering
+	\includegraphics[width=0.8\linewidth]{example-image-a}
+  \caption{Simulated Power for a causal region of 70\%}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.48\textwidth}
+    \centering
+	\includegraphics[width=0.8\linewidth]{example-image-a}
+  \caption{Simulated Power for a causal region of 0.8\%}
+  \end{subfigure}
+	\caption{Estimated statistical power for four different causal cluster size.\label{fig:simulatedGeneRealData}}
 \end{figure}

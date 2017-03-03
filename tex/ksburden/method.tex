@@ -3,33 +3,33 @@
 
 Considering a gene with the positions of nucleotides labeled numerically $1, 2, \ldots p$, in which the position of a rare variant is regarded as a random variable, $X$.
 The rare variants observed in each group (cases or controls) are considered a realizations of $X$.
-One can then calculate an empirical cumulative distribution function (ecdf) for each group ($F_{A(X)}$ for cases, $F_{U(x)}$ for controls), which is a monotonic step function, increasing from $0$ at the first position of the gene, to $1$ at the last position of the gene.
-For $\gamma$ rare variants occurring at positions $X_1, X_2, \ldots, X_\gamma$, the empirical distribution function of $X$ is given by
+One can then calculate an empirical cumulative distribution function (ecdf) for each group ($F_{A(X)}$ for cases, $F_{U(X)}$ for controls), which is a monotonic step function, increasing from $0$ at the first position of the gene, to $1$ at the last position of the gene.
+For $\gamma$ rare variants occurring at positions $X_1, X_2, \ldots, X_p$, the empirical distribution function of $X$ is given by
 
 \begin{equation}
-  F(x) = \frac{1}{\gamma}\sum^\gamma_{i=1}I(X_i \leq x)
+  F(x) = \frac{1}{\gamma}\sum^p_{i=1}I(X_i \leq x)
 \end{equation}
 
-in which $I(x)$ is the indicator function.
+in which $I(x)$ is the indicator function for variant $x$.
 The KS statistic $K$ is defined as the supremum of the absolute difference between the two empirical distribution functions.
 
 \begin{equation}
 	K_{ks} = \sup_x | F_A(x) - F_U(x) |
 \end{equation}
 
-While the KS test is distribution free when $F$ is continous, this is not the case with descrete data.
+While the KS test is distribution free when $F$ is continous, this is not the case with descrete data such as allele count.
 Indeed, application of the Kolmogorov distribution to obtain critical values for $K$ for discreate data yiels conservative estimates~\cite{Walsh1963,Conover1972}. 
 \citet{Conover1972} proposed an alternative way to obtain critical values given a hypothesized discrete distribution function.
 However, this approach is in general not feasible with samples sizes $>30$.
-
-Therefore, similar to previous applications of the KS test to count data I applied a Monte Carlo based approach to estimate p-values. 
+Therefore, similar to previous applications of the KS test to count data, I applied a Monte Carlo based approach to estimate p-values in which p-values were estimed as 
 
 \begin{equation}
   p_{per} = \frac{\sum^b_{b=1} I(K_b \geq k)+1}{b+1}
 \end{equation}
 
-in which $K_b$ is the test statistic of the $b^{th}$ permutation sample.
-It is important to note that if $\gamma$ is large $F$ can be considered as continues therefore reducing the necessarity to perform this computationaly intesive approach in large genes and samples. 
+in which $K_b$ is the test statistic of the $b^{th}$ simulation sample.
+It is important to note that if $\gamma$ is large and distributred among $p$ variants in a continous fashion $F$ can be considered as continues therefore reducing the necessarity to perform this computationaly intesive approach.
+However, given the current sample sizes in sequencing based association studies this seems an unlikely scenario.
 
 \subsection{Omnibus Test for KS and Burden}
 \label{sub:omnibus_test_for_ks_and_burden}
@@ -43,13 +43,13 @@ I define the test statistic of the burden test as
   K_{Burden} = {(\sum^\gamma_{i=1} (y-0.5) \times G_i)}^2
 \end{equation}
 
-in which $y$ is the vector of case-control status and $G$ the genotye matrix of size $n \times \gamma$, in which $n$ is the number of samples.
+in which $y$ is the vector of case-control status and $G$ the genotye matrix of size $n \times p$, in which $n$ is the number of samples.
 This is equivalent to the form described in Section~\ref{sub:burden_test}.
 
 \subsubsection{Relationship between KS and Burden Test}
 \label{ssub:Relationship_between_KS_and_Burden_Test}
 
-In order to combine the two test it is desirable to show independency.
+In order to combine the two test it is desirable to explore the relationship between the two tests.
 In contrast to the KS test, the Burden test makes use of the sum of all alleles in cases and controls respectivly alone.
 Hence we can rewrite the Equation~\ref{eq:burden_simple} as
 \begin{equation}
@@ -62,10 +62,11 @@ Lets assume that $\pmb{1}X_{A} = \pmb{1}X_{U}$ then we can rewrite the KS test a
            & = \frac{1}{\pmb{1}X} \sup |(\pmb{1}X^{(A)}_i - \pmb{1}X^{(U)}_i)|
   \end{aligned}
 \end{equation}
-Therefore, if $K_{ks}=0$ then $K_{Burden}$ must be $0$, suggesting that under the null of both KS and Burden both tests are not strictly independent.
+Therefore, if $K_{ks}=0$ then $K_{Burden}$ must be $0$, suggesting that under the null of both KS and Burden the tests are not strictly independent.
 However, under the null of the burden test alone, given $\pmb{1}X_{A} = \pmb{1}X_{U}$, then $K_{Burden} = 0$ but the test statistic of the KS test is not necessarily $0$.
 Thus, the two tests can be consindered dependent if $K_{ks} = 0$.
 In the next section I will demonstrate that this is an unlikely scenario and that in pracitce the two tests can be seen as independent.
+
 Hence one can combine the two tests by Fischer's method 
 \begin{equation}
 	\chi^2_4 \sim - 2 (\ln(p_{KS}) + \ln(p_{Burden}))
@@ -80,8 +81,10 @@ This repository also includes associated scripts and programs to repated simulat
 \label{sub:simulation_study}
 
 In contrast to many other simulation studies on gene based tests I used real sequencing data in order to form the basis for my simulations.
-Most simulation studies use simulated genetic feature, hence ignoring the great diversity within the human genome.
-In the next section I will describe my base population as well as the simulation framework.
+The main aim of using un-simulated data is to accuratly reflect the diversity of genes within the human genome.
+Most gene based tests are confronted with a varierty of small and medium gene lengths which is often not reflected in the original power estimations.
+Hence I will make use of a large sequenced sample to investigate the statistical power of the KS and KSburden test.
+In the next section I will describe the sample used in my simulations as well as the simulation framework in general.
 
 \subsubsection{The Seed population: The Hirschsprung data}
 \label{ssub:The_Seed_population:_The_Hirschsprung_data}
@@ -98,9 +101,8 @@ Within our simulations I gradually increased the size of the causal cluster to e
 The phenotype was simulated via a liability threshold model.
 Hence the phenotype $Y_i$ of the $i^{th}$ subject was generated via
 $Y = G\times E' + \epsilon$
-in which $G$ is the standardized genotype matrix of $n=1000$ subjects from the UK10K dataset with $p$ variants.
-$E$ is the effect size of size $1\times p$ and $\epsilon$ is a standard normal distributed error term with a mean of $0$ and a standard deviation of $\sqrt{1-h^2}$, in which $h^2$ is the assumed heritability.
+in which $G$ is the standardized genotype matrix of $n=1000$ subjects with $p$ variants.
+$E$ is the effect size of size $1\times p$ and $\epsilon$ is a standard normal distributed error term with a mean of $0$ and a standard deviation of $\sqrt{1-h^2}$, in which $h^2$ is the assumed heritability or the genetic effect on the liability distribution.
 I assigned case status for each subjects whose $Y_i$ is above a certain liability threshold $q$.
 Any subject above $q$ was assigned case status, while the remaining subjects were deemed to be controls.
 This process was repeated until $500$ cases and an equal number of controls were collected.
-Please also note that the effect sizes represent the total variance explained by a specific gene, or in other words the effect size represent heritability.
