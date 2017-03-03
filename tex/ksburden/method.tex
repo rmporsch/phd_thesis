@@ -21,7 +21,7 @@ While the KS test is distribution free when $F$ is continous, this is not the ca
 Indeed, application of the Kolmogorov distribution to obtain critical values for $K$ for discreate data yiels conservative estimates~\cite{Walsh1963,Conover1972}. 
 \citet{Conover1972} proposed an alternative way to obtain critical values given a hypothesized discrete distribution function.
 However, this approach is in general not feasible with samples sizes $>30$.
-Therefore, similar to previous applications of the KS test to count data, I applied a Monte Carlo based approach to estimate p-values in which p-values were estimed as 
+Therefore, I applied a Monte Carlo based approach to estimate p-values as 
 
 \begin{equation}
   p_{per} = \frac{\sum^b_{b=1} I(K_b \geq k)+1}{b+1}
@@ -53,7 +53,7 @@ In order to combine the two test it is desirable to explore the relationship bet
 In contrast to the KS test, the Burden test makes use of the sum of all alleles in cases and controls respectivly alone.
 Hence we can rewrite the Equation~\ref{eq:burden_simple} as
 \begin{equation}
-  K_{burden} =  |\pmb{1}X_{A}  - \pmb{1}X_{U}
+  K_{burden} =  |\pmb{1}X_{A}  - \pmb{1}X_{U}|
 \end{equation}
 Lets assume that $\pmb{1}X_{A} = \pmb{1}X_{U}$ then we can rewrite the KS test as
 \begin{equation}
@@ -96,13 +96,34 @@ From the set of XXX genes I selected 50 genes at random which had at least 3 or 
 I defined mutation as rare if the minior allele frequency (MAF) was below 1\%. 
 Within $p$ postion of a selected gene I assigned causal status to $p_1 \ldots p_t$ positions, in which $t$ represents the total number of causal variants.
 For simplicity I assigned the causal cluster at the beginning of the gene.
-Within our simulations I gradually increased the size of the causal cluster to eventually cover the whole gene. 
+Within these simulations I gradually increased the size of the causal cluster to eventually cover the whole gene. 
 
 The phenotype was simulated via a liability threshold model.
 Hence the phenotype $Y_i$ of the $i^{th}$ subject was generated via
 $Y = G\times E' + \epsilon$
 in which $G$ is the standardized genotype matrix of $n=1000$ subjects with $p$ variants.
-$E$ is the effect size of size $1\times p$ and $\epsilon$ is a standard normal distributed error term with a mean of $0$ and a standard deviation of $\sqrt{1-h^2}$, in which $h^2$ is the assumed heritability or the genetic effect on the liability distribution.
+$E$ is the effect size vector of size $1\times p$ and $\epsilon$ is a standard normal distributed error term with a mean of $0$ and a standard deviation of $\sqrt{1-h^2}$, in which $h^2$ is the assumed heritability or the genetic effect on the liability distribution.
+The effect $h$ was uniformly distributed across all causal variants.
 I assigned case status for each subjects whose $Y_i$ is above a certain liability threshold $q$.
 Any subject above $q$ was assigned case status, while the remaining subjects were deemed to be controls.
 This process was repeated until $500$ cases and an equal number of controls were collected.
+
+\subsubsection{Application of the KSburden}
+\label{ssub:Application_of_the_KSburden}
+
+I will further use the UKBioBank data to apply the KSBurden test to investigate distributional differences of rare variants between aggressive and less aggressive individuals.
+As decribed in the previous chapter the UKBioBank is a chip-array data set.
+Commonly genotyped data is not applicable for rare variant testsing due to the low imputation quality of low frequency variants.
+However, given a very large sample size, imputation quality is gradually improving.
+Therefore, allowing investigations of rare variants.
+Indeed, the UKBioBank is with over $150,000$ samples relatively large.
+As can be seen in figure~\ref{fig:imputation}, imputation quality is acceptable for variants with a frequency between 1\% and 0.1\%, given the commonly used quality score cut-off of $0.2$.
+Therefore, the execptional imputation quality of the UKBioBank data allows to perform gene based rare variant tests on array data.
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=0.8\linewidth]{example-image-a}
+  \caption{Imputation Quality of the UKBioBank}\label{fig:imputation}
+\end{figure}
+
+In the next section I will describe the result of my simulations as well as show the effectiveness of the KS test on the UKB\@.

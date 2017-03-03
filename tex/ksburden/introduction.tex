@@ -2,23 +2,21 @@
 \label{sec:introduction}
 
 As outlined in Section~\ref{cha:methods_applied_in_genetic_studies_on_humans} rare variants have been suspected to explain at least part of the missing heritability.
-However, commonly applied genotyping arraies used in GWAS are often unable to detect rare variants.
+However, commonly applied genotyping arrays used in GWAS are often unable to detect rare variants.
 Specically, array genotyping chips often only tag a few thousand SNPs.
-Imputation methods are then used to recover the missing SNPs with the help of LD.
-However, due to the limited correlation across rare variants this simple imputatin method results in poor imputation quality among rare genetic variants.
-In contrast sequencing based techinques are not limited to these problems and are able to identify rare variants.
-Only recently, due to the drop in costs, have whole genome and exome sequencing provided rich opportunities to study the relationship between rare genetic variants and complex human traits~\cite{Goodwin2016}.
-Rare variants are often defined has having an $MAF\leq 1\%$ have been suggested to play an important role in the etiology of human traits and potentially account for the missing heritability\cite{Jiang2013,Li2009a}.
+Since LD is usally low across rare variants, imputation methods have diffiuclties recovering the missing SNPs, resulting in poor imputation quality of rare variants.
+In contrast sequencing based techinques are not limited to these problems and are able to identify rare variants, but come with a higher price tag.
+Only recently whole genome and exome sequencing have become cheaper, providing rich opportunities to study the relationship between rare genetic variants and complex human traits~\cite{Goodwin2016}.
 
-Thus considerable effort has been made to develop and deploy statistical methods to discover important causal relationships between rare variants and complex traits~\cite{Morris2010,Zeng2014,Daye2012,Manuscript2013}.
+Considerable effort has been spend to develop and deploy statistical methods to discover important causal relationships between rare variants and complex traits~\cite{Morris2010,Zeng2014,Daye2012,Manuscript2013}.
 In Genome wide association studies (GWAS) single variants are associated with the trait in question.
 This approach is largely unfeasible in rare variants due to their low frequency~\cite{Lee2014}.
 Thus most approaches have been focused on combining multiple rare variants in order to increase statistical power.
 This can be either done on the gene or pathway level, but for simplicity I will only consider gene based tests within this section.
 
 In general one can classify gene based tests into two larger categories, namely burden and variance-component tests~\cite{Lee2014}.
-These separate methods have differing assumption about the underlying genetic architecture.
-Thus effort has been made to combine these two methods into an omnibus test.
+These separate methods have differing assumption about the underlying genetic architecturer
+Hence in recent years omnibus tests, or the combination of burden and variance-component tests, have become common.
 
 In general, burden tests aggregate single rare genetic variations.
 Thus assuming that all variants in a given genomic region have the same direction of effect.
@@ -27,8 +25,8 @@ Examples of this methods include the Combined Multivariate and Collapsing (CMC) 
 Alternatively, variance-component tests do not assume uni-directional effect of all included variants. 
 These methods investigate the distribution of genetic effects for a genomic region and are robust to variants with differing direction of effects.
 Prominent example of variance-component tests are SKAT~\cite{Wu2011} and C-Alpha~\cite{Neale2011}.
-These tests are more powerful compared to the burden approach in cases when the majority of rare variants are of neutral effect or bi-directional effects are present.
-However, the burden tests in general outperform variance-component based tests when a large proportion of variants have the same direction of effect.
+These tests are more powerful compared to the burden approach in cases when the majority of rare variants are of neutral effect or if bi-directional effects are present.
+However, the burden tests are able to outperform variance-component based tests when a large proportion of variants have the same direction of effect.
 This has lead to the development of omnibus tests to combine both approaches.
 An example if these omnibus tests is SKAT-O~\cite{Lee2012a} which uses a linear combination of SKAT and burden tests statistics to derive a combined p-value.
 Alternative methods include the use of Fischer's methods to combine p-values from burden and SKAT~\cite{Derkach2013a}.
