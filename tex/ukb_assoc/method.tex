@@ -1,0 +1,78 @@
+\section{Methods}
+\label{sec:methods}
+
+\subsection{UK BioBank}
+\label{sub:uk_biobank}
+The UK BioBank~\cite{Allen2014} is a population based study of people argued 40--69 years old. 
+Participants were recruited between 2006 and 2010 via mail invitation (response rate 5.47\%)~\cite{Sudlow2015} and were assessed with the help of self-report questionaires as well as other anthropometirc assessments.
+Written informed consent was aquired from all participants and the study was approved by National Research Ethics Service Committee North West–Haydock, UK.
+
+\subsection{Phenotype}
+\label{sub:phenotype}
+
+\subsubsection{Impulsive Aggression}
+\label{ssub:impulsive_aggression}
+Impulsive aggression is officially described as `Ever highly irritable/argumentative for 2 days' (ID:\@ 4653).
+The item contains only one single question: 
+\begin{displayquote}
+  Have you ever had a period of time lasting at least two days when you were so irritable that you found yourself shouting at people or starting fights or arguments?
+\end{displayquote}
+While the item does not mention aggression directly it can be seen as a simplified measurement of aggressive behavior.
+The question has not been validated in correspondence to other measurements of aggression.
+
+\subsubsection{Risk Taking}
+\label{ssub:risk_taking}
+Risk Taking is also only composed of a single question:
+\begin{displayquote}
+  Would you describe yourself as someone who takes risks?
+\end{displayquote}
+Similar to impulsive aggression, this item is a yes or no question and is not a validated instrument.
+
+\subsection{Genetic analysis}
+\label{sub:genetic_analysis}
+I made use of the imputed genetic data of the UK BioBank, compromising around $\sim73$ million SNPs, short indels and larger structural variations of $152,249$ subjects.
+Individuals were genotyped on two different custom genotype arrays, namely the UL BiLEVE as well as the UK Biobank Axiom array from Affymetrix. 
+UL BiLEVE was used for most samples ($\sim100,000$), while the array chip from Affymetrix, which was optimsied to support genotype imputation, was used for the remaining participants. 
+Quality control and imputation was performed central with the UK BioBank.
+However, I further conducted additional quality control.
+Variants which whose missing call rate did exceed 10\% as well as those with minor allele frequency below 1\% were exlcluded.
+Further variants which did not pass a Hardy-Weinberg equilibrium test threshold of $1e-9$ were also removed from the analysis.
+In addition I only included participants with `white European' ancestry identified by a k-mean cluser of the first four principle components of genotype data.
+The total number of participants remaining after quality control of geno- and phenotype are displyed in Table~\ref{tab:descriptive_gwas}.
+
+\begin{table}[!htpb]
+	\centering
+	\caption{Sample size and missingness across Caucasians and non-Caucasians after QC}\label{tab:descriptive_gwas} 
+	\resizebox{\textwidth}{!}{\input{ukb_assoc/tables/descriptive.tex}}
+\end{table}
+
+Assocation analysis of autosomal SNPs was performed with Plink~\cite{Purcell2007,Chang2015} with age, sex, genotype array chip and the first 10 principle components as covariants.
+
+\subsection{Clumping}
+\label{sub:Clumping}
+
+Clumping was used to identify lead SNPs.
+Specifically, SNPs within LD of each other ($r^2=0.2$) in a $250kb$ region were grouped together.
+The lowest p-value within this window was defined as the lead SNP\@.
+Clumped SNPs were used for the computation of polygenic risk scores as well as GWAS Cataloge lookup.
+
+\subsection{GWAS Catalog Lookup}
+\label{sub:GWAS_Cataloge_Lookup}
+
+I made use of the GWAS catalog to look up genome wide significant lead SNPs for each GWAS~\cite{Welter2014}.
+SNPs in the catalog and lead SNPs in my GWASs were matched if both were within a $250kb$ window and in LD ($\ge 0.2$) of each other (see~\ref{ssub:Clumping}).
+
+\subsection{Polygenic Risk Score}
+\label{sub:prs}
+
+Polygenic Risk Scores (PRS) were computed using the computed regression coefficients of all analysed phenotypes.
+The more classical approach uses the computed regression coefficients $\beta$ as weights and computes the PRS $\kappa$ for each subject $n$ as
+\begin{equation}
+	\kappa_n = \sum^j_{j=1} \beta_j x_{nj}
+\end{equation}
+in which $x_{jn}$ is the $j$th genotype of subject $n$.
+
+However I used \textit{lassosum} a PRS framework, which I co-developed, to estimate polygenic scores~\cite{Mak2016}.
+\textit{Lassosum} makes use of a penalized regression to estimate PRS from summary statistics.
+The usage on summary statistics alone makes it easier to compute PRS scores for a multitude of phenotypes, especially given the size of the data set.
+Further, to keep computational effort manageable, I only used clumped SNPs with a p-value $\leq 0.01$.
