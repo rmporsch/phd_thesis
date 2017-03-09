@@ -4,33 +4,46 @@
 \subsection{UK BioBank}
 \label{sub:uk_biobank}
 The UK BioBank~\cite{Allen2014} is a population based study of people argued 40--69 years old. 
-Participants were recruited between 2006 and 2010 via mail invitation (response rate 5.47\%)~\cite{Sudlow2015} and were assessed with the help of self-report questionaires as well as other anthropometirc assessments.
-Written informed consent was aquired from all participants and the study was approved by National Research Ethics Service Committee North West–Haydock, UK.
+Participants were recruited between 2006 and 2010 via mail invitation (response rate $5.47\%$)~\cite{Sudlow2015} and were assessed with the help of self-report questionaires as well as other anthropometirc assessments.
+Written informed consent was aquired from all participants and the study was approved by National Research Ethics Service Committee North West–Haydock, UK\@.
 
 \subsection{Phenotype}
 \label{sub:phenotype}
 
+Within this data two phenotypes were assessed.
+That is impulsive aggression and risk taking.
+
 \subsubsection{Impulsive Aggression}
 \label{ssub:impulsive_aggression}
-Impulsive aggression is officially described as `Ever highly irritable/argumentative for 2 days' (ID:\@ 4653).
-The item contains only one single question: 
+Impulsive aggression is officially described as `Ever highly irritable/argumentative for 2 days'.
+The instrument is a single item yes/no question. 
+Participants were asked to answer the following question:
 \begin{displayquote}
   Have you ever had a period of time lasting at least two days when you were so irritable that you found yourself shouting at people or starting fights or arguments?
 \end{displayquote}
-While the item does not mention aggression directly it can be seen as a simplified measurement of aggressive behavior.
 The question has not been validated in correspondence to other measurements of aggression.
+Table~\ref{tab:descriptive_gwas} shows the number of participants for both Caucasian and non-Caucasian samples.
+The phenotype has a relatively high missingness rate within analysed subjects ($67.984\%$) with $40,861$ subjects anwered with `no' wile $9,397$ anwered with `yes'.
 
 \subsubsection{Risk Taking}
 \label{ssub:risk_taking}
-Risk Taking is also only composed of a single question:
+Risk taking is a single item instrument which subjects answer with either yes or no.
+Similar to impuslive aggression, risk taking has not been validated on other questionaire and asks the following quesion:
 \begin{displayquote}
   Would you describe yourself as someone who takes risks?
 \end{displayquote}
-Similar to impulsive aggression, this item is a yes or no question and is not a validated instrument.
+In contrast to the previous described question, risk taking has a relatively large sample size and low missingness rate ($3.81\%$).
+In total $107,011$ subject answered with `yes', while $39,435$ answered with `no'.
+
+\begin{table}[!htpb]
+	\centering
+	\resizebox{\textwidth}{!}{\input{ukb_assoc/tables/descriptive.tex}}
+  \caption{Sample size and missingness across Caucasians and non-Caucasians after quality control}\label{tab:descriptive_gwas} 
+\end{table}
 
 \subsection{Genetic analysis}
 \label{sub:genetic_analysis}
-I made use of the imputed genetic data of the UK BioBank, compromising around $\sim73$ million SNPs, short indels and larger structural variations of $152,249$ subjects.
+This study made use of the imputed genetic data of the UK BioBank, compromising around $\sim73$ million SNPs, short indels and larger structural variations of $152,249$ subjects.
 Individuals were genotyped on two different custom genotype arrays, namely the UL BiLEVE as well as the UK Biobank Axiom array from Affymetrix. 
 UL BiLEVE was used for most samples ($\sim100,000$), while the array chip from Affymetrix, which was optimsied to support genotype imputation, was used for the remaining participants. 
 Quality control and imputation was performed central with the UK BioBank.
@@ -40,39 +53,77 @@ Further variants which did not pass a Hardy-Weinberg equilibrium test threshold 
 In addition I only included participants with `white European' ancestry identified by a k-mean cluser of the first four principle components of genotype data.
 The total number of participants remaining after quality control of geno- and phenotype are displyed in Table~\ref{tab:descriptive_gwas}.
 
-\begin{table}[!htpb]
-	\centering
-	\caption{Sample size and missingness across Caucasians and non-Caucasians after QC}\label{tab:descriptive_gwas} 
-	\resizebox{\textwidth}{!}{\input{ukb_assoc/tables/descriptive.tex}}
-\end{table}
-
 Assocation analysis of autosomal SNPs was performed with Plink~\cite{Purcell2007,Chang2015} with age, sex, genotype array chip and the first 10 principle components as covariants.
 
-\subsection{Clumping}
+\subsection{Identification of lead SNPs}
 \label{sub:Clumping}
 
-Clumping was used to identify lead SNPs.
-Specifically, SNPs within LD of each other ($r^2=0.2$) in a $250kb$ region were grouped together.
-The lowest p-value within this window was defined as the lead SNP\@.
-Clumped SNPs were used for the computation of polygenic risk scores as well as GWAS Cataloge lookup.
+Lead SNPs were identified using clumping.
+Clumping is the process of grouping SNPs within a given genomic window and LD together.
+Various thresholds and window sizes can be used.
+Within this study the more commonly $250kb$ window region was used.
+SNPs were consindered to be within the same LD group when passing an threshold of $r^2 \ge 0.2$.
+The SNPs with the loweset p-value within each group was considered the lead SNPs.
+Lead SNPs were used for the computation of polygenic risk scores as well as GWAS Cataloge lookup.
 
 \subsection{GWAS Catalog Lookup}
 \label{sub:GWAS_Cataloge_Lookup}
 
-I made use of the GWAS catalog to look up genome wide significant lead SNPs for each GWAS~\cite{Welter2014}.
-SNPs in the catalog and lead SNPs in my GWASs were matched if both were within a $250kb$ window and in LD ($\ge 0.2$) of each other (see~\ref{ssub:Clumping}).
+The GWAS catalog~\cite{Welter2014} is a publicly available resource and contains genome wide significant associated SNPs in a variety of different populations.
+The catalog was used to look up potential association of lead SNPs in other phenoypes.
+SNPs in the catalog and lead SNPs in each of the two GWASs were matched if both were within a $250kb$ window and in LD ($\ge 0.2$) of each other (see Section~\ref{sub:Clumping}).
+Direction of effect within the cataloge was infered from the provided test statistics and effect size if possible.
 
 \subsection{Polygenic Risk Score}
 \label{sub:prs}
 
-Polygenic Risk Scores (PRS) were computed using the computed regression coefficients of all analysed phenotypes.
-The more classical approach uses the computed regression coefficients $\beta$ as weights and computes the PRS $\kappa$ for each subject $n$ as
+Polygenic Risk Scores (PRS) summaries the genetic risk from multiple loci for each individual.
+These risk scores can be used to predict the genetic risk of an individual for a specific trait.
+In general PRS are the sum of the weighted genetic loci of each study participant and can be expressed simply as
 \begin{equation}
-	\kappa_n = \sum^j_{j=1} \beta_j x_{nj}
+	\kappa_n = \sum^p_{j=1} \beta_j X_{nj}
 \end{equation}
-in which $x_{jn}$ is the $j$th genotype of subject $n$.
+in which $\beta$ is the regression coefficients for each genetic loci $j$ and $X$ is the genotype matrix of size  $n\times p$ with $p$ loci of $n$ subjects.
 
-However I used \textit{lassosum} a PRS framework, which I co-developed, to estimate polygenic scores~\cite{Mak2016}.
+Multiple different methods have been devloped to compute PRS\@.
+Within this study we made use of \textit{lassosum}.
+A recently develped PRS-framework, which I co-developed, to estimate polygenic scores~\cite{Mak2016}.
 \textit{Lassosum} makes use of a penalized regression to estimate PRS from summary statistics.
-The usage on summary statistics alone makes it easier to compute PRS scores for a multitude of phenotypes, especially given the size of the data set.
-Further, to keep computational effort manageable, I only used clumped SNPs with a p-value $\leq 0.01$.
+The usage on summary statistics alone makes it easier to compute PRS scores for a multitude of phenotypes on large scale data.
+Within the estiamtion of PRS only lead SNPs were used.
+
+\subsection{Genetic Correlation}
+\label{sub:genetic_correlation}
+
+Computation of genetic correlations were done with LD-score (see Secton~\ref{sub:ld_score_regression}).
+Estiamted effect sizes from this study were used to computate the genetic correlations between risk taking and impulsive aggression.
+Further, I made use of LD-hub~\cite{ZHENG2016}, a database containing over 200 different GWAS summary statistics to compute genetic correlations between the here analysed phenotypes and a variety of other behavioral phenotypes and psychiatric disorders.
+Multiple testing was addressed with a more stringend Bonferroni correction.
+
+\subsection{Conditional False Discovery Rate}
+\label{sub:conditional_false_discovery_rate}
+
+Pleiotropy informed Conditional False Discovery Rate (cFDR) was used to identify additional genetic loci associated with risk taking or impulsive aggression. 
+In principle, cFDR makes use of pleiotropic effect between two phenotypes to increase statistical power.
+Within this chapter I computed the emprical culmulative distribution function on nominal p-values of phenotype A conditional on p-values of phenotype B passing a given threshold~\cite{Andreassen2013}.
+Further applied genomic control to all nominal p-values.
+While the here presented study used PC to adjust for population stratification I further applied the genomic inflation factor $\chi_{GC}$ to all nominal p-values.
+This was done by converting all p-values to z-scores, estimating the median z-score for each of the two studies, and deviding the squared median z-score by the expected median of a $\chi^2$-distribution ($df=1$).
+Following all test statistics were then devided by the newly computed genomic inflation facor. 
+
+Conditional QQ-plots were constructed by plotting nominal p-values on the y-axis, while the emprical distribution function of p-values passing $p\leq0.1, p\leq 0.01$ or $ p\leq 0.001$ on the x-axis.
+
+The conditional FDR is defined as~\cite{Andreassen2013}
+\begin{equation}
+  FDR(p_1|p_2)=\pi_0(p_2)p_1/F(p_1|p_2)
+\end{equation}
+in which $p_1$ and $p_2$ are the p-values for the first and second phenotype.
+The function $F(p_1|p_2)$ is the conditional cdf which can be replaced by the conditional emprical distribution function.
+Further, $\pi_0(p_2)$ is the assumed is the conditional propotion of null SNPs for phenotype 1 given that that its p-values are smaller or equal that of the second phenotype.
+Within this study I followed a conservative approach by setting $\pi(p_2)=1$ as advised by~\citet{Andreassen2013}.
+A SNP was considered of interest when its conditional FDR $\leq 0.05$.
+In order to control for LD all SNPs were pruned, hence removing all SNPs with $r^2 > 0.2$.
+
+
+
+
