@@ -1,0 +1,45 @@
+\section*{Method}
+\label{sec:method}
+
+\subsection*{UK BioBank}
+\label{sub:uk_biobank}
+The UK BioBank~\cite{Allen2014} is a population based study of people age 40--69 years old. 
+Participants were recruited between 2006 and 2010 via mail invitation (response rate $5.47\%$)~\cite{Sudlow2015} and were assessed with the help of self-report questionaires as well as other anthropometirc assessments.
+Written informed consent was aquired from all participants and the study was approved by National Research Ethics Service Committee North West–Haydock, UK\@.
+
+\subsection*{Genetic analysis}
+\label{sub:genetic_analysis}
+This study made use of the imputed genetic data of the UK BioBank, compromising around $\sim73$ million SNPs, short indels and larger structural variations of $152,249$ subjects.
+Individuals were genotyped on two different custom genotype arrays, namely the UL BiLEVE as well as the UK Biobank Axiom array from Affymetrix. 
+UL BiLEVE was used for most samples ($\sim100,000$), while the array chip from Affymetrix, which was optimsied to support genotype imputation, was used for the remaining participants. 
+Quality control and imputation was performed central with the UK BioBank.
+However, further additional quality control was conducted.
+Variants which whose missing call rate did exceed 10\% as well as those with minor allele frequency below 1\% were exlcluded.
+Further variants which did not pass a Hardy-Weinberg equilibrium test threshold of $1e-9$ were also removed from the analysis.
+In addition participants with `white European' ancestry identified by a k-mean cluser of the first four principle components of genotype data were included.
+The total number of participants remaining after quality control of geno- and phenotype are displyed in Table~\ref{tab:descriptive_gwas}.
+
+Assocation analysis of autosomal SNPs was performed with Plink~\cite{Purcell2007,Chang2015} with age, sex, genotype array chip and the first 10 principle components as covariants.
+
+\subsection*{Genetic Correlation}
+\label{sub:genetic_correlation}
+
+Computation of genetic correlations were done with LD-score (see Secton~\ref{sub:ld_score_regression}).
+Estiamted effect sizes from this study were used to computate the genetic correlations between risk taking and impulsive aggression.
+Further, LD-hub~\cite{ZHENG2016}, a database containing over 200 different GWAS summary statistics, was used to compute genetic correlations between behavioral phenotypes and psychiatric disorders.
+Multiple testing was addressed with the more stringend Bonferroni correction.
+
+\subsection*{Mendelian Randomization}
+\label{sub:joint_association_study}
+
+In the absence of specific biological knowledge of individual SNPs the choice of instrumental variables for a Mendelian Randomization (MR) are primarily statistical motivated.
+In this case, assumptions of MR are only assessed post-hoc and one cannot speak of a `true' Mendelian Randomization~\cite{Burgess2016a}.
+Nevertheless, these statistical driven MR, also called `joint association study'~\cite{Burgess2016a}, can provide suggestive evidence for causal effects.
+
+Here we perform a liberal approach to investigate any causal relationship between psychiatric disorders and impulsive aggression as well as risk taking.
+Summary statistics were obtained from 4 different GWAS covering schizophrenia~\cite{Ripke2014}, bipolar disorder~\cite{PsychiatricGWASConsortiumBipolarDisorderWorkingGroup2011}, major depressive disorder~\cite{MajorDepressiveDisorderWorkingGroupofthePsychiatricGWASConsortium2013} as well as depressive symptoms~\cite{Okbay2016a}.
+Only pruned variants ($r^2=0.001$) were selected as instrumentents with $p\leq 5\times 10^{-5}$.
+Variants were then harmonized with summary statistics computed from the UK BioBank on risk taking and impulsive aggression. 
+
+Joint association analysis was performed with MR-Base~\cite{Hemani2016} and multiple different methods were used.
+A sensitivity analysis of each joint association study was performed to investigate vadility of the underlying assumptions~\cite{Burgess2016}.  

@@ -92,14 +92,6 @@ A recently develped PRS-framework, which I co-developed, to estimate polygenic s
 The usage on summary statistics alone makes it easier to compute PRS scores for a multitude of phenotypes on large scale data.
 Within the estiamtion of PRS only lead SNPs were used.
 
-\subsection{Genetic Correlation}
-\label{sub:genetic_correlation}
-
-Computation of genetic correlations were done with LD-score (see Secton~\ref{sub:ld_score_regression}).
-Estiamted effect sizes from this study were used to computate the genetic correlations between risk taking and impulsive aggression.
-Further, I made use of LD-hub~\cite{ZHENG2016}, a database containing over 200 different GWAS summary statistics to compute genetic correlations between the here analysed phenotypes and a variety of other behavioral phenotypes and psychiatric disorders.
-Multiple testing was addressed with a more stringend Bonferroni correction.
-
 \subsection{Conditional False Discovery Rate}
 \label{sub:conditional_false_discovery_rate}
 
@@ -123,7 +115,3 @@ Further, $\pi_0(p_2)$ is the assumed is the conditional propotion of null SNPs f
 Within this study I followed a conservative approach by setting $\pi(p_2)=1$ as advised by~\citet{Andreassen2013}.
 A SNP was considered of interest when its conditional FDR $\leq 0.05$.
 In order to control for LD all SNPs were pruned, hence removing all SNPs with $r^2 > 0.2$.
-
-
-
-
