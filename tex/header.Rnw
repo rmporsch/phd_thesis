@@ -14,6 +14,7 @@
 \usepackage{adjustbox}
 \usepackage{lscape}
 \usepackage{setspace}
+\usepackage{csquotes}
 \linespread{1.5}
 
 \bibliography{/home/robert/Documents/library.bib}
@@ -27,5 +28,6 @@
 %\maketitle
 \input{introduction/intro_lit.tex}
 \input{introduction/intro_methods.tex}
-%\input{longHera/longhera.tex}
+\input{longHera/longhera.tex}
+\input{ukb_assoc/ukb_assoc.tex}
 \end{document}
