@@ -5,26 +5,31 @@
 \label{sub:phenotype_correlations}
 
 Phenotypical correlations are displayed in Figure~\ref{fig:corr_pheno}. 
-As expected the data contains considerable correlations between happiness and neuroticism.Further, strong correlations are also present between aggresion and impulsive aggression.
-In contrast correlations between risk taking as well as IQ with other analysed phenotypes is low.
-All correlations were significant at $p\leq 0.05$ after adjusting for multiple testing  with Bonferroni correction.
+All correlations were significant at $p\leq 0.05$ after adjusting for multiple testing with Bonferroni correction.
+Correlations between risk taking and impulsive aggression is with $r(48,540)=0.09 (p\leq0.0025)$ relatively small.
+Further I was unable to detect large association between impulsive aggresion and
+alcohol consumption ($r(50,220)=-0.05, p\leq0.0025$)
+as well as smoking ($r(50,106)=0.1, p\leq0.0025$).
+Similar, risk taking displayed only small correlations between
+smoking ($r(146,051)=0.00, p\leq0.0025$),
+alcohol consumption ($r(146,350)=0.06, p\leq0.0025$)
+and neuroticism ($r(120,201)=-0.03, p\leq0.0025$). 
+Nevertheless, strong correlations were present between impulsive aggression and neuroticisim ($r(41,420)=0.33, p\leq0.0025$).
 
 \begin{figure}[htpb]
   \centering
-  \includegraphics[width=0.8\linewidth]{ukb_assoc/figure/phenotype/corr_plot_circle_full.jpeg}
+  \includegraphics[width=0.6\linewidth]{ukb_assoc/figure/phenotype/corr_plot_circle_full.jpeg}
   \caption{Phenotypical correlations among analysed phenotypes}\label{fig:corr_pheno}
 \end{figure}
 
-
-\subsection{Impulsive Aggression}
+\subsection{GWAS on Impulsive Aggression}
 \label{sub:impulsive_aggression_gwas}
 
-No significant hits were identified in $\sim37,320$ subjects (see Figure~\ref{fig:gwas_impAgg}).  This is unfortunate but not surprising giving the low number of individuals.  Further no population stratification has been identified and SNP heritability is relatively low.
+No genome wide significant loci were identified in $37,320$ subjects (see Figure~\ref{fig:gwas_impAgg}).
 Table~\ref{tab:LDscImpAgg} shows both intercept and rato of LD-score regression, as well as $\lambda_{GC}$ and estimated SNP heritability.
 Observed heritability is with $5.32\%$ relatively low.
 Both $\lambda_{GC}$ and intercept are close to $1$ suggesting no population stratification. 
 Further, the ratio estiamte, which is a measure of the propotion the LD-score intercepts ascribes to factors other than polygencity is between the acceptable range of 10\%--20\%.
-
 
 \begin{figure}[!htpb]
   \begin{subfigure}[t]{.5\textwidth}
@@ -50,16 +55,11 @@ Further, the ratio estiamte, which is a measure of the propotion the LD-score in
   }\label{tab:LDscImpAgg}
 \end{table}
 
-To summaries, the here presented GWAS was unable to identfiy a genome wide significant SNP\@.
-LD-score regression results did not suggest presents of population stratification and heritability was estiamted at around 5\%.
-
-\subsection{Risk Taking}
+\subsection{GWAS on Risk Taking}
 \label{sub:risk_taking_gwas}
 
-In contrast to impulsive aggression, risk taking has a considerable sample size.
-In total there were $120,286$ subjects available with a complete phenotype.
-The corresponding QQ and Manhattan plot are displayed in figure~\ref{fig:risktaking_gwas}, and the lead SNPs are shown in table~\ref{tab:lead_snps_risk}.
-As mentioned above, lead SNPs were identified using clumping.
+The genome wide association study on risk taking yield two genome wide significant loci in $120,286$ subjects.
+The Manhattan plot in figure~\ref{fig:riskmanhatten} shows two signal in chromosome 3 and 6, as well as a signal which is just below genome wide significant at chromosome 4 (see also Table~\ref{tab:lead_snps_risk}).
 LD-score regression indicates no major population stratification since both intercept and ratio approaches $0$ (see table~\ref{tab:ldscrisk}).
 
 \begin{table}[!htpb]
@@ -71,9 +71,6 @@ LD-score regression indicates no major population stratification since both inte
   }\label{tab:ldscrisk}
 \end{table}
 
-
-The Manhattan plot in figure~\ref{fig:riskmanhatten} shows two clear signal in chromosome 3 and 6, as well as a signal which is just below genome wide significant at chromosome 4.
-A closer inspection of the signal in chromosome 3 shows 2 lead SNPs (see table~\ref{tab:lead_snps_risk}).
 
 \begin{figure}[!htpb]
 	\begin{subfigure}{.5\textwidth}
@@ -96,11 +93,12 @@ A closer inspection of the signal in chromosome 3 shows 2 lead SNPs (see table~\
 	\caption{Lead SNPs reaching genome wide significance in Risk Taking}\label{tab:lead_snps_risk}
 \end{table}
 
+Closer inspection of the signal in chromosome 3 shows 2 lead SNPs namly \textit{rs1308431} and \textit{rs7639518}.
 However, \textit{rs1308431} and \textit{rs7639518} have opposite directions of effect.
-In order to investigate if the signals are independent of each other I performed a conditional analysis.
+In order to investigate the signals are independency a conditional analysis was performed.
 Using the top SNP (\textit{rs13084531}) as a covariate, the analysis showed no independent genome-wide significant effect.
 Thus suggesting that \textit{rs7639518} is not independent of \textit{rs13084531}.
-However, a closer look at the conditional regression model suggest that the \textit{rs7639518} might be a potentially independent signal (see table~\ref{tab:conditional}) since the resulting p-value is relatively low. 
+However, a closer look at the conditional regression model suggest that the \textit{rs7639518} is approaching genome wide significant levels (see table~\ref{tab:conditional}). 
 
 \begin{table}[!htpb]
 	\small
