@@ -12,6 +12,7 @@ Written informed consent was aquired from all participants and the study was app
 
 Within this dataset the two variable of intestest are impulsive aggression and risk taking.
 Phenotypical details of  Alcohol consumption, Neuroticism, and smoking can be found in the appendix of this chapter. 
+An overview of the number of samples for Caucasian and Non-Caucasian participants can be found in Table~\ref{tab:descriptive_gwas}.
 
 \subsubsection{Impulsive Aggression}
 \label{ssub:impulsive_aggression}
@@ -36,7 +37,8 @@ In total $107,011$ subject answered with `yes', while $39,435$ answered with `no
 \begin{table}[!htpb]
 	\centering
 	\resizebox{\textwidth}{!}{\input{ukb_assoc/tables/descriptive.tex}}
-  \caption{Sample size and missingness across Caucasians and non-Caucasians }\label{tab:descriptive_gwas} 
+  \caption{Sample size and missingness across Caucasians and non-Caucasians participants.
+}\label{tab:descriptive_gwas} 
 \end{table}
 
 \subsection{Genetic analysis}
@@ -48,7 +50,7 @@ Quality control and imputation was performed central with the UK BioBank.
 However, I further conducted additional quality control.
 Variants which whose missing call rate did exceed 10\% as well as those with minor allele frequency below 1\% were exlcluded.
 Further variants which did not pass a Hardy-Weinberg equilibrium test threshold of $1e-9$ were also removed from the analysis.
-In addition I only included participants with `white European' ancestry identified by a k-mean cluser of the first four principle components of genotype data.
+In addition I only included participants with `white European' ancestry identified by a k-mean cluster of the first four principle components of genotype data.
 The total number of participants remaining after quality control of geno- and phenotype are displyed in Table~\ref{tab:descriptive_gwas}.
 
 Assocation analysis of autosomal SNPs was performed with Plink~\cite{Purcell2007,Chang2015} with age, sex, genotype array chip and the first 10 principle components as covariants.
@@ -62,16 +64,6 @@ Various thresholds and window sizes can be used.
 Within this study the more commonly $250kb$ window region was used.
 SNPs were consindered to be within the same LD group when passing an threshold of $r^2 \ge 0.2$.
 The SNPs with the loweset p-value within each group was considered the lead SNPs.
-Lead SNPs were used for the computation of polygenic risk scores as well as for the GWAS Cataloge lookup (see Section~\ref{sub:GWAS_Cataloge_Lookup}).
-
-\subsection{GWAS Catalog Lookup}
-\label{sub:GWAS_Cataloge_Lookup}
-
-The GWAS catalog~\cite{Welter2014} is a publicly available resource and contains genome wide significant associated SNPs in a variety of different populations.
-The catalog was used to look up potential association of lead SNPs in other phenoypes.
-SNPs in the catalog and lead SNPs in each of the two GWASs were matched if both were within a $250kb$ window and in LD ($\ge 0.2$) of each other (see Section~\ref{sub:Clumping}).
-Direction of effect within the cataloge was infered from the provided test statistics or effect sizes given availability.
-
 
 \subsection{Conditional False Discovery Rate}
 \label{sub:conditional_false_discovery_rate}
@@ -82,7 +74,7 @@ Within this chapter I computed the emprical culmulative distribution function on
 Further applied genomic control to all nominal p-values using the genomic inflation factor $\lambda{GC}$ to all nominal p-values.
 This was done by converting p-values to z-scores, estimating the median z-score for each GWAS, and deviding the squared median z-score by the expected median of a $\chi^2$-distribution  with $df=1$.
 
-Conditional QQ-plots were constructed by plotting adjusted nominal p-values on the y-axis, while the emprical distribution function of p-values passing $p\leq0.1, p\leq 0.01$ or $ p\leq 0.001$ on the x-axis.
+Conditional QQ-plots were constructed by plotting adjusted nominal p-values on the y-axis, while the empirical distribution function of p-values on the x-axis.
 
 In addition, to conditional QQ plots I also made use of the conditional FDR (cFDR) which is defined as~\cite{Andreassen2013}
 \begin{equation}
@@ -93,6 +85,12 @@ The function $F(p_1|p_2)$ is the conditional cdf which can be replaced by the co
 Further, $\pi_0(p_2)$ is the assumed conditional propotion of null SNPs for phenotype 1 given that that its p-values are smaller or equal that of the second phenotype.
 Within this study I followed a conservative approach by setting $\pi(p_2)=1$~\citet{Andreassen2013}.
 A SNP was considered of interest when its conditional FDR $\leq 0.01$.
+
+In addition, SNPs which passed $cFDR\leq 0.01$ were replicated in an independent sample.
+This independent sample was generated based on the non-Caucasian samples excluded in the initial discovery stage.
+In order to minimize the effect of populations stratification in this diverse sample, the same covariants were included during the computation as in the original discovery GWAS\@.
+Quality and potential population stratification was a assessed using LD-score regression as well as visual inspection of the QQ plot.
+This careful inspection did not detect any major population stratification in the non-Caucasian sample.
 
 \subsection{Genetic Correlation}
 \label{sub:genetic_correlation_ukb_assoc}
