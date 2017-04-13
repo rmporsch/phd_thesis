@@ -72,23 +72,6 @@ The catalog was used to look up potential association of lead SNPs in other phen
 SNPs in the catalog and lead SNPs in each of the two GWASs were matched if both were within a $250kb$ window and in LD ($\ge 0.2$) of each other (see Section~\ref{sub:Clumping}).
 Direction of effect within the cataloge was infered from the provided test statistics or effect sizes given availability.
 
-\subsection{Polygenic Risk Score}
-\label{sub:prs}
-
-Polygenic Risk Scores (PRS) summaries the genetic risk from multiple loci for each individual.
-These risk scores can be used to predict the genetic risk of an individual for a specific trait.
-In general PRS are the sum of the weighted genetic loci of each study participant and can be expressed simply as
-\begin{equation}
-	\kappa_n = \sum^p_{j=1} \beta_j X_{nj}
-\end{equation}
-in which $\beta$ is the regression coefficients for each genetic loci $j$ and $X$ is the genotype matrix of size  $n\times p$ with $p$ loci of $n$ subjects.
-
-Multiple different methods have been devloped to compute PRS\@.
-Within this study we made use of \textit{lassosum}.
-A recently develped PRS-framework, which I co-developed, to estimate polygenic scores~\cite{Mak2016}.
-\textit{Lassosum} makes use of a penalized regression to estimate PRS from summary statistics.
-The usage on summary statistics alone makes it easier to compute PRS scores for a multitude of phenotypes on large scale data.
-Within the estiamtion of PRS only lead SNPs were used.
 
 \subsection{Conditional False Discovery Rate}
 \label{sub:conditional_false_discovery_rate}

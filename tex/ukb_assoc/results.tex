@@ -5,31 +5,31 @@
 \label{sub:phenotype_correlations}
 
 Phenotypical correlations are displayed in Figure~\ref{fig:corr_pheno}. 
-All correlations were significant at $p\leq 0.05$ after adjusting for multiple testing with Bonferroni correction.
-Correlations between risk taking and impulsive aggression is with $r(48,540)=0.09 (p\leq0.0025)$ relatively small.
-Further I was unable to detect large association between impulsive aggresion and
-alcohol consumption ($r(50,220)=-0.05, p\leq0.0025$)
+All correlations were significant at $p\leq 0.05$ after adjusting for multiple testing using the Bonferroni correction.
+Correlations between risk taking and impulsive aggression is with $r(48,540)=0.09 (p\leq0.0025)$ relatively small
+and I was unable to detect larger effects between impulsive aggresion and alcohol consumption ($r(50,220)=-0.05, p\leq0.0025$)
 as well as smoking ($r(50,106)=0.1, p\leq0.0025$).
-Similar, risk taking displayed only small correlations between
+Similar, risk taking displayes only small correlations between
 smoking ($r(146,051)=0.00, p\leq0.0025$),
 alcohol consumption ($r(146,350)=0.06, p\leq0.0025$)
 and neuroticism ($r(120,201)=-0.03, p\leq0.0025$). 
-Nevertheless, strong correlations were present between impulsive aggression and neuroticisim ($r(41,420)=0.33, p\leq0.0025$).
+Nevertheless, medium correlations were present between impulsive aggression and neuroticisim ($r(41,420)=0.33, p\leq0.0025$).
 
 \begin{figure}[htpb]
   \centering
-  \includegraphics[width=0.6\linewidth]{ukb_assoc/figure/phenotype/corr_plot_circle_full.jpeg}
-  \caption{Phenotypical correlations among analysed phenotypes}\label{fig:corr_pheno}
+  \includegraphics[width=0.6\linewidth]{ukb_assoc/figure/phenotype/corr_plot_ci.pdf} 
+  \caption{
+    Phenotypical correlations among analysed phenotypes.
+    Displayed correlations were all significant after adjusting for multiple testing using the Bonferroni correction.
+    In contrast to the genetic correlations, Caucasion and non-Caucasian subjects were used.
+  }\label{fig:corr_pheno}
 \end{figure}
 
 \subsection{GWAS on Impulsive Aggression}
 \label{sub:impulsive_aggression_gwas}
 
-No genome wide significant loci were identified in $37,320$ subjects (see Figure~\ref{fig:gwas_impAgg}).
-Table~\ref{tab:LDscImpAgg} shows both intercept and rato of LD-score regression, as well as $\lambda_{GC}$ and estimated SNP heritability.
-Observed heritability is with $5.32\%$ relatively low.
-Both $\lambda_{GC}$ and intercept are close to $1$ suggesting no population stratification. 
-Further, the ratio estiamte, which is a measure of the propotion the LD-score intercepts ascribes to factors other than polygencity is between the acceptable range of 10\%--20\%.
+Genome wide assocation analysis reveled no genome wide significant loci in $37,320$ subjects (see Figure~\ref{fig:gwas_impAgg}).
+Observed SNP heritability was estiamted at $5.32\% (SE=0.012)$ and are in line with previous estiamted SNPs heritabilities in behavioral traits.
 
 \begin{figure}[!htpb]
   \begin{subfigure}[t]{.5\textwidth}
@@ -42,172 +42,144 @@ Further, the ratio estiamte, which is a measure of the propotion the LD-score in
     \includegraphics[width=0.8\linewidth]{{ukb_assoc/figure/manhatten_plots/manhatten_plot_4526}.jpeg}
     \caption{Manhattan plot for Impulsive aggression}\label{fig:ImpAgmanhatten}
   \end{subfigure}
-  \caption{Manhattan and QQ Plot for Impulsive aggression.
-    No genome wide significant SNPs was identified.\label{fig:gwas_impAgg}}
+  \caption{
+    Manhattan and QQ Plot for Impulsive aggression.
+    No genome wide significant SNPs were identified in the given sample.\label{fig:gwas_impAgg}}
 \end{figure}
-
-\begin{table}[!htpb]
-	\centering
-	\input{ukb_assoc/tables/ldsc/ldscore_results_4526.tex}
-  \caption{LDsc results for Impulsive aggression.
-    The intercept and ratio indicate the degree of inflation caused by factors other than polygencity, such as polulation stratification.
-    Standard errors are indicated in parenthesis.
-  }\label{tab:LDscImpAgg}
-\end{table}
 
 \subsection{GWAS on Risk Taking}
 \label{sub:risk_taking_gwas}
 
-The genome wide association study on risk taking yield two genome wide significant loci in $120,286$ subjects.
-The Manhattan plot in figure~\ref{fig:riskmanhatten} shows two signal in chromosome 3 and 6, as well as a signal which is just below genome wide significant at chromosome 4 (see also Table~\ref{tab:lead_snps_risk}).
-LD-score regression indicates no major population stratification since both intercept and ratio approaches $0$ (see table~\ref{tab:ldscrisk}).
-
-\begin{table}[!htpb]
-	\centering
-	\input{ukb_assoc/tables/ldsc/ldscore_results_2040.tex}
-  \caption{LDsc results for risk taking
-    The intercept and ratio indicate the degree of inflation caused by factors other than polygencity, such as polulation stratification.
-    Standard errors are indicated in parenthesis.
-  }\label{tab:ldscrisk}
-\end{table}
-
+The genome wide association study on risk taking yield two genome wide significant loci in $120,286$ subjects in chromosome 3 and 6.
+Total observed SNP heritability is with $5.52\% (SE=0.0052)$ similar to that of impulsive aggression.
+The ratio between the LD-score regression intercept $\beta_0$ and the mean of the $\chi^2$-test statistics ($(\beta_0 - 1)/(mean(\chi^2)-1)$),
+which indcates the proportion of inflation to factors other than polygenic heritability, is with $0.0422$ ($SE=0.052$) low.
+In addition, $\beta_0$ approaches 1 ($\beta_0=1.0082, SE=0.0056$) thus suggesting no population stratification (see Figure~\ref{fig:riskqq}).
 
 \begin{figure}[!htpb]
 	\begin{subfigure}{.5\textwidth}
 		\centering
 		\includegraphics[width=0.8\linewidth]{{ukb_assoc/figure/qq_plots/qq_plot_2040}.jpeg}
-		\caption{QQ-Plot of risk taking}\label{fig:riskqq}
+		\caption{QQ-Plot of risk taking.}\label{fig:riskqq}
 	\end{subfigure}
 	\begin{subfigure}{.5\textwidth}
 		\centering
 		\includegraphics[width=0.8\linewidth]{{ukb_assoc/figure/manhatten_plots/manhatten_plot_2040}.jpeg}
-		\caption{Manhattan plot of risk taking}\label{fig:riskmanhatten}
+		\caption{
+      Manhattan plot of risk taking.
+      The horizontal like indicate genome wide significance.
+    }\label{fig:riskmanhatten}
 	\end{subfigure}
-  \caption{GWAS on Risk Taking\label{fig:risktaking_gwas}}
+  \caption{QQ and Manhattan plot for Risk Taking. 
+    Two seperate genome wide significant loci were identfied, while a thrid is marginal significant.\label{fig:risktaking_gwas}}
 \end{figure}
 
-\begin{table}
-	\small
-	\centering
-	\input{ukb_assoc/tables/lead_snps/lead_snp_2040.tex}
-	\caption{Lead SNPs reaching genome wide significance in Risk Taking}\label{tab:lead_snps_risk}
-\end{table}
-
-Closer inspection of the signal in chromosome 3 shows 2 lead SNPs namly \textit{rs1308431} and \textit{rs7639518}.
+Closer inspection of the signal in chromosome 3 shows 2 lead SNPs namly \textit{rs1308431} and \textit{rs7639518} (see Table~\ref{tab:lead_snps_risk}).
 However, \textit{rs1308431} and \textit{rs7639518} have opposite directions of effect.
-In order to investigate the signals are independency a conditional analysis was performed.
-Using the top SNP (\textit{rs13084531}) as a covariate, the analysis showed no independent genome-wide significant effect.
-Thus suggesting that \textit{rs7639518} is not independent of \textit{rs13084531}.
-However, a closer look at the conditional regression model suggest that the \textit{rs7639518} is approaching genome wide significant levels (see table~\ref{tab:conditional}). 
-
-\begin{table}[!htpb]
-	\small
-	\centering
-	\resizebox{\textwidth}{!}{\input{ukb_assoc/tables/conditional_analysis_rs13084531.tex}}
-	\caption{Risk Taking with \textit{rs13084531} as covariate for selected SNP}\label{tab:conditional}
-\end{table}
-
-Below I will describe the three identified regions of interest (the two genome wide significant signals as well as the one approaching significance).
-I also performed a quick literature review as well as looked up the three SNPs in the GWAS catalog (see table~\ref{tab:gwas_risk_catalog})
+The independency of these two signals was investigated using a conditional analysis.
+Thus, genotypes of \textit{rs7639518} were regressed on the phenotype while adjusting for \textit{rs1308431}.
+This conditional model indicates that \textit{rs7639518} is not independent of \textit{rs1308431} at a genome wide level ($OR=0.957, t(107737)=-3.787, p=0.0001523$).
 
 \paragraph{rs9379971}
 \label{par:rs9379971}
-This particular variant has the strongest association among all tested SNPs with a p-value of $2.14e-09$. 
+This particular variant has the strongest association among all tested SNPs with a p-value of $2.14e-09$ (see Figure~\ref{fig:rs9379971}). 
 The SNP is an intronic variant, without any mentioning in the GWAS catalog~\cite{Welter2014}.
-As you can see in the LocusZoom plot (figure~\ref{fig:rs9379971}) the region round the identified SNPs is rather dense. 
 The SNPs has been associated with \textit{POM121L2} and the region has been connected with schizophrenia across multiple studies~\cite{Aberg2013,Shi2009}.
 However, the function of \textit{POM121L2} is not well understood.
 
 \paragraph{rs13084531}
 \label{par:rs13084531}
-As you can see in figure~\ref{fig:rs13084531} the variant is in a relatively large LD region with a comparable p-value to the previous SNP ($9.826e-09$).
-The SNPs is an intron variant within the gene \textit{CADM2}.
+This SNP has a comparable p-value ($9.826e-09$) and is an intron variant within the gene \textit{CADM2}.
 The gene has been associated with BMI~\cite{Speliotes2010} as well as executive functions and processing speed~\cite{Ibrahim-Verbaas2015}.
-Interestingly the SNP associated in the study by~\cite{Ibrahim-Verbaas2015} (rs17518584) is in LD to our loci (rs13084531 with $R^2=0.4951;D'=0.9983$).
+Interestingly the SNP associated in the study by~\cite{Ibrahim-Verbaas2015} (\textit{rs17518584}) is in LD with \textit{rs13084531} ($r^2=0.4951;D'=0.9983$).
 Hence suggesting a common loci for executive functions and risk taking.
-Further the region of this SNP (3p12.1) has been connected to spirometric measures in smokers~\cite{Lutz2015}.
+Further associated region (3p12.1) has been connected to spirometric measures in smokers~\cite{Lutz2015}.
 
 \paragraph{rs4386663}
 \label{par:rs4386663}
-This SNP is an intergenic variant with no known association with any regulatory functions.
+This SNP is an intergenic variant with no known association to regulatory functions or genes.
 However, the SNP is only marginal significant ($6.059e-08$).
-Interestingly, however, the chromosomal region of this SNP (chr4q12) was also associated with spirometric measures in smokers by the same study as in variant rs13084531 (see paragraph~\ref{par:rs13084531}).
-The LocusZoom plot (see figure~\ref{fig:rs13084531}) suggests a relatively narrow LD region. 
+Interestingly the chromosomal region of this SNP (chr4q12) was also associated with spirometric measures in smokers by the same study as in variant \textit{rs13084531} (see paragraph~\ref{par:rs13084531}).
 
-\begin{table}[!htpb]
+\begin{table}
+	\small
 	\centering
-	\resizebox{\textwidth}{!}{\input{ukb_assoc/tables/gwas_catalog_2040.tex}}
-	\caption{Additional SNP catalog look up for Risk Taking}\label{tab:gwas_risk_catalog}
+	\input{ukb_assoc/tables/lead_snps/lead_snp_2040.tex}
+  \caption{
+    Lead SNPs reaching genome wide significance in Risk Taking.
+    SNPS are listed by chromosome (CHR) and position (BP).
+  }\label{tab:lead_snps_risk}
 \end{table}
 
 \subsection{Conditional FDR}
 \label{sub:conditional_fdr}
 
-Figure~\ref{fig:cFDR} shows the conditional QQ plots for both aggression and risk taking for each of the chosen thresholds.
+Figure~\ref{fig:cFDR} shows the conditional QQ plots for both aggression and risk taking for each of the chosen thresholds and conditional phenotyes.
 Both aggression and risk taking, conditional on each other did not result in any noticiable pleiotropic effect.
 However, while aggression conditional on neuroticisim did not result in an inflation within the conditional QQ plots, risk taking was noticiable inflated conditional on SNPs which reached a relatively low p-value cutt-off.
-Thus indicating considerable pleiotropic effects between risk taking and neuroticisim.
-Further, these effects seem to particular be present at SNPs bellow $p\leq0.1$, but not at lower thresholds thus suggesting it is unlikely that both phenotypes share a common biological pathway.
+This was also the case for both smoking and alcohol consumption.
+Interestingly, infaltion of risk taking SNPs conditional on neuroticism was not persistent across the chosen thresholds.
+In particular, while considerale infaltion could be observed at $p\leq0.1$, at lower p-value threshold this effect was markly reduced.
+In contrary, the inflation causased conditional on alcohol consumption and smoking was persistent across the three tresholds.
+
+As already indicated in Figure~\ref{fig:cFDR}, impulsive aggresion conditional on the four reminaing phenotyes did not result in any loci with an $cFDR\leq0.01$.
+Nevertheless, cFDR identified a single independent loci, rs570682061, in risk taking which passes both $cFDR\leq0.01$ as well replication in an independent sample (Table~\ref{tab:cFDR}).
+This particular SNPs is independent of the genome wide significant loci identfied unconditional on other phenotypes.
+This locus has not been associated with any known gene or phenotype.
 
 \begin{figure}[!htpb]
   \centering
-	\begin{subfigure}{0.4\textwidth}
+	\begin{subfigure}{1\textwidth}
 		\centering
-		\includegraphics[width=0.9\linewidth]{ukb_assoc/figure/cFDR/risk.jpeg}
-		\caption{QQ plot for risk taking, conditional on impulsive aggression\label{fig:cFDR_risk}}
+    \includegraphics[width=1\linewidth]{ukb_assoc/figure/cFDR/agg_cond.jpeg}
 	\end{subfigure}
-	\begin{subfigure}{0.4\textwidth}
+	\begin{subfigure}{1\textwidth}
 		\centering
-		\includegraphics[width=0.9\linewidth]{ukb_assoc/figure/cFDR/aggresion.jpeg}
-		\caption{QQ plot for impulsive aggression, conditional on risk taking\label{fig:cFDR_agg}}
+    \includegraphics[width=1\linewidth]{ukb_assoc/figure/cFDR/risk_cond.jpeg}
 	\end{subfigure}
-	\begin{subfigure}{0.4\textwidth}
-		\centering
-    \includegraphics[width=0.9\linewidth]{ukb_assoc/figure/cFDR/aggresion_neuro.jpeg}
-    \caption{QQ plot for impulsive aggression, conditional on neuroticisim\label{fig:cFDR_agg+neuro}}
-	\end{subfigure}
-	\begin{subfigure}{0.4\textwidth}
-		\centering
-    \includegraphics[width=0.9\linewidth]{ukb_assoc/figure/cFDR/risk_neuro.jpeg}
-		\caption{QQ plot for impulsive aggression, conditional on neuroticisim\label{fig:cFDR_agg+neuro}}
-	\end{subfigure}
-  \caption{Conditional QQ plots for both risk taking and aggression, conditional on each other as well as neuroticisim.\label{fig:cFDR}}
+  \caption{
+    Conditional QQ plots for both risk taking and aggression. 
+    Figure a-c represents the conditional QQ-plots for impulsive aggression,
+    conditional on the remaining phenotypes given threshold $p\leq0.1$, $p\leq0.01$, $p\leq0.001$ respectively.
+    Similar, Figure d-f are the conditional QQ-plots for risk taking, conditional on the remaining phenotyes across the three thresholds.\label{fig:cFDR}}
 \end{figure}
+
+\begin{table}[htpb]
+  \input{ukb_assoc/tables/risk_cFDR.tex}
+  \caption{
+    Independent loci ($r^2 < 0.05$) with $cFDR\leq0.01$.
+    SNPs are listed by location (CHR) and conditional phenotype ($\delta$).
+    Z-scores are indicated for both risk taking and the conditional phenotye.
+    Data was adjusted for genomic inflation.
+    SNPs in bold indicate replication in an independent sample.
+  }\label{tab:cFDR}
+\end{table}
 
 \subsection{Genetic Correlations}
 \label{sub:genetic_correlations_internal}
 
-Figure~\ref{fig:gcor} displays the genetic correlations of which all are significant at $\alpha=0.05$.
+Figure~\ref{fig:gcor} displays the genetic correlations of analysed phenotyes.
+All correlations were significant after adjusting for multiple testing ($p\leq0.005$).
+The largest genetic correlations could be observed between impulsive aggression and neuroticism ($r_g=0.63, SE=0.083, p=4.6496e-14$), 
+followed by a consinderable correlation between risk taking and aggresion ($r_g=0.44, SE=0.1039, p=2.6656e-5$).
+Interestingly, relatively large negative correlations are also present between alcohol consumption and aggression ($r_g=-0.39, SE=0.0892, p=1.6942e-5$)
+as well as between smoking and aggression ($r_g=0.4, SE=0.0716, p=1.6442e-08$).
+Correlation, between smoking and alcohol consumption is not significant as well of neglectable effect ($r_g=0.06, SE=0.044628, p=0.15502$).
+Interestingly, these respectively high genetic correlations are not reflected in the corresponding conditional FDR (see Figure~\ref{fig:cFDR}).
+
+Further, risk taking shows non-significant and small correlation with neuroticism ($r_g=-0.12, SE=0.0738, p=0.10629$) and
+alcohol consumption ($r_g=0.07, SE=0.051506, p=0.19604$) but the correation between risk taking and smoking ($r_g=0.34, SE=0.0514, p=2.4044E-11$) is considerable.
+In addition, medium correlations were present between neuroticism and alcohol consumption ($r_g=-0.17, SE=0.0406, p=2.6366e-4$). 
+Correlations were also present between neuroticism and smoking, but the effect did not pass multiple testing ($r_g=0.16, SE=0.0662, p=0.017786$).
 
 \begin{figure}[!h]
-	\begin{subfigure}{.5\textwidth}
 	\centering
-	\includegraphics[width=1\linewidth]{{ukb_assoc/figure/genetic_corr/genetic_correlation_extended}.jpeg}
-	\caption{Genetic Correlations}\label{fig:gcor}
-	\end{subfigure}
-	\begin{subfigure}{.5\textwidth}
-	\centering
-	\includegraphics[width=1\linewidth]{ukb_assoc/figure/genetic_corr/dendrogram_correlations.jpeg}
-	\caption{Hierarchical clustering of correlations}\label{fig:hirarCor}
-	\end{subfigure}
+  \includegraphics[width=0.8\linewidth]{ukb_assoc/figure/genetic_corr/gcorr_plot_circle_full_se.pdf}
+  \caption{Genetic Correlations.
+    Pairwise genetic correlations across analysed phenotypes.
+    The lower triangular matrix indicate the numeric correlations, while the upper part is a visual representation of the strengths and direction of the correlation.
+    A cross indicate a non-significant correlation after adjusting for multiple testing.
+  }\label{fig:gcor}
 \end{figure}
 
-One can observe that, as one would expect, the genetic correlation between neuroticism and happiness is high ($-0.6328$) and both phenotypes cluster together.
-A closer inspection of the correlation also shows that the estimate is similar to the one found in the well-being GWAS\@.
 
-Additional one can observe a second cluster containing two sub-clusters.
-These two correlation cluster are risk taking, impulsive aggression and smoking as well as alcohol consumption and IQ\@.
-It is interesting to see that we find considerable genetic correlation between risk taking and smoking ($0.3435$).
-This is reflecting our finding in the previous section when we compared genome wide significant SNPs in risk taking to those found in the GWAS catalog.
-These SNPs were also be found to be associated with spirometric measures in smokers.
-This would suggest that the genetic architecture for risk raking is partially overlapping with that of smoking.
-Further the genetic correlation between impulsive aggression and risk taking is considerable ($0.4363$).
-
-Another point of interest is IQ\@.
-While IQ has a positive correlation with alcohol consumption, it is negatively correlated with risk taking ($-0.2097$), smoking ($-0.1758$) and impulsive aggression ($-0.3837$).
-Further there is no correlation between IQ and happiness but a moderate negative correlation with neuroticism ($-0.1859$).
-
-While smoking has its strongest correlation with risk taking and impulsive aggression, happiness has its only correlation with notable effect size with neuroticism.
-This would indicate that happiness is rather unrelated to the other phenotype. 
-Neuroticism, on the other hand, is not only negatively correlated with happiness, but also with alcohol consumption ($0.1708$), IQ ($0.1859$), risk taking ($-0.1191$) and smoking ($0.1568$).
-Furhter the large genetic correlation between impulsive aggression and neuroticism ($0.6260$) is of additional intersest.
