@@ -4,13 +4,13 @@
 \subsection{UK BioBank}
 \label{sub:uk_biobank}
 The UK BioBank~\cite{Allen2014} is a population based study of people aged 40--69 years old. 
-Participants were recruited between 2006 and 2010 via mail invitation (response rate $5.47\%$)~\cite{Sudlow2015} and were assessed with the help of self-report questionaires as well as other anthropometirc assessments.
-Written informed consent was aquired from all participants and the study was approved by National Research Ethics Service Committee North West–Haydock, UK\@.
+Participants were recruited between 2006 and 2010 via mail invitation (response rate $5.47\%$)~\cite{Sudlow2015} and were assessed with the help of self-report questionnaires as well as other anthropometric assessments.
+Written informed consent was acquired from all participants and the study was approved by National Research Ethics Service Committee North West–Haydock, UK\@.
 
 \subsection{Phenotype}
 \label{sub:phenotype}
 
-Within this dataset the two variable of intestest are impulsive aggression and risk taking.
+Within this dataset the two variable of interest are impulsive aggression and risk taking.
 Phenotypical details of  Alcohol consumption, Neuroticism, and smoking can be found in the appendix of this chapter. 
 An overview of the number of samples for Caucasian and Non-Caucasian participants can be found in Table~\ref{tab:descriptive_gwas}.
 
@@ -22,12 +22,12 @@ Participants were asked to answer the following question:
   Have you ever had a period of time lasting at least two days when you were so irritable that you found yourself shouting at people or starting fights or arguments?
 \end{displayquote}
 Table~\ref{tab:descriptive_gwas} shows the number of participants for both Caucasian and non-Caucasian samples.
-The phenotype has a relatively high missingness rate within analysed subjects ($67.984\%$) with $40,861$ subjects anwered with `no' wile $9,397$ anwered with `yes'.
+The phenotype has a relatively high missingness rate within analysed subjects ($67.984\%$) with $40,861$ subjects answered with `no' wile $9,397$ answered with `yes'.
 
 \subsubsection{Risk Taking}
 \label{ssub:risk_taking}
 Risk taking is a single item instrument which subjects answer with either yes or no.
-Participants were asked to answer the follwing quesion:
+Participants were asked to answer the following question:
 \begin{displayquote}
   Would you describe yourself as someone who takes risks?
 \end{displayquote}
@@ -44,16 +44,16 @@ In total $107,011$ subject answered with `yes', while $39,435$ answered with `no
 \subsection{Genetic analysis}
 \label{sub:genetic_analysis}
 This study made use of the imputed genetic data of the UK BioBank, compromising around $\sim73$ million SNPs, short indels and larger structural variations of $152,249$ subjects.
-Individuals were genotyped on two different custom genotype arrays, namely the UL BiLEVE as well as the UK Biobank Axiom array from Affymetrix. 
-UL BiLEVE was used for most samples ($\sim100,000$), while the array chip from Affymetrix, which was optimsied to support genotype imputation, was used for the remaining participants. 
+Individuals were genotyped on two different custom genotype arrays, namely the UL BiLEVE as well as the UK BioBank Axiom array from Affymetrix. 
+UL BiLEVE was used for most samples ($\sim100,000$), while the array chip from Affymetrix, which was optimised to support genotype imputation, was used for the remaining participants. 
 Quality control and imputation was performed central with the UK BioBank.
 However, I further conducted additional quality control.
-Variants which whose missing call rate did exceed 10\% as well as those with minor allele frequency below 1\% were exlcluded.
+Variants which whose missing call rate did exceed 10\% as well as those with minor allele frequency below 1\% were excluded.
 Further variants which did not pass a Hardy-Weinberg equilibrium test threshold of $1e-9$ were also removed from the analysis.
 In addition I only included participants with `white European' ancestry identified by a k-mean cluster of the first four principle components of genotype data.
-The total number of participants remaining after quality control of geno- and phenotype are displyed in Table~\ref{tab:descriptive_gwas}.
+The total number of participants remaining after quality control of geno- and phenotype are displayed in Table~\ref{tab:descriptive_gwas}.
 
-Assocation analysis of autosomal SNPs was performed with Plink~\cite{Purcell2007,Chang2015} with age, sex, genotype array chip and the first 10 principle components as covariants.
+Association analysis of autosomal SNPs was performed with Plink~\cite{Purcell2007,Chang2015} with age, sex, genotype array chip and the first 10 principle components as covariants.
 
 \subsection{Identification of lead SNPs}
 \label{sub:Clumping}
@@ -62,17 +62,17 @@ Lead SNPs were identified using clumping.
 Clumping is the process of grouping SNPs within a given genomic window and LD together.
 Various thresholds and window sizes can be used.
 Within this study the more commonly $250kb$ window region was used.
-SNPs were consindered to be within the same LD group when passing an threshold of $r^2 \ge 0.2$.
-The SNPs with the loweset p-value within each group was considered the lead SNPs.
+SNPs were considered to be within the same LD group when passing an threshold of $r^2 \ge 0.2$.
+The SNPs with the lowest p-value within each group was considered the lead SNPs.
 
 \subsection{Conditional False Discovery Rate}
 \label{sub:conditional_false_discovery_rate}
 
 Pleiotropy informed Conditional False Discovery Rate (cFDR) was used to identify additional genetic loci associated with risk taking or impulsive aggression. 
 In principle, cFDR makes use of pleiotropic effect between two phenotypes to increase statistical power.
-Within this chapter I computed the emprical culmulative distribution function on nominal p-values of phenotype A conditional on p-values of phenotype B passing a given threshold~\cite{Andreassen2013}.
+Within this chapter I computed the empirical cumulative distribution function on nominal p-values of phenotype A conditional on p-values of phenotype B passing a given threshold~\cite{Andreassen2013}.
 Further applied genomic control to all nominal p-values using the genomic inflation factor $\lambda{GC}$ to all nominal p-values.
-This was done by converting p-values to z-scores, estimating the median z-score for each GWAS, and deviding the squared median z-score by the expected median of a $\chi^2$-distribution  with $df=1$.
+This was done by converting p-values to z-scores, estimating the median z-score for each GWAS, and dividing the squared median z-score by the expected median of a $\chi^2$-distribution  with $df=1$.
 
 Conditional QQ-plots were constructed by plotting adjusted nominal p-values on the y-axis, while the empirical distribution function of p-values on the x-axis.
 
@@ -81,8 +81,8 @@ In addition, to conditional QQ plots I also made use of the conditional FDR (cFD
   FDR(p_1|p_2)=\pi_0(p_2)p_1/F(p_1|p_2)
 \end{equation}
 in which $p_1$ and $p_2$ are the p-values for the first and second phenotype.
-The function $F(p_1|p_2)$ is the conditional cdf which can be replaced by the conditional emprical distribution function.
-Further, $\pi_0(p_2)$ is the assumed conditional propotion of null SNPs for phenotype 1 given that that its p-values are smaller or equal that of the second phenotype.
+The function $F(p_1|p_2)$ is the conditional cdf which can be replaced by the conditional empirical distribution function.
+Further, $\pi_0(p_2)$ is the assumed conditional proportion of null SNPs for phenotype 1 given that that its p-values are smaller or equal that of the second phenotype.
 Within this study I followed a conservative approach by setting $\pi(p_2)=1$~\citet{Andreassen2013}.
 A SNP was considered of interest when its conditional FDR $\leq 0.01$.
 
@@ -95,6 +95,6 @@ This careful inspection did not detect any major population stratification in th
 \subsection{Genetic Correlation}
 \label{sub:genetic_correlation_ukb_assoc}
 
-Computation of genetic correlations were done with LD-score (see Secton~\ref{sub:ld_score_regression}).
+Computation of genetic correlations were done with LD-score (see Section~\ref{sub:ld_score_regression}).
 Thus, pairwise genetic correlations were computed on the summary statistics of each GWAS\@.
-Multiple testing was addressed with the more stringend Bonferroni correction.
+Multiple testing was addressed with the more stringent Bonferroni correction.
