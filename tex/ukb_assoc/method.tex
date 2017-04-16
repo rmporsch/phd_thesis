@@ -49,7 +49,10 @@ Smoking status was infered by asking participants if they ever have smoked (scor
 \begin{table}[!htpb]
 	\centering
 	\resizebox{\textwidth}{!}{\input{tables/descriptive.tex}}
-  \caption{Sample size and missingness across Caucasians and non-Caucasians participants.
+  \caption{
+    Sample size and missingness across Caucasians and non-Caucasians participants.
+    Missingness indicates the percentage of participants who were not phenotyped for a particular trait.
+    The Caucasian sample represents all participants which were used to conduct the genome wide association study.
 }\label{tab:descriptive_gwas} 
 \end{table}
 
@@ -61,7 +64,7 @@ UL BiLEVE was used for most samples ($\sim100,000$), while the array chip from A
 Quality control and imputation was performed central with the UK BioBank.
 However, I further conducted additional quality control.
 Variants which whose missing call rate did exceed 10\% as well as those with minor allele frequency below 1\% were excluded.
-Further variants which did not pass a Hardy-Weinberg equilibrium test threshold of $1e-9$ were also removed from the analysis.
+Further variants which did not pass a Hardy-Weinberg equilibrium test threshold of $1\items10^{-9}$ were also removed from the analysis.
 In addition I only included participants with `white European' ancestry identified by a k-mean cluster of the first four principle components of genotype data.
 The total number of participants remaining after quality control of geno- and phenotype are displayed in Table~\ref{tab:descriptive_gwas}.
 
@@ -73,7 +76,7 @@ Association analysis of autosomal SNPs was performed with Plink~\cite{Purcell200
 Lead SNPs were identified using clumping.
 Clumping is the process of grouping SNPs within a given genomic window and LD together.
 Various thresholds and window sizes can be used.
-Within this study the more commonly $250kb$ window region was used.
+Within this study the more commonly $250kb$ window region was applied.
 SNPs were considered to be within the same LD group when passing an threshold of $r^2 \ge 0.2$.
 The SNPs with the lowest p-value within each group was considered the lead SNPs.
 
@@ -82,8 +85,8 @@ The SNPs with the lowest p-value within each group was considered the lead SNPs.
 
 Pleiotropy informed Conditional False Discovery Rate (cFDR) was used to identify additional genetic loci associated with risk taking or impulsive aggression. 
 In principle, cFDR makes use of pleiotropic effect between two phenotypes to increase statistical power.
-Within this chapter I computed the empirical cumulative distribution function on nominal p-values of phenotype A conditional on p-values of phenotype B passing a given threshold~\cite{Andreassen2013}.
-Further applied genomic control to all nominal p-values using the genomic inflation factor $\lambda{GC}$ to all nominal p-values.
+Within this analysis I computed the empirical cumulative distribution function on nominal p-values of phenotype A conditional on p-values of phenotype B passing a given threshold~\cite{Andreassen2013}.
+Further, I applied genomic control to all nominal p-values using the genomic inflation factor $\lambda_{GC}$ to all nominal p-values.
 This was done by converting p-values to z-scores, estimating the median z-score for each GWAS, and dividing the squared median z-score by the expected median of a $\chi^2$-distribution  with $df=1$.
 
 Conditional QQ-plots were constructed by plotting adjusted nominal p-values on the y-axis, while the empirical distribution function of p-values on the x-axis.
@@ -102,11 +105,11 @@ In addition, SNPs which passed $cFDR\leq 0.01$ were replicated in an independent
 This independent sample was generated based on the non-Caucasian samples excluded in the initial discovery stage.
 In order to minimize the effect of populations stratification in this diverse sample, the same covariants were included during the computation as in the original discovery GWAS\@.
 Quality and potential population stratification was a assessed using LD-score regression as well as visual inspection of the QQ plot.
-This careful inspection did not detect any major population stratification in the non-Caucasian sample.
+This careful inspection did not detect any major population stratification in the non-Caucasian sample after including PC as covariats.
 
 \subsection{Genetic Correlation}
 \label{sub:genetic_correlation_ukb_assoc}
 
-Computation of genetic correlations were done with LD-score (see Section~\ref{sub:ld_score_regression}).
+Computation of genetic correlations were done with LD-score (see Section~\ref{sub:ld_score_regression} for further explanations).
 Thus, pairwise genetic correlations were computed on the summary statistics of each GWAS\@.
-Multiple testing was addressed with the more stringent Bonferroni correction.
+Multiple testing was addressed with the more srtringent Bonferroni correction.
