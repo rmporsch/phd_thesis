@@ -1,0 +1,34 @@
+\documentclass{book}
+\usepackage{amsmath}
+\usepackage[acronym]{glossaries}
+\usepackage[backend=biber, natbib=true]{biblatex}
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning,shapes.geometric, calc}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\newtheorem{mydef}{Definition}
+\usetikzlibrary{positioning}
+\usepackage{adjustbox}
+\usepackage{lscape}
+\usepackage{setspace}
+\usepackage{csquotes}
+\linespread{1.5}
+\usepackage{subfiles}
+
+\bibliography{/home/robert/Documents/library.bib}
+\title{The Genetics of Aggressive Behavior}
+\author{Robert Milan Porsch}
+\date{\today}
+%\input{acronyms.tex}
+%\tikzexternalize % for faster compilation
+
+\begin{document}
+%\maketitle
+%\subfile{introduction/intro_lit.tex}
+%\subfile{introduction/intro_methods.tex}
+%\input{longHera/longhera.tex}
+\subfile{ukb_assoc/ukb_assoc.tex}
+\end{document}

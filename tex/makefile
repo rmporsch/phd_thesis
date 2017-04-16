@@ -1,46 +1,54 @@
-# Latex Makefile using latexmk
-# Modified by Robert Porsch
-# Originally from : http://tex.stackexchange.com/a/40759
-#
-# Change only the variable below to the name of the main tex file.
-PROJNAME=header
+all: pdf
 
-# You want latexmk to *always* run, because make does not have all the info.
-# Also, include non-file targets in .PHONY so they are run regardless of any
-# file of the given name existing.
-.PHONY: $(PROJNAME).pdf all clean
+MAINFILE  := header
+RNWFILES  := 
+RFILES    := 
+TEXFILES  := $(wildcard introduction/*.tex) $(wildcard longHera/*.tex) $(wildcard ukb_assoc/*.tex)
+CACHEDIR  := cache
+#FIGUREDIR := figures
+LATEXMK_FLAGS := 
 
-# The first rule in a Makefile is the one executed by default ("make"). It
-# should always be the "all" rule, so that "make" and "make all" are identical.
-all: $(PROJNAME).pdf
+##### Explicit Dependencies #####
+#################################
 
-# CUSTOM BUILD RULES
+RNWTEX = $(RNWFILES:.Rnw=.tex)
+ROUTFILES = $(RFILES:.R=.Rout)
+RDAFILES= $(RFILES:.R=.rda)
+MAINTEX = $(MAINFILE:=.tex)
+MAINPDF = $(MAINFILE:=.pdf)
+ALLTEX = $(MAINTEX) $(RNWTEX) $(TEXFILES)
 
-# In case you didn't know, '$@' is a variable holding the name of the target,
-# and '$<' is a variable holding the (first) dependency of a rule.
-# "raw2tex" and "dat2tex" are just placeholders for whatever custom steps
-# you might have.
+# Dependencies
+$(RNWTEX): $(RDAFILES)
+$(MAINTEX): $(RNWTEX) $(TEXFILES)
+$(MAINPDF): $(MAINTEX) $(ALLTEX) 
 
-%.tex: %.raw
-	./raw2tex $< > $@
+.PHONY: pdf tex clean 
 
-%.tex: %.dat
-	./dat2tex $< > $@
+pdf: $(MAINPDF)
 
-# MAIN LATEXMK RULE
+tex: $(RDAFILES) $(ALLTEX) 
 
-# -pdf tells latexmk to generate PDF directly (instead of DVI).
-# -pdflatex="" tells latexmk to call a specific backend with specific options.
-# -use-make tells latexmk to call make for generating missing files.
+%.tex:%.Rnw
+	Rscript \
+	  -e "library(knitr)" \
+	  -e "knitr::opts_chunk[['set']](cache.path='$(CACHEDIR)/$*-')" \
+	  -e "knitr::opts_knit[['set']](root.dir = '.')" \
+	  -e "knitr::opts_chunk[['set']](fig.height=4)" \
+	  -e "knitr::knit('$<','$@')"
 
-# -interactive=nonstopmode keeps the pdflatex backend from stopping at a
-# missing file reference and interactively asking you for an alternative.
+%.R:%.Rnw
+	Rscript -e "Sweave('$^', driver=Rtangle())"
 
-$(PROJNAME).pdf: $(PROJNAME).tex
-	latexmk -pdf -pdflatex="pdflatex -interactive=nonstopmode" -use-make $<
+%.Rout:%.R
+	R CMD BATCH "$^" "$@"
 
-cleanall:
-	latexmk -C
+%.pdf: %.tex 
+	latexmk -pdf $<
 
 clean:
-	latexmk -c
+	-latexmk -c -quiet $(MAINFILE).tex
+	-rm -f $(MAINTEX) $(RNWTEX)
+	-rm -rf $(FIGUREDIR)
+	-rm $(MAINPDF)
+
