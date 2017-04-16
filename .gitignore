@@ -2,7 +2,6 @@
 *.bib
 *.bbl
 *.dvi
-*.pdf
 *.run.xml
 *.tex.latexmain
 *.aux
