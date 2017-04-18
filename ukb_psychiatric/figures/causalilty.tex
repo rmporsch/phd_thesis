@@ -1,0 +1,14 @@
+\begin{tikzpicture}
+  \node (G) at (0,0) {$G_j$};
+  \node (X) at (2,0) {$X$};
+  \node (Y) at (4,0) {$Y$};
+  \node (U) at (3,1) {$U$};
+
+  \draw[black, ->] (G) -- node[below] {$\gamma_j$}(X) ;
+  \draw[black, ->] (X) -- node[above] {$\beta$}(Y);
+  \draw[black, ->] (U) -- (X);
+  \draw[black, ->] (U) -- (Y);
+
+  \draw[dotted, black, ->] (G) -- (U);
+  \path[dotted,black, ->] (G) edge [bend right=30] node[below] {$\alpha_j$} (Y);
+\end{tikzpicture}

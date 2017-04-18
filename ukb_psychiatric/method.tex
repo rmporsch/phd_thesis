@@ -53,6 +53,55 @@ Multiple testing was addressed with the more stringend Bonferroni correction.
 \subsection{Mendelian Randomization}
 \label{sub:joint_association_study}
 
+Mendelian randomization makes use of measured variation in genetic variants with known association to a modifiable exposure to an outcome.
+The model used in this analysis is displayed in figure~\ref{fig:causal} and assumes that
+
+\begin{enumerate}
+	\item $G_j$ is independent of confounder $U$
+	\item $G_j$ is associated with exposure $X$
+	\item $G_j$ is independent of outcome $y$ conditional on $X$ and $U$
+\end{enumerate}
+
+the reduced-form equation of figure~\ref{fig:causal}, relating outcome with $G_j$, can be written as
+\begin{equation}
+	\begin{split}
+		Y_i &= \Gamma_j G_{ij} + \epsilon_{ij}^{'Y} \\
+		&= (\alpha_j + \beta\gamma_j)G_{ij} + \epsilon_{ij}^{'Y}
+	\end{split}
+\end{equation}
+We can simplify this if we assume that $\alpha_j = 0$ then
+\begin{equation}
+	\beta = \frac{\beta\gamma_j}{\gamma_j}= \frac{\Gamma_j}{\gamma_j}
+  \label{eq:causal}
+\end{equation}
+However, many genetic variants are only weak instruments and therefor not suited to be used alone in an Mendelian randomization.
+Hence it is desirable to use multiple genetic variants to increase statistical power.
+This can be done by extending equation~\ref{eq:causal} to use multiple instruments
+\begin{equation} \label{eq:TSLS}
+	\frac{\sum^J_{j=1} \hat{\gamma}_j^2\sigma_{Y_j}^{-2} \hat{\beta}_j}
+	{\sum^J_{j=1} \hat{\gamma}_j^2\sigma_{Y_j}^{-2}}
+\end{equation}
+in which $\hat{\beta_j} = \frac{\hat{\Gamma_j}}{\hat{\gamma_j}}$ and $\sigma_{Y_j}$ is the standard error of the outcome on the jth variant.
+However, often variants violate the assumption and $\alpha_j \neq 0$.
+Thus $G_j$ is not a valid instrument anymore and we have to adjust equation~\ref{eq:TSLS} to
+\begin{equation} \label{eq:TSLSbias}
+	\beta + \frac{\sum^J_{j=1} \gamma_j^2\sigma_{Y_j}^{-2} \alpha_j}
+	{\sum^J_{j=1} \gamma_j^2\sigma_{Y_j}^{-2}} = \beta + Bias(\alpha, \gamma)
+\end{equation}
+
+The used method described in equation~\ref{eq:TSLSbias} is still susceptible to pleiotropy.
+Thus I used the recent developed MR-Egger regression \citep{Bowden2015} to solve this problem.
+
+\begin{figure}[!h]
+  \centering
+  \resizebox{0.5\textwidth}{!}{\input{figures/causalilty.tex}}
+  \caption{Causal Model.
+    The model assumes that the instrumental variable $G_j$ influces the outcome $Y$ only via the exposure $X$.
+    Hence assuming that $\alpha_j=0$ and that $G_j$ does not influece $Y$ via a third variable $U$. 
+  }\label{fig:causal}
+\end{figure}
+
+
 In the absence of specific biological knowledge of individual SNPs the choice of instrumental variables for a Mendelian Randomization (MR) are primarily statistical motivated.
 In this case, assumptions of MR are only assessed post-hoc and one cannot speak of a `true' Mendelian Randomization~\cite{Burgess2016a}.
 Nevertheless, these statistical driven MR, also called `joint association study'~\cite{Burgess2016a}, can provide suggestive evidence for causal effects.
