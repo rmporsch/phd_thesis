@@ -12,17 +12,26 @@
   \centering
   \includegraphics[width=0.8\linewidth]{figures/combined_corr.pdf}
   \caption{Genetic correlations between impulsive aggression and risk taking with selected psychiatric disorders.
-    (A) Genetic correlations between impulsive aggrsesion and psychiatric disorders. 
-    (B) Genetic correlations between risk taking and psychiatric disorders.
     The error bars display the 95\% confidence intervals for each pairwise genetic correlations.
     Significance levels after multiple testing correction are displayed in form of a dot ($p\ge 0.05$) and triangle ($p\leq0.05$).
+    (A) Genetic correlations between impulsive aggrsesion and psychiatric disorders. 
+    (B) Genetic correlations between risk taking and psychiatric disorders.
   }\label{fig:figures/combined_corr}
 \end{figure}
 
 \subsection{Mendelian Randomization}
 \label{sub:mendelian_randomization}
 
-Applied MR-method suggest some indication for a causal effect on depressive symptomes as well as MD on impulsive aggression (Figure~\ref{fig:overall_mr_effect}).
+Applied MR-method suggest some indication for a causal effect on depressive symptomes on impulsive aggression (Figure~\ref{fig:overall_mr_effect}).
+Noticable, all but one method indicate significant causal influence on aggression. 
+Specifically, MR Egger, which represents a more conservative approch, shows not only non-significance but also displays a different direction of effect.
+A possible explanation for this discrepency can be found in potential pleiotropic effects which might violate MR assumptions.
+Inspection of the corresponding funnel plot (see Figure~\ref{fig:sensitivity}) suggest the some pleiotropic effects between selected SNPs and impulsive aggression.
+However, other, more liberal method, do indicate a clear causal connection between depresssive symptomes and impulsive aggression.
+This connection is further supported by an analysis of the MR of Major depressive disorder and aggression.
+Corresponding to depressive symptomes, this analysis suggests that this sever metal disorder might cause an increase in aggressive behavior. 
+In contrast, MR indicates no significant effect but demonstrats unity in regards to the direction of the effect across all used methods.
+Inspection of the funnel plot further suggests neglectable pleiotropic effects which might violate the assumption.
 
 \begin{figure}[htpb]
   \centering
@@ -33,4 +42,29 @@ Applied MR-method suggest some indication for a causal effect on depressive symp
     (A) Effect of psychiatric disorders on impulsive aggression.
     (A) Effect of psychiatric disorders on risk taking.
   }\label{fig:overall_mr_effect}
+\end{figure}
+
+Further, there is some indication that SZ might cause an increase in aggressive behavior.
+Similar to the analyses described above, all but MR-egger suggest a significant effect. 
+However, in contrast to the previous described analysis there is very little evidence to support a violation of the underlying MR assumptions.
+Thus making a causal connection between these two phenotypse more plausible.
+
+In addition, to aggression MR in connection to risk taking only yield one potential causal relationship.
+All used method, with the exception of MR-egger, suggest that Schizophrenia causes an increase in risk taking behavior.
+Inspection of both funnel plots and intercept of the MR-egger regression coeffcient indicate no major violation of assumptions.
+
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/sensitvity_plot.pdf}
+  \caption{Sensitivity analysis.
+    (A) Displays the intercept of MR-egger regression for psychiatric disorders on impulsive aggression. The intercept is an indication of whether directional horizontal pleiotropy is driving the MR analysis.
+    (B) The MR-egger regression intercept of psychiatric disorders on risk taking.
+    (C) Funnel plot of Depressive symptoms on impulsive aggression. 
+    (D) Funnel plot of MD on impulsive aggression. 
+    (E) Funnel plot of SZ on impulsive aggression. 
+    (F) Funnel plot of SZ on risk taking. 
+    The intercept of both MR-egger and Inverse variance method are indicated with a vertical line.
+    Errorbars indicate the 95\% confidence intervals.
+  }\label{fig:sensitivity}
 \end{figure}
