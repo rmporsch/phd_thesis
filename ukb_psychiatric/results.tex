@@ -1,0 +1,36 @@
+\section{Results}
+\label{sec:results}
+
+\subsection{Genetic Correlation}
+\label{sub:psych_genetic_correlation}
+
+\input{text_snippets/correlations_agg.tex}
+
+\input{text_snippets/correlations_risk.tex}
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figures/combined_corr.pdf}
+  \caption{Genetic correlations between impulsive aggression and risk taking with selected psychiatric disorders.
+    (A) Genetic correlations between impulsive aggrsesion and psychiatric disorders. 
+    (B) Genetic correlations between risk taking and psychiatric disorders.
+    The error bars display the 95\% confidence intervals for each pairwise genetic correlations.
+    Significance levels after multiple testing correction are displayed in form of a dot ($p\ge 0.05$) and triangle ($p\leq0.05$).
+  }\label{fig:figures/combined_corr}
+\end{figure}
+
+\subsection{Mendelian Randomization}
+\label{sub:mendelian_randomization}
+
+Applied MR-method suggest some indication for a causal effect on depressive symptomes as well as MD on impulsive aggression (Figure~\ref{fig:overall_mr_effect}).
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/overall_mr_effect.pdf}
+  \caption{Estimated causal effect of psychiatric disorders on impulsive aggression and risk taking.
+    The effect size of the causal effect $\beta$ is displayed on the y-axis, while used Mendelian randomization methods are on the x-axis.
+    SZ, Schizophrenia; MD, Major Depressive Disorder; DS, Depressive Symptomes; BP, Bipolar Disorder.
+    (A) Effect of psychiatric disorders on impulsive aggression.
+    (A) Effect of psychiatric disorders on risk taking.
+  }\label{fig:overall_mr_effect}
+\end{figure}
