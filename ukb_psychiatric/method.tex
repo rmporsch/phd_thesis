@@ -53,64 +53,108 @@ Multiple testing was addressed with the more stringend Bonferroni correction.
 \subsection{Mendelian Randomization}
 \label{sub:joint_association_study}
 
-Mendelian randomization makes use of measured variation in genetic variants with known association to a modifiable exposure to an outcome.
-The model used in this analysis is displayed in figure~\ref{fig:causal} and assumes that
+\subsubsection{General Methedology}
+\label{ssub:General_Methedology}
 
-\begin{enumerate}
-	\item $G_j$ is independent of confounder $U$
-	\item $G_j$ is associated with exposure $X$
-	\item $G_j$ is independent of outcome $y$ conditional on $X$ and $U$
-\end{enumerate}
+Mendelian randomization (MR) allows to infer potential causal effects from observational data in the presents of confounding factors. 
+It makes use of measured variation in genetic variants with known association to a modifiable exposure to an outcome.
+This causal model is described in Figure~\ref{fig:causal}.
+Assuming $J$ genotypes of $n=\{1, 2, \ldots , i\}$ subjects were measured ($G_{i1}, G_{i2}, \ldots , G_{iJ}$),
+an exposure $X_i$ as well as an outcome $Y_i$.
+Further, the potential confounder $U_i$ is unknown. 
+The exposure is a function of the genetic variant, condounder and an independent error $\epsilon_i^X$ 
+and the effect of each variant $j$ on the exposure is represented by $\gamma_j$.
+Thus, the outcome is the the result of the linear function of the genetic variants, the exposure, the condfounder as well as an error term ($\epsilon_i^Y$).
+The to estiamte causal effect between exposre and outcome is $\beta$, while $\alpha_j$ represents the undesired direct effect between the genetic variant $j$ to the outcome.
 
-the reduced-form equation of figure~\ref{fig:causal}, relating outcome with $G_j$, can be written as
-\begin{equation}
-	\begin{split}
-		Y_i &= \Gamma_j G_{ij} + \epsilon_{ij}^{'Y} \\
-		&= (\alpha_j + \beta\gamma_j)G_{ij} + \epsilon_{ij}^{'Y}
-	\end{split}
+\begin{equation} \label{eq:rm_basic}
+  \begin{split}
+    X_i &= \sum^J_{j=1} \gamma_jG_{ij} + U_i + \epsilon_i^X \\
+    Y_i &= \sum^J_{j=1} \alpha_jG_{ij} + \beta X_i + U_i + \epsilon_i^Y \\
+  \end{split}
 \end{equation}
-We can simplify this if we assume that $\alpha_j = 0$ then
-\begin{equation}
-	\beta = \frac{\beta\gamma_j}{\gamma_j}= \frac{\Gamma_j}{\gamma_j}
-  \label{eq:causal}
-\end{equation}
-However, many genetic variants are only weak instruments and therefor not suited to be used alone in an Mendelian randomization.
-Hence it is desirable to use multiple genetic variants to increase statistical power.
-This can be done by extending equation~\ref{eq:causal} to use multiple instruments
-\begin{equation} \label{eq:TSLS}
-	\frac{\sum^J_{j=1} \hat{\gamma}_j^2\sigma_{Y_j}^{-2} \hat{\beta}_j}
-	{\sum^J_{j=1} \hat{\gamma}_j^2\sigma_{Y_j}^{-2}}
-\end{equation}
-in which $\hat{\beta_j} = \frac{\hat{\Gamma_j}}{\hat{\gamma_j}}$ and $\sigma_{Y_j}$ is the standard error of the outcome on the jth variant.
-However, often variants violate the assumption and $\alpha_j \neq 0$.
-Thus $G_j$ is not a valid instrument anymore and we have to adjust equation~\ref{eq:TSLS} to
-\begin{equation} \label{eq:TSLSbias}
-	\beta + \frac{\sum^J_{j=1} \gamma_j^2\sigma_{Y_j}^{-2} \alpha_j}
-	{\sum^J_{j=1} \gamma_j^2\sigma_{Y_j}^{-2}} = \beta + Bias(\alpha, \gamma)
-\end{equation}
-
-The used method described in equation~\ref{eq:TSLSbias} is still susceptible to pleiotropy.
-Thus I used the recent developed MR-Egger regression \citep{Bowden2015} to solve this problem.
 
 \begin{figure}[!h]
   \centering
   \resizebox{0.5\textwidth}{!}{\input{figures/causalilty.tex}}
   \caption{Causal Model.
     The model assumes that the instrumental variable $G_j$ influces the outcome $Y$ only via the exposure $X$.
-    Hence assuming that $\alpha_j=0$ and that $G_j$ does not influece $Y$ via a third variable $U$. 
+    Hence assuming that $\alpha_j=0$, $\gamma_j\neq0$ and that $G_j$ does not influece $Y$ via a third variable $U$. 
+    The dottet lines indicate potential assumptions vilations.
   }\label{fig:causal}
 \end{figure}
 
+
+Should $G_j$ be independent of confounder $U$,
+as well as associated with exposure $X$ and independent of outcome $y$ conditional on $X$ and $U$, then variant $j$ is a valid instrument.
+
+The reduced-form equation of~\ref{eq:rm_basic}, relating outcome with $G_j$, can be written as
+\begin{equation}
+	\begin{split}
+		Y_i &= \Gamma_j G_{ij} + \epsilon_{ij}^{'Y} \\
+		&= (\alpha_j + \beta\gamma_j)G_{ij} + \epsilon_{ij}^{'Y}
+	\end{split}
+\end{equation}
+
+One can estimate the causal effect $\beta$ with the help of the Wald method~\cite{Wald1940}
+by dividing the effect of variant $j$ on the outcome $\Gamma_j$ by the effect on the exposure $\gamma_j$.
+When assumsing in addition that $\alpha=0$ then the causal effect $\beta$ is
+\begin{equation} \label{eq:causal_estiamte}
+	\beta = \frac{\beta\gamma_j}{\gamma_j}= \frac{\Gamma_j}{\gamma_j}
+\end{equation}
+
+Equation~\ref{eq:causal_estiamte} is often extended to multiple variants as a weighted average of multiple ratio estimates across uncorrelationed genetic variants.
+\begin{equation} \label{eq:IVW}
+  \frac{\sum^J_{j=1} \hat{\gamma}_j^2\sigma_{Yj}^{-2} \hat{\beta}_j}
+  {\sum^J_{j=1} \hat{\gamma}_j^2\sigma_{Yj}^{-2}}
+\end{equation}
+In which $\hat{\beta_j} = \frac{\hat{\Gamma_j}}{\hat{\gamma_j}}$ and often the chosen weight $\sigma_{Yj}$ is the standard error of the outcome on the $jth$ variant.
+
+However, often one cannot completly exclude that $\alpha_j \neq 0$.
+In this case the Wald ratio estimate of variant $j$ will equal the true causal effect plus the error $\frac{\alpha_j}{\gamma_j}$. 
+Equation~\ref{eq:TSLS} is then re-writen as
+\begin{equation} \label{eq:TSLSbias}
+  \beta + \frac{\sum^J_{j=1} \gamma_j^2\sigma_{Y_j}^{-2} \alpha_j}
+  {\sum^J_{j=1} \gamma_j^2\sigma_{Y_j}^{-2}} = \beta + Bias(\alpha, \gamma)
+\end{equation}
+Importantly this implies that the assumption of the independency of the genetic variants with outcome $y$ conditional on $X$ holds if the bias term is equal to zero.
+
+\subsubsection{Used Metheds}
+\label{ssub:Used_Metheds}
+
+Wthin this study I used three seperated classes of methods.
+That is the inverse variance method (IVW), the median method, as well as MR-Egger regression.
+Overall, these methods differ in their robustness to pleiotropy as well as statistical power.
+The IVW has been described already in the previous section (see Equation~\ref{eq:IVW}).
+The method, while having greater statistical power than other methods, assumes that all used variants are valid instruments.
+Thus IVW is especially susceptible to presents of pleiotropy.
+In contrast the median method first estimates the causal effect for each variant seperatly. 
+Following, estiamtes are then ranked and the median of this distribution is taken to the estimated causal effect between exposre and outcome.
+The simple approach has the benefit that if at least 50\% of variants are valid instrument this method will give consitent causal estiamates.
+However, this comes with a lose in precision.
+
+At last MR-egger is a new methods which relaxes the assumption of $\alpha_j=0$, instead it assumes that the correlation between $\alpha_j$ and $\gamma_j$ is $0$.
+Under this assumption the bias (see Equation~\ref{eq:TSLSbias}) is inversly proportional to $\gamma_j$ and variants with stronger instrument strength (large $\gamma_j$) will on average be closer to the true causal effect.
+MR-egger makes use ot this my regessing $\hat{\Gamma_j}$ on $\hat{\gamma_j}$
+\begin{equation}\label{eq:egger}
+  \hat{\Gamma_j} = \beta_{0E} + \beta_{E} \hat{\gamma_j}
+\end{equation}
+Interestingly, testing if the intercept $\beta_E$ differs from $0$, or in other words testing if weaker instruments are upward or downward biased, also gives an indication of the overal average pleiotropy.
+Thus MR-egger uses a relative relaxed assumption but comes with the cost of a considerable lower statistical power.
+
+\subsubsection{Selection of Intstuments}
+\label{ssub:Selection_of_Intstuments}
 
 In the absence of specific biological knowledge of individual SNPs the choice of instrumental variables for a Mendelian Randomization (MR) are primarily statistical motivated.
 In this case, assumptions of MR are only assessed post-hoc and one cannot speak of a `true' Mendelian Randomization~\cite{Burgess2016a}.
 Nevertheless, these statistical driven MR, also called `joint association study'~\cite{Burgess2016a}, can provide suggestive evidence for causal effects.
 
-Here we perform a liberal approach to investigate any causal relationship between psychiatric disorders and impulsive aggression as well as risk taking.
+Here I used a liberal approach to investigate any causal relationship between psychiatric disorders and impulsive aggression as well as risk taking.
 Summary statistics were obtained from 4 different GWAS covering schizophrenia~\cite{Ripke2014}, bipolar disorder~\cite{PsychiatricGWASConsortiumBipolarDisorderWorkingGroup2011}, major depressive disorder~\cite{MajorDepressiveDisorderWorkingGroupofthePsychiatricGWASConsortium2013} as well as depressive symptoms~\cite{Okbay2016}.
 Only pruned variants ($r^2=0.01$) were selected as instrumentents with $p\leq 5\times 10^{-5}$.
 Variants were then harmonized with summary statistics computed from the UK BioBank on risk taking and impulsive aggression. 
 
-Joint association analysis was performed with MR-Base~\cite{Hemani2016} and multiple different methods were used.
-Overall estimated causal effect was judghed based on the performance of all applied models.
+Joint association analysis was performed with MR-Base~\cite{Hemani2016}.
+Overall estimated causal effect was judged based on the performance of all applied models.
 Further, a sensitivity analysis of each joint association study was performed to investigate vadility of the underlying assumptions~\cite{Burgess2016}.  
+This includes assessments of pleiotropic effects via MR-egger as well as Funnel plots.
