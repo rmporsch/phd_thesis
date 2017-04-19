@@ -88,7 +88,7 @@ The to estiamte causal effect between exposre and outcome is $\beta$, while $\al
 Should $G_j$ be independent of confounder $U$,
 as well as associated with exposure $X$ and independent of outcome $y$ conditional on $X$ and $U$, then variant $j$ is a valid instrument.
 
-The reduced-form equation of~\ref{eq:rm_basic}, relating outcome with $G_j$, can be written as
+The reduced-form equation~\cite{Bowden2015} of~\ref{eq:rm_basic}, relating outcome with $G_j$, can be written as
 \begin{equation}
 	\begin{split}
 		Y_i &= \Gamma_j G_{ij} + \epsilon_{ij}^{'Y} \\
@@ -103,7 +103,7 @@ When assumsing in addition that $\alpha=0$ then the causal effect $\beta$ is
 	\beta = \frac{\beta\gamma_j}{\gamma_j}= \frac{\Gamma_j}{\gamma_j}
 \end{equation}
 
-Equation~\ref{eq:causal_estiamte} is often extended to multiple variants as a weighted average of multiple ratio estimates across uncorrelationed genetic variants.
+Equation~\ref{eq:causal_estiamte} is often extended to multiple variants as a weighted average of multiple ratio estimates across uncorrelationed genetic variants~\cite{Bowden2015}.
 \begin{equation} \label{eq:IVW}
   \frac{\sum^J_{j=1} \hat{\gamma}_j^2\sigma_{Yj}^{-2} \hat{\beta}_j}
   {\sum^J_{j=1} \hat{\gamma}_j^2\sigma_{Yj}^{-2}}
@@ -111,7 +111,7 @@ Equation~\ref{eq:causal_estiamte} is often extended to multiple variants as a we
 In which $\hat{\beta_j} = \frac{\hat{\Gamma_j}}{\hat{\gamma_j}}$ and often the chosen weight $\sigma_{Yj}$ is the standard error of the outcome on the $jth$ variant.
 
 However, often one cannot completly exclude that $\alpha_j \neq 0$.
-In this case the Wald ratio estimate of variant $j$ will equal the true causal effect plus the error $\frac{\alpha_j}{\gamma_j}$. 
+In this case the Wald ratio estimate of variant $j$ will equal the true causal effect plus the error $\frac{\alpha_j}{\gamma_j}$~\cite{Bowden2015}. 
 Equation~\ref{eq:TSLS} is then re-writen as
 \begin{equation} \label{eq:TSLSbias}
   \beta + \frac{\sum^J_{j=1} \gamma_j^2\sigma_{Y_j}^{-2} \alpha_j}
@@ -122,16 +122,18 @@ Importantly this implies that the assumption of the independency of the genetic 
 \subsubsection{Used Metheds}
 \label{ssub:Used_Metheds}
 
-Wthin this study I used three seperated classes of methods.
-That is the inverse variance method (IVW), the median method, as well as MR-Egger regression.
+Wthin this study I used four seperated classes of methods.
+That is the inverse variance method (IVW), the weighted median method, as well as MR-Egger regression~\cite{Bowden2015}.
+Further I applied classical meta analysis methods with fixed~\cite{Nelson2015a} or random effects~\cite{Ahmad2015a}.
 Overall, these methods differ in their robustness to pleiotropy as well as statistical power.
+
 The IVW has been described already in the previous section (see Equation~\ref{eq:IVW}).
 The method, while having greater statistical power than other methods, assumes that all used variants are valid instruments.
-Thus IVW is especially susceptible to presents of pleiotropy.
-In contrast the median method first estimates the causal effect for each variant seperatly. 
+Thus IVW is especially susceptible to presents of pleiotropy~\cite{Burgess2015b}.
+In contrast the weighted median method first estimates the causal effect for each variant seperatly weighted by the inverse variance. 
 Following, estiamtes are then ranked and the median of this distribution is taken to the estimated causal effect between exposre and outcome.
 The simple approach has the benefit that if at least 50\% of variants are valid instrument this method will give consitent causal estiamates.
-However, this comes with a lose in precision.
+However, this comes with a lose in precision~\cite{Bowden2015}.
 
 At last MR-egger is a new methods which relaxes the assumption of $\alpha_j=0$, instead it assumes that the correlation between $\alpha_j$ and $\gamma_j$ is $0$.
 Under this assumption the bias (see Equation~\ref{eq:TSLSbias}) is inversly proportional to $\gamma_j$ and variants with stronger instrument strength (large $\gamma_j$) will on average be closer to the true causal effect.
@@ -140,7 +142,13 @@ MR-egger makes use ot this my regessing $\hat{\Gamma_j}$ on $\hat{\gamma_j}$
   \hat{\Gamma_j} = \beta_{0E} + \beta_{E} \hat{\gamma_j}
 \end{equation}
 Interestingly, testing if the intercept $\beta_E$ differs from $0$, or in other words testing if weaker instruments are upward or downward biased, also gives an indication of the overal average pleiotropy.
-Thus MR-egger uses a relative relaxed assumption but comes with the cost of a considerable lower statistical power.
+Thus MR-egger uses a relative relaxed assumption but comes with the cost of a considerable lower statistical power~\cite{Bowden2015}.
+
+At last a fixed meta-analysis assumes that the estiamted effects $\beta$ are equal across assessed variants~\cite{Burgess2015b}.
+However, this might not be the case in practice since it assumes that all selected instruments are valid.
+In addition, variants might have differnt effects on the outcome which is not exclusivly directed throught the exposure. 
+In contrast, mixed-effect models do not assume equal effect across genetic variants~\cite{Burgess2015b}.
+%TODO Maybe I should go into more details here
 
 \subsubsection{Selection of Intstuments}
 \label{ssub:Selection_of_Intstuments}
