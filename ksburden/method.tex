@@ -3,7 +3,8 @@
 
 Considering a gene with the positions of nucleotides labeled numerically $1, 2, \ldots p$, in which the position of a rare variant is regarded as a random variable, $X$.
 The rare variants observed in each group (cases or controls) are considered a realizations of $X$.
-One can then calculate an empirical cumulative distribution function (ecdf) for each group ($F_{A(X)}$ for cases, $F_{U(X)}$ for controls), which is a monotonic step function, increasing from $0$ at the first position of the gene, to $1$ at the last position of the gene.
+One can then calculate an empirical cumulative distribution function (ecdf) for each group ($F_{A(X)}$ for cases, $F_{U(X)}$ for controls),
+which is a monotonic step function, increasing from $0$ at the first position of the gene, to $1$ at the last position of the gene.
 For $\gamma$ rare variants occurring at positions $X_1, X_2, \ldots, X_p$, the empirical distribution function of $X$ is given by
 
 \begin{equation}
@@ -17,8 +18,8 @@ The KS statistic $K$ is defined as the supremum of the absolute difference betwe
 	K_{ks} = \sup_x | F_A(x) - F_U(x) |
 \end{equation}
 
-While the KS test is distribution free when $F$ is continous, this is not the case with descrete data, such as allele count.
-Indeed, application of the Kolmogorov distribution to obtain critical values for $K$ for discreate data yiels conservative estimates~\cite{Walsh1963,Conover1972}. 
+While the KS test is distribution free when $F$ is continuous, this is not the case with discrete data, such as allele count.
+Indeed, application of the Kolmogorov distribution to obtain critical values for $K$ for discrete data yields conservative estimates~\cite{Walsh1963,Conover1972}. 
 \citet{Conover1972} proposed an alternative way to obtain critical values given a hypothesized discrete distribution function.
 However, this approach is in general not feasible with samples sizes $>30$.
 Therefore, I applied a Monte Carlo based approach to estimate p-values as 
@@ -28,7 +29,7 @@ Therefore, I applied a Monte Carlo based approach to estimate p-values as
 \end{equation}
 
 in which $K_b$ is the test statistic of the $b^{th}$ simulation sample.
-It is important to note that if $\gamma$ is large and distributred among $p$ variants in a continous fashion $F$ can be considered as continues therefore reducing the necessarity to perform this computationaly intesive approach.
+It is important to note that if $\gamma$ is large and distributed among $p$ variants in a continuous fashion $F$ can be considered as continues therefore reducing the necessarily to perform this computationally intensive approach.
 However, given the current sample sizes in sequencing based association studies this seems an unlikely scenario.
 
 \subsection{Omnibus Test for KS and Burden}
@@ -43,7 +44,7 @@ I define the test statistic of the burden test as
   K_{Burden} = {(\sum^\gamma_{i=1} (y-\bar{y}) \times G_i)}^2
 \end{equation}
 
-in which $y$ is the vector of case-control status and $G$ the genotye matrix of size $n \times p$, in which $n$ is the number of samples.
+in which $y$ is the vector of case-control status and $G$ the genotype matrix of size $n \times p$, in which $n$ is the number of samples.
 This is equivalent to the form described in Section~\ref{sub:burden_test}.
 
 Hence one can combine the two tests by Fischer's method 
@@ -54,14 +55,14 @@ in which the test statistic $\chi^2$ follows a $\chi^2$-distribution with $4$ de
 I have choose to call this combined test statistic KSburden.
 
 Implementation of the KS, Burden and KSburden was done in C++ and can be found at \url{https://github.com/rmporsch/ksburden}.
-This repository also includes associated scripts and programs to repated simulations described within this manuscript.
+This repository also includes associated scripts and programs to repeated simulations described within this manuscript.
 
 \subsection{Simulation Study}
 \label{sub:simulation_study}
 
 In contrast to many other simulation studies on gene based tests I used real sequencing data in order to form the basis for my simulations.
-The main aim of using un-simulated data is to accuratly reflect the diversity of genes within the human genome as well as limitations commonly encountered in sequencing based studies.
-Most gene based tests are confronted with a varierty of small and medium gene lengths which is often not reflected in the original power estimations.
+The main aim of using un-simulated data is to accurately reflect the diversity of genes within the human genome as well as limitations commonly encountered in sequencing based studies.
+Most gene based tests are confronted with a variety of small and medium gene lengths which is often not reflected in the original power estimations.
 Hence I will make use of a large sequenced sample to investigate the statistical power of the KS and KSburden test.
 In the next section I will describe the sample used in my simulations as well as the simulation framework in general.
 
@@ -72,8 +73,8 @@ In the next section I will describe the sample used in my simulations as well as
 \label{ssub:Simulation_Framework}
 
 From the set of XXX genes I selected 50 genes at random which had at least 3 or more rare variants. 
-I defined mutation as rare if the minior allele frequency (MAF) was below 1\%. 
-Within $p$ postion of a selected gene I assigned causal status to $p_1 \ldots p_t$ positions, in which $t$ represents the total number of causal variants.
+I defined mutation as rare if the minor allele frequency (MAF) was below 1\%. 
+Within $p$ position of a selected gene I assigned causal status to $p_1 \ldots p_t$ positions, in which $t$ represents the total number of causal variants.
 For simplicity I assigned the causal cluster at the beginning of the gene.
 Within these simulations I gradually increased the size of the causal cluster to eventually cover the whole gene. 
 
@@ -91,13 +92,13 @@ This process was repeated until $500$ cases and an equal number of controls were
 \label{ssub:Application_of_the_KSburden}
 
 I will further use the UKBioBank data to apply the KSBurden test to investigate distributional differences of rare variants between aggressive and less aggressive individuals.
-As decribed in the previous chapter the UKBioBank is a chip-array data set.
-Commonly genotyped data is not applicable for rare variant testsing due to the low imputation quality of low frequency variants.
+As described in the previous chapter the UKBioBank is a chip-array data set.
+Commonly genotyped data is not applicable for rare variant testing due to the low imputation quality of low frequency variants.
 However, given a very large sample size, imputation quality is gradually improving.
 Therefore, allowing investigations of rare variants.
 Indeed, the UKBioBank is with over $150,000$ samples relatively large.
 As can be seen in figure~\ref{fig:imputation}, imputation quality is acceptable for variants with a frequency between 1\% and 0.1\%, given the commonly used quality score cut-off of $0.2$.
-Therefore, the execptional imputation quality of the UKBioBank data allows to perform gene based rare variant tests on array data.
+Therefore, the exceptional imputation quality of the UKBioBank data allows to perform gene based rare variant tests on array data.
 
 \begin{figure}[htpb]
   \centering
