@@ -17,7 +17,7 @@ The KS statistic $K$ is defined as the supremum of the absolute difference betwe
 	K_{ks} = \sup_x | F_A(x) - F_U(x) |
 \end{equation}
 
-While the KS test is distribution free when $F$ is continous, this is not the case with descrete data such as allele count.
+While the KS test is distribution free when $F$ is continous, this is not the case with descrete data, such as allele count.
 Indeed, application of the Kolmogorov distribution to obtain critical values for $K$ for discreate data yiels conservative estimates~\cite{Walsh1963,Conover1972}. 
 \citet{Conover1972} proposed an alternative way to obtain critical values given a hypothesized discrete distribution function.
 However, this approach is in general not feasible with samples sizes $>30$.
@@ -40,32 +40,11 @@ Thus it is desirable to combine the two test statistics in order to obtain a com
 
 I define the test statistic of the burden test as 
 \begin{equation}\label{eq:burden_simple}
-  K_{Burden} = {(\sum^\gamma_{i=1} (y-0.5) \times G_i)}^2
+  K_{Burden} = {(\sum^\gamma_{i=1} (y-\bar{y}) \times G_i)}^2
 \end{equation}
 
 in which $y$ is the vector of case-control status and $G$ the genotye matrix of size $n \times p$, in which $n$ is the number of samples.
 This is equivalent to the form described in Section~\ref{sub:burden_test}.
-
-\subsubsection{Relationship between KS and Burden Test}
-\label{ssub:Relationship_between_KS_and_Burden_Test}
-
-In order to combine the two test it is desirable to explore the relationship between the two tests.
-In contrast to the KS test, the Burden test makes use of the sum of all alleles in cases and controls respectivly alone.
-Hence we can rewrite the Equation~\ref{eq:burden_simple} as
-\begin{equation}
-  K_{burden} =  |\pmb{1}X_{A}  - \pmb{1}X_{U}|
-\end{equation}
-Lets assume that $\pmb{1}X_{A} = \pmb{1}X_{U}$ then we can rewrite the KS test as
-\begin{equation}
-  \begin{aligned}
-    K_{ks} & = \sup |F_{A(X)} - F_{U(X)}|  \\
-           & = \frac{1}{\pmb{1}X} \sup |(\pmb{1}X^{(A)}_i - \pmb{1}X^{(U)}_i)|
-  \end{aligned}
-\end{equation}
-Therefore, if $K_{ks}=0$ then $K_{Burden}$ must be $0$, suggesting that under the null of both KS and Burden the tests are not strictly independent.
-However, under the null of the burden test alone, given $\pmb{1}X_{A} = \pmb{1}X_{U}$, then $K_{Burden} = 0$ but the test statistic of the KS test is not necessarily $0$.
-Thus, the two tests can be consindered dependent if $K_{ks} = 0$.
-In the next section I will demonstrate that this is an unlikely scenario and that in pracitce the two tests can be seen as independent.
 
 Hence one can combine the two tests by Fischer's method 
 \begin{equation}
@@ -81,7 +60,7 @@ This repository also includes associated scripts and programs to repated simulat
 \label{sub:simulation_study}
 
 In contrast to many other simulation studies on gene based tests I used real sequencing data in order to form the basis for my simulations.
-The main aim of using un-simulated data is to accuratly reflect the diversity of genes within the human genome.
+The main aim of using un-simulated data is to accuratly reflect the diversity of genes within the human genome as well as limitations commonly encountered in sequencing based studies.
 Most gene based tests are confronted with a varierty of small and medium gene lengths which is often not reflected in the original power estimations.
 Hence I will make use of a large sequenced sample to investigate the statistical power of the KS and KSburden test.
 In the next section I will describe the sample used in my simulations as well as the simulation framework in general.
