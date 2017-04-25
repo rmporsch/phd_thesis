@@ -48,9 +48,9 @@ One can combine the two tests by Fischer's method
 	\chi^2_4 \sim - 2 (\ln(p_{KS}) + \ln(p_{Burden}))
 \end{equation}
 in which the test statistic $\chi^2$ follows a $\chi^2$-distribution with $4$ degrees of freedom.
-I have choose to call this combined test KSburden.
+I have choose to call this combined test KS-Burden.
 
-Implementation of the KS, Burden and KSburden was done in C++ and can be found at \url{https://github.com/rmporsch/ksburden}.
+Implementation of the KS, Burden and KS-Burden was done in C++ and can be found at \url{https://github.com/rmporsch/ksburden}.
 This repository also includes associated scripts and programs to repeated simulations described within this manuscript.
 
 \subsection{Simulation Study}
@@ -60,7 +60,7 @@ In contrast to most previous simulation studies investigating the statistical pr
 Thus, genotypes were not simulated but acquired from previous association studies.
 The main aim of using real data is to accurately reflect the diversity of genes within the human genome as well as limitations commonly encountered in sequencing based studies.
 Most gene based tests are confronted with a variety of small and medium gene lengths which is often not reflected in the original power estimations.
-Hence I will make use of a large sequenced sample to investigate the statistical properties of the KS and KSburden test.
+Hence I will make use of a large sequenced sample to investigate the statistical properties of the KS and KS-Burden test.
 
 \subsubsection{The Seed population: The Hirschsprung data}
 \label{ssub:The_Seed_population:_The_Hirschsprung_data}
@@ -68,7 +68,7 @@ Hence I will make use of a large sequenced sample to investigate the statistical
 Hirschsprung's disease is a rare congenital disorder occurring in about one of $5,000$ births~\cite{Amiel2001}.
 The here used sample contains X cases as well as XX controls.
 
-Further, only non synonymous exonic variants (stopgain, missense, startloss, stoploss) with an MAF $\leq 1\%$ were included in the analysis. 
+Further, only non synonymous exonic variants (frameshift, nonframeshift, stopgain, missense, startloss, stoploss, splicing) with an MAF $\leq 1\%$ were included in the analysis. 
 Overall frequency of rare non synonymous mutations are displayed in Figure~\ref{fig:num_var} and show great variations.
 In general, most genes have only a few rare variants and only a few large genes have more than 100 rare genetic mutations. 
 
@@ -84,7 +84,7 @@ In general, most genes have only a few rare variants and only a few large genes 
 \label{ssub:Simulation_Framework}
 
 From the set of $16,510$ genes I selected 50 genes at random which had at least 3 or more rare variants. 
-I defined mutation as rare if the minor allele frequency (MAF) was below 1\%. 
+Mutation were defined as rare if the minor allele frequency (MAF) was below or equal 1\%. 
 Within $p$ rare variants of a gene I assigned causal status to $p_1 \ldots p_t$ positions, in which $t$ represents the total number of causal variants.
 For simplicity I assigned the causal cluster at the beginning of the gene.
 Within these simulations I gradually increased the size of the causal cluster to eventually cover the whole gene. 
@@ -99,8 +99,8 @@ I assigned case status for each subjects whose $Y_i$ is above a certain liabilit
 Any subject above $q$ was assigned case status, while the remaining subjects were deemed to be controls.
 This process was repeated until $500$ cases and an equal number of controls were collected.
 
-\subsubsection{Application of the KSburden}
-\label{ssub:Application_of_the_KSburden}
+\subsubsection{Application of the KS-Burden}
+\label{ssub:Application_of_the_KS-Burden}
 
 The KSBurden test was further applied to the UK BioBank to investigate distributional differences of rare variants between aggressive and less aggressive individuals.
 As described in the previous chapter the UK BioBank is a chip-array data set.
