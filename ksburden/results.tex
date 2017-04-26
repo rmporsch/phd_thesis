@@ -8,14 +8,14 @@ Figure~\ref{fig:simulatedGeneRealData} displays the mean empirical power for eac
 In each scenario I considered a single causal region of size $\gamma$.
 The size of the causal region was defined relative to the total gene size.
 For example, given a gene with 10 rare variants and $\gamma=0.2$ then the first $2$ mutations defined as causal mutations.
-Empirical power was compared between SKAT, SKAT-O, KS, burden (CMC, BURDEN) and KS-Burden under different assumed effect sizes ($r^2=(0.002, 0.006, 0.009)$).
+Empirical power was compared between Skat, SkatO, KS, Burden (CMC, Burden) and KS-Burden under different assumed effect sizes ($r^2=(0.002, 0.006, 0.009)$).
 
 First of all, all tests are affected by the size of the causal cluster.
 As expected, KS and Skat greatly lose statistical power when $\gamma$ increases.
-The KS test showed greater statistical power between $\gamma=0.3$ and $\gamma=0.6$ than Skat, but KS suffers from a lose of power in situations in which $\gamma$ is very small (10\%).
-Further, the simple KS test performs better than SkatO at $\gamma=0.4$.
+The KS test showed greater statistical power between $\gamma=0.4$ and $\gamma=0.6$ than Skat.
+Further, the simple KS test performed slightly better than SkatO at $\gamma=0.4$.
 Both burden tests (CMC and Burden) show an monotonic increase in statistical power given an increase in $\gamma$.
-In addition, omnibus tests, that is SkatO and KS-Burden, are relatively unaffected by a change in $\gamma$, but KS-Burden seems to perform worse in simulations when $\gamma$ is small.
+In addition, omnibus tests, that is SkatO and KS-Burden, are relatively unaffected by a change in $\gamma$.
 Thus reflecting estimated statistical power of the KS test.
 
 Overall, KS-Burden is able to outperform SkatO across all but one simulation scenario.
@@ -26,32 +26,15 @@ Further, CMC and Burden seem to be equivalent in most circumstances.
   \centering
   \includegraphics[width=0.8\linewidth]{figures/combined_power_analysis.pdf}
   \caption{Estimated mean statistical power for five different causal cluster size $\gamma$ over selected 50 genes.
-    (A-C) display the different power estiamtions for each rare variant association test for $r^2=0.002, 0.006, 0.009$.
+    (A-C) Different power estiamtions for each rare variant association test for $r^2=0.002, 0.006, 0.009$.
     The percentage of causal mutations $\gamma$ are on the corresponding x-axis, while empirical power is on the y-axis.
     (D) Relative change in empirical power over changes in $\gamma$ for each assessed test.\label{fig:simulatedGeneRealData}}
 \end{figure}
 
-\subsection{Relationship between KS and Burden}
-\label{sub:relationship_between_ks_and_burden}
-
-As described in the previous section we aimed to investigate the relationship between the KS and Burden test.
-The Figure~\ref{fig:correlation_ks_burden} displays the relationship among the test statistics of both tests within all tested genes.
-As one can see there seems to be no relationship between the two tests under the null of both tests.
-
-\begin{figure}[ht!]
-  \centering
-  \includegraphics[width=0.8\linewidth]{example-image-a}
-  \caption{Correlation between test statistics of KS and Burden under the Null across selected genes.
-    No obvious correlation pattern can be detected.}\label{fig:correlation_ks_burden}
-\end{figure}
-
-Inspection of the type 1 error rate also suggests no major violations of the KSBurden test.
+In addition, assessment of the correlation between test statistics of KS and Burden test across assessed genes under the null was with $r=0.03$ small.
+Thus providing some evidence for the indecency of both tests. %TODO need to check this correlation again 
 
 \subsection{UKBioBank -- Aggression}
 \label{sub:ukbiobank_aggression}
 
-Next I applied the KSBruden test on the UKBioBank data.
-Specifically I investiaged distrivutional differences of rare variant across cases and controls.
 The QQ-plot for all tests is displayed in Figure~\ref{fig:qqplot_ksburden} and the top $10$ genes are shown in Table~\ref{tab:top_ksburden}.
-
-
