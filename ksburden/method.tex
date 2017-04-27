@@ -35,7 +35,7 @@ in which $K_b$ is the test statistic of the $b^{th}$ permuted sample.
 
 The KS test makes the strong assumption that in a given genomic region only a certain causal cluster of rare variants are related to the phenotype in question.
 This assumption does not contradict that of the burden test which assumes that all variants under investigation have the same direction of effect and can be seen as two sides of the same coin.
-Thus it might be desirable to combine the two test statistics in order to obtain a combined test statistic.
+Thus it might be desirable to combine the two test statistics in order to obtain a combined test statistic, given that those test statistics are independent.
 
 I define the test statistic of the burden test as 
 \begin{equation}\label{eq:burden_simple}
@@ -102,13 +102,13 @@ This process was repeated until $500$ cases and an equal number of controls were
 \subsubsection{Application of the KS-Burden}
 \label{ssub:Application_of_the_KS-Burden}
 
-The KSBurden test was further applied to the UK BioBank to investigate distributional differences of rare variants between aggressive and less aggressive individuals.
+The KS-Burden test was further applied to the UK BioBank to investigate distributional differences of rare variants between aggressive and non aggressive individuals.
 As described in the previous chapter the UK BioBank is a chip-array data set.
 Commonly genotyped data is not applicable for rare variant testing due to the low imputation quality of low frequency variants.
 However, given a very large sample size, imputation quality is gradually improving thus allowing investigations of rare variants.
 Indeed, the UK BioBank is with over $150,000$ samples relatively large.
-As can be seen in Figure~\ref{fig:imputation}, imputation quality is acceptable for variants with a frequency between 1\% and 0.1\%, given the commonly used quality score cut-off of $0.2$.
-Therefore, the exceptional imputation quality of the UK BioBank data allows to perform gene based rare variant tests on array data.
+Further, as can be seen in Figure~\ref{fig:imputation}, imputation quality is acceptable for variants with a frequency between 1\% and 0.1\%, given the commonly used quality score cut-off of $0.2$.
+Therefore providing sufficient high quality variants to investigate potential distributional differences.
 
 %\begin{figure}[htpb]
 %  \centering
