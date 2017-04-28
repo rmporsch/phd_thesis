@@ -105,14 +105,14 @@ Specifically, these genome wide association studies utilize common \acrfull{snp}
 \paragraph{What are \acrfull{snp}}
 \label{par:what_are_snp}
 SNPs are variations within the genome at a specific position and underly differences in traits and disease susceptibility. 
-For example, the replacement of the nucleotide cytosine (C) with tymine at a certain position within a strech of DNA is considered a \acrfull{snp}.
-Most SNPs have no effect or little effect on specific traits.
+For example, the replacement of the nucleotide cytosine (C) with tymine at a certain position within a stretch of DNA is considered a \acrfull{snp}.
+Most SNPs have no or little effect on specific traits.
 
-Before explaining association studies in more detail it is important to mention the concept of \acrfull{ld}.
+Before explaining the concept of association studies in more detail it is important to mention \acrfull{ld}.
 LD is `the nonrandom association of alleles at different loci'~\cite{Slatkin2008} and forms a marker of the population genetic mechanism that is at play within our genome.
-For example, two loci are said to be in high LD when allele $A$ at one loci co-occurs with allele $B$ at a different loci at a higher frequency then you would expect if the two loci were independent.
+For example, two loci are said to be in high LD when allele $A$ at one loci co-occurs with allele $B$ at a different loci at a higher frequency then one would expect if the two loci were independent.
 Hence the level of LD can be quantified as $D_{AB}=p_{AB} - p_{A}p_{B}$ in which in which $p_{AB}$ is the frequency that $A$ and $B$ occurs together wile $p_A$ and $p_B$ is the frequency of $A$ and $B$ respectively.
-If $D_{AB} \neq 0$ A and B are said to be in linkage disequilibrium, otherwise the two alleles are in linkage equailibrium ($D_{AB}=0$).
+If $D_{AB} \neq 0$ A and B are said to be in linkage disequilibrium, otherwise the two alleles are in linkage equilibrium ($D_{AB}=0$).
 Nevertheless, $D_{AB}$ depends on the frequencies of the alleles in questions and are therefore not always convenient.
 Therefore, LD between two loci is commonly measured in two different ways. 
 That is $D'$ and $r^2$.
@@ -133,12 +133,12 @@ Alternatively, one can also use the correlation coefficient between the two loci
 \end{equation}
 An important consequence for association studies is that an association between a trait and an allele is unlikely to be the actual causal SNP\@.
 An association between an SNP and a trait can arise out of multiple reasons.
-First, the association could represent the true effect and the particular SNP has a causal relationship to the trait in question.
-Second and more likely, the associated SNP is a proxy of the causal SNP since both are in high \acrshort{ld}.
+First, the association could represent the true effect and the particular SNP has a causal relationship on the trait in question.
+Second, and more likely, the associated SNP is a proxy of the causal SNP since both are in high \acrshort{ld}.
 Third, the association is a random fluctuation within the sample, and 
 fourth the association is due to confounding errors such as population stratification or genotyping errors.
 
-During the last decade the cost of obtaining a person's genome reduced rapidly.
+Nevertheless, during the last decade the cost of obtaining a person's genome reduced rapidly.
 This enabled the analysis of not only a few genetic markers but the whole genome.
 The analysis of the whole genome is called \acrfull{gwas}.
 Most GWAS are population based studies of unrelated samples and analyse genetic variations with a substantial frequency within the population, usually $\ge 1\%$.
@@ -147,30 +147,31 @@ Here it is important to note that all samples have distant relatives and the ter
 In fact it becomes increasingly difficult to establish the exact genetic relationship between two participants by SNPs alone as further those subjects are apart within the family tree.
 
 The association between an SNP and a trait can be expressed as a linear regression model for a continuous and binary phenotype.
-While other methods to estimate the effect exist, such as the $\chi^2$-test, a regression model allows to include multiple covariates.
-The inclusion of multiple covariates is crucial since it allows to adjust for confounding factors such as population stratification, sex, genotyping platforms and others.
+This allows the flexible inclusion of multiple covariates in order to adjust for possible confounding factors such as population stratification, sex, genotyping chip and others.
 I will now proceed with describing one of the most important confounder, population stratification.
 
 \subsection{Population Stratification}
 \label{ssec:population_stratification}
+
 Population stratification takes place when differences in the frequencies of alleles among cases and controls are not due to an causal relationship between the SNP and the trait.
 Rather it is caused by ancestral differences across populations.
-An association is affected by population stratification if the trait is more prevalent in one population while the allele frequencies vary across the populations as well.
+An association is affected by population stratification if the trait is more prevalent in one population while the allele frequencies vary across the populations.
 
 Commonly one can adjust for population stratification by the usage of \acrfull{pca}.
 PCA is a procedure which transforms a set of correlated variables into a set of linear uncorrelated once, called principle components (\acrshort{pc}).
 The number of PC can be smaller or equal that of the number of initial variables and the first PC accounts for most of the variability in the set of correlated variables.
 Each following PC explains the most variance constrained that it is orthogonal to the previous.
-Using PCA on a matrix of genotypes results in a set of PC which explain the genetic variation within the sample.
-Given the sample is a mixture out of multiple population with different ancestry the commutated PC will often have geographic interpretation.
+Using PCA on a matrix of genotypes results in a set of PCs which explain the genetic variation within the sample.
+Given the sample is a mixture out of multiple populations with different ancestry the computed PCs will often have geographic interpretation.
 Therefore including PCs into the association model will adjust for population stratification arising due to differences in allele frequencies and disease prevalence.
 
 \subsection{Multiple Testing}
 \label{ssec:multiple_testing}
+
 Testing a large amount of genetic variants without adjusting the significant threshold $\alpha$ results in a large number of falsely associated variants.
 Therefore adjustments of the significant threshold is necessary.
 For example, one could simply adjust $\alpha$ by the number of tests performed (Bonferroni threshold).
-However, this would result in an overly conservative threshold and in a number of false negative associations~\cite{Benjamini1995} since computed test statistics are not independent.
+However, this would result in an overly conservative threshold and in a number of false negative associations~\cite{Benjamini1995} since computed test statistics are not independent due to LD\@.
 Indeed,~\citet{Peer2008} estimated, based on data from the International Haplotype Map Consortium, the number of independent tests to be one million in Europeans and two million in African populations.
 Therefore most GWASs have used a threshold of $5\times 10^{-8}$.
 However, due to the introduction of larger sample sizes as well as better technology we are able to genotype variants with lower allele frequency.
@@ -179,7 +180,6 @@ Hence~\citet{Fadista2016} recently suggested to use $3\times10^{-8}$, $2\times10
 
 \acrshort{gwas} are useful in identifying molecular markers for traits and diseases.
 While there are multiple possible confounding factors, such as population stratification, methods have been developed to approach these problems successfully.
-The process of conducting a GWAS is now days well defined.
 However, usually GWAS do not deal with genetic variations with a frequencies below 1\%.
 Hence I will next give an overview of association studies of rare variants.
 
@@ -189,17 +189,16 @@ Hence I will next give an overview of association studies of rare variants.
 As already described above, studies on twins were able to assess the heritability of traits by considering the inter-correlation among MZ and DZ twins.
 Therefore, one would expect that the variance explained by all genetic variants combined would result in similar estimates.
 Unfortunately, for many traits, this is not the case.
-This is called the `Missing Heritability Problem'~\cite{Vineis2010}.
-A number of reasons have been suggested for the discrepancy between estimates in twin studies and those in GWAS\@.
+This is called the `Missing Heritability Problem'~\cite{Vineis2010} and a  number of reasons have been suggested for the discrepancy between estimates in twin studies and those in GWAS\@.
 
 First, the assumptions in twin studies might be violated and estimates are too high.
-In particular, studies on twins assume that the influences of shared enviormental factors influences MZ and DZ twins to the same extend.
+In particular, studies on twins assume that the influences of shared environmental factors influences MZ and DZ twins to the same extend.
 However, one can argue that MZ twins are treated by parents, teachers and peers differently resulting in a potential violation of the this equal environment assumption. 
 
 Second, GWASs only consider common variants and rare variants might account for the missing heritability.
-While most rare variants have little or no effet on traits, some rare variants have very large effects.
+While most rare variants have little or no effect on traits, some rare variants have very large effects.
 Indeed, a study on hight found that while most common variants only had small effects, some rare genetic variants resulted in a large increase in hight of up to $2cm$~\cite{Marouli2017}.
-This would indicate that rare variants can have a profound effect on common traits, suggesting that heritability estimations of common variantions alone might result in lower estimates.
+This would indicate that rare variants can have a profound effect on common traits, suggesting that heritability estimations of common variations alone might result in lower estimates.
 
 Third, epistasis is only insufficiently captured in most studies and could account for the differences.
 Indeed, many twin concordance rates indicate the presents of non-additive effects to some extend.
@@ -208,14 +207,14 @@ Therefore suggesting that epistastic effect might play a major role in humans as
 However, models which include gene-gene or even gene-gene-gene and higher order interactions are very computational intensive and require large datasets~\cite{Lippert2013}. 
 
 Fourth, gene-environment interaction could also explain partly the differences between the two types of studies.
-Similar to gene-gene interactions gene-enviorment interactions are computationally intensive and require large samples.
-However, in contrast to epistastic effects gene-enviorment interactions are more complex and might change over age depending on the trait in question.
-Hence assesment of the impact of gene-enviorment interactions on the missing heritability is diffucult to estiamte~\cite{Do2016,Kaprio2012}.
+Similar to gene-gene interactions gene-environment interactions are computationally intensive and require large samples.
+However, in contrast to epistastic effects gene-environment interactions are more complex and might change over age depending on the trait in question.
+Hence assesment of the impact of gene-environment interactions on the missing heritability is difficult to estimate~\cite{Do2016,Kaprio2012}.
 
 Fifth, gene regulatory components, such as RNA expression and methylation, might explain those differences.
-Indeed only recently large scale population based method have been made available to estimate the effect of regulatory componets on heritability~\cite{Trerotola2015}.
+Indeed only recently large scale population based method have been made available to estimate the effect of regulatory components on heritability~\cite{Trerotola2015}.
 Indeed gene expression altering epigenetic modifications have been shown to be heritable without affecting the underlying DNA sequence.
-This seperate model of inheritence, next to Mendelian heredity, would be undetectable in GWAS and could contribute to the missing heritability.
+This separate model of inheritance, next to Mendelian heredity, would be undetectable in GWAS and could contribute to the missing heritability.
 
 While a single reason for the missing heritability seems unlikely it is still an ongoing research objective to account for the differences.
 Further, the estimation of the narrow sense heritability, or the additive genetic effects, from genotyped data is not trivial.
