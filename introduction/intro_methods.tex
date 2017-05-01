@@ -108,30 +108,31 @@ SNPs are variations within the genome at a specific position and underly differe
 For example, the replacement of the nucleotide cytosine (C) with tymine at a certain position within a stretch of DNA is considered a \acrfull{snp}.
 Most SNPs have no or little effect on specific traits.
 
-Association analysis of common genetic variants are usually only applied to investiagte potential genetic markers of common traits and disorders.
+Association analysis of common genetic variants are usually only applied to investigate potential genetic markers of common traits and disorders.
 This is due to the hypothesised differences in the genetic architecture influencing common and rare disorders.
 One of the early successes in human genetics was the identification of multiple genetic markers in \textit{CFTR} which were causing cystic fibrosis.
-This was made possible with a techique called \textit{linkage analysis}, which made use of the segration of genetic markers across multiple families affected with the disorder~\cite{Kerem1989}.
-However, while this method was initally successful with a number of other rare disorders, such as Huntignton, common disorder, such as heard disease, psychiatric disorders as well as other, fared not that well.  
+This was made possible with a technique called \textit{linkage analysis}, which made use of the segregation of genetic markers across multiple families affected with the disorder~\cite{Kerem1989}.
+However, while this method was initially successful with a number of other rare disorders, such as Huntington, common disorder, such as heard disease, psychiatric disorders as well as other, fared not that well.  
 Implying that common and rare disorders have a different genetic architecture~\cite{Hirschhorn2005a}.
 
 \subsection{Common disease common variant hypothesis}
 \label{sub:common_versus_rare_genetic_variants}
 
 These differences lead to the development of the common disease common variant hypothesis.
-Specically, it suggests that common disorders are affected by genetic variantions which are also common in the population.
+Specially, it suggests that common disorders are affected by genetic variations which are also common in the population.
 While this hypothesis is rather simple it has some profound implications.
 
 First, it is unlikely that common variants will have a high penetrance and are the lone disease causing mutations.
-Specically, a common variants with a frequency of 45\% that directly cause a disorder would mean that also 45\% of the population would be affected by the disease.
+Specially, a common variants with a frequency of 45\% that directly cause a disorder would mean that also 45\% of the population would be affected by the disease.
+This frequency is also called \acrfull{maf}.
 This is unlikely to be the case and it is more likely that a given SNP only has a small effect of the disease.
-For example, an SNP might only slightly alter the gene expression of a particular gene and increase the overal risk for a disease.
+For example, an SNP might only slightly alter the gene expression of a particular gene and increase the overall risk for a disease.
 Implying that the correlation between the allele frequency and disease prevalence will be low.
-Thus, suggesting that common variants are unlilkely to have a high penetrance.
+Thus, suggesting that common variants are unlikely to have a high penetrance.
 
-This in turn also implies that multiple common variants affect a comon disorder.
+This in turn also implies that multiple common variants affect a common disorder.
 For example, twin studies have estimated the heritability of aggressive behavior at 50\%.
-If a single SNP has only a samll effect on the phenotype, then the total genetic risk must be distributed across multiple common genetic variants.
+If a single SNP has only a small effect on the phenotype, then the total genetic risk must be distributed across multiple common genetic variants.
 Figure~\ref{fig:rare_comon} displays the spectrum of genetic affects and allele frequency.
 
 \begin{figure}[htpb]
@@ -143,7 +144,7 @@ Figure~\ref{fig:rare_comon} displays the spectrum of genetic affects and allele 
 Overall the common disease common variant hypothesis has been tested numerous times.
 Most common SNPs identified in the last 10 years are of low effect and most disorders have multiple risk alleles~\cite{Welter2014}.
 Hence suggesting that the hypothesis holds true. 
-However this does suggest that all gentic variants of a common disorder is due to common SNPs allone.
+However this does suggest that all genetic variants of a common disorder is due to common SNPs alone.
 
 \subsection{Linkage Disequilibrium}
 \label{sub:linkage_disequilibrium}
@@ -178,17 +179,26 @@ Second, and more likely, the associated SNP is a proxy of the causal SNP since b
 Third, the association is a random fluctuation within the sample, and 
 fourth the association is due to confounding errors such as population stratification or genotyping errors.
 
-Nevertheless, during the last decade the cost of obtaining a person's genome reduced rapidly.
+\subsection{Association test}
+\label{sub:association_test}
+
+During the last decade the cost of obtaining a person's genome reduced rapidly.
 This enabled the analysis of not only a few genetic markers but the whole genome.
 The analysis of the whole genome is called \acrfull{gwas}.
 Most GWAS are population based studies of unrelated samples and analyse genetic variations with a substantial frequency within the population, usually $\ge 1\%$.
-This frequency is also called \acrfull{maf}.
-Here it is important to note that all samples have distant relatives and the term `unrelated' is used loosely.
-In fact it becomes increasingly difficult to establish the exact genetic relationship between two participants by SNPs alone as further those subjects are apart within the family tree.
+The association between an SNP $g$ and a trait $y$ of an individual $i$ can be expressed as a generalized linear regression model for a continuous and binary phenotype.
+\begin{equation}
+  g(E(y_i)) = \beta_0 + \beta_1g_i + \pmb{\beta_u}\pmb{U_i'} + \epsilon
+\end{equation}
+In which $\beta_0$ is the intercept (commonly ignored in GWAS settings) and $\beta_1$ the regression coefficient of a particular SNP\@.
+Further this model allows to add additional covariates $\pmb{U_i}$ to adjust for potential confounding factors.
+Possible confounding factors are population stratification, sex, genotyping chip and others.
+The link function $g(.)$ is a logit function for binary traits, while for quantitative traits no transformation is used (identity link function). 
 
-The association between an SNP and a trait can be expressed as a linear regression model for a continuous and binary phenotype.
-This allows the flexible inclusion of multiple covariates in order to adjust for possible confounding factors such as population stratification, sex, genotyping chip and others.
-I will now proceed with describing one of the most important confounder, population stratification.
+However, all association models assume that subjects are independent from each other.
+This is, however, not always achievable since all samples have distant relatives so the term `unrelated' is used loosely.
+In fact it becomes increasingly difficult to establish the exact genetic relationship between two participants by SNPs alone as further those subjects are apart within the family tree.
+This makes it even more important to consider population stratification as a possible confounding factor.
 
 \subsection{Population Stratification}
 \label{ssec:population_stratification}
