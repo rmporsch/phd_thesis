@@ -108,6 +108,46 @@ SNPs are variations within the genome at a specific position and underly differe
 For example, the replacement of the nucleotide cytosine (C) with tymine at a certain position within a stretch of DNA is considered a \acrfull{snp}.
 Most SNPs have no or little effect on specific traits.
 
+Association analysis of common genetic variants are usually only applied to investiagte potential genetic markers of common traits and disorders.
+This is due to the hypothesised differences in the genetic architecture influencing common and rare disorders.
+One of the early successes in human genetics was the identification of multiple genetic markers in \textit{CFTR} which were causing cystic fibrosis.
+This was made possible with a techique called \textit{linkage analysis}, which made use of the segration of genetic markers across multiple families affected with the disorder~\cite{Kerem1989}.
+However, while this method was initally successful with a number of other rare disorders, such as Huntignton, common disorder, such as heard disease, psychiatric disorders as well as other, fared not that well.  
+Implying that common and rare disorders have a different genetic architecture~\cite{Hirschhorn2005a}.
+
+\subsection{Common disease common variant hypothesis}
+\label{sub:common_versus_rare_genetic_variants}
+
+These differences lead to the development of the common disease common variant hypothesis.
+Specically, it suggests that common disorders are affected by genetic variantions which are also common in the population.
+While this hypothesis is rather simple it has some profound implications.
+
+First, it is unlikely that common variants will have a high penetrance and are the lone disease causing mutations.
+Specically, a common variants with a frequency of 45\% that directly cause a disorder would mean that also 45\% of the population would be affected by the disease.
+This is unlikely to be the case and it is more likely that a given SNP only has a small effect of the disease.
+For example, an SNP might only slightly alter the gene expression of a particular gene and increase the overal risk for a disease.
+Implying that the correlation between the allele frequency and disease prevalence will be low.
+Thus, suggesting that common variants are unlilkely to have a high penetrance.
+
+This in turn also implies that multiple common variants affect a comon disorder.
+For example, twin studies have estimated the heritability of aggressive behavior at 50\%.
+If a single SNP has only a samll effect on the phenotype, then the total genetic risk must be distributed across multiple common genetic variants.
+Figure~\ref{fig:rare_comon} displays the spectrum of genetic affects and allele frequency.
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figure/journal.pcbi.1002822.g001.png}
+  \caption{Spectrum of Disease Allele Effects~\cite{Bush2012}.}\label{fig:rare_comon}
+\end{figure}
+
+Overall the common disease common variant hypothesis has been tested numerous times.
+Most common SNPs identified in the last 10 years are of low effect and most disorders have multiple risk alleles~\cite{Welter2014}.
+Hence suggesting that the hypothesis holds true. 
+However this does suggest that all gentic variants of a common disorder is due to common SNPs allone.
+
+\subsection{Linkage Disequilibrium}
+\label{sub:linkage_disequilibrium}
+
 Before explaining the concept of association studies in more detail it is important to mention \acrfull{ld}.
 LD is `the nonrandom association of alleles at different loci'~\cite{Slatkin2008} and forms a marker of the population genetic mechanism that is at play within our genome.
 For example, two loci are said to be in high LD when allele $A$ at one loci co-occurs with allele $B$ at a different loci at a higher frequency then one would expect if the two loci were independent.
@@ -127,7 +167,7 @@ where
     \min\{p_A (1-p_B),\,(1-p_A) p_B\} & \text{when } D > 0
   \end{cases} 
 \end{equation*}
-Alternatively, one can also use the correlation coefficient between the two loci 
+Alternatively, one can also use the correlation coefficient $r$ between the two loci 
 \begin{equation}\label{eq:r2}
   r=\frac{D}{\sqrt{p_A(1-p_A)p_B (1-p_B)}}
 \end{equation}
@@ -268,7 +308,6 @@ Therefore resulting in a genetic correlation.
 Last, also parental effect can result in genetic corrections as displayed in Figure~\ref{fig:parental_effects}.
 Specifically, genetic components which cause trait $1$ in the parents might influence the child environment which in turn results in trait 2. 
 Nevertheless, the genetic correlations estimated by LD-score and GCTA are unable to distinguish between the possible sources of genetic correlations.
-%TODO include MR here?
 
 \begin{figure}[htp]
   \begin{subfigure}[t]{0.5\textwidth}
