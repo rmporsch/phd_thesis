@@ -137,7 +137,7 @@ Figure~\ref{fig:rare_comon} displays the spectrum of genetic affects and allele 
 
 \begin{figure}[htpb]
   \centering
-  \includegraphics[width=0.8\linewidth]{figure/journal.pcbi.1002822.g001.png}
+  \includegraphics[width=0.8\linewidth]{{figure/journal.pcbi.1002822.g001}.png}
   \caption{Spectrum of Disease Allele Effects~\cite{Bush2012}.}\label{fig:rare_comon}
 \end{figure}
 
@@ -183,22 +183,31 @@ fourth the association is due to confounding errors such as population stratific
 \label{sub:association_test}
 
 During the last decade the cost of obtaining a person's genome reduced rapidly.
-This enabled the analysis of not only a few genetic markers but the whole genome.
-The analysis of the whole genome is called \acrfull{gwas}.
+This enabled the analysis of not only a few genetic markers but the whole genome, called \acrfull{gwas}.
 Most GWAS are population based studies of unrelated samples and analyse genetic variations with a substantial frequency within the population, usually $\ge 1\%$.
-The association between an SNP $g$ and a trait $y$ of an individual $i$ can be expressed as a generalized linear regression model for a continuous and binary phenotype.
+The association between an SNP $g$ and a trait $y$, as well as additional covariates $\pmb{U}$, of an individual $i$ can be expressed as a generalized linear regression model for a continuous and binary phenotype.
 \begin{equation}
   g(E(y_i)) = \beta_0 + \beta_1g_i + \pmb{\beta_u}\pmb{U_i'} + \epsilon
 \end{equation}
 In which $\beta_0$ is the intercept (commonly ignored in GWAS settings) and $\beta_1$ the regression coefficient of a particular SNP\@.
-Further this model allows to add additional covariates $\pmb{U_i}$ to adjust for potential confounding factors.
+The vector $\pmb{\beta_u}$ of size $1\times p$ are the regression coefficients of $p$ covariates to adjust for potential confounding factors.
 Possible confounding factors are population stratification, sex, genotyping chip and others.
 The link function $g(.)$ is a logit function for binary traits, while for quantitative traits no transformation is used (identity link function). 
 
-However, all association models assume that subjects are independent from each other.
+Genotypes of each SNP can be organized to represent dominant, recessive, multiplicative, as well as additive models.
+For example, assuming at a given position the two genotypes are \textit{A} and \textit{a}.
+In a dominant model having one or two copies of \textit{A} increases disease risk ($AA > Aa > aa$).
+In contrast, a recessive model requires at least two copies of the risk allele ($AA > Aa = aa$).
+The multiplicative model assumes a quadratic increase in risk.
+If the risk of having the \textit{A} allele is $k$ than having two copies of the same allele is $k^2$.
+An additive model assumes a linear increase in risk for each additional allele copy.
+Thus if the risk of \textit{Aa} is $k$ then the risk doubles ($2k$) for \textit{AA}. 
+Despite these different models GWAS commonly use an additive model only since it has appropriate statistical power to detect dominant effects as well (while having reduced power for recessive effects)~\cite{Bush2012}.
+
+However, all association models assume that subjects are independent.
 This is, however, not always achievable since all samples have distant relatives so the term `unrelated' is used loosely.
 In fact it becomes increasingly difficult to establish the exact genetic relationship between two participants by SNPs alone as further those subjects are apart within the family tree.
-This makes it even more important to consider population stratification as a possible confounding factor.
+This makes it important to consider population stratification as a possible confounding factor.
 
 \subsection{Population Stratification}
 \label{ssec:population_stratification}
