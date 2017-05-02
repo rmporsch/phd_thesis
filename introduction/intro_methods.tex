@@ -101,8 +101,9 @@ Hence, in the next section I will outline the methods applied GWAS\@.
 Large scale genomic association studies have enabled researchers to investigate specific genetic factors associated with a certain trait.
 Hence, while twin studies were only able to give an estimate of the total contribution of genetic factors on a phenotype, association studies are able to elucidate the specific molecular basis of complex traits.
 Specifically, these genome wide association studies utilize common \acrfull{snp} and other genetic variations, to identify specific genetic markers associated with a certain trait.
+Common variants are usually genetic variations with a frequency $\ge 1\%$, also called \acrfull{maf}.
 
-\paragraph{What are \acrfull{snp}}
+\paragraph{What is an \acrfull{snp}}
 \label{par:what_are_snp}
 SNPs are variations within the genome at a specific position and underly differences in traits and disease susceptibility. 
 For example, the replacement of the nucleotide cytosine (C) with tymine at a certain position within a stretch of DNA is considered a \acrfull{snp}.
@@ -110,21 +111,22 @@ Most SNPs have no or little effect on specific traits.
 
 Association analysis of common genetic variants are usually only applied to investigate potential genetic markers of common traits and disorders.
 This is due to the hypothesised differences in the genetic architecture influencing common and rare disorders.
-One of the early successes in human genetics was the identification of multiple genetic markers in \textit{CFTR} which were causing cystic fibrosis.
-This was made possible with a technique called \textit{linkage analysis}, which made use of the segregation of genetic markers across multiple families affected with the disorder~\cite{Kerem1989}.
-However, while this method was initially successful with a number of other rare disorders, such as Huntington, common disorder, such as heard disease, psychiatric disorders as well as other, fared not that well.  
+
+This hypothesised difference between common and rare diseases originates from one of the early successes in human genetics.
+Specially the identification of multiple genetic markers in \textit{CFTR} which are responsible for cystic fibrosis.
+This was made possible by a technique called \textit{linkage analysis}, which made use of the segregation of genetic markers across multiple families affected by the disorder~\cite{Kerem1989}.
+However, while this method was initially successful with a number of other rare disorders, such as Huntington, common disorder, such as heart diseases, psychiatric disorders as well as other, fared not that well.  
 Implying that common and rare disorders have a different genetic architecture~\cite{Hirschhorn2005a}.
+Therefore leading to the development of the common disease common variant hypothesis.
 
 \subsection{Common disease common variant hypothesis}
 \label{sub:common_versus_rare_genetic_variants}
 
-These differences lead to the development of the common disease common variant hypothesis.
-Specially, it suggests that common disorders are affected by genetic variations which are also common in the population.
-While this hypothesis is rather simple it has some profound implications.
+The common disease common variant hypothesis suggests that common disorders are affected by genetic variations which are also common in the population.
+This hypothesis, while simplistic, has some profound implications.
 
 First, it is unlikely that common variants will have a high penetrance and are the lone disease causing mutations.
-Specially, a common variants with a frequency of 45\% that directly cause a disorder would mean that also 45\% of the population would be affected by the disease.
-This frequency is also called \acrfull{maf}.
+For example, a common variants with a frequency of 45\% that directly cause a disorder would mean that also 45\% of the population would be affected by the disease.
 This is unlikely to be the case and it is more likely that a given SNP only has a small effect of the disease.
 For example, an SNP might only slightly alter the gene expression of a particular gene and increase the overall risk for a disease.
 Implying that the correlation between the allele frequency and disease prevalence will be low.
@@ -141,10 +143,10 @@ Figure~\ref{fig:rare_comon} displays the spectrum of genetic affects and allele 
   \caption{Spectrum of Disease Allele Effects~\cite{Bush2012}.}\label{fig:rare_comon}
 \end{figure}
 
-Overall the common disease common variant hypothesis has been tested numerous times.
-Most common SNPs identified in the last 10 years are of low effect and most disorders have multiple risk alleles~\cite{Welter2014}.
-Hence suggesting that the hypothesis holds true. 
-However this does suggest that all genetic variants of a common disorder is due to common SNPs alone.
+Overall the common disease common variant hypothesis has been tested numerous times~\cite{Bush2012}.
+Most common SNPs identified in the last 10 years are of low effect and most common disorders have multiple risk alleles~\cite{Welter2014}.
+Therefore suggesting that the hypothesis holds true. 
+However this does suggest that all genetic contributions to a common disorder are due to common variants alone.
 
 \subsection{Linkage Disequilibrium}
 \label{sub:linkage_disequilibrium}
@@ -182,15 +184,12 @@ fourth the association is due to confounding errors such as population stratific
 \subsection{Association test}
 \label{sub:association_test}
 
-During the last decade the cost of obtaining a person's genome reduced rapidly.
-This enabled the analysis of not only a few genetic markers but the whole genome, called \acrfull{gwas}.
-Most GWAS are population based studies of unrelated samples and analyse genetic variations with a substantial frequency within the population, usually $\ge 1\%$.
-The association between an SNP $g$ and a trait $y$, as well as additional covariates $\pmb{U}$, of an individual $i$ can be expressed as a generalized linear regression model for a continuous and binary phenotype.
+The association between an SNP $g$ and a trait $y$, as well as additional covariates $\bm{U}$, of an individual $i$ can be expressed as a generalized linear regression model for a continuous and binary phenotype.
 \begin{equation}
-  g(E(y_i)) = \beta_0 + \beta_1g_i + \pmb{\beta_u}\pmb{U_i'} + \epsilon
+  g(E(y_i)) = \beta_0 + \beta_1g_i + \bm{\beta_u}\bm{U_i'} + \epsilon
 \end{equation}
 In which $\beta_0$ is the intercept (commonly ignored in GWAS settings) and $\beta_1$ the regression coefficient of a particular SNP\@.
-The vector $\pmb{\beta_u}$ of size $1\times p$ are the regression coefficients of $p$ covariates to adjust for potential confounding factors.
+The vector $\bm{\beta_u}$ of size $1\times p$ are the regression coefficients of $p$ covariates to adjust for potential confounding factors.
 Possible confounding factors are population stratification, sex, genotyping chip and others.
 The link function $g(.)$ is a logit function for binary traits, while for quantitative traits no transformation is used (identity link function). 
 
@@ -202,12 +201,8 @@ The multiplicative model assumes a quadratic increase in risk.
 If the risk of having the \textit{A} allele is $k$ than having two copies of the same allele is $k^2$.
 An additive model assumes a linear increase in risk for each additional allele copy.
 Thus if the risk of \textit{Aa} is $k$ then the risk doubles ($2k$) for \textit{AA}. 
-Despite these different models GWAS commonly use an additive model only since it has appropriate statistical power to detect dominant effects as well (while having reduced power for recessive effects)~\cite{Bush2012}.
-
-However, all association models assume that subjects are independent.
-This is, however, not always achievable since all samples have distant relatives so the term `unrelated' is used loosely.
-In fact it becomes increasingly difficult to establish the exact genetic relationship between two participants by SNPs alone as further those subjects are apart within the family tree.
-This makes it important to consider population stratification as a possible confounding factor.
+Despite these different models GWAS commonly use an additive model only since it has appropriate statistical power to detect dominant effects as well.
+Nevertheless, it is important to keep in mind that an additive model has  having reduced power for potential recessive effects~\cite{Bush2012}.
 
 \subsection{Population Stratification}
 \label{ssec:population_stratification}
@@ -222,7 +217,7 @@ The number of PC can be smaller or equal that of the number of initial variables
 Each following PC explains the most variance constrained that it is orthogonal to the previous.
 Using PCA on a matrix of genotypes results in a set of PCs which explain the genetic variation within the sample.
 Given the sample is a mixture out of multiple populations with different ancestry the computed PCs will often have geographic interpretation.
-Therefore including PCs into the association model will adjust for population stratification arising due to differences in allele frequencies and disease prevalence.
+Thus including PCs into the association model will adjust for population stratification arising due to differences in allele frequencies and disease prevalence.
 
 \subsection{Multiple Testing}
 \label{ssec:multiple_testing}
@@ -240,7 +235,6 @@ Hence~\citet{Fadista2016} recently suggested to use $3\times10^{-8}$, $2\times10
 \acrshort{gwas} are useful in identifying molecular markers for traits and diseases.
 While there are multiple possible confounding factors, such as population stratification, methods have been developed to approach these problems successfully.
 However, usually GWAS do not deal with genetic variations with a frequencies below 1\%.
-Hence I will next give an overview of association studies of rare variants.
 
 \section{Heritability and Genetic Correlation}
 \label{sec:heritability_and_genetic_correlation}
@@ -256,7 +250,7 @@ However, one can argue that MZ twins are treated by parents, teachers and peers 
 
 Second, GWASs only consider common variants and rare variants might account for the missing heritability.
 While most rare variants have little or no effect on traits, some rare variants have very large effects.
-Indeed, a study on hight found that while most common variants only had small effects, some rare genetic variants resulted in a large increase in hight of up to $2cm$~\cite{Marouli2017}.
+Indeed, a study on height found that while most common variants only had small effects, some rare genetic variants resulted in a large increase in hight of up to $2cm$~\cite{Marouli2017}.
 This would indicate that rare variants can have a profound effect on common traits, suggesting that heritability estimations of common variations alone might result in lower estimates.
 
 Third, epistasis is only insufficiently captured in most studies and could account for the differences.
@@ -268,12 +262,11 @@ However, models which include gene-gene or even gene-gene-gene and higher order 
 Fourth, gene-environment interaction could also explain partly the differences between the two types of studies.
 Similar to gene-gene interactions gene-environment interactions are computationally intensive and require large samples.
 However, in contrast to epistastic effects gene-environment interactions are more complex and might change over age depending on the trait in question.
-Hence assesment of the impact of gene-environment interactions on the missing heritability is difficult to estimate~\cite{Do2016,Kaprio2012}.
+Hence assessment of the impact of gene-environment interactions on the missing heritability is difficult to estimate~\cite{Do2016,Kaprio2012}.
 
-Fifth, gene regulatory components, such as RNA expression and methylation, might explain those differences.
-Indeed only recently large scale population based method have been made available to estimate the effect of regulatory components on heritability~\cite{Trerotola2015}.
-Indeed gene expression altering epigenetic modifications have been shown to be heritable without affecting the underlying DNA sequence.
-This separate model of inheritance, next to Mendelian heredity, would be undetectable in GWAS and could contribute to the missing heritability.
+Fifth, gene regulatory components, such as RNA expression and methylation, might explain the discrepancy between estimates.
+Methods investigating regulatory components have only been recently introduced for large scale population analysis and alteration of gene expression by epigenetic modifications could be heritable without affecting the underlying DNA sequence~\cite{Trerotola2015}.
+This separate model of inheritance, next to Mendelian heredity, would be undetectable in GWAS\@.
 
 While a single reason for the missing heritability seems unlikely it is still an ongoing research objective to account for the differences.
 Further, the estimation of the narrow sense heritability, or the additive genetic effects, from genotyped data is not trivial.
@@ -360,13 +353,14 @@ While these tools are able to estimate heritability and genetic correlations of 
 
 A possible suspect for the missing heritability are rare variants.
 Rare variants, commonly variants with a \acrfull{maf} of equal or below 1\%, have been suggested to explain the bulk of missing heritability~\cite{Jiang2013,Li2009a}.
-The drop in sequencing costs has allowed to conduct whole-exome and whole genome association studies~\cite{Goodwin2016}.
-However, in contrast to GWAS single variants are associates are largely unfeasible, unless sample size is very large~\cite{Lee2014}.
+Rare variants are commonly not accessible via micro array chips but only via the more cost intensive sequencing.
+However, the drop in sequencing costs has allowed to conduct whole-exome and whole genome association studies or rare variants~\cite{Goodwin2016}.
+In contrast to GWASs, single variants associations are largely unfeasible, unless sample size is very large~\cite{Lee2014}.
 Hence, considerable effort has been made to develop and deploy statistical methods to improve statistical power of rare variant association studies~\cite{Morris2010,Zeng2014,Daye2012,Manuscript2013}.
-Hence, instead of testing individual genetic markers most statistical test evaluate the combined effect of multiple genetic variations in a biological relevant region, such as a gene.
+Instead of testing individual genetic markers most statistical test evaluate the combined effect of multiple genetic variations in a biological relevant region, such as a gene.
 In general one can divide such approaches into burden and variance component tests.
 I will first introduce the general statistical model for the two tests.
-Following I will outline each class of test and evaluate their benefits and drawbacks.
+Following I will outline each test class and evaluate their benefits and drawbacks.
 
 Assuming that $y_i$ for subject $i$ with mean $\mu_i$ follows a distribution in the quasi-likelihood family~\cite{Lee2014} with $n$ subjects in a region with $m$ variants, then
 \begin{equation}
@@ -404,7 +398,7 @@ The test statistic is defined as
 The test is robust to groupings of protective and damaging effects within the same region.
 However, also SKAT suffer from a reduction in statistical power in cases of high proportions of causal variants with the same direction~\cite{Derkach2013a}.
 
-Therefore, variance-component tests are generally more powerful than burden tests if a region has many non-causal variants or when the effects of a genomic regions are bi-directional.
+To summarise, variance-component tests are generally more powerful than burden tests if a region has many non-causal variants or when the effects of a genomic regions are bi-directional.
 In contrast burden tests perform better in scenarios where most causal variants have the same direction of effect.
 This has led to the development of omnibus tests to combine burden and variance component tests, most notably SKAT-O~\cite{Lee2012}.
 \bigskip
