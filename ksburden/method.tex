@@ -111,10 +111,22 @@ This process was repeated until $500$ cases and an equal number of controls were
 The KS-Burden test was further applied to the UK BioBank to investigate distributional differences of rare variants between aggressive and non aggressive individuals.
 As described in the previous chapter the UK BioBank is a chip-array data set.
 Commonly genotyped data is not applicable for rare variant testing due to the low imputation quality of low frequency variants.
-However, given a very large sample size, imputation quality is gradually improving thus allowing investigations of rare variants.
+However, given a very large sample size, imputation quality is gradually improving thus allowing the investigations of rare variants.
 Indeed, the UK BioBank is with over $150,000$ samples relatively large.
-Further, as can be seen in Figure~\ref{fig:imputation}, imputation quality is acceptable for variants with a frequency between 1\% and 0.1\%, given the commonly used quality score cut-off of $0.2$.
+As can be seen in Figure~\ref{fig:imputation}, imputation quality is acceptable for variants with a frequency between 1\% and 0.1\%, given the commonly used quality score cut-off of $0.2$.
 Therefore providing sufficient high quality variants to investigate potential distributional differences.
+
+Similar quality control was applied as in previuos described usages of the UKB\$.
+Basic quality control and imputation was performed central with the UKB\$.
+Participants of non-caucasion ethnicity were excluded, as determined by a k-mean cluster of the first 3 principle components.
+Variants which whose missing call rate did exceed 10\%, those which have an information score less than $0.2$, as well as those with minor allele frequency greater than 1\% were excluded.
+Further variants which did not pass a Hardy-Weinberg equilibrium test threshold of $1\times10^{-9}$ were also removed from the analysis.
+
+Annotation of variants was done with KGGseq~\cite{Li2012b}
+Only non synonymous exonic variants (frameshift, nonframeshift, stopgain, missense, startloss, stoploss, splicing) were included (RefSeq gene annotations).
+In addition, genes with less or equal than $3$ variants were excluded from the analysis.
+This resulted in $16,709$ variants distributed across $3,481$ genes.
+
 
 %\begin{figure}[htpb]
 %  \centering
