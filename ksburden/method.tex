@@ -65,19 +65,25 @@ Hence I will make use of a large sequenced sample to investigate the statistical
 \subsubsection{The Seed population: The Hirschsprung data}
 \label{ssub:The_Seed_population:_The_Hirschsprung_data}
 
-Hirschsprung's disease is a rare congenital disorder occurring in about one of $5,000$ births~\cite{Amiel2001}.
-The here used sample contains X cases as well as XX controls.
+Hirschsprung's disease (HSCR) is a rare congenital disorder occurring in about one of $5,000$ births~\cite{Amiel2001}.
+The here used sample contains 464 cases as well as 498 controls analyzed by whole genome sequencing (36.6X median read depth).
+All patients are sporadic cases with known family history of HSCR and were recruited in China ($n=341$) and Hanoi, Vietnam ($n=102$).
+Controls were obtained from same or nearby cities in order to match the subpopulation of patients.
+Samples were excluded due to failure in heterozygosity, gender accordance, duplications and relatedness.
+Ethical outliers were removed by PCA resulting in a final set of 443 cases and 493 controls.
+Further, genotype level quality control was applied with KGGseq~\cite{Li2012b} and genotypes with quality less than 20 ($GQ<20$) or covered by less than 8 reads ($DP<8$) were excluded.
+In addition, variants with call rate $<0.9$ or those violating Hardy-Weinberg equilibrium ($P<1\times 10^{-5}$) were removed.
+This resulted in a final call set of 33.5 millions (M) SNVs and 3.3M indels, the majority of which are novel (61.5\% for SNVs and 68.7\% for indels). 
 
-Further, only non synonymous exonic variants (frameshift, nonframeshift, stopgain, missense, startloss, stoploss, splicing) with an MAF $\leq 1\%$ were included in the analysis. 
+Variants were then annotated for protein functions against the RefSeq gene annotations as well as population frequencies (1000 Genomes Project phase 3, ExAC and ESP).
+Only non synonymous exonic variants (frameshift, nonframeshift, stopgain, missense, startloss, stoploss, splicing) with an MAF $\leq 1\%$ were included in the simulations. 
 Overall frequency of rare non synonymous mutations are displayed in Figure~\ref{fig:num_var} and show great variations.
-In general, most genes have only a few rare variants and only a few large genes have more than 100 rare genetic mutations. 
+The number of rare variants per gene ranged from $3$ to $491$ with a median of $5$.
 
 \begin{figure}[htpb]
   \centering
   \includegraphics[width=0.6\linewidth]{figures/number_var_genes.pdf}
-  \caption{Overall frequency of rare non-synonymous mutations.
-    The range of rare variants per gene ranged from $3$ to $491$ with a median of $5$.
-  }\label{fig:num_var}
+  \caption{Overall frequency of rare non-synonymous mutations.}\label{fig:num_var}
 \end{figure}
 
 \subsubsection{Simulation Framework}
