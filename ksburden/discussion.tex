@@ -1,27 +1,29 @@
 \section{Discussion}
 \label{sec:discussion_ks}
 
-First, the KS-Burden test was able to outperform SkatO under all simulated scenarios.
+The KS-Burden test was able to outperform SkatO under all simulated scenarios.
 Further, the KS-Burden test performed better than the classical Burden tests in all but one case.
-This demonstrate that the combination of KS and classical Burden test is able to provide potential greater statistical power by considering clusters of disease causing mutations.
+This demonstrate that the combination of KS and classical Burden test is able to provide potential greater statistical power when considering clusters of disease causing mutations.
 Further, the simple KS test performed well in scenarios which contained mostly neutral variants and was even able to perform equally well as SkatO in scenarios in which more then 2/5 of all included variants were neutral.
-Thus suggesting that the KS test is even able to detect a disease causing gene in situations in which the causal cluster is large.
+Thus suggesting that the KS test is able to detect a disease causing gene in situations in which the causal cluster is large.
 This is important since it is common practice to filter out potential neutral genetic variants via bioinformatic annotations which can lead to a significant increase in causal cluster size.
 
-Nevertheless, the combined KS-Burden test is able to compensate shortcomings of the KS test by combining it with the classical Burden test statistic while keeping the false positive rate acceptable while assuming indecency of the two tests.
-However, this independence does not necessary hold in all circumstances.
-While the here simulated scenarios suggest rather uncorrelated test statistic it is unfeasible to explore all possible situations.   
-Nevertheless, by simulating over 50 randomly drawn genes the here presented results suggest that the KS test as well as Burden act independent.
+As expected the KS test lost considerable statistical power when the propotion of causal variants increases.
+Nevertheless, the combined KS-Burden test is able to compensate these shortcomings by combining it with the classical Burden test statistic while assuming indecency of the two tests.
+While simulations are unable to prove independency of the two test statistics, the here presented simulations represent realistic and practical scenarios and are suggesting that in practice both tests act independently.
 
-A benefit of the KS test is further its simplicity.
+Interestingly, the performance of both KS and Skat are rahter similar.
+Both tests have the greatest statistical power in situations in which most variants are neutral but lose statistical power given a large proportion of causal variants.
+However, while Skat is able to maintain some degree of statistical power in situations which have a large percentage of causal mutations, the KS test loses nearly all statistical power in these scenarios.
+In contrast the KS test is able to perform better in the persents of a small causal cluster.
+
+However, a benefit of the KS test is its simplicity.
 Other spatial approaches to genomic data, most notably IL-K~\cite{Ionita-Laza2012}, KERNEL~\cite{Schaid2013} and CLUSTER~\cite{Lin2014}, make use of traditional clustering methods.
 These methodologies are commonly more complex than the KS test as well as computational intensive.
-In contrast the KS test is simpler while providing considerable statistical power in situations in with a clear causal cluster.
+In contrast the KS test is simpler while providing considerable statistical power in situations with a clear causal cluster.
 
 In addition to the here presented results the classical Burden and CMC test outperform all other statistical approaches when all genetic variants are causal.
 This is not surprising given that the Burden test assumes that all genetic variants have the same direction of effect.
-Further, Skat performs worse in these situations, much similar as the KS test.
-This is surprising given that the KS test should have no statistical power in situations in which all genetic variants are disease causing.
-However, this discrepancy can be explained by considering the length of used genes as well as the sample size.
-Specifically, given all genetic variants in a given genes are causal and should controls have at least $1$ genotype at any given position the supreme of the ecdfs between cases and controls will result in a large KS test statistic.
-Therefore resulting in an significant association.
+Further, Burden and CMC are equivalent in most scenarios.
+This is not surprising since the CMC tests the proportion of cases and controls which have at least one mutations, while the Burden tests the absolute differences of mutation between the two groups of subjects.
+Hence given large enough effect size the Burden and CMC will be equivalent.

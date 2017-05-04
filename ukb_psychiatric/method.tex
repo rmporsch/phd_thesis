@@ -7,7 +7,7 @@
 \subsubsection{UK BioBank}
 \label{ssub:uk_biobank_psych}
 
-The UK BioBank~\cite{Allen2014} has been described in the previous chapter (see~\ref{sub:uk_biobank}).
+The UK BioBank~\cite{Allen2014} has been described in the previous chapter in detail (see~\ref{sub:uk_biobank}).
 It is a population based sample of people age 40--69 years old. 
 Participants were recruited between 2006 and 2010 via mail invitation (response rate $5.47\%$)~\cite{Sudlow2015} and were assessed using self-report questionnaires. Other anthropometric measurements were also taken.
 As in the previous chapter, risk taking and impulsive aggression was chosen as the main phenotype of interest.
@@ -49,9 +49,7 @@ Association analysis of autosomal SNPs was performed with Plink~\cite{Purcell200
 \subsection{Genetic Correlation}
 \label{sub:genetic_correlation}
 
-Computation of genetic correlations were done with LD-score (see Section~\ref{sub:ld_score_regression}).
-Estimated effect sizes from this study were used to compute the genetic correlations between risk taking and impulsive aggression.
-Further, LD-hub~\cite{ZHENG2016}, a database containing over 200 different GWAS summary statistics, was used to compute genetic correlations between behavioral phenotypes and psychiatric disorders.
+Summary statistics of above described psychiatric studies were obtained from LD-Hub~\cite{ZHENG2016} and test statistics for aggression and risk raking, computed in the previous chapter, were used in order to estimate genetic correlations across used phenotypes.
 Multiple testing was addressed with the more stringent Bonferroni correction.
 
 \subsection{Mendelian Randomization}
@@ -62,9 +60,13 @@ Multiple testing was addressed with the more stringent Bonferroni correction.
 
 Mendelian randomization (MR) allows to infer potential causal effects from observational data in the presents of confounding factors. 
 It allows us to assess whether a specific risk factor (exposure) has a causal effect on a disease (outcome).
-MR makes use of measured variation in genetic variants with known association to a modifiable exposure.
+MR makes use of measured variation in genetic variants with known association to a modifiable exposure, also called instrument.
 Thus it assumes that certain genetic variants are associated with the exposure, and not with the outcome except through the exposure.
 These assumed relationship of this causal model are displayed in Figure~\ref{fig:causal}.
+Commonly genetic variants with well known effect on the exposure are used and can be seen as a `natural' randomized control trial since genotypes are passed randomly from parents to offspring.
+MR is based on a number of assumptions, most importantly that there is no direct relation between genetic variant and outcome as well as any other confounder.
+However, the use of single variants within an MR often results in underpowered studies~\cite{Bowden2015} since the effect of an given common SNP on any phenotype is usually small.
+This has led to the desire to use multiple genetic variants in order to improve statistical power to estimate causal effects between exposure and outcome.
 
 Assuming $J$ variants in $n$ subjects (indexed by $i$) were measured ($G_{i1}, G_{i2}, \ldots , G_{iJ}$),
 an exposure $X_i$ as well as an outcome $Y_i$.
@@ -91,9 +93,8 @@ The to estimate causal effect between exposure and outcome is $\beta$, while $\a
   }\label{fig:causal}
 \end{figure}
 
-
 Should $G_j$ be independent of confounder $U$,
-as well as associated with exposure $X$ and independent of outcome $y$ conditional on $X$, then variant $j$ is a valid instrument for X.
+as well as associated with exposure $X$ and independent of outcome $y$ conditional on $X$, then variant $j$ is a valid instrument for $X$.
 
 The reduced-form equation~\cite{Bowden2015} of~\ref{eq:rm_basic}, relating outcome with $G_j$, can be written as
 \begin{equation}
@@ -130,7 +131,7 @@ Based on these general assumptions and characteristics of Mendelian randomizatio
 \subsubsection{Applied MR Methods}
 \label{ssub:Used_Metheds}
 
-Due to differences in assumption and robustness of various methods~\citet{Burgess2016} proposed to use a multitude of different MR methods in order to assess potential causal relationships.
+Due to differences in robustness in regards to various potential assumption violations~\citet{Burgess2016} proposed to use a multitude of different MR methods in order to assess potential causal relationships.
 The estimated causal effects can then be judged over all all applied models.
 Further, a sensitivity analysis of each MR analysis was performed to investigate validity of the underlying assumptions~\cite{Burgess2016}.
 A sensitivity analysis investigates the validity of the causal inference by MR since it is implausible that all selected SNPs satisfy the instrumental variable assumption~\cite{Burgess2016}.
@@ -138,8 +139,8 @@ This is commonly done by assessing directional pleiotropy via funnel plots, inve
 
 Within this study I used four separated classes of methods.
 That is the inverse variance method (IVW), the weighted median method, as well as MR-Egger regression~\cite{Bowden2015}.
-Further I applied classical meta analysis methods with fixed~\cite{Nelson2015a} or random effects~\cite{Ahmad2015a}.
-Overall, these methods differ in their robustness to pleiotropy (or the effect non null effect of $\alpha_j$) as well as statistical power.
+Further I applied classical meta analysis methods with fixed~\cite{Nelson2015a} and random effects~\cite{Ahmad2015a}.
+Overall, these methods differ in their robustness to pleiotropy (or the effect non-null effect of $\alpha_j$) as well as statistical power.
 
 The IVW has been described already in the previous section (see Equation~\ref{eq:IVW}).
 The method, while having greater statistical power than other methods, assumes that all used variants are valid instruments.
@@ -176,8 +177,6 @@ Summary statistics were obtained from 4 different GWAS covering schizophrenia~\c
 Only pruned variants ($r^2=0.01$) were selected as instruments with $p\leq 5\times 10^{-5}$.
 Variants were then harmonized with summary statistics computed from the UK BioBank on risk taking and impulsive aggression. 
 MR analysis was performed with MR-Base~\cite{Hemani2016}.
-
-
 
 % Personally I think these MR methods are so fraught with problems in this application that I have nearly 0 belief in their accuracy. A simple correlation/logistic regression is enough to provide "suggestive" evidence of causality, and these generally come with a far smaller standard error. Adjustment for confounders will give us further evidence concerning the causal relationships. Another aspect which is totally neglected is that the measurements you have are imperfect measurement of an underlying traits. If you have more different kinds of measurements you would use a latent variable model to account for the imperfect nature of the measurements. This I believe has a massive impact on the results. Moreover, it's clear just from the introduction that all your measurements are tapping into some common personality or behavioural traits. Given this persepective, it doesn't make sense to consider whether one measurement causes another. They're simply different measurements of some underlying personality/behavioural tendency. It is clear from personal experience that these things influence one another. If you're angry, you're more likely to be impulsive. A history of impulsive behaviour can make you depressed. Depression can cloud your thinking leading to impulsive behaviour, and so on. Risk taking, especially sexual risk taking, can be due to a depressed state, hopelessness, etc. Furthermore, there's no consideration of the time scale of causality. To me these things are so complicated and interlinked that any attempt to simplify it into a simple causal odds ratio has next to no meaning, even if it can be done. (I mean, say you give me an odds ratio. I ask, what is your measurement? What time scale are you talking about?)
 

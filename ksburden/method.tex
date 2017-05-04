@@ -2,7 +2,7 @@
 \label{sec:method}
 
 Assuming $p$ variants and a dichotomous phenotype of $n$ subjects was acquired.
-For the $ith$ subjects lets denote $\pmb{G_i} = (G_{i1}, G_{i2},\ldots , G_{ip})$ and $y_i$ as the genotype as well as the phenotype respectively.
+For the $ith$ subjects lets denote $\bm{G_i} = (G_{i1}, G_{i2},\ldots , G_{ip})$ and $y_i$ as the genotype as well as the phenotype respectively.
 Further I assumed an additive genetic model and let $G_{ip} = 0, 1, 2$ represent the number of rare alleles at variant $p$.  
 
 One can then calculate the empirical cumulative distribution function (ecdf) for both cases ($F_{A(G)}$) and controls ($F_{U(G)}$) or any other dichotomous phenotype.
@@ -39,7 +39,7 @@ Thus it might be desirable to combine the two test statistics in order to obtain
 
 I define the test statistic of the burden test as 
 \begin{equation}\label{eq:burden_simple}
-  K_{Burden} = (\sum^p_{i=1} (\pmb{y}-\bar{y}) \times \pmb{G_i})^2
+  K_{Burden} = (\sum^p_{i=1} (\bm{y}-\bar{y}) \times \bm{G_i})^2
 \end{equation}
 This is equivalent to the form described in Section~\ref{sub:burden_test}.
 
@@ -116,10 +116,10 @@ Indeed, the UK BioBank is with over $150,000$ samples relatively large.
 As can be seen in Figure~\ref{fig:imputation}, imputation quality is acceptable for variants with a frequency between 1\% and 0.1\%, given the commonly used quality score cut-off of $0.2$.
 Therefore providing sufficient high quality variants to investigate potential distributional differences.
 
-Similar quality control was applied as in previuos described usages of the UKB\$.
-Basic quality control and imputation was performed central with the UKB\$.
+Similar quality control was applied as in previuos described usages of the UKB\@.
+Basic quality control and imputation was performed central with the UKB\@.
 Participants of non-caucasion ethnicity were excluded, as determined by a k-mean cluster of the first 3 principle components.
-Variants which whose missing call rate did exceed 10\%, those which have an information score less than $0.2$, as well as those with minor allele frequency greater than 1\% were excluded.
+Variants which whose missing call rate did exceed 10\%, those which have an information score less than $0.2$, as well as those with minor allele frequency greater than $1\%$ and those lower then $0.1\%$ were excluded.
 Further variants which did not pass a Hardy-Weinberg equilibrium test threshold of $1\times10^{-9}$ were also removed from the analysis.
 
 Annotation of variants was done with KGGseq~\cite{Li2012b}
@@ -127,9 +127,8 @@ Only non synonymous exonic variants (frameshift, nonframeshift, stopgain, missen
 In addition, genes with less or equal than $3$ variants were excluded from the analysis.
 This resulted in $16,709$ variants distributed across $3,481$ genes.
 
-
-%\begin{figure}[htpb]
-%  \centering
-%  \includegraphics[width=0.8\linewidth]{example-image-a}
-%  \caption{Imputation Quality of the UK BioBank}\label{fig:imputation}
-%\end{figure}
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figures/imputation_qc.png}
+  \caption{Imputation Quality of the UK BioBank~\cite{Marchini2015}}\label{fig:imputation}
+\end{figure}
