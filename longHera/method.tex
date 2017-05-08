@@ -30,7 +30,7 @@ Reduced sample size at age 9 can be explained by a shift in contacting scheme fr
 To gain a first impression of stability and heritability of aggression across age, longitudinal within person correlations, twin correlations and cross-twin-cross-age correlations were estimated for each cohort as a function of zygosity.
 Next, I applied longitudinal analyses to investigate to what extent preexisting and new genetic and environmental factors influence the dynamic development of aggression.
 Data from three time points (T1, T2, T3) in the two studies were analyzed, corresponding in NTR to data from ages 7, 10 and 12 years and in the TEDS cohort to ages 7, 9 and 12 years.
-A Cholesky decomposition was fitted to the raw data in which subsequent levels of problem behavior are influenced by latent variables (additive genetic, common environmental, and unique environmental variables) of the current as well as all prior ages (Figure 1).
+A Cholesky decomposition was fitted to the raw data in which subsequent levels of problem behavior are influenced by latent variables (additive genetic, common environmental, and unique environmental variables) of the current as well as all prior ages (Figure~\ref{fig:cholesky}).
 Hence, for each study (NTR and TEDS) and sex (males and females) the covariance matrix is expressed as a composition of 18 parameters (six parameters from the A, C and E variables to the phenotype, respectively).
 Using this decomposition, one can decompose variance into effects due to current and prior latent variables~\cite{Franic2014}.
 The significance of common environmental influences was tested by dropping the C effect from the model, and evaluating the drop in goodness of fit of the model.
@@ -41,3 +41,11 @@ Model comparisons were done by likelihood ratio tests.
 Parameter estimation was based on raw-data maximum likelihood in the open resource software OpenMx~\cite{Boker2011}.
 Based on the best fitting model I estimated the genetic and environmental influences on the variance of aggression at each age and the covariance between ages.
 In addition, I calculated the genetic and environmental correlations.
+
+\begin{figure}[htpb]
+  \centering
+  \scalebox{0.6}{\input{longHera/figure/cholesky.tex}}
+  \caption{Cholesky Model. Latent variables A1–A3 represent additive genetic factors of time point T1–T3.
+  Environmental components as well as means have been omitted for simplicity.
+Each age T is influenced by the current and all prior latent variables (A, C, E).}\label{fig:cholesky}
+\end{figure}
