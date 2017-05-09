@@ -1,0 +1,28 @@
+\begin{tikzpicture}[auto,node distance=.5cm,
+    latent/.style={circle,draw,very thick,inner sep=0pt,minimum size=15mm,align=center},
+    error/.style={circle,draw=none,thin,inner sep=0pt,minimum size=3mm,align=center},
+    manifest/.style={rectangle,draw,very thick,inner sep=0pt,minimum width=20mm,minimum height=10mm},
+    paths/.style={->, thick, >=stealth'},
+    twopaths2/.style={<->, ultra thick,bend left=90, >=stealth'},
+    twopaths1/.style={<->, ultra thick,bend right=90, >=stealth'},
+    mean/.style={draw, regular polygon, regular polygon sides=3, node distance=1cm, minimum height=3mm, inner sep=0pt}
+]
+
+% Define observed variables
+\node [latent] (A2) at (0,0) {A2};
+\node [latent] (A1) [left=3.5cm of A2] {A1};
+\node [latent] (A3) [right=3.5cm of A2] {A3};
+
+\node [manifest] (T1) [below=1.8cm of A1] {T1};
+\node [manifest] (T2) [below=1.8cm of A2] {T2};
+\node [manifest] (T3) [below=1.8cm of A3] {T3};
+
+\draw [paths] (A1.south) to node {} (T1);
+\draw [paths] (A2.south) to node {} (T2);
+\draw [paths] (A3.south) to node {} (T3);
+
+\draw [paths] (A1.south) to node {} (T2);
+\draw [paths] (A1.south) to node {} (T3);
+\draw [paths] (A2.south) to node {} (T3);
+
+\end{tikzpicture}
