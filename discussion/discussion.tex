@@ -36,6 +36,9 @@ However, twin studies commonly report high heritability estimates of aggression.
 Hence one can speculate that the remaining heritability might be explainable by considering gene-environmental interactions.
 This is in line with previous findings in regards to \textit{MAOA}-environment interactions described in Section~\ref{sub:interactions}.
 
+However, the here presented studies are unable to determine the origin of the differences in heritability estimates between twin and GWAS\@.
+One can speculate that the simplified instrument used with the GWAS, as well as the different operationalization, as well as definition of aggression has considerable contributed to the discrepancy, but other sources might also be possible.
+
 Nevertheless, the here presented studies represent the first extensive investigation of heritability in human aggression.
 The use of over $16,000$ twin pairs not only enabled a robust examination of genetic and environmental factors involved in childhood aggression, but also empowered a detailed analysis of potential sex and age differences.
 This analysis demonstrated that sex and age only had a minor affect on the estimated heritability.
@@ -62,7 +65,7 @@ For example, the high genetic correlations between depression and aggression cou
 This is a common problem in most, if not all of science.
 In the past statistical geneticists were rather unconcerned with these issues, however with the recent development of LD-score regression researchers are now able to compute genetic correlations with a number of phenotypes based on summary statistics alone.
 This had led to an explosion of genetic correlations~\cite{Bulik-Sullivan2015b,Bulik-Sullivan2015a}.
-Nevertheless, it remains unclear how to interpret these genetic correlations in regards to disease etiology.
+However, it remains unclear how to interpret these genetic correlations in regards to disease etiology.
 
 There have been some effort to understand genetic correlations in a more local sense.
 \citet{Shi2016a} (under review) showed that it is possible to partition genetic correlation across different genetic loci.
@@ -70,8 +73,8 @@ The authors showed that the cross trait correlation of 27 traits was mostly driv
 Further, a number of neglectable genetic correlations were highly correlated at 7 specific genomic areas.
 While these attempts are important in order to foster our understanding of the shared biological mechanisms across different disorders, they also can be useful in order to understand potential causal relationships across traits.
 Indeed,~\citet{Shi2016a} attempted to investigate putative causality by making use of genome wide significant SNPs within correlation clusters.
-For example, the authors demonstrated that the genome wide correlation between BMI and TG can be explained by considering the local correlations around SNPs which were significant in BMI but not TG\@.
-In contrast the local genetic correlation of SNPs significant in TG (Triglyceride) but not BMI was not significantly different from $0$.
+For example, the authors demonstrated that the genome wide correlation between BMI (Body Mass Index) and TG (Triglyceride) can be explained by considering the local correlations around SNPs which were significant in BMI but not TG\@.
+In contrast the local genetic correlation of SNPs significant in TG  but not BMI was not significantly different from $0$.
 Hence suggesting that BMI might have an causal effect on TG\@.
 However, while this method is an interesting approach it does not account for potential hidden variables.
 Specifically, shared genetic variants might affect a related or sub-phenotype that might be pleiotropic for both BMI and TG\@.
@@ -92,48 +95,116 @@ However, there are a number of theoretical and practical issues which might cons
 \label{sub:mendelian_randomization_discussion}
 
 MR has been popularised in the recent years, mainly by new developments such as MR-egger and others~\cite{Bowden2015}.
+However, it is mainly driven by a desire to understand the causal relationships among variables.
+
+\subsubsection{Causality and Mendelian Randomization}
+\label{ssub:causality_and_mendelian_randomization}
+
+MR can be seen as classical randomized control trails in which genetic variants are used to randomly assign subjects to either treatment or control group~\cite{Hingorani2005}.
+However, as~\citet{Burgess2016a} pointed out, the aim of randomized control trials and MR are different.
+While randomized control trails aim to evaluate the effectiveness of different treatment strategies, the main goal of MR is to assess differences in risk factors between genetically determined subgroups.   
+Only at a later stage MR aims to use this information to design non-genetic interventions.
+
+This further implies that the effect of any designed intervention will differ from the genetically determined effects estimated by MR\@.
+This is due to the length of the intervention (life long versus short term), the mechanism of intervention, as well as the magnitude of the intervention (genetic effects are usually small). 
+Hence one might question the usefulness of numerical MR estimates~\cite{Vanderweele2015}.
+
+In addition, it is also relevant to judge any MR in the background of the Brandford Hill criteria~\cite{Hill1965} to judge the plausibility of any causal connection.
+I will briefly outline each criteria and its connection to MR\@.
+
+\paragraph{Strength}
+\label{par:strength}
+It is important to note that a strong effect size of a given SNP, used as instrumental variable, on the exposure does not sign a strong causal connection between exposure and outcome.
+However, a weak association between SNP and exposure can lead to an underpowered MR\@.
+Nevertheless,~\citet{Vanderweele2015} questioned the use of  numerical estimates in MR and instead suggested to test only for the presences of a causal effect since magnitude of any intervention targeting the risk factor (exposure) does likely not correspond to the original MR estimate.
+In addition, MR estimates are usually of small effect (see Chapter~\ref{chap:ukb_psych}). 
+
+\paragraph{Temporality}
+\label{par:temporality}
+Commonly on can assume that DNA is determined at birth, therefore SNPs used as instrumental variables clearly proceed both outcome and exposure in time.
+
+\paragraph{Consistency}
+\label{par:consistency}
+\citet{Burgess2016a} suggested that a specific causal effect of a risk factor on an outcome becomes more plausible if multiple SNPs, which are associated with the risk factor, agree with the effect.
+However, it is important to note that this should include independent SNPs, preferably from different genes and genomic regions.
+
+\paragraph{Biological gradient}
+\label{par:biological_gradient}
+The causal influence of an exposure on an outcome becomes more plausible if genetic associations of the exposure are proportional to those of the outcome~\cite{Burgess2016a}.
+For example, SNPs with greater effect size on low-density lipoprotein cholesterol should also have greater effect size on coronary artery disease.
+However, this assumes that SNPs are independent and not in LD\@.
+
+\paragraph{Specificity}
+\label{par:specificity}
+A causal connection between an exposure and an outcome is more likely to be true if genetic associations are only with the exposure and not with a range of other potential confounders~\cite{Burgess2016a}.
+This reflects the assumptions underlying MR in general and emphasises the importance of the understanding about the biological function of SNPs used as instrumental variables.
+
+\paragraph{Plausibility}
+\label{par:plausibility}
+Similar to the previous statement, a causal estimate is more likely to be true given that the exact biological mechanism is known on how the genetic variant is affecting the exposure.
+
+\paragraph{Coherence}
+\label{par:coherence}
+The direction of causal estimations by MR and those by randomized control trials should be coherent.
+
+
+
+
+
+
+\subsubsection{Sensitivity analysis}
+\label{ssub:sensitivity_analysis}
+
 While these methods have been successful in some cases~\cite{Swerdlow}, there have been growing scepticism about its general usage~\cite{Thomas2010,Hemani2016,Brion2014,Voight2014,Burgess2016,Burgess2016a}. 
 This scepticism is due to the strong underlying assumptions made by all MR (see Section~\ref{sub:mendelian_randomization}).
-Specifically it is unlikely that a given SNP is associated with the exposure as well as independent of the outcome.
-Furthermore, MR assumes that a valid instrument is also independent of any potential confounder.
-These strong assumption might hold in specific circumstances.
-Specifically, genetic variants which specific biological function and mechanisms on an exposure is well understood is likely to fulfill these criteria.
+MR assumes that a given instrument is associated with the exposure and that the outcome is only affected by the instrument via the exposure.
+
+While these assumptions might be difficult to hold true in many traits, they might be true in specific circumstances.
+Specifically, genetic variants with specific biological function and mechanisms affecting an exposure is likely to fulfill these criteria.
 Indeed, a number of studies have shown causal effects in cardiovascular disorders with the help of MR~\cite{Swerdlow,Ference2015,Lieb2013,Voight2012a}.
 These studies made use of clearly defined and biological relevant SNPs as their instrumental variables.
-However, this luxury is often not given in many other studies.
-Behavioral traits, psychiatric disorders as well as other phenotypes might have genome wide significant associations but the explicit functions of these SNPs is rarely known.
-Thus most MR studies make use of statistical driven methods to chose SNPs as instrumental variables.
+Thus demonstrating that MR can produce valuable and important insight into the causal relationship between variables.
+
+However, this luxury is often not given in many other studies and information about the biological implications of associated variants are unknown.
+This scenario is common in behavioral traits, psychiatric disorders as well as other phenotypes.
+Thus many MR studies make use of statistical driven methods to chose SNPs as instrumental variables.
 However, as~\citet{Burgess2016a} pointed out, studies which make a statistical driven choice of instrumental variables are not true MR\@.
 These analysis can also be called `joint-association study'~\citet{Burgess2016a} and, as in Section~\ref{sub:mendelian_randomization}, underlying assumptions are only investigated post-hoc.
 Despite these limitations, non-null findings can still provide some evidence for a causal relationship, although in a less reliable way.
 
-\citet{Burgess2016a} suggested three different approaches to select genetic variants as potential instrumental  variables.
-A conservative approach would be to use genetic variants which have a high certainty to fulfill MR criteria.
-Thus there might be some biological information available which could suggest that the chosen SNPs are valid instruments.
+\citet{Burgess2016a} suggested three different approaches to select genetic variants as potential instrumental  variables in the absence of clear biological knowledge.
+First, the conservative approach would be to use genetic variants which have a high certainty to fulfill MR criteria.
+Thus there might be some indirect, but not conclusive, evidence that selected SNPs fulfill MR assumption criteria.
 A more liberal approach would be to select those genetic variants which are associated with the exposure but not the outcome or other measured confounders.
-While this approach is unable to address the influence of potential confounders, sensitivity analysis can be used to investigate potential assumption violations as in Chapter~\ref{cha:ukb_psych}.
+While this approach is unable to address the influence of potential confounders, sensitivity analysis can be used to investigate potential assumption violations, as done in Chapter~\ref{cha:ukb_psych}.
 The use of this more liberal selection criteria is commonly used in the absence of clear biological information.
 At last, all available SNPs withing the whole genome can also be used.
 However, while this approach removes the necessity to justify  selection criteria of instrumental variables it lacks theoretical legitimation~\cite{Burgess2016a} and can result in a number of false positive findings~\cite{Evans2013}.
 
-In Chapter~\ref{cha:ukb_psych} I made use of the liberal approach due to the lack of clear biological functional information.
-Furthermore, sensitivity analysis was used to investigate the robustness of findings.
-Within this post-hoc analysis funnel plots are commonly used to investigate potential directional pleiotropic effects.
+In Chapter~\ref{cha:ukb_psych} I made use of a liberal approach due to the lack of clear biological functional information.
+On the basis of three GWAS on depression, schizophrenia, and bipolar disorder I investigated potential causal effects on both risk taking and aggression.
+Importantly I chose a liberal p-value threshold for the inclusion of SNPs as instrumental variables.
+This was done in the desire to increase statistical power while assuring the robustness of the analysis.
+Following, a sensitivity analysis was used to investigate these findings on their robustness.
+However, while a sensitivity analysis, as shown in Figure~\ref{fig:sensitivity}, can provide valuable insight into possible assumption violations of instrumental variables.
+
+Specially, funnel plots are commonly used to investigate potential directional pleiotropic effects.
 Any asymmetry can be interpreted as a sign of directional pleiotropic effects.
-However, the visual inspection of funnel plots can be problematic.
+However, the visual inspection of funnel plots can be questionable.
 For example, a small number of used SNPs as instrumental variables can make the interpretation as either symmetric or asymmetric an difficult endeavour. 
 This issue is also present in the funnel plots of Figure~\ref{fig:sensitivity}.
 Specifically, the number of SNPs selected as instrumental variables for depressive symptoms and MDD are limited. 
 While increasing the number of SNPs can lead to an increase in statistical power it can also result false positive or false negative findings due to induced pleiotropic effects.
 This further demonstrates the importance of selecting valid SNPs as instrumental variables.
 Interestingly, nevertheless is that one of the strongest assumptions of funnel plots, which are commonly used in a meta-analysis setting, might not be a problem in MR analysis.
-Within an traditional meta-analysis funnel plots can provide an indication for potential publication bias\footnote{Obviously there is always a publication bias}.
+Within an traditional meta-analysis funnel plots can provide an indication for potential publication bias.
 A funnel plot is only a valid instrument to assess such a question when the effect size and sample of each used study are uncorrelated~\cite{Evans2013}.
 This is often not the case in many meta-analysis.
 For example, many studies use different instruments when measuring traits with larger sample sizes or might adjust sample size based on the effect size of previous studies~\cite{Simonsohn}.
-In contrast sample size of SNPs is rather constant, therefore funnel plots in MR do not suffer from the problem.
+In contrast sample size of SNPs is rather constant, therefore funnel plots in MR do not suffer from the same problem.
+In addition, MR-egger allows to test for potential pleiotropic effects by inspecting its intercept (see Section~\ref{ssub:Used_Metheds}).
 
-Similar to funnel plots the intercept of the MR-egger regression can give some indication of potential pleiotropic effects (see Section~\ref{ssub:Used_Metheds})
+An additional 
 
 \section{Conclusion}
 \label{sec:conclusion}
