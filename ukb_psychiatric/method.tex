@@ -58,7 +58,7 @@ Multiple testing was addressed with the more stringent Bonferroni correction.
 \subsubsection{General Methodology}
 \label{ssub:General_Methedology}
 
-Mendelian randomization (MR) allows to infer potential causal effects from observational data in the presents of confounding factors. 
+\arcfull{mr} allows to infer potential causal effects from observational data in the presents of confounding factors. 
 It allows us to assess whether a specific risk factor (exposure) has a causal effect on a disease (outcome).
 MR makes use of measured variation in genetic variants with known association to a modifiable exposure, also called instrument.
 Thus it assumes that certain genetic variants are associated with the exposure, and not with the outcome except through the exposure.
@@ -138,13 +138,13 @@ A sensitivity analysis investigates the validity of the causal inference by MR s
 This is commonly done by assessing directional pleiotropy via funnel plots, investigating heterogeneity, as well as test the reverse direction of causality.
 
 Within this study I used four separated classes of methods.
-That is the inverse variance method (IVW), the weighted median method, as well as MR-Egger regression~\cite{Bowden2015}.
+That is the \arcfull{ivm}, the weighted median method, as well as MR-Egger regression~\cite{Bowden2015}.
 Further I applied classical meta analysis methods with fixed~\cite{Nelson2015a} and random effects~\cite{Ahmad2015a}.
 Overall, these methods differ in their robustness to pleiotropy (or the effect non-null effect of $\alpha_j$) as well as statistical power.
 
-The IVW has been described already in the previous section (see Equation~\ref{eq:IVW}).
+The IVM has been described already in the previous section (see Equation~\ref{eq:IVW}).
 The method, while having greater statistical power than other methods, assumes that all used variants are valid instruments.
-Thus IVW is especially susceptible to presence of pleiotropy~\cite{Burgess2015b}.
+Thus IVM is especially susceptible to presence of pleiotropy~\cite{Burgess2015b}.
 In contrast the weighted median method first estimates the causal effect for each variant separately weighted by the inverse variance. 
 Following, estimates are then ranked and the median of this distribution is used to represent the estimated causal effect between exposure and outcome.
 This simple approach has the benefit that if at least 50\% of variants are valid instruments it will give consistent causal estimates.
