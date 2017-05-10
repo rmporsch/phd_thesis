@@ -5,25 +5,24 @@
 \label{sub:uk_biobank}
 The UK BioBank~\cite{Allen2014} is a population based study of people aged 40--69 years old. 
 Participants were recruited between 2006 and 2010 via mail invitation (response rate $5.47\%$)~\cite{Sudlow2015} and were assessed with the help of self-report questionnaires as well as other anthropometric assessments.
-Written informed consent was acquired from all participants and the study was approved by National Research Ethics Service Committee North West–Haydock, UK\@.
+Written informed consent was acquired from all participants and the study was approved by National Research Ethics Service Committee North West---Haydock, UK\@.
 
 \subsection{Phenotype}
 \label{sub:phenotype}
 
-Descriptive statistics of the two main phenotypes, risk taking and impulsive aggression,
-as well as secondary phenotypes, namely alcohol consumption, smoking status and neuroticism, was assessed.  
+Descriptive statistics on the two main phenotypes, risk taking and impulsive aggression,
+as well as secondary phenotypes, namely alcohol consumption, smoking status, and neuroticism, are presented in Table~\ref{tab:descriptive_gwas}.  
 Number of subjects available for each phenotype varies since not all subjects were assessed on each instrument.
-An overview of the number of samples for Caucasian and Non-Caucasian participants can be found in Table~\ref{tab:descriptive_gwas}.
+An overview of the number of samples for Caucasian and non-Caucasian participants is also presented.
 
 \subsubsection{Impulsive Aggression}
 \label{ssub:impulsive_aggression}
-Impulsive aggression was measured with a single item question.
+Impulsive aggression was measured with a single item.
 Participants were asked to answer the following question:
 \begin{displayquote}
   Have you ever had a period of time lasting at least two days when you were so irritable that you found yourself shouting at people or starting fights or arguments?
 \end{displayquote}
-Table~\ref{tab:descriptive_gwas} shows the number of participants for both Caucasian and non-Caucasian samples.
-The phenotype has a relatively high missingness rate within analysed subjects ($67.984\%$) with $40,861$ subjects answered with `no' wile $9,397$ answered with `yes'.
+The phenotype has a relatively high missingness rate within analysed subjects ($67.984\%$) with $40,861$ subjects answering `no' whhile $9,397$ answered `yes'.
 
 \subsubsection{Risk Taking}
 \label{ssub:risk_taking}
@@ -33,17 +32,17 @@ Participants were asked to answer the following question:
   Would you describe yourself as someone who takes risks?
 \end{displayquote}
 In contrast to the previous described question, risk taking has a relatively large sample size and low missingness rate ($3.81\%$).
-In total $107,011$ subject answered with `yes', while $39,435$ answered with `no' (see Table~\ref{tab:descriptive_gwas}).
+In total $107,011$ subjects answered `yes', while $39,435$ answered `no' (see Table~\ref{tab:descriptive_gwas}).
 
 \subsubsection{Secondary Phenotypes}
 \label{ssub:sec_pheno}
 
-Neuroticism was measured using the Eysenck Personality Questionnaire-Revised Short Form (EPQ-R-S)~\cite{Eysenck1985}. 
-The questionnaires is a 12 item long instrument in which respondents answer either `yes' (scored as 1), or `no' (scored as 0),
+Neuroticism was measured using the Eysenck Personality Questionnaire---Revised Short Form (EPQ-R-S)~\cite{Eysenck1985}. 
+The questionnaire is a 12 item instrument in which respondents answer either `yes' (scored as 1), or `no' (scored as 0),
 resulting in a total neuroticism score between 0 and 12.
-Alcohol consumption was measured with the help of a likert-scale.
+Alcohol consumption was measured with a likert-scale.
 Participants were asked to indicate their usual alcohol intake from either `Daily or almost daily' (scored as 6), `Three or four times a week' (scored as 5), `Once or twice a week' (scored as 4), `One to three times a month' (scored as 3), `Special occasions only' (scored as 2), or `Never' (scored as 1).
-Smoking status was infered by asking participants if they ever have smoked (scored ` for `yes' and 0 for `no').
+Smoking status was obtained by asking participants if they ever have smoked (scored 1 for `yes' and 0 for `no').
 
 
 \begin{table}[!htpb]
@@ -58,23 +57,23 @@ Smoking status was infered by asking participants if they ever have smoked (scor
 
 \subsection{Genetic analysis}
 \label{sub:genetic_analysis}
-This study made use of the imputed genetic data of the UK BioBank, compromising around $\sim73$ million SNPs, short indels and larger structural variations of $152,249$ subjects.
+This study made use of the imputed genetic data of the UK BioBank, compromising $\sim73$ million SNPs, short indels, and larger structural variations of $152,249$ subjects.
 Individuals were genotyped on two different custom genotype arrays, namely the UL BiLEVE as well as the UK BioBank Axiom array from Affymetrix. 
 UL BiLEVE was used for most samples ($\sim100,000$), while the array chip from Affymetrix, which was optimised to support genotype imputation, was used for the remaining participants. 
-Quality control and imputation was performed central with the UK BioBank.
+Quality control and imputation was performed by the UK BioBank.
 However, I further conducted additional quality control.
-Variants which whose missing call rate did exceed 10\% as well as those with minor allele frequency below 1\% were excluded.
+Variants whose missing call rate exceeded 10\% as well as those with minor allele frequency below 1\% were excluded.
 Further variants which did not pass a Hardy-Weinberg equilibrium test threshold of $1\times10^{-9}$ were also removed from the analysis.
-In addition I only included participants with `white European' ancestry identified by a k-mean cluster of the first four principle components of genotype data.
+In addition I only included participants with `white European' ancestry identified by a k-mean cluster of the first four principal components of genotype data.
 The total number of participants remaining after quality control of geno- and phenotype are displayed in Table~\ref{tab:descriptive_gwas}.
 
-Association analysis of autosomal SNPs was performed with Plink~\cite{Purcell2007,Chang2015} with age, sex, genotype array chip and the first 10 principle components as covariants.
+Association analysis of autosomal SNPs was performed with Plink~\cite{Purcell2007,Chang2015} with age, sex, genotype array chip, and the first 10 principal components as covariants.
 
 \subsection{Identification of lead SNPs}
 \label{sub:Clumping}
 
 Lead SNPs were identified using clumping.
-Clumping is the process of grouping SNPs within a given genomic window and LD together.
+Clumping is the process of grouping SNPs within a given genomic window and level of LD together.
 Various thresholds and window sizes can be used.
 Within this study the more commonly $250kb$ window region was applied.
 SNPs were considered to be within the same LD group when passing an threshold of $r^2 \ge 0.2$.
@@ -83,33 +82,33 @@ The SNPs with the lowest p-value within each group was considered the lead SNPs.
 \subsection{Conditional False Discovery Rate}
 \label{sub:conditional_false_discovery_rate}
 
-Pleiotropy informed Conditional False Discovery Rate (cFDR) was used to identify additional genetic loci associated with risk taking or impulsive aggression. 
+Pleiotropy-informed Conditional False Discovery Rate (cFDR) was used to identify additional genetic loci associated with risk taking or impulsive aggression. 
 In principle, cFDR makes use of pleiotropic effect between two phenotypes to increase statistical power.
 Within this analysis I computed the empirical cumulative distribution function on nominal p-values of phenotype A conditional on p-values of phenotype B passing a given threshold~\cite{Andreassen2013}.
-Further, I applied genomic control to all nominal p-values using the genomic inflation factor $\lambda_{GC}$ to all nominal p-values.
+Further, I applied genomic control to all nominal p-values using the genomic inflation factor $\lambda_{GC}$.
 This was done by converting p-values to z-scores, estimating the median z-score for each GWAS, and dividing the squared median z-score by the expected median of a $\chi^2$-distribution  with $df=1$.
 
-Conditional QQ-plots were constructed by plotting adjusted nominal p-values on the y-axis, while the empirical distribution function of p-values on the x-axis.
+Conditional QQ-plots were constructed by plotting adjusted nominal p-values on the y-axis, with the empirical distribution function of p-values on the x-axis.
 
-In addition, to conditional QQ plots I also made use of the conditional FDR (cFDR) which is defined as~\cite{Andreassen2013}
+In addition to conditional QQ plots, I also made use of the conditional FDR (cFDR) which is defined as~\cite{Andreassen2013}
 \begin{equation}
   FDR(p_1|p_2)=\pi_0(p_2)p_1/F(p_1|p_2)
 \end{equation}
 in which $p_1$ and $p_2$ are the p-values for the first and second phenotype.
 The function $F(p_1|p_2)$ is the conditional cdf which can be replaced by the conditional empirical distribution function.
 Further, $\pi_0(p_2)$ is the assumed conditional proportion of null SNPs for phenotype 1 given that that its p-values are smaller or equal that of the second phenotype.
-Within this study I followed a conservative approach by setting $\pi(p_2)=1$~\citet{Andreassen2013}.
+Within this study I followed a conservative approach by setting $\pi(p_2)=1$~\cite{Andreassen2013}.
 A SNP was considered of interest when its conditional FDR $\leq 0.01$.
 
 In addition, SNPs which passed $cFDR\leq 0.01$ were replicated in an independent sample.
-This independent sample was generated based on the non-Caucasian samples excluded in the initial discovery stage.
-In order to minimize the effect of populations stratification in this diverse sample, the same covariants were included during the computation as in the original discovery GWAS\@.
-Quality and potential population stratification was a assessed using LD-score regression as well as visual inspection of the QQ plot.
-This careful inspection did not detect any major population stratification in the non-Caucasian sample after including PC as covariats.
+This independent sample comprised the non-Caucasian samples excluded in the initial discovery stage.
+In order to minimize the effect of population stratification in this diverse sample, the same covariates were included during the computation as in the original discovery GWAS\@.
+Quality and potential population stratification was assessed using LD-score regression as well as visual inspection of the QQ plot.
+This careful inspection did not detect any major population stratification in the non-Caucasian sample after including PCs as covariates.
 
 \subsection{Genetic Correlation}
 \label{sub:genetic_correlation_ukb_assoc}
 
-Computation of genetic correlations were done with LD-score (see Section~\ref{sub:ld_score_regression} for further explanations).
+Computation of genetic correlations was done with LD-score regression (see Section~\ref{sub:ld_score_regression} for further explanations).
 Thus, pairwise genetic correlations were computed on the summary statistics of each GWAS\@.
-Multiple testing was addressed with the more srtringent Bonferroni correction.
+Multiple testing was addressed with the more stringent Bonferroni correction.
