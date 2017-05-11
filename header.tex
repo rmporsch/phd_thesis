@@ -2,7 +2,15 @@
 \usepackage{amsmath}
 \usepackage[margin=35mm]{geometry}
 \usepackage[acronym]{glossaries}
-\usepackage[backend=biber, natbib=true]{biblatex}
+
+\usepackage[backend=biber,
+refsection=chapter,
+natbib=true,
+url=false,
+doi=true,
+clearlang=true
+]{biblatex}
+
 \usepackage{tikz}
 \usetikzlibrary{arrows,positioning,shapes.geometric, calc}
 \usepackage{amsthm}
@@ -31,6 +39,10 @@
 \author{Robert Milan Porsch}
 \date{\today}
 \input{introduction/acronyms_intro.tex}
+\input{longHera/acry.tex}
+\input{ukb_assoc/acry.tex}
+\input{ukb_psychiatric/acry.tex}
+\input{ksburden/acrym.tex}
 %\tikzexternalize % for faster compilation
 
 \begin{document}
