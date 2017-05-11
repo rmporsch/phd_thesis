@@ -28,7 +28,7 @@ Thus providing some evidence for the indecency of both tests. %TODO need to chec
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=1.0\linewidth]{ksburden/figures/combined_power_analysis.pdf}
-  \caption{Estimated mean statistical power for five different causal cluster size $\gamma$ over selected 50 genes.
+  \caption[Estimated mean statistical power]{Estimated mean statistical power for five different causal cluster size $\gamma$ over selected 50 genes.
     (A--C) Different power estiamtions for each rare variant association test for $r^2=0.002, 0.006, 0.009$.
     The percentage of causal mutations $\gamma$ are on the corresponding x-axis, while empirical power is on the y-axis.
     (D) Relative change in empirical power over changes in $\gamma$ for each assessed test.\label{fig:simulatedGeneRealData}}
@@ -47,12 +47,12 @@ Inspection of the QQ-plot (see Figure~\ref{fig:qqplot_ksburden}) further suggest
     \ffigbox[7cm]{%
       \includegraphics[width=0.5\linewidth]{ksburden/figures/qqplot_aggression.pdf}
       }{%
-      \caption{QQ-plot of the KS-Burden Test.}\label{fig:qqplot_ksburden}
+      \caption[QQ-plot of KS-Burden Test]{QQ-plot of KS-Burden Test.}\label{fig:qqplot_ksburden}
     }
     \capbtabbox[7cm]{%
       \resizebox{7cm}{!}{\input{ksburden/tables/UKB_aggression_results.tex}}
       }{%
-      \caption{
+      \caption[KS-Burden Results]{
         Top 10 Genes based on the KS-Burden Test.
       Number of variants present in each given gene are indicated in the last column (No.Var)}\label{tab:top_ksburden}
     }
