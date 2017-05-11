@@ -2,20 +2,20 @@
 \label{sec:discussion_ks}
 
 The KS-Burden test was able to outperform SkatO under all simulated scenarios.
-Further, the KS-Burden test performed better than the classical Burden tests in all but one case.
+Furthermore, the KS-Burden test performed better than the classical Burden tests in all but one case.
 This demonstrate that the combination of KS and classical Burden test is able to provide potential greater statistical power when considering clusters of disease causing mutations.
 Further, the simple KS test performed well in scenarios which contained mostly neutral variants and was even able to perform equally well as SkatO in scenarios in which more then 2/5 of all included variants were neutral.
 Thus suggesting that the KS test is able to detect a disease causing gene in situations in which the causal cluster is large.
 This is important since it is common practice to filter out potential neutral genetic variants via bioinformatic annotations which can lead to a significant increase in causal cluster size.
 
-As expected the KS test lost considerable statistical power when the propotion of causal variants increases.
+As expected the KS test lost considerable statistical power when the proportion of causal variants increases.
 Nevertheless, the combined KS-Burden test is able to compensate these shortcomings by combining it with the classical Burden test statistic while assuming indecency of the two tests.
-While simulations are unable to prove independency of the two test statistics, the here presented simulations represent realistic and practical scenarios and are suggesting that in practice both tests act independently.
+While simulations are unable to prove independence of the two test statistics, the here presented simulations represent realistic and practical scenarios and are suggesting that in practice both tests act independently.
 
-Interestingly, the performance of both KS and Skat are rahter similar.
+Interestingly, the performance of both KS and Skat are rather similar.
 Both tests have the greatest statistical power in situations in which most variants are neutral but lose statistical power given a large proportion of causal variants.
 However, while Skat is able to maintain some degree of statistical power in situations which have a large percentage of causal mutations, the KS test loses nearly all statistical power in these scenarios.
-In contrast the KS test is able to perform better in the persents of a small causal cluster.
+In contrast the KS test is able to perform better in the presents of a small causal cluster.
 
 However, a benefit of the KS test is its simplicity.
 Other spatial approaches to genomic data, most notably IL-K~\cite{Ionita-Laza2012}, KERNEL~\cite{Schaid2013} and CLUSTER~\cite{Lin2014}, make use of traditional clustering methods.
@@ -24,6 +24,30 @@ In contrast the KS test is simpler while providing considerable statistical powe
 
 In addition to the here presented results the classical Burden and CMC test outperform all other statistical approaches when all genetic variants are causal.
 This is not surprising given that the Burden test assumes that all genetic variants have the same direction of effect.
-Further, Burden and CMC are equivalent in most scenarios.
-This is not surprising since the CMC tests the proportion of cases and controls which have at least one mutations, while the Burden tests the absolute differences of mutation between the two groups of subjects.
+Furthermore, Burden and CMC are equivalent in most scenarios since the CMC tests the proportion of cases and controls which have at least one mutations, while the Burden tests the absolute differences of mutation between the two groups of subjects.
 Hence given large enough effect size the Burden and CMC will be equivalent.
+
+Gene based analysis of rare variant within the UK BioBank suggest no genome wide significant associated gene.
+There are a number of possible reasons for these null findings.
+First, selected variants were chosen from an MAF band and did not included private mutations (mutations specific to a single individual).
+Specially, while most sequencing based studies are able to detect a number of genetic mutations unobserved in the past, micro array data makes use of imputations in order to obtain genotypes of rare variants.
+While this method works well for an MAF above 0.01\% it is unable to recover private mutations.
+Second, aggression is a common trait and all humans are able to express some form of aggressive behavior or have done so in the past (see Chapter~\ref{cha:introduction}).
+While rare variants have been show to considerable influence a number of common traits, such as height~\cite{Marouli2017}, no such findings have been made for behavioral traits~\cite{Chabris2015}.
+The result of here presented, and well powered, rare variant analysis on impulsive aggression are therefore in line with these previous null findings.
+
+Furthermore, it is important to note a few limitations of this study.
+An obvious limitation of the KS test is its inability to detect more than one causal cluster.
+A possible solution for this limitation would be to consigner the sum of the absolute difference between the two empirical cumulative distribution functions. 
+However, this would remove the option to clearly identify the location of a region within a gene. 
+Further, the current form of the KS does not allow the inclusion of variant weights.
+For example, one might to weight specific variants higher than other depending  on their corresponding deleterious score or MAF\@.
+Nevertheless, it is possible to include weights within the KS test by re-ordering variants based on their weights in exchange for the lose of locational information.
+At last there is also uncertainty about the independence between KS and Burden test.
+However, the here presented results suggests that the two tests act independently in most real world scenarios.  
+
+\subsection{Conclusion}
+\label{sub:conclusion_ks}
+Within this chapter I have shown that the KS tests as well as the KS-Burden test have completive statistical power compared to other commonly used tests (such as SkatO) in situations in which causal rare variants are cluster within a gene. 
+Furthermore, rare variant association study on impulsive aggression was unable to identify any genome wide significant genes.
+
