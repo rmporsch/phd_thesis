@@ -21,7 +21,7 @@ Hence in recent years omnibus tests, or the combination of burden and variance-c
 In general, burden tests aggregate single rare genetic variations.
 Thus assuming that all variants in a given genomic region have the same direction of effect.
 Violation of this assumption results in considerable reduction in statistical power.
-Examples of this methods include the \arcfull{cmc} test~\cite{Li2008}, as well as the weighted sum statistic~\cite{Madsen2009}.
+Examples of this methods include the \acrfull{cmc} test~\cite{Li2008}, as well as the weighted sum statistic~\cite{Madsen2009}.
 
 Alternatively, variance-component tests do not assume uni-directional effect of all included variants. 
 These methods investigate the distribution of genetic effects for a genomic region and are robust to variants with differing direction of effects.
@@ -41,6 +41,6 @@ Examples of spatial approaches of rare variant association tests are IL-K~\cite{
 These methods relay on kernel distance clustering and mostly computational intensive.
 
 I am here proposing a way to assess the differences in spatial organization by assessing the distributional differences of rare variants between cases and controls.
-To do so I make use of the well known \arcfull{ks} test.
+To do so I make use of the well known \acrfull{ks} test.
 I demonstrate, through extensive simulation, that our methods outperforms commonly used tests, such as SKAT and burden when the assumption of the KS-test are true.
 Further, I combine the KS and burden test to provide an omnibus approach to gene based tests while providing empirical evidence for their independency.

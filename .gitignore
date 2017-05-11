@@ -11,3 +11,5 @@
 *.ldb_latexmk
 *.fdb_latexmk
 *.fls
+*.bak
+
