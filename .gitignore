@@ -13,3 +13,14 @@
 *.fls
 *.bak
 *.gz
+header.acn
+header.acr
+header.alg
+header.glg
+header.glo
+header.gls
+header.ist
+header.lof
+header.lot
+header.pdf
+header.toc
