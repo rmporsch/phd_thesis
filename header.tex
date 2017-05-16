@@ -2,6 +2,8 @@
 \usepackage{amsmath}
 \usepackage[margin=35mm]{geometry}
 \usepackage[acronym,toc,automake]{glossaries}
+\usepackage[hidelinks]{hyperref}
+%\hypersetup{colorlinks=false}
 
 \usepackage[backend=biber,
 refsection=chapter,
@@ -49,6 +51,7 @@ clearlang=true
 \input{ksburden/acrym.tex}
 %\tikzexternalize % for faster compilation
 
+\AtBeginDocument{\let\textlabel\label}%
 \begin{document}
 \maketitle
 
