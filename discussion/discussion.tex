@@ -125,7 +125,7 @@ However, there are a number of theoretical and practical issues which might cons
 MR has been popularised in the recent years, mainly by new developments such as MR-egger and others~\cite{Bowden2015}.
 However, it is mainly driven by a desire to understand the causal relationships among variables.
 
-\subsubsection{Causality and Mendelian Randomization}
+\subsubsection{Mendelian Randomization and Randomized Control Trials}
 \label{ssub:causality_and_mendelian_randomization}
 
 MR can be seen as classical randomized control trails in which genetic variants are used to randomly assign subjects to either treatment or control group~\cite{Hingorani2005}.
@@ -134,60 +134,39 @@ While randomized control trails aim to evaluate the effectiveness of different t
 Only at a later stage MR aims to use this information to design non-genetic interventions.
 
 This further implies that the effect of any designed intervention will differ from the genetically determined effects estimated by MR\@.
-This is due to the length of the intervention (life long versus short term), the mechanism of intervention, as well as the magnitude of the intervention (genetic effects are usually small). 
-Hence one might question the usefulness of numerical MR estimates~\cite{Vanderweele2015}.
+This is due to the length of the intervention (life long versus short term), the mechanism of intervention, as well as the magnitude of the intervention (genetic effects are usually small)~\cite{Evans2015}. 
+Hence,~\citet{Vanderweele2015} questioned the use of  numerical estimates in MR and instead suggested to test only for the presences of a causal effect since magnitude of any intervention targeting the risk factor (exposure) does likely not correspond to the original MR estimate.
 
-In addition, it is helpful to judge any MR in the background of the Brandford Hill criteria~\cite{Hill1965} to evaluate the plausibility of any causal connection.
-I will briefly outline each criteria in the context to MR~\cite{Burgess2016a}.
+Thus the results presented in Chapter~\ref{cha:psychiatric_corr_mr} have to viewed in the context of experimental studies as well.
+Indeed, as described in Section~\ref{sec:discussion_ukb_psych}, a number of randomized control trials support the notion of a causal relationship between schizophrenia and impulsive aggression as well as risk taking. 
+However, it is unclear if other variables might mediate this relationship~\cite{Evans2015}.
 
-\paragraph{Strength}
-\label{par:strength}
-It is important to note that a strong effect size of a given SNP, used as instrumental variable, on the exposure does not sign a strong causal connection between exposure and outcome.
-However, a weak association between SNP and exposure can lead to an underpowered MR\@.
-Nevertheless,~\citet{Vanderweele2015} questioned the use of  numerical estimates in MR and instead suggested to test only for the presences of a causal effect since magnitude of any intervention targeting the risk factor (exposure) does likely not correspond to the original MR estimate.
-In addition, MR estimates are usually of small effect (see Chapter~\ref{cha:assocation_study_in_agggressive_behavior_and_risk_taking}). 
+Thus, while MR often have been described in terms of randomized control trials there are some important differences.
+However, MR can be useful in mining potential causal connections for future clinical trails~\cite{Evans2015}. 
+Furthermore, it provides a tool to understand the genetic correlations among multiple interconnected traits. 
+Nevertheless, crucial for the success or failure of an MR is the selection of valid instruments.
 
-\paragraph{Temporality}
-\label{par:temporality}
-Commonly on can assume that DNA is determined at birth, therefore SNPs used as instrumental variables clearly proceed both outcome and exposure in time.
+\subsubsection{Instrument selection}
+\label{ssub:instrument_selection}
 
-\paragraph{Consistency}
-\label{par:consistency}
-\citet{Burgess2016a} suggested that a specific causal effect of a risk factor on an outcome becomes more plausible if multiple SNPs, which are associated with the risk factor, agree with the effect.
-However, it is important to note that this should include independent SNPs, preferably from different genes and genomic regions.
-
-\paragraph{Biological gradient}
-\label{par:biological_gradient}
-The causal influence of an exposure on an outcome becomes more plausible if genetic associations of the exposure are proportional to those of the outcome~\cite{Burgess2016a}.
-For example, SNPs with greater effect size on low-density lipoprotein cholesterol should also have greater effect size on coronary artery disease.
-However, this assumes that SNPs are independent and not in LD\@.
-
-\paragraph{Specificity}
-\label{par:specificity}
-A causal connection between an exposure and an outcome is more likely to be true if genetic associations are only with the exposure and not with a range of other potential confounders~\cite{Burgess2016a}.
-This reflects the assumptions underlying MR in general and emphasises the importance of the understanding about the biological function of SNPs used as instrumental variables.
-
-\paragraph{Plausibility}
-\label{par:plausibility}
-Similar to the previous statement, a causal estimate is more likely to be true given that the exact biological mechanism is known on how the genetic variant is affecting the exposure.
-Indeed, a number of studies have shown causal effects in cardiovascular disorders with the help of MR~\cite{Swerdlow,Ference2015,Lieb2013,Voight2012a}.
-These studies made use of clearly defined and biological relevant SNPs as their instrumental variables.
+A number of studies have been successful in identifying causal relationships between exposures and outcomes.
+Most notable a number of studies have shown causal effects in cardiovascular disorders with the help of MR~\cite{Swerdlow,Ference2015,Lieb2013,Voight2012a}.
+However, notable these successes were based on a clear biological understanding on how the instrument will affect the exposure in question.
 Thus demonstrating that MR can produce valuable and important insight into the causal relationship between variables~\cite{Swerdlow}.
+
 However, this luxury is often not given in many other studies and information about the biological implications of associated variants are unknown.
 This scenario is common in behavioral traits, psychiatric disorders as well as other phenotypes.
-Thus many MR studies make use of statistical driven methods to chose SNPs as instrumental variables.
+Thus some MR studies make use of statistical driven methods to chose SNPs as instrumental variables.
+However, as~\citet{Burgess2016a} pointed out, studies which only use a statistical driven choice of instrumental variables and lack clear biological information are not true MR\@.
+These statistical driven MR might better be called `joint-association study'~\citet{Burgess2016a} in which the underlying assumptions are only investigated post-hoc.
 
-\paragraph{Coherence}
-\label{par:coherence}
-The direction of causal estimations by MR and those by randomized control trials should be coherent.
-\medskip
-
-Considering these, more common-sense, aspects to evaluate MR there has been some scepticism about the general usage of MR~\cite{Thomas2010,Hemani2016,Brion2014,Voight2014,Burgess2016,Burgess2016a}. 
-Specifically, many MR analysis make use of a statistical driven approach to select SNPs as instrumental variables.
-However, as~\citet{Burgess2016a} pointed out, studies which make a statistical driven choice of instrumental variables are not true MR\@.
-These analysis can also be called `joint-association study'~\citet{Burgess2016a} and, as in Section~\ref{sub:mendelian_randomization}, underlying assumptions are only investigated post-hoc.
-Despite these limitations, non-null findings can still provide some evidence for a causal relationship, although in a less reliable way.
-
+It is important to note that a strong effect size of a given SNP, used as instrumental variable, on the exposure does not sign a strong causal connection between exposure and outcome.
+However, a weak association between SNP and exposure can lead to an underpowered MR\@.
+Since genetic effects are small this would suggest the usage of multiple genetic variants as valid instruments.
+Indeed,~\citet{Burgess2016a} suggested that a specific causal effect of a risk factor on an outcome becomes more plausible if multiple SNPs, which are associated with the risk factor, agree with the effect.
+It is important to note that this should include independent SNPs, preferably from different genes and genomic regions.
+Nevertheless, it is unreasonable to assume that all genetic variants will be valid fulfill all underlying assumption of an MR\@.
+Thus multiple different methods have been developed in order to perform MR in the absence of clear biological information as well as to deal with possible assumption violations.
 
 \subsubsection{Joint-Association studies}
 \label{ssub:sensitivity_analysis}
@@ -199,7 +178,7 @@ A more liberal approach would be to select those genetic variants which are asso
 While this approach is unable to address the influence of potential confounders, sensitivity analysis can be used to investigate potential assumption violations, as done in Chapter~\ref{cha:ukb_psych}.
 The use of this more liberal selection criteria is commonly used in the absence of clear biological information.
 At last, all available SNPs withing the whole genome can also be used.
-However, while this approach removes the necessity to justify  selection criteria of instrumental variables it lacks theoretical legitimation~\cite{Burgess2016a} and can result in a number of false positive findings~\cite{Evans2013}.
+However, while this approach removes the necessity to justify  selection criteria of instrumental variables it lacks theoretical legitimation~\cite{Burgess2016a} and can result in a number of false findings~\cite{Evans2013}.
 
 In Chapter~\ref{cha:ukb_psych} I made use of a liberal approach due to the lack of clear biological functional information.
 On the basis of three GWAS on depression, schizophrenia, and bipolar disorder I investigated potential causal effects on both risk taking and aggression.
@@ -223,6 +202,23 @@ This is often not the case in many meta-analysis.
 For example, many studies use different instruments when measuring traits with larger sample sizes or might adjust sample size based on the effect size of previous studies~\cite{Simonsohn}.
 In contrast sample size of SNPs is rather constant, therefore funnel plots in MR do not suffer from the same problem.
 In addition, MR-egger allows to test for potential pleiotropic effects by inspecting its intercept (see Section~\ref{ssub:Used_Metheds}).
+However, it remains difficult to fully test for potential hidden variables. 
+
+Thus~\citet{Vanderweele2015} suggested that negative results might be more plausible when investigating potential causal connections.
+In particular, in light of the strong assumptions as well as inability to fully verify those assumptions empirically it might be more beneficial to test assumed causal relationships with the help of MR\@.
+However, this would require well powered studies with large sample sizes.
+Indeed, the UK BioBank as well as recent other consortia have shown that it is possible to acquire large sample sizes.
+While null results are not immune to biases, such bias would need to align perfectly in order to achieve an effect size of zero with a narrow confidence interval when in fact a true effect is present.
+An obvious draw back from this approach would be its inability to discover new interventions for various disorders. 
+
+However, it is important to emphasis that MR cannot make conclusive statements about the causal relationship between two variables.
+In order to establish a causal relationship a string of multiple evidence is necessary.
+MR can only play a part in this and numerous other additional studies are necessary to confirm a causal relationship.
+Furthermore, it is important to remember that in contrast to randomized control trial, MR commonly aims to detect small effect sizes.
+Hence increasing the difficulty to establish causal relationships. 
+
+To conclude, `joint-analysis' studies are able to identify potential causal relationships without clear biological insight.
+While empirical methods exist to test the underlying assumptions only additional evidences by randomized control trials or other form of studies will be able to fully confirm any potential causal relationship.
 
 \section{Conclusion}
 \label{sec:conclusion}
