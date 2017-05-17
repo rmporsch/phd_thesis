@@ -1,7 +1,7 @@
 \documentclass[12pt]{book}
 \usepackage{amsmath}
 \usepackage[margin=35mm]{geometry}
-\usepackage[acronym,toc,automake]{glossaries}
+\usepackage[acronym,automake]{glossaries}
 \usepackage[hidelinks]{hyperref}
 %\hypersetup{colorlinks=false}
 
@@ -31,6 +31,7 @@ clearlang=true
 \usepackage{bm}
 %\linespread{1.5}
 \usepackage{subfiles}
+%\usepackage[notbib,nottoc]{tocbibind}
 \usepackage{floatrow}
 \newfloatcommand{capbtabbox}{table}[][\FBwidth]
 
@@ -55,8 +56,11 @@ clearlang=true
 \begin{document}
 \maketitle
 
+\clearpage\null\newpage
 \thispagestyle{empty}
+\pagenumbering{roman}
 \tableofcontents
+\clearpage
 \listoffigures
 \listoftables
 \printglossary

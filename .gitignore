@@ -11,7 +11,7 @@
 *.ldb_latexmk
 *.fdb_latexmk
 *.fls
-*.bak
+*.tex.bak
 *.gz
 header.acn
 header.acr
@@ -24,3 +24,4 @@ header.lof
 header.lot
 header.pdf
 header.toc
+*.out
