@@ -1,46 +1,45 @@
 \section{Introduction}
 \label{sec:introduction_ksburden}
 
-As outlined in Section~\ref{cha:methods_applied_in_genetic_studies_on_humans} rare variants have been suspected to explain at least part of the missing heritability.
+As outlined in Section~\ref{cha:methods_applied_in_genetic_studies_on_humans}, rare variants have been suspected to explain at least part of the missing heritability.
 However, commonly applied genotyping arrays used in GWAS are often unable to detect rare variants.
-Specially, array genotyping chips often only tag a few thousand SNPs.
-Since LD is usally low across rare variants, imputation methods have diffiuclties recovering the missing SNPs, resulting in poor imputation quality of rare variants.
-In contrast sequencing based techinques are not limited to these problems and are able to identify rare variants, but come with a higher price tag.
+Specifically, array genotyping chips often only tag a few million SNPs.
+Since LD is usually low across rare variants, imputation methods have difficulties recovering the missing SNPs, resulting in poor imputation quality of rare variants.
+In contrast, sequencing based techniques are not limited by these problems and are able to identify rare variants, but come with a higher price tag.
 Only recently whole genome and exome sequencing have become cheaper, providing rich opportunities to study the relationship between rare genetic variants and complex human traits~\cite{Goodwin2016}.
 
-Considerable effort has been spend to develop and deploy statistical methods to discover important causal relationships between rare variants and complex traits~\cite{Morris2010,Zeng2014,Daye2012,Manuscript2013}.
-In Genome wide association studies (GWAS) single variants are associated with the trait in question.
+Considerable effort has been spent to develop and deploy statistical methods to discover important causal relationships between rare variants and complex traits~\cite{Morris2010,Zeng2014,Daye2012,Manuscript2013}.
+In genome wide association studies (GWAS), single variants are associated with the trait in question.
 This approach is largely unfeasible in rare variants due to their low frequency~\cite{Lee2014}.
 Thus most approaches have been focused on combining multiple rare variants in order to increase statistical power.
-This can be either done on the gene or pathway level, but for simplicity I will only consider gene based tests.
+This can be either done on the gene or pathway level, but for simplicity I will only consider gene-based tests.
 
-In general one can classify gene based tests into two larger categories, namely burden and variance-component tests~\cite{Lee2014}.
-These separate methods have differing assumption about the underlying genetic architecturer.
-Hence in recent years omnibus tests, or the combination of burden and variance-component tests, have become more common.
+In general, one can classify gene-based tests into two larger categories, namely burden and variance-components tests~\cite{Lee2014}.
+These separate methods have differing assumptions about the underlying genetic architecture.
+Hence in recent years omnibus tests, or the combination of burden and variance-components tests, have become more common.
 
-In general, burden tests aggregate single rare genetic variations.
-Thus assuming that all variants in a given genomic region have the same direction of effect.
+In general, burden tests aggregate single rare genetic variations, assuming that all variants in a given genomic region have the same direction of effect.
 Violation of this assumption results in considerable reduction in statistical power.
-Examples of this methods include the \acrfull{cmc} test~\cite{Li2008}, as well as the weighted sum statistic~\cite{Madsen2009}.
+Examples of this method include the \acrfull{cmc} test~\cite{Li2008}, as well as the weighted sum statistic~\cite{Madsen2009}.
 
-Alternatively, variance-component tests do not assume uni-directional effect of all included variants. 
+Alternatively, variance components tests do not assume uni-directional effect of all included variants. 
 These methods investigate the distribution of genetic effects for a genomic region and are robust to variants with differing direction of effects.
-Prominent example of variance-component tests are SKAT~\cite{Wu2011} and C-Alpha~\cite{Neale2011}.
+Prominent examples of variance components tests are SKAT~\cite{Wu2011} and C-Alpha~\cite{Neale2011}.
 These tests are more powerful compared to the burden approach in cases when the majority of rare variants are of neutral effect or if bi-directional effects are present.
-However, the burden tests are able to outperform variance-component based tests when a large proportion of variants have the same direction of effect.
-This has lead to the development of omnibus tests to combine both approaches.
-An example if these omnibus tests is SKAT-O~\cite{Lee2012a} which uses a linear combination of SKAT and burden tests statistics to derive a combined p-value.
-Alternative methods include the use of Fischer's methods to combine p-values from burden and SKAT~\cite{Derkach2013a}.
-These omnibus tests, although less powerful if one of the assumptions of burden or variance-component tests hold true, have demonstrated robust power~\cite{Lee2014}. 
+However, the burden tests are able to outperform variance components-based tests when a large proportion of variants have the same direction of effect.
+This has led to the development of omnibus tests to combine both approaches.
+An example of these omnibus tests is SKAT-O~\cite{Lee2012a} which uses a linear combination of SKAT and burden test statistics to derive a combined p-value.
+Alternative methods include the use of Fisher's method to combine $p$-values from burden and SKAT~\cite{Derkach2013a}.
+These omnibus tests, although less powerful if one of the assumptions of burden or variance components tests hold true, have demonstrated robust power~\cite{Lee2014}. 
 
-An often neglected aspect of rare variant tests are the position of these genetic variations.
+An often neglected aspect of rare variant tests is the position of these genetic variations.
 Multiple biological evidence has been reported in the past demonstrating clustering of causal rare variants within the genome~\cite{Ionita-Laza2012, Raab2010,Schaid2013,Fier2012}.
-It is biological plausible to suggest that rare deleterious mutations causally related to a considered trait might be more likely to be located in protein functional domains or gene regulatory elements~\cite{Fier2012}.
+It is biologically plausible to suggest that rare deleterious mutations causally related to a considered trait might be more likely to be located in protein functional domains or gene-regulatory elements~\cite{Fier2012}.
 A number of different tests have been proposed in order to take the location of rare variants into consideration when performing association tests.
-Examples of spatial approaches of rare variant association tests are IL-K~\cite{Ionita-Laza2012}, KERNEL~\cite{Schaid2013} and CLUSTER~\cite{Lin2014}.
-These methods relay on kernel distance clustering and mostly computational intensive.
+Examples of spatial approaches of rare variant association tests are IL-K~\cite{Ionita-Laza2012}, KERNEL~\cite{Schaid2013}, and CLUSTER~\cite{Lin2014}.
+These methods rely on kernel distance clustering and are mostly computationally intensive.
 
 I am here proposing a way to assess the differences in spatial organization by assessing the distributional differences of rare variants between cases and controls.
-To do so I make use of the well known \acrfull{ks} test.
-I demonstrate, through extensive simulation, that our methods outperforms commonly used tests, such as SKAT and burden when the assumption of the KS-test are true.
-Further, I combine the KS and burden test to provide an omnibus approach to gene based tests while providing empirical evidence for their independency.
+To do so I make use of the well-known \acrfull{ks} test.
+I demonstrate, through extensive simulation, that our methods outperform commonly used tests, such as SKAT and burden when the assumptions of the KS-test hold true.
+Furthermore, I combine the KS and burden test to provide an omnibus approach to gene-based tests while providing empirical evidence for their independence.
