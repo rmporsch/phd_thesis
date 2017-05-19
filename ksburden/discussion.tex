@@ -1,21 +1,20 @@
 \section{Discussion}
 \label{sec:discussion_ks}
 
-The KS-Burden test was able to outperform SkatO under all simulated scenarios.
-Furthermore, the KS-Burden test performed better than the classical Burden tests in all but one case.
-This demonstrate that the combination of KS and classical Burden test is able to provide potential greater statistical power when considering clusters of disease causing mutations.
-Further, the simple KS test performed well in scenarios which contained mostly neutral variants and was even able to perform equally well as SkatO in scenarios in which more then 2/5 of all included variants were neutral.
-Thus suggesting that the KS test is able to detect a disease causing gene in situations in which the causal cluster is large.
+The KS-Burden test was able to outperform SKAT-O under all simulated scenarios.
+Furthermore, the KS-Burden test performed better than the classical burden tests in all but one case.
+This demonstrates that the combination of KS and classical burden test is able to provide potentially greater statistical power when considering clusters of disease causing mutations.
+The simple KS test performed well in scenarios which contained mostly neutral variants and was even able to perform equally well as SKAT-O in scenarios in which more then 2/5 of all included variants were neutral, suggesting that the KS test is able to detect a disease causing gene in situations in which the causal cluster is large.
 This is important since it is common practice to filter out potential neutral genetic variants via bioinformatic annotations which can lead to a significant increase in causal cluster size.
 
-As expected the KS test lost considerable statistical power when the proportion of causal variants increases.
-Nevertheless, the combined KS-Burden test is able to compensate these shortcomings by combining it with the classical Burden test statistic while assuming indecency of the two tests.
-While simulations are unable to prove independence of the two test statistics, the here presented simulations represent realistic and practical scenarios and are suggesting that in practice both tests act independently.
+As expected, the KS test loses considerable statistical power when the proportion of causal variants increases.
+Nevertheless, the combined KS-Burden test is able to compensate these shortcomings by combining it with the classical burden test statistic while assuming indecency of the two tests.
+While simulations are unable to prove independence of the two test statistics, these simulations represent realistic and practical scenarios and are suggesting that in practice both tests act independently.
 
-Interestingly, the performance of both KS and Skat are rather similar.
+Interestingly, the performance of both KS and SKAT are rather similar.
 Both tests have the greatest statistical power in situations in which most variants are neutral but lose statistical power given a large proportion of causal variants.
-However, while Skat is able to maintain some degree of statistical power in situations which have a large percentage of causal mutations, the KS test loses nearly all statistical power in these scenarios.
-In contrast the KS test is able to perform better in the presents of a small causal cluster.
+However, while SKAT is able to maintain some degree of statistical power in situations which have a large percentage of causal mutations, the KS test loses nearly all statistical power in these scenarios.
+In contrast, the KS test is able to perform better in the presence of a small causal cluster.
 
 However, a benefit of the KS test is its simplicity.
 Other spatial approaches to genomic data, most notably IL-K~\cite{Ionita-Laza2012}, KERNEL~\cite{Schaid2013} and CLUSTER~\cite{Lin2014}, make use of traditional clustering methods.
