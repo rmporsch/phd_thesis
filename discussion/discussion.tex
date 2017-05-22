@@ -138,21 +138,18 @@ Thus suggesting that future studies might look at highly violent criminal offend
 \label{sec:phenotypical_and_genomic_correlations}
 
 As described in Chapter~\ref{cha:introduction}, the genetic overlap between aggression and other behavioral phenotypes is unknown.
-In Chapter~\ref{cha:assocation_study_in_agggressive_behavior_and_risk_taking} I have elucidated these previously unknown relationships with behavioral phenotypes, as well as in connection to psychiatric disorders (see Chapter~\ref{cha:psychiatric_corr_mr}).
-
+Chapter~\ref{cha:assocation_study_in_agggressive_behavior_and_risk_taking} as well as Chapter~\ref{cha:psychiatric_corr_mr} explored these genetic relationships.
 In particular I have shown considerable genetic correlations between aggression and risk taking, as well as with neuroticism, smoking and depression. 
 Especially interesting is the unusual high genetic correlation between aggression and depression.
+
 However, as described in Section~\ref{sec:heritability_and_genetic_correlation}, genetic correlations can arise from a multitude of different scenarios.
 Thus it remains unclear if these correlations arise from direct pleiotropic effects, are the cause of causal interactions across variables or are caused by other effects. 
-
-Interestingly, while genetic correlations are able to give some insight into the biological interconnectedness of traits, it is faced with the same problem as other correlation analysis. 
+Indeed, while genetic correlations are able to give some insight into the biological interconnectedness of traits, it is faced with the same problem as other correlation analysis. 
 For example, the high genetic correlations between depression and aggression could be caused by underlying but unobserved third, fourth or numerous other phenotypes.
-This is a common problem in most, if not all of science.
 
-In the past genetic correlations were only measurable in the presents of the raw genotyping and phenotype data.
+In the past, genetic correlations were only measurable in the presents of the raw genotyping and phenotype data.
 However with the recent development of LD-score regression researchers are now able to compute genetic correlations with a number of phenotypes based on summary statistics alone.
-This had led to an explosion of genetic correlations~\cite{Bulik-Sullivan2015b,Bulik-Sullivan2015a}.
-However, it remains unclear how to interpret these genetic correlations in regards to disease etiology.
+While this had led to an explosion of genetic correlations~\cite{Bulik-Sullivan2015b,Bulik-Sullivan2015a}, it remains unclear how to interpret these genetic correlations in regards to disease etiology.
 
 There have been some effort to understand genetic correlations in a more local sense.
 \citet{Shi2016a} (under review) showed that it is possible to partition genetic correlation across different genetic loci.
@@ -160,7 +157,7 @@ The authors showed that the cross trait correlation of 27 traits was mostly driv
 Further, a number of neglectable genetic correlations were highly correlated at 7 specific genomic areas.
 While these attempts are important in order to foster our understanding of the shared biological mechanisms across different disorders, they also can be useful in order to understand potential causal relationships across traits.
 Indeed,~\citet{Shi2016a} attempted to investigate putative causality by making use of genome wide significant SNPs within correlation clusters.
-For example, the authors demonstrated that the genome wide correlation between BMI (Body Mass Index) and TG (Triglyceride) can be explained by considering the local correlations around SNPs which were significant in BMI but not TG\@.
+For example, the authors demonstrated that the genome wide correlation between \acrfull{bmi} and \arcfull{tg} can be explained by considering the local correlations around SNPs which were significant in BMI but not TG\@.
 In contrast the local genetic correlation of SNPs significant in TG  but not BMI was not significantly different from $0$.
 Hence suggesting that BMI might have an causal effect on TG\@.
 However, while this method is an interesting approach it does not account for potential hidden variables.
@@ -175,14 +172,11 @@ Nevertheless, the availability of all relevant phenotype data within a single sa
 This makes the UK BioBank especially useful and further methodological development might be directed at using classical regression methods to further elucidate causal interrelationships among phenotypes variables.
 
 An additional interesting approach to further investigate genetic correlation structures is the use of Mendelian Randomization.
-I have used this popular approach in Chapter~\ref{cha:psychiatric_corr_mr} to demonstrated suggested causal effects of schizophrenia on both risk taking and aggression.
+I have used this popular approach in Chapter~\ref{cha:psychiatric_corr_mr} to demonstrated suggestive causal effects of schizophrenia on both risk taking and aggression.
 However, there are a number of theoretical and practical issues which might considerable question the validity of MR\@.
 
 \subsection{Mendelian Randomization}
 \label{sub:mendelian_randomization_discussion}
-
-MR has been popularised in the recent years, mainly by new developments such as MR-egger and others~\cite{Bowden2015}.
-However, it is mainly driven by a desire to understand the causal relationships among variables.
 
 \subsubsection{Mendelian Randomization and Randomized Control Trials}
 \label{ssub:causality_and_mendelian_randomization}
@@ -202,29 +196,38 @@ However, it is unclear if other variables might mediate this relationship~\cite{
 
 Thus, while MR often have been described in terms of randomized control trials there are some important differences.
 However, MR can be useful in mining potential causal connections for future clinical trails~\cite{Evans2015}. 
-Furthermore, it provides a tool to understand the genetic correlations among multiple interconnected traits. 
-Nevertheless, crucial for the success or failure of an MR is the selection of valid instruments.
+In this regard it is important to emphasis that large scale and hypothesis-free approaches to identify potential causal relationships in a large set of phenotypes need to be careful in regards to the underlying assumptions of MR\@.
+Indeed, careful testing of assumptions might be difficult when exploring hundreds of potential causal connections.
+Thus increasing the chance of potential false findings.
+However, MR can be valuable tool in understanding the genetic correlations among multiple interconnected traits. 
 
 \subsubsection{Instrument selection}
 \label{ssub:instrument_selection}
 
 A number of studies have been successful in identifying causal relationships between exposures and outcomes.
-Most notable a number of studies have shown causal effects in cardiovascular disorders with the help of MR~\cite{Swerdlow,Ference2015,Lieb2013,Voight2012a}.
-However, notable these successes were based on a clear biological understanding on how the instrument will affect the exposure in question.
-Thus demonstrating that MR can produce valuable and important insight into the causal relationship between variables~\cite{Swerdlow}.
+Most notable studies have shown causal effects of various traits, such has blood pressure, type-2 diabetes and BMI, on cardiovascular disorders with the help of MR~\cite{Swerdlow,Ference2015,Lieb2013,Voight2012a}.
+However, these successes were based on a clear biological understanding on how the instrument will affect the exposure in question.
 
 However, this luxury is often not given in many other studies and information about the biological implications of associated variants are unknown.
-This scenario is common in behavioral traits, psychiatric disorders as well as other phenotypes.
+This scenario is common in behavioral traits, psychiatric disorders as well as other complex phenotypes.
 Thus some MR studies make use of statistical driven methods to chose SNPs as instrumental variables.
-However, as~\citet{Burgess2016a} pointed out, studies which only use a statistical driven choice of instrumental variables and lack clear biological information are not true MR\@.
-These statistical driven MR might better be called `joint-association study'~\citet{Burgess2016a} in which the underlying assumptions are only investigated post-hoc.
+However, as~\citet{Burgess2016a} pointed out, studies which only use a statistical driven choice of instrumental variables and lack clear biological information are not true MR\@ and might better be called `joint-association study' in which the underlying assumptions are only investigated post-hoc.
 
-It is important to note that a strong effect size of a given SNP, used as instrumental variable, on the exposure does not sign a strong causal connection between exposure and outcome.
-However, a weak association between SNP and exposure can lead to an underpowered MR\@.
-Since genetic effects are small this would suggest the usage of multiple genetic variants as valid instruments.
+The lack of biological information has lead to the development of new statistical methods to use multiple SNPs as instrumental variables. 
 Indeed,~\citet{Burgess2016a} suggested that a specific causal effect of a risk factor on an outcome becomes more plausible if multiple SNPs, which are associated with the risk factor, agree with the effect.
-It is important to note that this should include independent SNPs, preferably from different genes and genomic regions.
-Nevertheless, it is unreasonable to assume that all genetic variants will be valid fulfill all underlying assumption of an MR\@.
+For example,~\citet{Burgess2013} suggested to use allele scores as instrumental variables.
+An allele score is either the weighted or unweighted sum of risk increasing alleles for a given subject.
+Indeed, usage of allelic scores from known biological markers were able to correctly replicate known causal relationships~\cite{Timpson2005,CReactiveProteinCoronaryHeartDiseaseGeneticsCollaborationCCGC2011}.
+However, while allelic scores variants with known biological implications have been found to explain a considerable proportion of variance in specific traits, genome-wide scores demonstrated low specificity~\cite{Evans2013}.
+Thus suggesting that there is currently little evidence which would recommend the use of genome-wide allelic scores as instruments.
+Furthermore, allelic scores make use of raw genotype data thus limiting this approach to only a few locally available phenotypes.
+
+In contrast two-sample and meta-analysis approaches (see Chapter~\ref{cha:psychiatric_corr_mr}) can make use of summary statistics only to infer potential causal relationships. 
+Since the effect of individuals genetic variants are small, these methods commonly make use of multiple independent loci.
+Here it is important to note that a strong effect size of a given SNP, used as instrumental variable, on the exposure does not sign a strong causal connection between exposure and outcome, but rather represent the strength of the instrument.
+A weak association between SNP and exposure, however, can result to an underpowered MR\@.
+
+Similar it is unreasonable to assume that all genetic variants will fulfill all underlying assumptions.
 Thus multiple different methods have been developed in order to perform MR in the absence of clear biological information as well as to deal with possible assumption violations.
 
 \subsubsection{Joint-Association studies}
@@ -232,49 +235,48 @@ Thus multiple different methods have been developed in order to perform MR in th
 
 \citet{Burgess2016a} suggested three different approaches to select genetic variants as potential instrumental  variables in the absence of clear biological knowledge.
 First, the conservative approach would be to use genetic variants which have a high certainty to fulfill MR criteria.
-Thus there might be some indirect, but not conclusive, evidence that selected SNPs fulfill MR assumption criteria.
-A more liberal approach would be to select those genetic variants which are associated with the exposure but not the outcome or other measured confounders.
-While this approach is unable to address the influence of potential confounders, sensitivity analysis can be used to investigate potential assumption violations, as done in Chapter~\ref{cha:psychiatric_corr_mr}.
+Hence SNPs with indirect, but not conclusive, evidence of biological implications on the exposure.
+These SNPs can be associated genetic variants which have been replicated in multiple different populations.
+A more liberal approach would be to select those genetic variants which are merely associated with the exposure but not the outcome or other measured confounders.
 The use of this more liberal selection criteria is commonly used in the absence of clear biological information.
+Sensitivity analysis can be used to investigate potential assumption violations, as done in Chapter~\ref{cha:psychiatric_corr_mr}.
 At last, all available SNPs withing the whole genome can also be used.
 However, while this approach removes the necessity to justify  selection criteria of instrumental variables it lacks theoretical legitimation~\cite{Burgess2016a} and can result in a number of false findings~\cite{Evans2013}.
 
 In Chapter~\ref{cha:psychiatric_corr_mr} I made use of a liberal approach due to the lack of clear biological functional information.
 On the basis of three GWAS on depression, schizophrenia, and bipolar disorder I investigated potential causal effects on both risk taking and aggression.
-Importantly I chose a liberal p-value threshold for the inclusion of SNPs as instrumental variables.
-This was done in the desire to increase statistical power while assuring the robustness of the analysis.
-Following, a sensitivity analysis was used to investigate these findings on their robustness.
-However, while a sensitivity analysis, as shown in Figure~\ref{fig:sensitivity}, can provide valuable insight into possible assumption violations of instrumental variables.
+Importantly I chose a liberal $p$-value threshold for the inclusion of SNPs as instrumental variables.
+A sensitivity analysis was used to investigate these findings on their robustness.
+Specially a sensitivity analysis, as shown in Figure~\ref{fig:sensitivity}, can provide valuable insight into possible assumption violations.
 
-Specially, funnel plots are commonly used to investigate potential directional pleiotropic effects.
+For example, funnel plots are commonly used to investigate potential directional pleiotropic effects.
 Any asymmetry can be interpreted as a sign of directional pleiotropic effects.
 However, the visual inspection of funnel plots can be questionable.
-For example, a small number of used SNPs as instrumental variables can make the interpretation as either symmetric or asymmetric an difficult endeavour. 
-This issue is also present in the funnel plots of Figure~\ref{fig:sensitivity}.
+A small number of used SNPs as instrumental variables can make the interpretation as either symmetric or asymmetric an difficult endeavour. 
+This issue can also be seen in the funnel plots of Figure~\ref{fig:sensitivity}.
 Specifically, the number of SNPs selected as instrumental variables for depressive symptoms and MDD are limited. 
-While increasing the number of SNPs can lead to an increase in statistical power it can also result false positive or false negative findings due to induced pleiotropic effects.
-This further demonstrates the importance of selecting valid SNPs as instrumental variables.
-Interestingly, nevertheless is that one of the strongest assumptions of funnel plots, which are commonly used in a meta-analysis setting, might not be a problem in MR analysis.
-Within an traditional meta-analysis funnel plots can provide an indication for potential publication bias.
-A funnel plot is only a valid instrument to assess such a question when the effect size and sample of each used study are uncorrelated~\cite{Evans2013}.
-This is often not the case in many meta-analysis.
-For example, many studies use different instruments when measuring traits with larger sample sizes or might adjust sample size based on the effect size of previous studies~\cite{Simonsohn}.
-In contrast sample size of SNPs is rather constant, therefore funnel plots in MR do not suffer from the same problem.
-In addition, MR-egger allows to test for potential pleiotropic effects by inspecting its intercept (see Section~\ref{ssub:Used_Metheds}).
-However, it remains difficult to fully test for potential hidden variables. 
+Interestingly, one of the strongest assumptions of funnel plots, which are commonly used in a meta-analysis setting, might not be a problem in MR sensitivity analysis.
 
+Within an traditional meta-analysis funnel plots can provide an indication for potential publication bias.
+However, it assumes that effect size and sample size of each included study are uncorrelated~\cite{Evans2013}.
+This is often not the case in many meta-analysis.
+Indeed, studies might use different instruments to measure specific traits in small versus large samples or  might adjust sample size based on observed effect sizes of previous studies~\cite{Simonsohn}.
+In contrast, the sample sizes of SNPs are rather constant.
+Thus funnel plots in MR do not suffer from the same problem.
+Furthermore, in addition to funnel plots potential pleiotropic effects can also be inspected by MR-egger's intercept (see Section~\ref{ssub:Used_Metheds}).
+
+However, these careful post-hoc analysis can be seen as to weak in contrast to the strong assumptions made my MR\@. 
 Thus~\citet{Vanderweele2015} suggested that negative results might be more plausible when investigating potential causal connections.
 In particular, in light of the strong assumptions as well as inability to fully verify those assumptions empirically it might be more beneficial to test assumed causal relationships with the help of MR\@.
 However, this would require well powered studies with large sample sizes.
-Indeed, the UK BioBank as well as recent other consortia have shown that it is possible to acquire large sample sizes.
+Indeed, the UK BioBank as well as recent other consortia have shown that it is possible to acquire these large sample sizes.
 While null results are not immune to biases, such bias would need to align perfectly in order to achieve an effect size of zero with a narrow confidence interval when in fact a true effect is present.
 An obvious draw back from this approach would be its inability to discover new interventions for various disorders. 
 
-However, it is important to emphasis that MR cannot make conclusive statements about the causal relationship between two variables.
+Furthermore, it is important to emphasis that MR cannot make conclusive statements about the causal relationship between two variables.
 In order to establish a causal relationship a string of multiple evidence is necessary.
 MR can only play a part in this and numerous other additional studies are necessary to confirm a causal relationship.
 Furthermore, it is important to remember that in contrast to randomized control trial, MR commonly aims to detect small effect sizes.
-Hence increasing the difficulty to establish causal relationships. 
 
 To conclude, `joint-analysis' studies are able to identify potential causal relationships without clear biological insight.
 While empirical methods exist to test the underlying assumptions only additional evidences by randomized control trials or other form of studies will be able to fully confirm any potential causal relationship.
@@ -283,10 +285,10 @@ While empirical methods exist to test the underlying assumptions only additional
 \label{sec:conclusion}
 
 Aggressive behavior is a heritable trait which shows strong genetic correlations with a number of other phenotypes, such as smoking and risk taking.
-However, it remains unclear on how to interprete genetic correlations in general and what impact these estimates have in explaining the underlying architecture of aggressive behavior.
-Mendelian randomizations might be able to elucidate possible causal relationships among traits, application of such methods needs to be done with care while respecting the underlying strong assumptions. 
-Nevertheless, a careful application of such techinique has shown that schizophrenia might have a causal effect on both risk taking and impulsive aggression.
+However, it remains unclear on how to interpret genetic correlations in general and what impact these estimates have in explaining the underlying architecture of aggressive behavior.
+Mendelian randomizations might be able to elucidate possible causal relationships among traits, but application of such methods needs to be done with care while respecting the underlying strong assumptions. 
+Nevertheless, a careful application of such technique has shown that schizophrenia might have a causal effect on both risk taking and impulsive aggression.
 
-Current genome wide association studies lack statistical power to detect specific genetic variants assocated with aggression.
+Current genome wide association studies lack statistical power to detect specific genetic variants associated with aggression.
 Future studies should aim to increase sample size as well as improve phenotyping quality.
 Furthermore, while simulations have shown that the newly developed methods is better able to detect clusters of rare variants, those clusters seem not to be present in impulsive aggression.
