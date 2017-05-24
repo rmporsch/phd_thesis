@@ -1,58 +1,52 @@
 \chapter{General Methodology}
 \label{cha:methods_applied_in_genetic_studies_on_humans}
 
-The investigation of underlying genetic architectures of human traits is limited to non-experimental studies and one can broadly distinguish between two types.
-Twin studies and association studies.
-
+The investigation of underlying genetic architecture of human traits is limited to non-experimental studies and one can broadly distinguish between two types: twin studies and association studies.
 Twin studies make use of monozygotic and dizygotic twin pairs to estimate the contribution of genetic and environmental components of a trait.
-In contrast, association studies make use of recently developed molecular methods to identify specific genetic variations within the human genome associated with a specific trait.
-
+In contrast, association studies make use of recently developed molecular methods to identify specific genetic variation within the human genome associated with a specific trait.
 Within this section I will describe commonly used methods in both twin and molecular based association studies.
 I will further describe methods used to estimate heritability and genetic correlations.
 
-\section{Twin based studies}
+\section{Twin Studies}
 \label{sec:twin_based_studies}
 
 Twins have always been of special interest to scholars.
 Indeed already Hippocrates has been reported to be interested in twins at around 5th century BCE\@.
-While his original accounts is lost the Roman politician and author Cicero described Hippocrates's observations of two ill brothers, suspected to be twins, with similar identical disease progression~\cite{Cicero44BC}.
-Thus providing the first writen account of a twin study.
+While his original accounts are lost, the Roman politician and author Cicero described Hippocrates's observations of two ill brothers, suspected to be twins, with similar identical disease progression~\cite{Cicero44BC},
+thus providing the first written account of a twin study.
 
 Much later Francis Galton was one of the first persons to use twins in order to investigate the effect of genes and the environment on human behavior~\cite{Rende1990}.
 However, only when~\citet{Simens1924} discovered the two distinct types of twins, namely \acrfull{mz} and \acrfull{dz} twins, twin studies became an established instrument in the investigation of genetic factors in humans.
 
-MZ twins develop from a single fertilized egg and therefore share all of their genetic variations.
-On the other hand, \acrfull{dz} twins develop from two fertilized eggs and share only 50\% of their genetic variations.
-This distinction forms the basis of all twin studies and allows to state structural equations relating observed trait and theorized underlying genetic and environmental effects.
+MZ twins develop from a single fertilized egg and therefore share all of their genetic makeup.
+On the other hand, \acrshort{dz} twins develop from two fertilized eggs and share only 50\% of segregating genetic variants.
+This distinction forms the basis of all twin studies and allows use of structural equations relating observed trait and theorized underlying genetic and environmental effects.
 
-In addition, Genetic effects can be further distinguished between additive genetic effects (A) which represents the accumulated effect of all genetic variations and dominant (D) effects which represents interaction on the same genetic locus.
+In addition, genetic effects can be further distinguished between additive genetic effects (A) which represent the accumulated effect of all genetic variations and dominant (D) effects which represents interaction on the same genetic locus.
 Environmental components are differentiated into shared environment (C) and unique environment (E).
-Therefore the total variance of a any particular trait is $P = A+D+C+E$.
+Therefore, the total variance of any particular trait is $P = A+D+C+E$.
 
-Since one can assume different correlations between MZ and DZ twin pairs one can estimate components of $P$.
-While the correlations between twins within C and E are the same in both MZ and DZ twins, namely $1$ and $0$ respectively.
-In contrast, MZ twins have a correlation of $1$ for both A and D, while DZ pairs have a correlation of $\frac{1}{2}$ and $\frac{1}{4}$ respectively.
+Since one can assume different correlations between MZ ($r_{MZ}$) and DZ ($r_{DZ}$) twin pairs one can estimate components of $P$.
+While the correlations between twins within C and E are the same in both MZ and DZ twins, namely $1$ and $0$, respectively,
+MZ twins have a correlation of $1$ for both A and D, while DZ pairs have a correlation of $\frac{1}{2}$ and $\frac{1}{4}$, respectively.
 Therefore differences within MZ twins can be attributed to E alone.
-Further, when we assume that DZ and MZ twins are exposed to the same degree of similarity within their environment, the differences in similarity between MZ and DZ twins is an estimate of $A+D$.
-This is also called Falconer's formula (see Formula~\ref{eq:falcon}) and can be used to estimate heritability, or the relative importance of genetic effects.
-
+Further, when we assume that DZ and MZ twins are exposed to the same degree of similarity within their environment, the differences in similarity between MZ and DZ twins is an estimate of all the genetic contribution to the phenotypic variance (i.e. including additive, dominant, and epistatic effects).
+This is also called Falconer's formula (see Formula~\ref{eq:falcon}) and can be used to estimate broad sense heritability, also denoted as $H^2$:
 \begin{align}
-  h^2 &= 2(r_{MZ}-r_{DZ})\label{eq:falcon} \\ 
-  C &= r_{MZ} - h^2  \\
-  E &= 1 - h^2 + c^2  
+  $H^2$ &= 2(r_{MZ}-r_{DZ})\label{eq:falcon} \\ 
+  C &= r_{MZ} - $H^2$  \\
+  E &= 1 - r_{MZ}  
 \end{align}
-
 However, while the above is attractive it its simplicity, today's twin studies use \acrfull{sem} to model genetic and environment effects.
-SEMs are more flexible in modeling specific hypothesis, are able to test for sex differences as well are able to handle multivariate data~\cite{Rijsdijk2002}.
+SEM is more flexible in modeling specific hypotheses, such as testing for sex differences as well  handling multivariate data~\cite{Rijsdijk2002}.
 
-Figure~\ref{fig:ace} displays such a classical path based model.
-Variables within an SEM can be separated into latent and observed variables.
-Additive genetic (A), common environment (C) and unique environment (E) are so called latent variables.
+Figure~\ref{fig:ace} displays such a classical path-based model.
+Variables within a SEM can be separated into latent and observed variables.
+Additive genetic (A), common environment (C) and unique environment (E) are  latent variables.
 These variables are not directly observed but are inferred from actual measured variables.
 Observed variables are commonly displayed in cornered boxes.
-The double headed arrows represents the correlations among A and C.
-The causal paths $a$, $c$, and $e$ represents the to estimate effect of the components on the trait $T$.
-The square of these estimates are the variance components of A, C and E respectively.
+The double headed arrows represent the correlations among A and C.
+The causal paths $a$, $c$, and $e$ represent the effect of the components on the trait $T$, and the square of these estimates represent the variance accounted for by each of the corresponding latent factors.
 However, effects of $D$ cannot be simultaneously estimated with $A$, and two separate models need to be constructed.
 
 \begin{figure}[htpb]
@@ -80,70 +74,61 @@ and
     \frac{1}{2}a^2 + c^2 & a^2 + c^2 + e^2
   \end{pmatrix}
 \end{equation}
-
 Modern SEM software is able to estimate parameters by minimising the goodness-of-fit statistic between the observed and predicted covariance matrices~\cite{Boker2011}.
 Most commonly this is done via a maximum-likelihood function.
-Further, the overall goodness-of-fit of the model relatively to a perfect fit, meaning that parameters are considered as `free' and their maximum-likelihood estimate will equal the sample covariance, are measured by a likelihood ratio square statistic ($\chi^2$).
+Furthermore, the overall goodness-of-fit of the model relative to a perfect fit, meaning that all covariances are estimated, is measured by a likelihood ratio square statistic ($\chi^2$).
 Therefore, should we fail to reject the null hypothesis that our model in Figure~\ref{fig:ace} is different from a perfect fitted model we have reason to assume that our genetic model fits the data.
 
 The use of SEM allows for great flexibility and a variety of models to be estimated.
 In the past few decades numerous twin studies on a variety of traits have been performed.
-It not only allowed to test for the differences in the genetic architecture between the sexes but also to look at how the influence of genetic factors change over age.
-However, due to the new advancement in acquiring genetic information of individual more research has been shifted to \acrfull{gwas}.
-Hence, in the next section I will outline the methods applied GWAS\@.
+It not only allowed testing for the differences in the genetic architecture between the sexes but also examining how influence of genetic factors change over age.
+However, due to the new advances in molecular technology,  more research has  shifted to \acrfull{gwas}.
+Hence, in the next section I will outline the methods applied in GWAS\@.
 
-\section{Association studies of common variants}
+\section{Association Studies of Common Variants}
 \label{sec:association_studies_of_common_variants}
 
-Large scale genomic association studies have enabled researchers to investigate specific genetic factors associated with a certain trait.
+Large-scale genomic association studies have enabled researchers to investigate specific genetic factors associated with a certain trait.
 Hence, while twin studies were only able to give an estimate of the total contribution of genetic factors on a phenotype, association studies are able to elucidate the specific molecular basis of complex traits.
-Specifically, these genome wide association studies utilize common \acrfull{snp} and other genetic variations, to identify specific genetic markers associated with a certain trait.
+Specifically, these genome-wide association studies utilize common \acrfull{snp} and other genetic variants, to identify specific genetic markers associated with a certain trait.
 Common variants are usually genetic variations with a frequency $\ge 1\%$, also called \acrfull{maf}.
 
-\paragraph{What is an \acrfull{snp}}
+\paragraph{What is a \acrfull{snp}}
 \label{par:what_are_snp}
-SNPs are variations within the genome at a specific position and underly differences in traits and disease susceptibility. 
-For example, the replacement of the nucleotide cytosine (C) with tymine at a certain position within a stretch of DNA is considered a \acrfull{snp}.
-Most SNPs have no or little effect on specific traits.
+SNPs are variations within the genome at  specific positions and may underly differences in traits and disease susceptibility. 
+For example, the replacement of the nucleotide cytosine (C) with thymine (T) at a certain position within a stretch of DNA is considered a \acrfull{snp}.
 
-Association analysis of common genetic variants are usually only applied to investigate potential genetic markers of common traits and disorders.
-This is due to the hypothesised differences in the genetic architecture influencing common and rare disorders.
+Association analysis of common genetic variants is usually only applied to investigate potential genetic markers of common traits and disorders, while different strategies are applied for rare diseases.
+Indeed assessments of families whose members are disproportional affected with a rare genetic disorder, such as Huntigton's disease or cystic fibrosis, were able to identify a number of disease-causing variants~\cite{Kerem1989}.
+However, while this method was initially successful with a number of other rare disorders, common disorders, such as heart disease, psychiatric disorders, as well as others, fared not that well,  
+implying that common and rare disorders have a different genetic architecture~\cite{Hirschhorn2005a}.
+This led to the development of the common disease common variant hypothesis.
 
-This hypothesised difference between common and rare diseases originates from one of the early successes in human genetics.
-Specially the identification of multiple genetic markers in \textit{CFTR} which are responsible for cystic fibrosis.
-This was made possible by a technique called \textit{linkage analysis}, which made use of the segregation of genetic markers across multiple families affected by the disorder~\cite{Kerem1989}.
-However, while this method was initially successful with a number of other rare disorders, such as Huntington, common disorder, such as heart diseases, psychiatric disorders as well as other, fared not that well.  
-Implying that common and rare disorders have a different genetic architecture~\cite{Hirschhorn2005a}.
-Therefore leading to the development of the common disease common variant hypothesis.
 
-\subsection{Common disease common variant hypothesis}
+\subsection{Common Disease Common Variant Hypothesis}
 \label{sub:common_versus_rare_genetic_variants}
 
-The common disease common variant hypothesis suggests that common disorders are affected by genetic variations which are also common in the population.
+The common disease common variant hypothesis suggests that common disorders are affected by genetic variations which are also common in the population~\cite{Schork2010}.
 This hypothesis, while simplistic, has some profound implications.
 
-First, it is unlikely that common variants will have a high penetrance and are the lone disease causing mutations.
-For example, a common variants with a frequency of 45\% that directly cause a disorder would mean that also 45\% of the population would be affected by the disease.
-This is unlikely to be the case and it is more likely that a given SNP only has a small effect of the disease.
-For example, an SNP might only slightly alter the gene expression of a particular gene and increase the overall risk for a disease.
-Implying that the correlation between the allele frequency and disease prevalence will be low.
-Thus, suggesting that common variants are unlikely to have a high penetrance.
-
+Importantly it is unlikely that common variants will have a high penetrance and are the lone disease-causing mutations.
+For example, a common variant with a frequency of 45\% that directly causes a disorder would mean that also 45\% of the population would be affected by the disease.
+This is unlikely to be the case and it is more likely that a given SNP only has a small effect on the disease.
 This in turn also implies that multiple common variants affect a common disorder.
 For example, twin studies have estimated the heritability of aggressive behavior at 50\%.
 If a single SNP has only a small effect on the phenotype, then the total genetic risk must be distributed across multiple common genetic variants.
 Figure~\ref{fig:rare_comon} displays the spectrum of genetic affects and allele frequency.
-
 \begin{figure}[htpb]
   \centering
   \includegraphics[width=0.8\linewidth]{{introduction/figure/journal.pcbi.1002822.g001}.png}
   \caption[Spectrum of Disease Allele Effects]{Spectrum of Disease Allele Effects~\cite{Bush2012}.}\label{fig:rare_comon}
 \end{figure}
 
-Overall the common disease common variant hypothesis has been tested numerous times~\cite{Bush2012}.
-Most common SNPs identified in the last 10 years are of low effect and most common disorders have multiple risk alleles~\cite{Welter2014}.
-Therefore suggesting that the hypothesis holds true. 
-However this does suggest that all genetic contributions to a common disorder are due to common variants alone.
+Overall, the common disease common variant hypothesis has been tested numerous times~\cite{Bush2012}.
+Most common SNPs identified in the last 10 years are of small effect and most common disorders have multiple risk alleles~\cite{Welter2014,Schork2010}, suggesting that the hypothesis holds true. 
+However this does imply that all genetic contributions to a common disorder are due to common variants alone.
+Indeed, there have been some successful genetic associations of common variants in rare disorders.
+For example,~\cite{Garcia-Barcelo2009a} identified 2 common SNPs associated with Hirschsprung's disease, a rare congenital disorder 2.8 per 10,000 births).
 
 \subsection{Linkage Disequilibrium}
 \label{sub:linkage_disequilibrium}
@@ -151,9 +136,9 @@ However this does suggest that all genetic contributions to a common disorder ar
 Before explaining the concept of association studies in more detail it is important to mention \acrfull{ld}.
 LD is `the nonrandom association of alleles at different loci'~\cite{Slatkin2008} and forms a marker of the population genetic mechanism that is at play within our genome.
 For example, two loci are said to be in high LD when allele $A$ at one loci co-occurs with allele $B$ at a different loci at a higher frequency then one would expect if the two loci were independent.
-Hence the level of LD can be quantified as $D_{AB}=p_{AB} - p_{A}p_{B}$ in which in which $p_{AB}$ is the frequency that $A$ and $B$ occurs together wile $p_A$ and $p_B$ is the frequency of $A$ and $B$ respectively.
-If $D_{AB} \neq 0$ A and B are said to be in linkage disequilibrium, otherwise the two alleles are in linkage equilibrium ($D_{AB}=0$).
-Nevertheless, $D_{AB}$ depends on the frequencies of the alleles in questions and are therefore not always convenient.
+Hence the level of LD can be quantified as $D_{AB}=p_{AB} - p_{A}p_{B}$ in which in which $p_{AB}$ is the frequency that $A$ and $B$ occurs together wile $p_A$ and $p_B$ is the frequency of $A$ and $B$, respectively.
+If $D_{AB} \neq 0$, A and B are said to be in linkage disequilibrium, otherwise the two alleles are in linkage equilibrium ($D_{AB}=0$).
+Nevertheless, $D_{AB}$ depends on the frequencies of the alleles in questions and is therefore not always convenient.
 Therefore, LD between two loci is commonly measured in two different ways. 
 That is $D'$ and $r^2$.
 \citet{Lewontin1964} suggested to use
@@ -171,116 +156,88 @@ Alternatively, one can also use the correlation coefficient $r$ between the two 
 \begin{equation}\label{eq:r2}
   r=\frac{D}{\sqrt{p_A(1-p_A)p_B (1-p_B)}}
 \end{equation}
-An important consequence for association studies is that an association between a trait and an allele is unlikely to be the actual causal SNP\@.
-An association between an SNP and a trait can arise out of multiple reasons.
+An important consequence for association studies is that when an association between a trait and an allele is found, that allele is unlikely to be the actual causal SNP\@.
+An association between a SNP and a trait can arise for multiple reasons.
 First, the association could represent the true effect and the particular SNP has a causal relationship on the trait in question.
 Second, and more likely, the associated SNP is a proxy of the causal SNP since both are in high \acrshort{ld}.
 Third, the association is a random fluctuation within the sample, and 
-fourth the association is due to confounding errors such as population stratification or genotyping errors.
+fourth, the association is due to confounding errors such as population stratification or genotyping errors.
 
-\subsection{Association test}
+\subsection{Association Test}
 \label{sub:association_test}
 
-The association between an SNP $g$ and a trait $y$, as well as additional covariates $\bm{U}$, of an individual $i$ can be expressed as a generalized linear regression model for a continuous and binary phenotype.
+The association between a SNP $g$ and a trait $y$, as well as additional $p$ covariates $\bm{U}$, of an individual $i$ can be expressed as a generalized linear regression model for a continuous or binary phenotype:
 \begin{equation}
   g(E(y_i)) = \beta_0 + \beta_1g_i + \bm{\beta_u}\bm{U_i'} + \epsilon
 \end{equation}
-In which $\beta_0$ is the intercept (commonly ignored in GWAS settings) and $\beta_1$ the regression coefficient of a particular SNP\@.
+in which $\beta_0$ is the intercept (commonly ignored in GWAS settings) and $\beta_1$ the regression coefficient of a particular SNP\@.
 The vector $\bm{\beta_u}$ of size $1\times p$ are the regression coefficients of $p$ covariates to adjust for potential confounding factors.
-Possible confounding factors are population stratification, sex, genotyping chip and others.
+Possible confounding factors are population stratification, sex, genotyping chip, and others.
 The link function $g(.)$ is a logit function for binary traits, while for quantitative traits no transformation is used (identity link function). 
 
-Genotypes of each SNP can be organized to represent dominant, recessive, multiplicative, as well as additive models.
+Genotypes of each SNP can be organized to represent dominant, recessive, multiplicative, as well as additive models~\cite{Bush2012}.
 For example, assuming at a given position the two genotypes are \textit{A} and \textit{a}.
-In a dominant model having one or two copies of \textit{A} increases disease risk ($AA > Aa > aa$).
-In contrast, a recessive model requires at least two copies of the risk allele ($AA > Aa = aa$).
-The multiplicative model assumes a quadratic increase in risk.
+In a dominant model (for \textit{A}) having one or two copies of \textit{A} increases disease risk over no copies of \textit{A}.
+Thus the risk $k$ is the same for \textit{Aa} and \textit{AA}.
+In contrast, a recessive model (for \textit{A}) requires at least two copies of the risk allele \textit{A}.
+The multiplicative model (for \textit{A}) assumes a quadratic increase in risk.
 If the risk of having the \textit{A} allele is $k$ than having two copies of the same allele is $k^2$.
 An additive model assumes a linear increase in risk for each additional allele copy.
 Thus if the risk of \textit{Aa} is $k$ then the risk doubles ($2k$) for \textit{AA}. 
-Despite these different models GWAS commonly use an additive model only since it has appropriate statistical power to detect dominant effects as well.
-Nevertheless, it is important to keep in mind that an additive model has  having reduced power for potential recessive effects~\cite{Bush2012}.
+Despite these different models, GWAS commonly uses an additive model only since it has appropriate statistical power to detect dominant effects as well.
+Nevertheless, it is important to keep in mind that an additive model has reduced power for potential recessive effects~\cite{Bush2012}.
 
 \subsection{Population Stratification}
 \label{ssec:population_stratification}
 
-Population stratification takes place when differences in the frequencies of alleles among cases and controls are not due to an causal relationship between the SNP and the trait.
-Rather it is caused by ancestral differences across populations.
+Population stratification takes place when differences in the frequencies of alleles among cases and controls are not due to a causal relationship between the SNP and the trait.
+Rather, they are caused by ancestral differences across populations.
 An association is affected by population stratification if the trait is more prevalent in one population while the allele frequencies vary across the populations.
 
 Commonly one can adjust for population stratification by the usage of \acrfull{pca}.
-PCA is a procedure which transforms a set of correlated variables into a set of linear uncorrelated once, called principle components (\acrshort{pc}).
-The number of PC can be smaller or equal that of the number of initial variables and the first PC accounts for most of the variability in the set of correlated variables.
+PCA is a procedure which transforms a set of correlated variables into a set of linear uncorrelated ones, called principle components (\acrshort{pc}).
+The number of PC can be smaller or equal to that of the number of initial variables and the first PC accounts for most of the variability in the set of correlated variables.
 Each following PC explains the most variance constrained that it is orthogonal to the previous.
-Using PCA on a matrix of genotypes results in a set of PCs which explain the genetic variation within the sample.
+
+Using PCA on a matrix of individuals by SNPs, in which each cell represents the count of minor alleles, results in a set of PCs which explain the genetic variation within the sample.
 Given the sample is a mixture out of multiple populations with different ancestry the computed PCs will often have geographic interpretation.
 Thus including PCs into the association model will adjust for population stratification arising due to differences in allele frequencies and disease prevalence.
 
 \subsection{Multiple Testing}
 \label{ssec:multiple_testing}
 
-Testing a large amount of genetic variants without adjusting the significant threshold $\alpha$ results in a large number of falsely associated variants.
-Therefore adjustments of the significant threshold is necessary.
+Testing a large number of genetic variants without adjusting the significance threshold $\alpha$ results in a large number of falsely associated variants.
+Therefore, adjustment of the significance threshold is necessary.
 For example, one could simply adjust $\alpha$ by the number of tests performed (Bonferroni threshold).
 However, this would result in an overly conservative threshold and in a number of false negative associations~\cite{Benjamini1995} since computed test statistics are not independent due to LD\@.
 Indeed,~\citet{Peer2008} estimated, based on data from the International Haplotype Map Consortium, the number of independent tests to be one million in Europeans and two million in African populations.
-Therefore most GWASs have used a threshold of $5\times 10^{-8}$.
+Therefore most GWAS have used a threshold of $5\times 10^{-8}$.
 However, due to the introduction of larger sample sizes as well as better technology we are able to genotype variants with lower allele frequency.
-This requires adjustment of the GWAS significant threshold since it also increases the number of independent tests.
-Hence~\citet{Fadista2016} recently suggested to use $3\times10^{-8}$, $2\times10^{-8}$, $1\times10^{-8}$ for variants with $MAF\ge1\%$, $MAF\ge0.5\%$ and$ MAF\ge0.1\%$.
+This requires more stringent adjustment of the GWAS significant threshold since it also increases the number of independent tests.
+Hence~\citet{Fadista2016} recently suggested to use $3\times10^{-8}$, $2\times10^{-8}$, $1\times10^{-8}$ when including variants with $MAF\ge1\%$, $MAF\ge0.5\%$, and $MAF\ge0.1\%$, respectively.
 
 \acrshort{gwas} are useful in identifying molecular markers for traits and diseases.
 While there are multiple possible confounding factors, such as population stratification, methods have been developed to approach these problems successfully.
-However, usually GWAS do not deal with genetic variations with a frequencies below 1\%.
+
 
 \section{Heritability and Genetic Correlation}
 \label{sec:heritability_and_genetic_correlation}
 
-As already described above, studies on twins were able to assess the heritability of traits by considering the inter-correlation among MZ and DZ twins.
-Therefore, one would expect that the variance explained by all genetic variants combined would result in similar estimates.
-Unfortunately, for many traits, this is not the case.
-This is called the `Missing Heritability Problem'~\cite{Vineis2010} and a  number of reasons have been suggested for the discrepancy between estimates in twin studies and those in GWAS\@.
-
-First, the assumptions in twin studies might be violated and estimates are too high.
-In particular, studies on twins assume that the influences of shared environmental factors influences MZ and DZ twins to the same extend.
-However, one can argue that MZ twins are treated by parents, teachers and peers differently resulting in a potential violation of the this equal environment assumption. 
-
-Second, GWASs only consider common variants and rare variants might account for the missing heritability.
-While most rare variants have little or no effect on traits, some rare variants have very large effects.
-Indeed, a study on height found that while most common variants only had small effects, some rare genetic variants resulted in a large increase in hight of up to $2cm$~\cite{Marouli2017}.
-This would indicate that rare variants can have a profound effect on common traits, suggesting that heritability estimations of common variations alone might result in lower estimates.
-
-Third, epistasis is only insufficiently captured in most studies and could account for the differences.
-Indeed, many twin concordance rates indicate the presents of non-additive effects to some extend.
-Further, complex gene-gene interaction have been shown in a number of experimental studies in nonhuman animals on complex traits.
-Therefore suggesting that epistastic effect might play a major role in humans as well.
-However, models which include gene-gene or even gene-gene-gene and higher order interactions are very computational intensive and require large datasets~\cite{Lippert2013}. 
-
-Fourth, gene-environment interaction could also explain partly the differences between the two types of studies.
-Similar to gene-gene interactions gene-environment interactions are computationally intensive and require large samples.
-However, in contrast to epistastic effects gene-environment interactions are more complex and might change over age depending on the trait in question.
-Hence assessment of the impact of gene-environment interactions on the missing heritability is difficult to estimate~\cite{Do2016,Kaprio2012}.
-
-Fifth, gene regulatory components, such as RNA expression and methylation, might explain the discrepancy between estimates.
-Methods investigating regulatory components have only been recently introduced for large scale population analysis and alteration of gene expression by epigenetic modifications could be heritable without affecting the underlying DNA sequence~\cite{Trerotola2015}.
-This separate model of inheritance, next to Mendelian heredity, would be undetectable in GWAS\@.
-
-While a single reason for the missing heritability seems unlikely it is still an ongoing research objective to account for the differences.
-Further, the estimation of the narrow sense heritability, or the additive genetic effects, from genotyped data is not trivial.
+As already described above, studies on twins were able to assess the heritability of traits by considering the MZ and DZ twin correlations.
+Interestingly, a number of methods have also been developed to assess narrow sense heritability, or the additive genetic effect, from genotyped data.
 Several methods have been proposed in the past, most notably \acrfull{gcta} and LD-score regression.
-In the next section I will describe both methods as well as their shortcomings.
 
-\subsection{\acrfull{gcta}}
+subsection{\acrfull{gcta}}
 \label{sub:gcta}
 
-GCTA uses mixed linear model to the fit the effect of all SNPs by making use of the genetic relationship matrix of all included subjects~\cite{Yang2011}.
+GCTA uses a mixed linear model to  fit the effect of all SNPs by making use of the genetic relationship matrix of all included subjects~\cite{Yang2011}.
 If $\textbf{A}$ is the genetic relatedness matrix then
 \begin{equation}
   y = X\beta + g + \epsilon \text{ with } var(y) = V = A\sigma^2_g + I\sigma^2_\epsilon
 \end{equation}
-in which $y$ is the phenotype and $\beta$ are the estimated effect sizes of all covariates and the total genetic effects $g$ for each individual is $g \sim N(0, A\sigma^2_g)$.
-GCTA is then able to estimate the variance explained by all SNPs $\sigma^2_g$ by restricted maximum likelihood.
-Further one can extent this model to bivariate linear mixed models to estimate the genetic correlation between two traits.
+in which $y$ is the phenotype and $\beta$ are the estimated effect sizes of all covariates and the total genetic effect $g$ for each individual is $g \sim N(0, A\sigma^2_g)$.
+GCTA is then able to estimate the variance explained by all SNPs, $\sigma^2_g$, by restricted maximum likelihood.
+One can extent this model to bivariate linear mixed models to estimate the genetic correlation between two traits as well.
 If $y_1 = X_1\beta_1 + g_1 + \epsilon_1$ for trait 1 and $y_2= X_2\beta_2 + g_2 + \epsilon_2$ then the variance-covariance matrix $V$ is
 \begin{equation}
   V = 
@@ -290,32 +247,62 @@ If $y_1 = X_1\beta_1 + g_1 + \epsilon_1$ for trait 1 and $y_2= X_2\beta_2 + g_2 
   \end{pmatrix}
 \end{equation}
 in which $X$ and $Z$ are the incidence matrices for the effects of $\beta$ and $g$.
-However, GCTA requires considerable computation power as well as the availability of the raw genotyped data.
+However, GCTA requires considerable computational power as well as the availability of the raw genotype data.
 Hence LD-score regression has been developed to estimate heritability on summary statistics only.
 
-\subsection{LD-score regression}
+\subsection{LD-score Regression}
 \label{sub:ld_score_regression}
 
-LD-score regression makes use to the previously outlined LD among tagged and causal SNPs.
+LD-score regression makes use of the previously outlined LD among tagged and causal SNPs.
 Test statistics of SNPs in high LD with the causal variant will be elevated proportional to their LD\@.
-Thus the more genetic variation an SNP tags the higher the probability that it will tag a causal variant.
+Thus the more genetic variation a SNP tags the higher the probability that it will tag a causal variant.
 LD-score regression makes use of this relationship and regresses the estimated $\chi^2$ from the association study on the LD-score, which measures the overall LD of variant $j = 1, \ldots, M$ as $\ell_j = \sum^M_{k=1} r^2_{jk}$. 
 The slope of this regression can then be interpreted as an estimate of heritability~\cite{Bulik-Sullivan2015}.
-Similar if we replace the $\chi^2$ of a single study by the product of the z-score of two separate studies and regress it onto $\ell_j \sqrt{N_{1}N_{2}}$ the slope can be interpreted as the genetic covariance between trait 1 and 2~\cite{Bulik-Sullivan2015a}.
+Similarly, if we replace the $\chi^2$ of a single study by the product of the z-scores of two separate studies and regress it onto $\ell_j \sqrt{N_{1}N_{2}}$, the slope can be interpreted as the genetic covariance between trait 1 and 2~\cite{Bulik-Sullivan2015a}.
 
-These developments have enabled recent research to uncover the inter-correlation among a variety of different traits.
+\section{The Missing Heritability}
+\label{sec:missing_heritability}
+
+One would expect that the variance explained by all genetic variants combined would result in similar estimates as to those estimated in twin studies.
+Unfortunately, for many traits, this is not the case.
+This is called the `Missing Heritability Problem'~\cite{Vineis2010} and a  number of reasons have been suggested for the discrepancy between estimates in twin studies and those in GWAS\@.
+
+First, the assumptions in twin studies might be violated and estimates are too high.
+In particular, studies on twins assume that shared environmental factors influence MZ and DZ twins to the same extent.
+However, one can argue that MZ twins are treated by parents, teachers, and peers differently resulting in a potential violation of the this equal environments assumption. 
+However, while previous research suggest that the equal environment assumption might not be strictly valid, the induced bias is likely to be small~\cite{Derks2006,Felson2014}
+
+Second, GWAS only consider common variants and rare variants might account for the missing heritability.
+While most rare variants have little or no effect on traits, some rare variants have very large effects.
+Indeed, a study on height found that while most common variants only had small effects, some rare genetic variants resulted in a large increase in height of up to $2cm$~\cite{Marouli2017}.
+This would indicate that rare variants can have a profound effect on common traits, suggesting that heritability estimates using common variants alone might be biased downward.
+
+Third, epistasis is only insufficiently captured in most studies and could account for the differences.
+Indeed, many twin concordance rates indicate the presence of non-additive effects to some extent.
+Further, complex gene-gene interaction have been shown in a number of experimental studies in  animals~\cite{Zuk24012012}.
+Therefore suggesting that epistatic effects might play a major role in humans as well.
+However, models which include gene-gene or even gene-gene-gene and higher order interactions are very computational intensive and require large datasets~\cite{Lippert2013}. 
+
+Fourth, gene regulatory components, such as RNA expression and methylation, might explain the discrepancy between estimates.
+Methods investigating regulatory components have only been recently introduced for large-scale population analysis and alteration of gene expression by epigenetic modifications could be heritable without affecting the underlying DNA sequence~\cite{Trerotola2015,Nadeau2009}.
+Indeed, various studies have shown that some environmental factors can lead to epigentic changes that can be carried over to following generations without continued exposure~\cite{Nadeau2009,Skinner2011}.
+This separate model of inheritance, next to Mendelian heredity, would be undetectable in GWAS\@.
+
+While a single reason for the missing heritability seems unlikely it is still an ongoing research objective to account for the differences.
+
+\subsection{Genetic Correlations}
+\label{sub:genetic_correlations_method}
+These developments have enabled recent research to uncover the genetic correlations among a variety of different traits, even when the two traits are measured on different people.
 However, genetic correlation can arise from a multitude of different sources.
 Figure~\ref{fig:genetic_correlation} shows 4 different ways genetic correlation can arise.
 First and foremost, genetic correlation can arise if two traits are caused by the same genetic variant (see Figure~\ref{fig:pleiotropy}).
-Second, a genetic factor which causes phenotype 1 can in turn cause phenotype 2 (see mediated pleiotropy in Figure~\ref{fig:mediated_pleiotropy}).
+Second, a genetic factor  causes phenotype 1 and that phenotype can in turn cause phenotype 2 (see mediated pleiotropy in Figure~\ref{fig:mediated_pleiotropy}).
 Third, genetic correlation can also arise from assortative mating as shown in Figure~\ref{fig:assortative_mating}.
 Assortative mating is a non-random mating pattern within a population.
 For example, consider two traits which share no causal variant.
-Trait 1 is desirable in male while trait 2 is desirable in female.
-Over a few generation this will result in LD between causal variants of trait 1 and 2 despite sharing no initial causal SNPs.
-Therefore resulting in a genetic correlation. 
-Last, also parental effect can result in genetic corrections as displayed in Figure~\ref{fig:parental_effects}.
-Specifically, genetic components which cause trait $1$ in the parents might influence the child environment which in turn results in trait 2. 
+Trait 1 is desirable in males while trait 2 is desirable in females.
+Over a few generation this will result in LD between causal variants of trait 1 and 2 despite sharing no initial causal SNPs, resulting in a genetic correlation. Fourth, also parental effect can result in genetic corrections as displayed in Figure~\ref{fig:parental_effects}.
+Specifically, genetic components cause trait $1$ in the parents which influences the child's environment which in turn results in trait 2. 
 Nevertheless, the genetic correlations estimated by LD-score and GCTA are unable to distinguish between the possible sources of genetic correlations.
 
 \begin{figure}[htp]
@@ -342,30 +329,30 @@ Nevertheless, the genetic correlations estimated by LD-score and GCTA are unable
   \caption[Sources of genetic correlations]{Different sources of genetic correlation according to~\citet{Pickrell2016}}\label{fig:genetic_correlation}
 \end{figure}
 
-To conclude, during the last few years large gains have been made in fostering our understanding of heritability and genetic correlations with the development of GCTA and LD-score.
+To conclude, during the last few years large gains have been made in fostering our understanding of heritability and genetic correlations with the development of GCTA and LD-score regression.
 While these tools are able to estimate heritability and genetic correlations of a number of traits it remains difficult to distinguish between different sources of genetic correlations.
 
-\section{Association studies on rare variants}
+\section{Association Studies on Rare Variants}
 \label{sec:association_studies_on_rare_varitants}
 
-A possible suspect for the missing heritability are rare variants.
-Rare variants, commonly variants with a \acrfull{maf} of equal or below 1\%, have been suggested to explain the bulk of missing heritability~\cite{Jiang2013,Li2009a}.
+A possible suspect for the missing heritability is rare variants.
+Rare variants,  variants with a \acrfull{maf} of 1\% or lower, have been suggested to explain the bulk of missing heritability~\cite{Jiang2013,Li2009a}.
 Rare variants are commonly not accessible via micro array chips but only via the more cost intensive sequencing.
-However, the drop in sequencing costs has allowed to conduct whole-exome and whole genome association studies or rare variants~\cite{Goodwin2016}.
-In contrast to GWASs, single variants associations are largely unfeasible, unless sample size is very large~\cite{Lee2014}.
+However, the drop in sequencing costs has allowed us to conduct whole-exome and whole genome association studies of rare variants~\cite{Goodwin2016}.
+In contrast to GWAS, single variant associations are largely unfeasible, unless sample size is very large~\cite{Lee2014}.
 Hence, considerable effort has been made to develop and deploy statistical methods to improve statistical power of rare variant association studies~\cite{Morris2010,Zeng2014,Daye2012,Manuscript2013}.
-Instead of testing individual genetic markers most statistical test evaluate the combined effect of multiple genetic variations in a biological relevant region, such as a gene.
-In general one can divide such approaches into burden and variance component tests.
+Instead of testing individual genetic markers most statistical tests evaluate the combined effect of multiple genetic variations in a biologically-relevant region, such as a gene.
+In general, one can divide such approaches into burden and variance component tests.
 I will first introduce the general statistical model for the two tests.
-Following I will outline each test class and evaluate their benefits and drawbacks.
+Following, I will outline each test class and evaluate their benefits and drawbacks.
 
 Assuming that $y_i$ for subject $i$ with mean $\mu_i$ follows a distribution in the quasi-likelihood family~\cite{Lee2014} with $n$ subjects in a region with $m$ variants, then
 \begin{equation}
   h(\mu_i) = \alpha_0 + \alpha'X_i +\beta'G_i
 \end{equation}
 in which $h(\mu) = \mu$ or $h(\mu) = logit(\mu)$.
-The regression coefficients of the covariants and allele counts are $\alpha = (\alpha_1, \ldots, \alpha_q)$ as well as $\beta = (\beta_1, \ldots, \beta_m)$ respectively.
-The covariants are denoted as $X_i = (X_{i1}, \ldots, X_{iq})'$ and the allele counts as $G_{i1}, \ldots, G_{im}$.
+The regression coefficients of the covariates and allele counts are $\alpha = (\alpha_1, \ldots, \alpha_q)$ as well as $\beta = (\beta_1, \ldots, \beta_m)$, respectively.
+The covariates are denoted as $X_i = (X_{i1}, \ldots, X_{iq})'$ and the allele counts as $G_{i1}, \ldots, G_{im}$.
 The score statistic of the marginal model for variant $j$ is then
 \begin{equation}
   S_j = \sum^n_{i=1} G_{ij}(y_i-\hat{\mu_i})
@@ -374,35 +361,35 @@ where $\hat{\mu_i}$ is the estimated mean under $H_0: \beta = 0 $ and is obtaine
 
 \subsection{Burden Test}
 \label{sub:burden_test}
-The simplest approach, called the burden test, tests the weighted sum of commutated scores
+The simplest approach, called the burden test, tests the weighted sum of computed scores:
 \begin{equation}\label{eq:burden}
   Q = {(\sum^{m}_{j=1} w_{j} S_{j})}^2
 \end{equation}
 in which $w_j$ is the weight for variant $j$.
-Weights can be define by functional annotations, allele frequency or others.
+Weights can be define by functional annotations, allele frequency, or other means.
 The test assumes that all variants  have the same direction of effect.
 This is a rather strong assumption and violations result in a loss in statistical power~\cite{Derkach2013a}.
 
-\subsection{Variance Component Tests}
+\subsection{Variance Components Tests}
 \label{sub:variance_component_tests}
-In contrast to burden tests variance-component tests evaluate the distribution of effects within a certain genomic region.
-The most prominent member of this test family is SKAT~\cite{Wu2011}.
-SKAT assume that $\beta_j\sim N(0,w_j\tau)$ and test for $H_0: \tau = 0$ with a variance-component score test.
+In contrast to burden tests, variance-components tests evaluate the distribution of effects within a certain genomic region.
+The most prominent member of this test family is \acrfull{skat}~\cite{Wu2011}.
+SKAT assumes that $\beta_j\sim N(0,w_j\tau)$ and tests for $H_0: \tau = 0$ with a variance-components score test.
 The test statistic is defined as
 \begin{equation}\label{eq:skat}
   Q = \sum^{m}_{j=1} w_{j}^2 S_{j}^2
 \end{equation}
 The test is robust to groupings of protective and damaging effects within the same region.
-However, also SKAT suffer from a reduction in statistical power in cases of high proportions of causal variants with the same direction~\cite{Derkach2013a}.
+However,  SKAT suffers from a reduction in statistical power in cases of high proportions of causal variants of the same direction, as compared to the burden test~\cite{Derkach2013a}.
 
-To summarise, variance-component tests are generally more powerful than burden tests if a region has many non-causal variants or when the effects of a genomic regions are bi-directional.
-In contrast burden tests perform better in scenarios where most causal variants have the same direction of effect.
+To summarise, variance-components tests are generally more powerful than burden tests if a region has many non-causal variants or when the effects of a genomic region are bi-directional.
+In contrast, burden tests perform better in scenarios where most causal variants have the same direction of effect.
 This has led to the development of omnibus tests to combine burden and variance component tests, most notably SKAT-O~\cite{Lee2012}.
 \bigskip
 
 To conclude, I have outlined various statistical methods to investigate the genetic contribution of aggressive behavior.
 I have described the commonly applied twin model to estimate the contribution of genetic and environmental effects.
 Further, I outlined the principles of genome wide association studies as well as the use of GCTA and LD-score to estimate the narrow sense heritability from common SNPs.
-At last I have described two common used rare variant tests as well as their pros and cons.
+Finally, I have described two commonly-used rare variant tests as well as their pros and cons.
 
 In the next chapter I will present an investigation of the longitudinal heritability of childhood aggression with the use of two large twin cohorts. 
