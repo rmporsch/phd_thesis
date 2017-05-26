@@ -56,13 +56,19 @@ clearlang=true
 \AtBeginDocument{\let\textlabel\label}%
 \begin{document}
 
-\maketitle
-
-\clearpage\null\newpage
 \thispagestyle{empty}
+\subfile{abstract.tex}
+\subfile{title_page.tex}
+\pagenumbering{gobble}
+\clearpage\null\newpage
+\subfile{dedication.tex}
 \pagenumbering{roman}
+\clearpage\null\newpage
+\subfile{declaration.tex}
+\clearpage\null\newpage
+\subfile{acknowledgement.tex}
 \tableofcontents
-\clearpage
+%\clearpage
 \listoffigures
 \listoftables
 \printglossary
