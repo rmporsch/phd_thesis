@@ -1,9 +1,9 @@
 \section{Methods}
 \label{sec:methods_assoc}
 
-\subsection{UK BioBank}
+\subsection{UK Biobank}
 \label{sub:uk_biobank}
-The UK BioBank~\cite{Allen2014} is a population based study of people aged 40--69 years old. 
+The UK Biobank~\cite{Allen2014} is a population based study of people aged 40--69 years old. 
 Participants were recruited between 2006 and 2010 via mail invitation (response rate $5.47\%$)~\cite{Sudlow2015} and were assessed with the help of self-report questionnaires as well as other anthropometric assessments.
 Written informed consent was acquired from all participants and the study was approved by National Research Ethics Service Committee North West---Haydock, UK\@.
 
@@ -48,7 +48,7 @@ Smoking status was obtained by asking participants if they ever have smoked (sco
 \begin{table}[!htpb]
 	\centering
 	\resizebox{\textwidth}{!}{\input{ukb_assoc/tables/descriptive.tex}}
-  \caption[Sample Size and Missingness of UK BioBank]{
+  \caption[Sample Size and Missingness of UK Biobank]{
     Sample size and missingness across Caucasians and non-Caucasians participants.
     Missingness indicates the percentage of participants who were not phenotyped for a particular trait.
     The Caucasian sample represents all participants which were used to conduct the genome wide association study.
@@ -57,10 +57,10 @@ Smoking status was obtained by asking participants if they ever have smoked (sco
 
 \subsection{Genetic analysis}
 \label{sub:genetic_analysis_assoc}
-This study made use of the imputed genetic data of the UK BioBank, compromising $\sim73$ million SNPs, short indels, and larger structural variations of $152,249$ subjects.
-Individuals were genotyped on two different custom genotype arrays, namely the UL BiLEVE as well as the UK BioBank Axiom array from Affymetrix. 
+This study made use of the imputed genetic data of the UK Biobank, compromising $\sim73$ million SNPs, short indels, and larger structural variations of $152,249$ subjects.
+Individuals were genotyped on two different custom genotype arrays, namely the UL BiLEVE as well as the UK Biobank Axiom array from Affymetrix. 
 UL BiLEVE was used for most samples ($102,325$), while the array chip from Affymetrix, which was optimised to support genotype imputation, was used for the remaining participants. 
-Quality control and imputation was performed by the UK BioBank~\cite{Marchini2015}.
+Quality control and imputation was performed by the UK Biobank~\cite{Marchini2015}.
 However, I further conducted additional quality control.
 Variants whose missing call rate exceeded 10\% as well as those with minor allele frequency below 1\% were excluded.
 Further variants which did not pass a Hardy-Weinberg equilibrium test threshold of $1\times10^{-9}$ were also removed from the analysis.

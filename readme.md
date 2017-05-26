@@ -64,7 +64,7 @@ Thesis Outline
 
 # Genome Wide Association Study on impulsive aggressive behavior 
 
-(( UK BioBank ))
+(( UK Biobank ))
 
 1. Introduction
 	* past GWAS
@@ -79,7 +79,7 @@ Thesis Outline
 
 # Genetic and Phenotypic Correlation of Aggressive behavior and other impulsive inhibitions  
 
-(( UK BioBank ))
+(( UK Biobank ))
 
 1. Introduction
 	* impulse control
