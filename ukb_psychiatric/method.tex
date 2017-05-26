@@ -8,48 +8,46 @@
 \label{ssub:uk_biobank_psych}
 
 The UK BioBank~\cite{Allen2014} has been described in the previous chapter in detail (see~\ref{sub:uk_biobank}).
-It is a population based sample of people age 40--69 years old. 
-Participants were recruited between 2006 and 2010 via mail invitation (response rate $5.47\%$)~\cite{Sudlow2015} and were assessed using self-report questionnaires. Other anthropometric measurements were also taken.
+It is a population-based sample of people age 40--69 years old. 
+Participants were recruited between 2006 and 2010 via mail invitation (response rate $5.47\%$)~\cite{Sudlow2015} and were assessed using self-report questionnaires.
 As in the previous chapter, risk taking and impulsive aggression was chosen as the main phenotype of interest.
 
 \subsubsection{Psychiatric data}
 \label{ssub:psychiatric_data}
 
-Summary statistics of GWASs investigating MDD, SZ, BP, as well symptoms of depression were used to compute genetic correlations with risk taking and impulsive aggression.
+Summary statistics of GWAS investigating MDD, SZ, BP, as well symptoms of depression, were used to compute genetic correlations with risk taking and impulsive aggression.
 Further, these samples were also utilized to infer potential causal effects of psychiatric disorders on risk taking and aggression via a Mendelian randomization.
 
 Summary statistics for SZ were acquired from a study by~\citet{Ripke2014} which assessed 36,989 cases and 113,075 controls.
-The authors identified 108 genome wide significant loci and was the largest study on Schizophrenia to date.
-In regards to Bipolar disorder, I made use of a study by the~\citet{PsychiatricGWASConsortiumBipolarDisorderWorkingGroup2011} which used 11,974 cases and 51,792 controls.
-The study identified two genome wide significant signals in \textit{CACNA1C} and \textit{ODZ24}.
+The authors identified 108 genome-wide significant loci and was the largest study on schizophrenia to date.
+In regards to bipolar disorder, I made use of a study by the \citet{PsychiatricGWASConsortiumBipolarDisorderWorkingGroup2011} which used 11,974 cases and 51,792 controls.
+The study identified two genome-wide significant signals in \textit{CACNA1C} and \textit{ODZ24}.
 
-Depression was assessed in two separate, but related phenotypes. 
-Namely Major Depressive Disorder as well as depressive symptoms.
-The summary statistics of a mega analysis of MDD was used to infer its causal connection with risk taking and impulsive aggression~\cite{MajorDepressiveDisorderWorkingGroupofthePsychiatricGWASConsortium2013}.
-The study is with 9,240 cases and 9519 controls the smallest. 
-The authors were unable to identify a genome wide significant signal.
-In contrast, summary statistics of a GWAS on depressive symptoms is with $161,460$ samples the larger used study~\cite{Okbay2016} and two independent loci reached genome wide significance.  
+Depression was assessed both via diagnosis of major depressive disorder (MDD) and symptom count. 
+The summary statistics of a mega-analysis of MDD from 9,240 cases and 9519 controls were used to infer MDD's causal connection with risk taking and impulsive aggression~\cite{MajorDepressiveDisorderWorkingGroupofthePsychiatricGWASConsortium2013}.
+The authors were unable to identify a genome-wide significant signal, likely due to the small sample size.
+In contrast, summary statistics of a population based GWAS on depressive symptoms on $161,460$ samples ~\cite{Okbay2016} found two independent loci reaching genome-wide significance.  
 
 \subsection{Genetic analysis}
 \label{sub:genetic_analysis}
 
 The same genomic analysis was applied as in Chapter~\ref{cha:assocation_study_in_agggressive_behavior_and_risk_taking}.
-The study made use of the imputed genetic data of the UK BioBank, compromising around $\sim73$ million SNPs, short indels and larger structural variations of $152,249$ subjects.
-Individuals were genotyped on two different custom genotype arrays, namely the UL BiLEVE as well as the UK Biobank Axiom array from Affymetrix. 
+The study made use of the imputed genetic data of the UK BioBank, compromising around $\sim73$ million SNPs, short indels, and larger structural variations on $152,249$ subjects.
+Individuals were genotyped on two different custom genotype arrays, namely the UL BiLEVE and the UK Biobank Axiom array from Affymetrix. 
 UL BiLEVE was used for most samples ($\sim100,000$), while the array chip from Affymetrix, which was optimised to support genotype imputation, was used for the remaining participants. 
 Quality control and imputation was performed by the UK BioBank team.
-However, further additional quality control was conducted.
-Variants which whose missing call rate exceeded 10\% as well as those with minor allele frequency below 1\% were excluded.
+However, further additional quality control was conducted by me.
+Variants  whose  call rate was less than 90\% as well as those with minor allele frequency below 1\% were excluded.
 Further variants which did not pass a Hardy-Weinberg equilibrium test threshold of $1\times10^{-9}$ were also removed from the analysis.
-In addition participants with `white European' ancestry identified by a k-mean cluster of the first four principle components of genotype data were included.
-The total number of participants remaining after quality control of geno- and phenotype are displayed in Table~\ref{tab:descriptive_gwas}.
+In addition, participants with white European ancestry identified by a $k$-mean cluster of the first four principal components of genotype data were included.
+The total number of participants remaining after quality control of the genotype are displayed in Table~\ref{tab:descriptive_gwas}.
 
-Association analysis of autosomal SNPs was performed with Plink~\cite{Purcell2007,Chang2015} with age, sex, genotype array chip and the first 10 principle components as covariates.
+Association analysis of autosomal SNPs was performed with Plink~\cite{Purcell2007,Chang2015}, with age, sex, genotype array chip, and the first 10 principal components as covariates.
 
 \subsection{Genetic Correlation}
 \label{sub:genetic_correlation}
 
-Summary statistics of above described psychiatric studies were obtained from LD-Hub~\cite{ZHENG2016} and test statistics for aggression and risk raking, computed in the previous chapter, were used in order to estimate genetic correlations across used phenotypes.
+Summary statistics of above-described psychiatric studies were obtained from LD-Hub~\cite{ZHENG2016} and test statistics for aggression and risk raking, computed in the previous chapter, were used in order to estimate genetic correlations across phenotypes.
 Multiple testing was addressed with the more stringent Bonferroni correction.
 
 \subsection{Mendelian Randomization}
@@ -58,41 +56,39 @@ Multiple testing was addressed with the more stringent Bonferroni correction.
 \subsubsection{General Methodology}
 \label{ssub:General_Methedology}
 
-\acrfull{mr} allows to infer potential causal effects from observational data in the presents of confounding factors. 
+\acrfull{mr} allows  inferring potential causal effects from observational data in the presence of confounding factors. 
 It allows us to assess whether a specific risk factor (exposure) has a causal effect on a disease (outcome).
 MR makes use of measured variation in genetic variants with known association to a modifiable exposure, also called instrument.
-Thus it assumes that certain genetic variants are associated with the exposure, and not with the outcome except through the exposure.
-These assumed relationship of this causal model are displayed in Figure~\ref{fig:causal}.
-Commonly genetic variants with well known effect on the exposure are used and can be seen as a `natural' randomized control trial since genotypes are passed randomly from parents to offspring.
+Thus it assumes that certain genetic variants are associated with the exposure, and not with the outcome, except through the exposure.
+Commonly, genetic variants with well known effect on the exposure are used and can be seen as a natural randomized control trial since genotypes are passed randomly from parents to offspring.
 MR is based on a number of assumptions, most importantly that there is no direct relation between genetic variant and outcome as well as any other confounder.
 However, the use of single variants within an MR often results in underpowered studies~\cite{Bowden2015} since the effect of an given common SNP on any phenotype is usually small.
 This has led to the desire to use multiple genetic variants in order to improve statistical power to estimate causal effects between exposure and outcome.
 
-Assuming $J$ variants in $n$ subjects (indexed by $i$) were measured ($G_{i1}, G_{i2}, \ldots , G_{iJ}$),
-an exposure $X_i$ as well as an outcome $Y_i$.
+Assume $J$ variants in $n$ subjects (indexed by $i$) were measured ($G_{i1}, G_{i2}, \ldots , G_{iJ}$),
+an exposure $X_i$ ,as well as an outcome $Y_i$.
 Further, the potential confounder $U_i$ is unknown. 
-Within the causal model of MR the exposure is a function of the genetic variant, confounder and an independent error $\epsilon_i^X$. 
+Within the causal model of MR the exposure is a function of the genetic variant, confounder, and an independent error, $\epsilon_i^X$. 
 The effect of each variant $j$ on the exposure is represented by $\gamma_j$.
-The outcome, on the other hand, is the result of the linear function of the genetic variants, the exposure, the confounder as well as an error term ($\epsilon_i^Y$).
-The to estimate causal effect between exposure and outcome is $\beta$, while $\alpha_j$ represents the undesired but potential direct effect between the genetic variant $j$ to the outcome.
-
+The outcome, on the other hand, is the result of the linear function of the genetic variants, the exposure, the confounder, as well as an error term ($\epsilon_i^Y$).
+Then the estimate of the causal effect between exposure and outcome is $\beta$, while $\alpha_j$ represents the undesired but potential direct effect between the genetic variant $j$ on the outcome:
 \begin{equation} \label{eq:rm_basic}
   \begin{split}
     X_i &= \sum^J_{j=1} \gamma_jG_{ij} + U_i + \epsilon_i^X \\
     Y_i &= \sum^J_{j=1} \alpha_jG_{ij} + \beta X_i + U_i + \epsilon_i^Y \\
   \end{split}
 \end{equation}
-
+These assumed relationships of this causal model are displayed in Figure~\ref{fig:causal}.
 \begin{figure}[!h]
   \centering
   \resizebox{0.5\textwidth}{!}{\input{ukb_psychiatric/figures/causalilty.tex}}
   \caption[Causal Model]{Causal Model.
-    The model assumes that the instrumental variable $G_j$ influences the outcome $Y$ only via the exposure $X$.
+    If a genetic variant $G_j$ affects the exposure $X$, it can be used as an instrumental variable to investigate the causal effect of exposure $X$ on the outcome $Y$.
+    However,this model assumes that the instrumental variable $G_j$ influences the outcome $Y$ only via the exposure $X$.
     Hence assuming that $\alpha_j=0$, $\gamma_j\neq0$ and that $G_j$ does not influence $Y$ via a third variable $U$. 
     The dotted lines indicate potential assumptions violations.
   }\label{fig:causal}
 \end{figure}
-
 Should $G_j$ be independent of confounder $U$,
 as well as associated with exposure $X$ and independent of outcome $y$ conditional on $X$, then variant $j$ is a valid instrument for $X$.
 
@@ -103,81 +99,78 @@ The reduced-form equation~\cite{Bowden2015} of~\ref{eq:rm_basic}, relating outco
 		&= (\alpha_j + \beta\gamma_j)G_{ij} + \epsilon_{ij}^{'Y}
 	\end{split}
 \end{equation}
-
-One can then estimate the causal effect $\beta$ with the help of the Wald method~\cite{Wald1940}
-by dividing the effect of variant $j$ on the outcome (denoted as $\hat{\Gamma_j}$ by the effect on the exposure (denoted as $\hat{\gamma_j}$.
-Assuming that $\alpha=0$ then the causal effect $\beta$ is
+One can then estimate the causal effect $\beta$ with the help of the Wald method~\cite{Wald1940},
+by dividing the effect of variant $j$ on the outcome (denoted as $\hat{\Gamma_j}$) by the effect on the exposure (denoted as $\hat{\gamma_j}$).
+Assuming that $\alpha=0$, then the causal effect $\beta$ is
 \begin{equation} \label{eq:causal_estiamte}
 	\beta = \frac{\beta\gamma_j}{\gamma_j}= \frac{\Gamma_j}{\gamma_j}
 \end{equation}
 
-However, single variants often have inadequate statistical power, so on can extend Equation~\ref{eq:causal_estiamte} to multiple variants as a weighted average of multiple ratio estimates across uncorrelated genetic variants~\cite{Bowden2015}.
+However, single variants often have inadequate statistical power, so one can extend Equation~\ref{eq:causal_estiamte} to multiple variants as a weighted average of multiple ratio estimates across uncorrelated genetic variants~\cite{Bowden2015}:
 \begin{equation} \label{eq:IVW}
   \frac{\sum^J_{j=1} \hat{\gamma}_j^2\sigma_{Yj}^{-2} \hat{\beta}_j}
   {\sum^J_{j=1} \hat{\gamma}_j^2\sigma_{Yj}^{-2}}
 \end{equation}
-In which $\hat{\beta}_j = \frac{\hat{\Gamma}_j}{\hat{\gamma}_j}$ and the weight $\sigma_{Yj}$ is the standard error of the outcome on the $jth$ variant.
+in which $\hat{\beta}_j = \frac{\hat{\Gamma}_j}{\hat{\gamma}_j}$ and the weight $\sigma_{Yj}$ is the standard error of the outcome on the $jth$ variant.
 
-However, often one cannot assume that $\alpha_j = 0$.
+Often one cannot assume that $\alpha_j = 0$.
 In this case the Wald ratio estimate of variant $j$ will equal the true causal effect plus the error $\frac{\alpha_j}{\gamma_j}$~\cite{Bowden2015}. 
-Hence in the presence of $\alpha_j \neq 0$ Equation~\ref{eq:IVW} is re-written as
+Hence in the presence of $\alpha_j \neq 0$, Equation~\ref{eq:IVW} is re-written as
 \begin{equation} \label{eq:TSLSbias}
   \beta + \frac{\sum^J_{j=1} \gamma_j^2\sigma_{Y_j}^{-2} \alpha_j}
   {\sum^J_{j=1} \gamma_j^2\sigma_{Y_j}^{-2}} = \beta + Bias(\alpha, \gamma)
 \end{equation}
-Importantly this implies that the assumed independence between genetic variants with the outcome $y$ conditional on $X$ holds if the bias term has a mean of zero.
-Based on these general assumptions and characteristics of Mendelian randomization numerous different methods have been proposed.
+Importantly, this implies that the assumed independence between genetic variants with the outcome $y$ conditional on $X$ holds if the bias term has a mean of zero.
+Based on these general assumptions and characteristics of Mendelian randomization, numerous different methods have been proposed.
 
 \subsubsection{Applied MR Methods}
-\label{ssub:Used_Metheds}
+\label{ssub:Used_Methods}
 
-Due to differences in robustness in regards to various potential assumption violations~\citet{Burgess2016} proposed to use a multitude of different MR methods in order to assess potential causal relationships.
-The estimated causal effects can then be judged over all all applied models.
-Further, a sensitivity analysis of each MR analysis was performed to investigate validity of the underlying assumptions~\cite{Burgess2016}.
+Due to differences in robustness in regards to various potential assumption violations~\citet{Burgess2016}, it is recommended that several different MR methods be used in order to assess potential causal relationships.
+The estimated causal effects can then be judged over all  applied models.
+Further, a sensitivity analysis of each MR analysis can be performed to investigate validity of the underlying assumptions~\cite{Burgess2016}.
 A sensitivity analysis investigates the validity of the causal inference by MR since it is implausible that all selected SNPs satisfy the instrumental variable assumption~\cite{Burgess2016}.
-This is commonly done by assessing directional pleiotropy via funnel plots, investigating heterogeneity, as well as test the reverse direction of causality.
+This is commonly done by assessing directional pleiotropy via funnel plots, investigating heterogeneity, as well as testing the reverse direction of causality.
 
-Within this study I used four separated classes of methods.
-That is the \acrfull{ivm}, the weighted median method, as well as MR-Egger regression~\cite{Bowden2015}.
+Within this study I used five separate methods.
+That is, the \acrfull{ivm}, the weighted median method, as well as MR-Egger regression~\cite{Bowden2015}.
 Further I applied classical meta analysis methods with fixed~\cite{Nelson2015a} and random effects~\cite{Ahmad2015a}.
 Overall, these methods differ in their robustness to pleiotropy (or the effect non-null effect of $\alpha_j$) as well as statistical power.
 
 The IVM has been described already in the previous section (see Equation~\ref{eq:IVW}).
 The method, while having greater statistical power than other methods, assumes that all used variants are valid instruments.
 Thus IVM is especially susceptible to presence of pleiotropy~\cite{Burgess2015b}.
-In contrast the weighted median method first estimates the causal effect for each variant separately weighted by the inverse variance. 
+In contrast, the weighted median method first estimates the causal effect for each variant separately weighted by the inverse variance. 
 Following, estimates are then ranked and the median of this distribution is used to represent the estimated causal effect between exposure and outcome.
 This simple approach has the benefit that if at least 50\% of variants are valid instruments it will give consistent causal estimates.
 However, this comes with a lose in precision~\cite{Bowden2015}.
 
-At last MR-egger is a newer methods which relaxes the assumption of $\alpha_j=0$, instead it assumes that the correlation between $\alpha_j$ and $\gamma_j$ is $0$.
-Under this assumption the bias (see Equation~\ref{eq:TSLSbias}) is inversely proportional to $\gamma_j$ and variants with stronger instrument strength (large $\gamma_j$) will on average be closer to the true causal effect.
-MR-egger makes use of this by regressing $\hat{\Gamma}_j$ on $\hat{\gamma}_j$
+MR-Egger is a newer method which relaxes the assumption of $\alpha_j=0$, instead  assuming that the correlation between $\alpha_j$ and $\gamma_j$ is $0$.
+Under this assumption, the bias (see Equation~\ref{eq:TSLSbias}) is inversely proportional to $\gamma_j$ and variants with stronger instrument strength (large $\gamma_j$) will on average be closer to the true causal effect.
+MR-egger makes use of this by regressing $\hat{\Gamma}_j$ on $\hat{\gamma}_j$:
 \begin{equation}\label{eq:egger}
   \hat{\Gamma}_j = \beta_{0E} + \beta_{E} \hat{\gamma}_j
 \end{equation}
 Interestingly, $H_0$ of the intercept $\beta_E$ then gives an indication of the overall average pleiotropy.
-Thus MR-egger uses a relative relaxed assumption but comes with the cost of a considerable lower statistical power~\cite{Bowden2015}.
+Thus MR-egger uses a relatively relaxed assumption but comes with the cost of  considerably lower statistical power~\cite{Bowden2015}.
 
-At last a fixed meta-analysis was used which assumes that the estimated effects $\beta$ are equal across assessed variants~\cite{Burgess2015b}.
+Finally, a fixed meta-analysis was used which assumes that the estimated effects $\beta_j$ are equal across assessed variants~\cite{Burgess2015b}.
 However, this might not be the case in practice since it assumes that all selected instruments are valid.
 In addition, variants might have different effects on the outcome which is not exclusively directed thought the exposure. 
 In contrast, mixed-effect models do not assume equal effect across genetic variants~\cite{Burgess2015b}.
+Specifically, in contrast to fixed effect model where the effect of each instrument $\beta_j$ is modeled as normally distributed with a  mean $\beta_j = \beta$ and variance $\sigma_{Y_j}^2$, a mixed-effect model assumes additionally that also $\beta_j$ is normally distributed with a mean of $\mu_\beta$ with variance $\phi^2$.
+
 %TODO Maybe I should go into more details here
 
 \subsubsection{Selection of Instruments}
 \label{ssub:Selection_of_Intstuments}
 
-In the absence of specific biological knowledge of individual SNPs the choice of instrumental variables for a Mendelian Randomization (MR) are primarily statistical motivated.
-In this case, assumptions of MR are only assessed post-hoc and one cannot speak of a `true' Mendelian Randomization~\cite{Burgess2016a}.
-Nevertheless, these statistical driven MR, also called `joint association study'~\cite{Burgess2016a}, can provide suggestive evidence for causal effects.
+In the absence of specific biological knowledge of individual SNPs, the choice of instrumental variables for a Mendelian randomization  is primarily statistically-motivated.
+In this case, assumptions of MR are only assessed post-hoc and one cannot speak of a \textit{true} Mendelian randomization~\cite{Burgess2016a}.
+Nevertheless, these statistically-driven MR, also called `joint association study'~\cite{Burgess2016a}, can provide suggestive evidence for causal effects.
 
 Here I used a liberal approach to investigate any causal relationship between psychiatric disorders and impulsive aggression as well as risk taking.
 Summary statistics were obtained from 4 different GWAS covering schizophrenia~\cite{Ripke2014}, bipolar disorder~\cite{PsychiatricGWASConsortiumBipolarDisorderWorkingGroup2011}, major depressive disorder~\cite{MajorDepressiveDisorderWorkingGroupofthePsychiatricGWASConsortium2013} as well as depressive symptoms~\cite{Okbay2016}.
-Only pruned variants ($r^2=0.01$) were selected as instruments with $p\leq 5\times 10^{-5}$.
+Only LD pruned variants (no pairwise LD $r^2>0.01$ in a 500kb region) were selected as instruments with $p\leq 5\times 10^{-5}$.
 Variants were then harmonized with summary statistics computed from the UK BioBank on risk taking and impulsive aggression. 
 MR analysis was performed with MR-Base~\cite{Hemani2016}.
-
-% Personally I think these MR methods are so fraught with problems in this application that I have nearly 0 belief in their accuracy. A simple correlation/logistic regression is enough to provide "suggestive" evidence of causality, and these generally come with a far smaller standard error. Adjustment for confounders will give us further evidence concerning the causal relationships. Another aspect which is totally neglected is that the measurements you have are imperfect measurement of an underlying traits. If you have more different kinds of measurements you would use a latent variable model to account for the imperfect nature of the measurements. This I believe has a massive impact on the results. Moreover, it's clear just from the introduction that all your measurements are tapping into some common personality or behavioural traits. Given this persepective, it doesn't make sense to consider whether one measurement causes another. They're simply different measurements of some underlying personality/behavioural tendency. It is clear from personal experience that these things influence one another. If you're angry, you're more likely to be impulsive. A history of impulsive behaviour can make you depressed. Depression can cloud your thinking leading to impulsive behaviour, and so on. Risk taking, especially sexual risk taking, can be due to a depressed state, hopelessness, etc. Furthermore, there's no consideration of the time scale of causality. To me these things are so complicated and interlinked that any attempt to simplify it into a simple causal odds ratio has next to no meaning, even if it can be done. (I mean, say you give me an odds ratio. I ask, what is your measurement? What time scale are you talking about?)
-
-% I think I would focus on the genetic correlation (not that this is a lot more meaningful) but at least we are not claiming to be understanding causality. 
