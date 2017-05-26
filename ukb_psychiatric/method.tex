@@ -32,17 +32,19 @@ In contrast, summary statistics of a population based GWAS on depressive symptom
 \label{sub:genetic_analysis}
 
 The same genomic analysis was applied as in Chapter~\ref{cha:assocation_study_in_agggressive_behavior_and_risk_taking}.
-The study made use of the imputed genetic data of the UK Biobank, compromising around $\sim73$ million SNPs, short indels, and larger structural variations on $152,249$ subjects.
-Individuals were genotyped on two different custom genotype arrays, namely the UL BiLEVE and the UK Biobank Axiom array from Affymetrix. 
-UL BiLEVE was used for most samples ($\sim100,000$), while the array chip from Affymetrix, which was optimised to support genotype imputation, was used for the remaining participants. 
-Quality control and imputation was performed by the UK Biobank team.
-However, further additional quality control was conducted by me.
-Variants  whose  call rate was less than 90\% as well as those with minor allele frequency below 1\% were excluded.
+This study made use of the imputed genetic data of the UK Biobank, compromising $\sim73$ million SNPs, short indels, and larger structural variations of $152,249$ subjects.
+Individuals were genotyped on two different custom genotype arrays, namely the UL BiLEVE as well as the UK Biobank Axiom array from Affymetrix. 
+UL BiLEVE was used for most samples ($102,325$), while the array chip from Affymetrix, which was optimised to support genotype imputation, was used for the remaining participants. 
+Quality control and imputation was performed by the UK Biobank~\cite{Marchini2015}.
+However, I further conducted additional quality control.
+Variants whose missing call rate exceeded 10\% as well as those with minor allele frequency below 1\% were excluded.
 Further variants which did not pass a Hardy-Weinberg equilibrium test threshold of $1\times10^{-9}$ were also removed from the analysis.
-In addition, participants with white European ancestry identified by a $k$-mean cluster of the first four principal components of genotype data were included.
-The total number of participants remaining after quality control of the genotype are displayed in Table~\ref{tab:descriptive_gwas}.
+Thus leaving $8,802,909$ genetic variants for further analysis.
 
-Association analysis of autosomal SNPs was performed with Plink~\cite{Purcell2007,Chang2015}, with age, sex, genotype array chip, and the first 10 principal components as covariates.
+In addition I only included participants with `white European' ancestry identified by a k-mean cluster of the first four principal components of genotype data.
+The total number of participants remaining after quality control of genotype are displayed in Table~\ref{tab:descriptive_gwas}.
+
+Association analysis of autosomal SNPs was performed with Plink~\cite{Purcell2007,Chang2015} with age, sex, genotype array chip, and the first 10 principal components as covariants.
 
 \subsection{Genetic Correlation}
 \label{sub:genetic_correlation}
