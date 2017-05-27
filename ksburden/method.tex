@@ -1,15 +1,15 @@
 \section{Method}
 \label{sec:method_ksburden}
 
-Assume $p$ genetic variants and a dichotomous phenotype obtained on $n$ subjects.
-For the $i$th subject,   $\bm{G_i} = (G_{i1}, G_{i2},\ldots , G_{ip})$ and $y_i$ are the genotypes and phenotype. respectively.
-In addition, let $G_{ip} = 0, 1,$ or 2 represent the number of rare alleles at variant $p$.  
+Assume $P$ genetic variants (indexed by $p$) and a dichotomous phenotype obtained on $n$ subjects.
+For the $i$th subject,   $\bm{G_i} = (G_{i1}, G_{i2},\ldots , G_{iP})$ and $y_i$ are the genotypes and phenotype. respectively.
+In addition, let $G_{ip} = 0, 1,$ or $2$ represent the number of rare alleles at variant $p$.  
 
 One can then calculate the \acrfull{ECDF} for both cases ($F_{A(G)}$) and controls ($F_{U(G)}$) or any other dichotomous phenotype.
 The ecdf is a monotonic step function, increasing from $0$ at the first position of the gene, to $1$ at the last position of the gene.
-For $p$ rare variants occurring at positions  $G_{i1}, G_{i2}, \ldots, G_{ip}$, the empirical distribution function of $G$ is given by
+For $P$ rare variants occurring at positions  $G_{i1}, G_{i2}, \ldots, G_{iP}$, the empirical distribution function of $G$ is given by
 \begin{equation}
-  F(x) = \frac{1}{p}\sum^p_{i=1}I(X_i \leq x)
+  F(x) = \frac{1}{P}\sum^P_{p=1}I(X_p \leq x)
 \end{equation}
 in which $I(x)$ is the indicator function for a fixed given variant $x$.
 The KS statistic $K$ is defined as the supremum of the absolute difference between the two empirical distribution functions:

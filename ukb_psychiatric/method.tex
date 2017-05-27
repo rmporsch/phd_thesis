@@ -12,7 +12,7 @@ It is a population-based sample of people age 40--69 years old.
 Participants were recruited between 2006 and 2010 via mail invitation (response rate $5.47\%$)~\cite{Sudlow2015} and were assessed using self-report questionnaires.
 As in the previous chapter, risk taking and impulsive aggression was chosen as the main phenotype of interest.
 
-\subsubsection{Psychiatric data}
+\subsubsection{Psychiatric Data}
 \label{ssub:psychiatric_data}
 
 Summary statistics of GWAS investigating MDD, SZ, BP, as well symptoms of depression, were used to compute genetic correlations with risk taking and impulsive aggression.
@@ -26,9 +26,9 @@ The study identified two genome-wide significant signals in \textit{CACNA1C} and
 Depression was assessed both via diagnosis of major depressive disorder (MDD) and symptom count. 
 The summary statistics of a mega-analysis of MDD from 9,240 cases and 9519 controls were used to infer MDD's causal connection with risk taking and impulsive aggression~\cite{MajorDepressiveDisorderWorkingGroupofthePsychiatricGWASConsortium2013}.
 The authors were unable to identify a genome-wide significant signal, likely due to the small sample size.
-In contrast, summary statistics of a population based GWAS on depressive symptoms on $161,460$ samples ~\cite{Okbay2016} found two independent loci reaching genome-wide significance.  
+In contrast, summary statistics of a population based GWAS on depressive symptoms on $161,460$ samples~\cite{Okbay2016} found two independent loci reaching genome-wide significance.  
 
-\subsection{Genetic analysis}
+\subsection{Genetic Analysis}
 \label{sub:genetic_analysis}
 
 The same genomic analysis was applied as in Chapter~\ref{cha:assocation_study_in_agggressive_behavior_and_risk_taking}.
@@ -41,7 +41,7 @@ Variants whose missing call rate exceeded 10\% as well as those with minor allel
 Further variants which did not pass a Hardy-Weinberg equilibrium test threshold of $1\times10^{-9}$ were also removed from the analysis.
 Thus leaving $8,802,909$ genetic variants for further analysis.
 
-In addition I only included participants with `white European' ancestry identified by a k-mean cluster of the first four principal components of genotype data.
+In addition I only included participants with `white European' ancestry identified by a $k$-mean cluster of the first four principal components of genotype data.
 The total number of participants remaining after quality control of genotype are displayed in Table~\ref{tab:descriptive_gwas}.
 
 Association analysis of autosomal SNPs was performed with Plink~\cite{Purcell2007,Chang2015} with age, sex, genotype array chip, and the first 10 principal components as covariants.
@@ -49,7 +49,7 @@ Association analysis of autosomal SNPs was performed with Plink~\cite{Purcell200
 \subsection{Genetic Correlation}
 \label{sub:genetic_correlation}
 
-Summary statistics of above-described psychiatric studies were obtained from LD-Hub~\cite{ZHENG2016} and test statistics for aggression and risk raking, computed in the previous chapter, were used in order to estimate genetic correlations across phenotypes.
+Summary statistics of above-described psychiatric studies were obtained from LD-Hub~\cite{ZHENG2016} and test statistics for aggression and risk raking, computed in the previous chapter, were used in order to estimate genetic correlations across phenotypes using LD-score regression~\cite{Bulik-Sullivan2015a}.
 Multiple testing was addressed with the more stringent Bonferroni correction.
 
 \subsection{Mendelian Randomization}
@@ -94,7 +94,7 @@ These assumed relationships of this causal model are displayed in Figure~\ref{fi
 Should $G_j$ be independent of confounder $U$,
 as well as associated with exposure $X$ and independent of outcome $y$ conditional on $X$, then variant $j$ is a valid instrument for $X$.
 
-The reduced-form equation~\cite{Bowden2015} of~\ref{eq:rm_basic}, relating outcome with $G_j$, can be written as
+The reduced-form equation~\cite{Bowden2015} of Equation~\ref{eq:rm_basic}, relating outcome with $G_j$, can be written as
 \begin{equation}
 	\begin{split}
 		Y_i &= \Gamma_j G_{ij} + \epsilon_{ij}^{'Y} \\
@@ -132,7 +132,7 @@ Due to differences in robustness in regards to various potential assumption viol
 The estimated causal effects can then be judged over all  applied models.
 Further, a sensitivity analysis of each MR analysis can be performed to investigate validity of the underlying assumptions~\cite{Burgess2016}.
 A sensitivity analysis investigates the validity of the causal inference by MR since it is implausible that all selected SNPs satisfy the instrumental variable assumption~\cite{Burgess2016}.
-This is commonly done by assessing directional pleiotropy via funnel plots, investigating heterogeneity, as well as testing the reverse direction of causality.
+This is commonly done by assessing directional pleiotropy via funnel plots, investigating heterogeneity, as well as testing the reverse direction of causality and linearity.
 
 Within this study I used five separate methods.
 That is, the \acrfull{ivm}, the weighted median method, as well as MR-Egger regression~\cite{Bowden2015}.
@@ -161,8 +161,6 @@ However, this might not be the case in practice since it assumes that all select
 In addition, variants might have different effects on the outcome which is not exclusively directed thought the exposure. 
 In contrast, mixed-effect models do not assume equal effect across genetic variants~\cite{Burgess2015b}.
 Specifically, in contrast to fixed effect model where the effect of each instrument $\beta_j$ is modeled as normally distributed with a  mean $\beta_j = \beta$ and variance $\sigma_{Y_j}^2$, a mixed-effect model assumes additionally that also $\beta_j$ is normally distributed with a mean of $\mu_\beta$ with variance $\phi^2$.
-
-%TODO Maybe I should go into more details here
 
 \subsubsection{Selection of Instruments}
 \label{ssub:Selection_of_Intstuments}

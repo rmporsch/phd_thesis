@@ -5,7 +5,7 @@
 \label{sub:psych_genetic_correlation}
 
 First, the genetic correlation between impulsive aggression and depressive symptoms is remarkably high ($r_g=0.6741$, $SE=0.0919$, $p=2.2326\times 10^{-13}$).
-This high correlation is also reflected in subjects diagnosed with a major depression ($r_g=0.4134$, $SE=0.1212$, $p=6\times 10^{-04}$).
+This high correlation is also reflected in subjects diagnosed with a major depression ($r_g=0.4134$, $SE=0.1212$, $p=6\times 10^{-4}$).
 In contrast, the correlation between impulsive aggression and bipolar disorder was not significant after adjusting for multiple testing at $\alpha=0.00625$ ($r_g=0.1192$, $SE=0.0949$, $p=0.2091$).
 The genetic correlation between impulsive aggression and  schizophrenia was much smaller ($r_g=0.161$, $SE=0.0566$, $p=0.0045$) and failed to pass multiple testing.
 
@@ -28,13 +28,13 @@ In addition, while genetic correlations were highly significant between aggressi
 
 Utilization of MR to infer potential causal influence of psychiatric disorders on aggression and risk taking yielded two potential links (Figure~\ref{fig:overall_mr_effect}).
 While most methods agree with the direction of effect, MR-Egger commonly resulted in larger confidence intervals and did not result in any significant findings.
-Nevertheless, MR-egger is known to be less powerful in cases where most  genetic variants are valid instruments.
+Nevertheless, MR-Egger is known to be less powerful in cases where most  genetic variants are valid instruments.
 
 MR analysis suggests some indication that SZ might causally influence both aggression and risk taking.
 In particular, all applied methods, with the exception of MR-Egger, support the notion that SZ might both increase levels of risk taking as well as impulsive aggression.
 In addition, there is little evidence for a possible MR assumption violation via pleiotropic effects.
 Both funnel plots in Figure~\ref{fig:sensitivity} as well as MR-Egger intercepts (Figure~\ref{fig:sensitivity}) suggest little to no pleiotropy between instrument and outcome.
-Further, these results seem not to be driven by outliers (see Figure~\ref{fig:mr_aggression} and Figure~\ref{fig:mr_risk}).
+Further, these results seem not to be driven by outliers and seem to be linear (see Figure~\ref{fig:mr_aggression} and Figure~\ref{fig:mr_risk}).
 This indicates a potential causal effect of SZ on both risk taking and impulsive aggression.
 
 Mixed results were obtained in the MR analysis investigating a potential causal effect of depression on aggressive behavior.
@@ -46,16 +46,17 @@ In addition, the intercept of MR-egger regression differs significantly from $0$
 Thus, there is no evidence which could suggest a causal influence of depressive symptoms on aggression. 
 Similar, but weaker, results were obtained from the MR analysis between MDD and impulsive aggression.
 None of the  methods suggested significant causal effects between the two phenotypes. 
-Furthermore, analysis of the funnel plot suggest a possible pleiotropy violation.
+Furthermore, analysis of the funnel plot indicate a possible assumptions violation.
 
 In addition, there is some indication of a causal effect of BP on risk-taking.
-However, these effects are rather weak across the  instruments.
+However, these effects are rather weak across instruments.
 Further, MR analysis was unable to identify causal effects of both DS and MDD on risk taking.
 Also an effect of BP on impulsive aggression was not supported by this analysis.
 \begin{figure}[htpb]
   \centering
   \includegraphics[width=0.9\linewidth]{ukb_psychiatric/figures/overall_mr_effect.pdf}
-  \caption[Estimated Causal Effects]{Estimated causal effect of psychiatric disorders on impulsive aggression and risk taking.
+  \caption[Estimated Causal Effects]{
+    Estimated causal effect of psychiatric disorders on impulsive aggression and risk taking.
     The effect size of the causal effect $\beta$ is displayed on the y-axis, while used Mendelian randomization methods are on the x-axis.
     SZ, Schizophrenia; MDD, Major Depressive Disorder; DS, Depressive Symptom's; BP, Bipolar Disorder.
     (A) Effect of psychiatric disorders on impulsive aggression.
@@ -67,13 +68,13 @@ Also an effect of BP on impulsive aggression was not supported by this analysis.
   \centering
   \includegraphics[width=0.9\linewidth]{ukb_psychiatric/figures/sensitvity_plot.pdf}
   \caption[Sensitivity analysis]{Sensitivity analysis.
-    (A) Displays the intercept $\beta_0$ of MR-egger regression for psychiatric disorders on impulsive aggression. The intercept is an indication of whether directional horizontal pleiotropy is driving the MR analysis.
-    (B) The MR-egger regression intercept of psychiatric disorders on risk taking.
+    (A) Displays the intercept $\beta_0$ of MR-Egger regression for psychiatric disorders on impulsive aggression. The intercept is an indication of whether directional horizontal pleiotropy is driving the MR analysis.
+    (B) The MR-Egger regression intercept of psychiatric disorders on risk taking.
     (C) Funnel plot of Depressive symptoms on impulsive aggression. 
     (D) Funnel plot of MDD on impulsive aggression. 
     (E) Funnel plot of SZ on impulsive aggression. 
     (F) Funnel plot of SZ on risk taking. 
-    The intercept of both MR-egger and Inverse variance method are indicated with a vertical line.
+    The intercept of both MR-Egger and Inverse variance method are indicated with a vertical line.
     Error bars indicate the 95\% confidence intervals.
   }\label{fig:sensitivity}
 \end{figure}
@@ -82,5 +83,5 @@ The  direction of effect between exposure and outcome was tested with the help o
 In general, the test examines if the variance explained by the  instrumental SNP in the outcome is less than that within the exposure. 
 Careful inspection of these test results suggests that there were no violations of the hypothesised direction of causal effects across all tested connections.
 
-To conclude, careful examination of the  MR analyses gives some indication of a causal connection between SZ on both risk taking and impulsive aggression.
+To conclude, MR analyses suggest some indication of a causal connection between SZ on both risk taking and impulsive aggression.
 However, potential causal effects of other psychiatric disorders on aggression or risk taking were not supported.
