@@ -9,7 +9,7 @@ In contrast, sequencing based techniques are not limited by these problems and a
 Only recently whole genome and exome sequencing have become cheaper, providing rich opportunities to study the relationship between rare genetic variants and complex human traits~\cite{Goodwin2016}.
 
 Considerable effort has been spent to develop and deploy statistical methods to discover important causal relationships between rare variants and complex traits~\cite{Morris2010,Zeng2014,Daye2012,Manuscript2013}.
-In genome wide association studies (GWAS), single variants are associated with the trait in question.
+In genome-wide association studies (GWAS), single variants are associated with the trait in question.
 This approach is largely unfeasible in rare variants due to their low frequency~\cite{Lee2014}.
 Thus most approaches have been focused on combining multiple rare variants in order to increase statistical power.
 This can be either done on the gene or pathway level, but for simplicity I will only consider gene-based tests.
@@ -24,7 +24,7 @@ Examples of this method include the \acrfull{cmc} test~\cite{Li2008}, as well as
 
 Alternatively, variance components tests do not assume uni-directional effect of all included variants. 
 These methods investigate the distribution of genetic effects for a genomic region and are robust to variants with differing direction of effects.
-Prominent examples of variance components tests are SKAT~\cite{Wu2011} and C-Alpha~\cite{Neale2011}.
+Prominent examples of variance components tests are \acrfull{skat}~\cite{Wu2011} and C-Alpha~\cite{Neale2011}.
 These tests are more powerful compared to the burden approach in cases when the majority of rare variants are of neutral effect or if bi-directional effects are present.
 However, the burden tests are able to outperform variance components-based tests when a large proportion of variants have the same direction of effect.
 This has led to the development of omnibus tests to combine both approaches.
@@ -41,5 +41,5 @@ These methods rely on kernel distance clustering and are mostly computationally 
 
 I am here proposing a way to assess the differences in spatial organization by assessing the distributional differences of rare variants between cases and controls.
 To do so I make use of the well-known \acrfull{ks} test.
-I demonstrate, through extensive simulation, that our methods outperform commonly used tests, such as SKAT and burden when the assumptions of the KS-test hold true.
+I demonstrate, through extensive simulation, that this new methods outperform commonly used tests, such as SKAT and burden when the assumptions of the KS-test hold true.
 Furthermore, I combine the KS and burden test to provide an omnibus approach to gene-based tests while providing empirical evidence for their independence.

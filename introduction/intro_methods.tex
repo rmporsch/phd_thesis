@@ -75,7 +75,7 @@ and
     \frac{1}{2}a^2 + c^2 & a^2 + c^2 + e^2
   \end{pmatrix}
 \end{equation}
-Modern SEM software is able to estimate parameters by minimising the goodness-of-fit statistic between the observed and predicted covariance matrices~\cite{Boker2011}.
+Modern SEM software are able to estimate parameters by minimising the goodness-of-fit statistic between the observed and predicted covariance matrices~\cite{Boker2011}.
 Most commonly this is done via a maximum-likelihood function.
 Furthermore, the overall goodness-of-fit of the model relative to a perfect fit, meaning that all covariances are estimated, is measured by a likelihood ratio square statistic ($\chi^2$).
 Therefore, should we fail to reject the null hypothesis that our model in Figure~\ref{fig:ace} is different from a perfect fitted model we have reason to assume that our genetic model fits the data.
@@ -129,7 +129,7 @@ Overall, the common disease common variant hypothesis has been tested numerous t
 Most common SNPs identified in the last 10 years are of small effect and most common disorders have multiple risk alleles~\cite{Welter2014,Schork2010}, suggesting that the hypothesis holds true. 
 However this does imply that all genetic contributions to a common disorder are due to common variants alone.
 Indeed, there have been some successful genetic associations of common variants in rare disorders.
-For example,~\cite{Garcia-Barcelo2009a} identified 2 common SNPs associated with Hirschsprung's disease, a rare congenital disorder 2.8 per 10,000 births).
+For example,~\cite{Garcia-Barcelo2009a} identified 2 common SNPs associated with Hirschsprung's disease, a rare congenital disorder (2.8 per 10,000 births).
 
 \subsection{Linkage Disequilibrium}
 \label{sub:linkage_disequilibrium}
@@ -228,7 +228,7 @@ As already described above, studies on twins were able to assess the heritabilit
 Interestingly, a number of methods have also been developed to assess narrow sense heritability, or the additive genetic effect, from genotyped data.
 Several methods have been proposed in the past, most notably \acrfull{gcta} and LD-score regression.
 
-subsection{\acrfull{gcta}}
+\subsection{\acrfull{gcta}}
 \label{sub:gcta}
 
 GCTA uses a mixed linear model to  fit the effect of all SNPs by making use of the genetic relationship matrix of all included subjects~\cite{Yang2011}.
@@ -239,7 +239,7 @@ If $\textbf{A}$ is the genetic relatedness matrix then
 in which $y$ is the phenotype and $\beta$ are the estimated effect sizes of all covariates and the total genetic effect $g$ for each individual is $g \sim N(0, A\sigma^2_g)$.
 GCTA is then able to estimate the variance explained by all SNPs, $\sigma^2_g$, by restricted maximum likelihood.
 One can extent this model to bivariate linear mixed models to estimate the genetic correlation between two traits as well.
-If $y_1 = X_1\beta_1 + g_1 + \epsilon_1$ for trait 1 and $y_2= X_2\beta_2 + g_2 + \epsilon_2$ then the variance-covariance matrix $V$ is
+If $y_1 = X_1\beta_1 + g_1 + \epsilon_1$ for trait 1 and $y_2= X_2\beta_2 + g_2 + \epsilon_2$ for trait 2 then the variance-covariance matrix $V$ is
 \begin{equation}
   V = 
   \begin{pmatrix}
@@ -293,16 +293,17 @@ While a single reason for the missing heritability seems unlikely it is still an
 
 \subsection{Genetic Correlations}
 \label{sub:genetic_correlations_method}
-These developments have enabled recent research to uncover the genetic correlations among a variety of different traits, even when the two traits are measured on different people.
+The development of both LD-score regression and GCTA have enabled recent research to uncover the genetic correlations among a variety of different traits, even when the two traits are measured on different people.
 However, genetic correlation can arise from a multitude of different sources.
 Figure~\ref{fig:genetic_correlation} shows 4 different ways genetic correlation can arise.
-First and foremost, genetic correlation can arise if two traits are caused by the same genetic variant (see Figure~\ref{fig:pleiotropy}).
+First and foremost, genetic correlation can arise if two traits are caused by the same genetic factors (see Figure~\ref{fig:pleiotropy}).
 Second, a genetic factor  causes phenotype 1 and that phenotype can in turn cause phenotype 2 (see mediated pleiotropy in Figure~\ref{fig:mediated_pleiotropy}).
 Third, genetic correlation can also arise from assortative mating as shown in Figure~\ref{fig:assortative_mating}.
 Assortative mating is a non-random mating pattern within a population.
 For example, consider two traits which share no causal variant.
 Trait 1 is desirable in males while trait 2 is desirable in females.
-Over a few generation this will result in LD between causal variants of trait 1 and 2 despite sharing no initial causal SNPs, resulting in a genetic correlation. Fourth, also parental effect can result in genetic corrections as displayed in Figure~\ref{fig:parental_effects}.
+Over a few generation this will result in LD between causal variants of trait 1 and 2 despite sharing no initial causal SNPs, resulting in a genetic correlation. 
+Fourth, also parental effect can result in genetic corrections as displayed in Figure~\ref{fig:parental_effects}.
 Specifically, genetic components cause trait $1$ in the parents which influences the child's environment which in turn results in trait 2. 
 Nevertheless, the genetic correlations estimated by LD-score and GCTA are unable to distinguish between the possible sources of genetic correlations.
 
@@ -336,7 +337,7 @@ While these tools are able to estimate heritability and genetic correlations of 
 \section{Association Studies on Rare Variants}
 \label{sec:association_studies_on_rare_varitants}
 
-A possible suspect for the missing heritability is rare variants.
+A possible suspect for the missing heritability are rare variants.
 Rare variants,  variants with a \acrfull{maf} of 1\% or lower, have been suggested to explain the bulk of missing heritability~\cite{Jiang2013,Li2009a}.
 Rare variants are commonly not accessible via micro array chips but only via the more cost intensive sequencing.
 However, the drop in sequencing costs has allowed us to conduct whole-exome and whole genome association studies of rare variants~\cite{Goodwin2016}.
@@ -345,7 +346,7 @@ Hence, considerable effort has been made to develop and deploy statistical metho
 Instead of testing individual genetic markers most statistical tests evaluate the combined effect of multiple genetic variations in a biologically-relevant region, such as a gene.
 In general, one can divide such approaches into burden and variance component tests.
 I will first introduce the general statistical model for the two tests.
-Following, I will outline each test class and evaluate their benefits and drawbacks.
+Following, I will outline two commonly used classes of tests and evaluate their benefits and drawbacks.
 
 Assuming that $y_i$ for subject $i$ with mean $\mu_i$ follows a distribution in the quasi-likelihood family~\cite{Lee2014} with $n$ subjects in a region with $m$ variants, then
 \begin{equation}

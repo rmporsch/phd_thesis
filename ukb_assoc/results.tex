@@ -5,7 +5,7 @@
 \label{sub:descriptive_statistics}
 
 Sex and age of participants is affecting both main and secondary phenotypes (see Figure~\ref{fig:disc}).
-One can observe noticeable sex differnces in risk taking, alcohol consumption as well as neuroticism.
+One can observe noticeable sex differences in risk taking, alcohol consumption as well as neuroticism.
 As expected, risk taking is more prevalent in male than in female subjects. 
 Similar, man seem to drink more alcohol than women.
 The opposite seems to be the case for neuroticism.
@@ -14,19 +14,19 @@ Further,  while sex differnces are minor within impulsive aggression it is inter
 
 Similar to the effect of sex, age seem to have some influence on aggression, risk taking and neuroticism, but only to a lesser extend to smoking and alcohol intake.
 Risk taking, neuroticism and impulsive aggression seem to decline by age, while alcohol consumption seems rather stable.
-Further, one can observe that older individuals are more likley to currently smoke, or have smoked in the past.
+Further, one can observe that older individuals are more likely to currently smoke, or have smoked in the past.
 A result which is not particular surprising.
-Furthermore, these result suggest that a genome wide association study should include both age and sex as covariats.
+Furthermore, these result suggest that a genome-wide association study should include both age and sex as covariats.
 
 \begin{figure}[htpb]
   \centering
   \includegraphics[width=0.8\linewidth]{ukb_assoc/figure/phenotype/descriptives_plots.pdf}
   \caption[Descriptive Statistics of primary and secondary phenotypes]{
     Descriptive Statistics of primary and secondary phenotypes for all participants.
-    (A) Standarized effect of sex (male, female) on phenotypes. 
-    A possitive effect size indicates creater prevalance in male than in female.
+    (A) Standardized effect of sex (male, female) on phenotypes. 
+    A positive effect size indicates greater prevalence in male than in female.
     Errorbars indicate the 95\% confidence interval.
-    (B) Standarized effect of age on phenotypes.
+    (B) Standardized effect of age on phenotypes.
     Errorbars indicate the 95\% confidence interval.
     (C) Barplot of neuroticism.
     The plot displays the frequency of each neuroticism score.
@@ -35,7 +35,7 @@ Furthermore, these result suggest that a genome wide association study should in
   }\label{fig:disc}
 \end{figure}
 
-\subsection{Phenotypic correlations}
+\subsection{Phenotypic Correlations}
 \label{sub:phenotype_correlations}
 
 Phenotypical correlations are displayed in Figure~\ref{fig:corr_pheno}. 
@@ -53,13 +53,13 @@ Nevertheless, medium correlations were present between impulsive aggression and 
   \centering
   \includegraphics[width=0.6\linewidth]{ukb_assoc/figure/phenotype/corr_plot_ci.pdf} 
   \caption[Phenotypical correlations]{
-    Phenotypical correlations among analysed phenotypes for all subjects.
+    Phenotypical correlations among analyzed phenotypes for all subjects.
     Displayed correlations were all significant after adjusting for multiple testing using the Bonferroni correction.
     In contrast to the genetic correlations, Caucasian and non-Caucasian subjects were used.
   }\label{fig:corr_pheno}
 \end{figure}
 
-\subsection{GWAS on impulsive aggression and risk taking}
+\subsection{GWAS on Impulsive Aggression and Risk Taking}
 \label{sub:gwas}
 
 Genome-wide association analysis reveled no genome-wide significant loci in $37,320$ impulsive aggression subjects (see Figure~\ref{fig:manhatten} panel A).
@@ -81,14 +81,15 @@ In addition, $\beta_0$ approaches 1 ($\beta_0=1.0082, SE=0.0056$) thus suggestin
   \includegraphics[width=0.8\linewidth]{ukb_assoc/figure/manhatten_plots/risk_manhatten_color_B.jpeg}
   \end{subfigure}
   \caption[Manhatten Plots]{
-    Manhattan Plot for impulsive aggression (A) and risk taking (B).
+    Manhattan Plot for impulsive aggression (A)
+    and risk taking (B).
     The red line in pannel B indicates genome wide significance level at $\alpha=5\times10^{-8}$.
     The blue line in panel A and B represents a suggestive genetic effect at $\alpha=5\times10^{-5}$.}\label{fig:manhatten}
 \end{figure}
 
 Closer inspection of the signal on chromosome 3 shows 2 lead SNPs namely \textit{rs1308431} and \textit{rs7639518} (see Table~\ref{tab:lead_snps_risk}).
 However, \textit{rs1308431} and \textit{rs7639518} have opposite directions of effect.
-Specifically, while the minor allele in \textit{rs76395182} is less common in affected (0.330) than unaffected individual (0.344) the opposite is the case in \textit{rs13084531} (0.233 versus 0.222).
+Specifically, while the minor allele in \textit{rs76395182} is less common in affected ($0.330$) than unaffected individual ($0.344$) the opposite is the case in \textit{rs13084531} ($0.233$ versus $0.222$).
 The independence of these two signals was investigated using a conditional analysis.
 Thus, genotypes of \textit{rs7639518} were regressed on the phenotype while adjusting for \textit{rs1308431}.
 This conditional model indicates that \textit{rs7639518} is not independent of \textit{rs1308431} at a genome-wide level ($OR=0.957, t(107737)=-3.787, p=0.0001523$).
@@ -171,7 +172,6 @@ This particular SNPs is independent of the genome wide significant loci identifi
 \label{sub:genetic_correlations_internal}
 
 Figure~\ref{fig:gcor} displays the genetic correlations of analysed phenotypes.
-All correlations were significant after adjusting for multiple testing ($p\leq0.005$).
 The largest genetic correlations could be observed between impulsive aggression and neuroticism ($r_g=0.63, SE=0.083, p=4.64\times 10^{-14}$), 
 followed by a considerable correlation between risk taking and aggression ($r_g=0.44, SE=0.103, p=2.66\times 10^{-5}$).
 Interestingly, relatively large negative correlations are also present between alcohol consumption and aggression ($r_g=-0.39, SE=0.0892, p=1.69\times 10^{-5}$)
@@ -179,7 +179,7 @@ as well as between smoking and aggression ($r_g=0.4, SE=0.071, p=1.64\times 10^{
 Correlation, between smoking and alcohol consumption was not significant as well of neglectable effect ($r_g=0.06, SE=0.044, p=0.155$).
 Interestingly, these respectively high genetic correlations are not reflected in the corresponding conditional FDR (see Figure~\ref{fig:cFDR}).
 
-Further, risk taking shows non-significant and small correlation with neuroticism ($r_g=-0.12, SE=0.0738, p=0.106$) and
+Furthermore, risk taking shows non-significant and small correlation with neuroticism ($r_g=-0.12, SE=0.0738, p=0.106$) and
 alcohol consumption ($r_g=0.07, SE=0.051, p=0.196$) but the correlation between risk taking and smoking ($r_g=0.34, SE=0.051, p=2.40\times 10^{-11}$) is considerable.
 In addition, medium correlations were present between neuroticism and alcohol consumption ($r_g=-0.17, SE=0.040, p=2.63\times 10^{-4}$). 
 Effects were also present between neuroticism and smoking, but did not pass multiple testing ($r_g=0.16, SE=0.066, p=0.017$).
