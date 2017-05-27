@@ -1,17 +1,17 @@
 \section{Method}
 \label{sec:method_ksburden}
 
-Assume $P$ genetic variants (indexed by $p$) and a dichotomous phenotype obtained on $n$ subjects.
+Assume $P$ genetic variants (indexed by $p$) and a dichotomous phenotype obtained on $n$ subjects (indexed by $i$).
 For the $i$th subject,   $\bm{G_i} = (G_{i1}, G_{i2},\ldots , G_{iP})$ and $y_i$ are the genotypes and phenotype. respectively.
-In addition, let $G_{ip} = 0, 1,$ or $2$ represent the number of rare alleles at variant $p$.  
+In addition, let $G_{ip} = 0, 1,$ or $2$ represent the number of rare alleles at variant $p$.
 
 One can then calculate the \acrfull{ECDF} for both cases ($F_{A(G)}$) and controls ($F_{U(G)}$) or any other dichotomous phenotype.
 The ecdf is a monotonic step function, increasing from $0$ at the first position of the gene, to $1$ at the last position of the gene.
-For $P$ rare variants occurring at positions  $G_{i1}, G_{i2}, \ldots, G_{iP}$, the empirical distribution function of $G$ is given by
+Thus one can define the \acrlong{ECDF} $F(x)$ for $G$ as
 \begin{equation}
-  F(x) = \frac{1}{P}\sum^P_{p=1}I(X_p \leq x)
+  F(x) = \frac{1}{\Gamma} \sum^P_{p=1}(I(p \leq x)\sum^n_{i=1}G_{ip})
 \end{equation}
-in which $I(x)$ is the indicator function for a fixed given variant $x$.
+in which $\Gamma = \sum^P_{p=1}\sum^n_{i=1} G_{ip}$ and $I(x)$ is the indicator function for a fixed position $x$.
 The KS statistic $K$ is defined as the supremum of the absolute difference between the two empirical distribution functions:
 \begin{equation}
 	K_{KS} = \sup_x | F_A(x) - F_U(x) |
@@ -25,7 +25,7 @@ Therefore, I applied a permutation-based approach to estimate p-values as
 \begin{equation}
   p_{per} = \frac{\sum^B_{b=1} I(K_b \geq k)+1}{b+1}
 \end{equation}
-in which $K_b$ is the test statistic of the $b^{th}$ permuted sample.
+in which $K_b$ is the test statistic of the $b^{th}$ permuted sample and $k$ is the observed test statistic.
 
 \subsection{Omnibus Test for KS and Burden}
 \label{sub:omnibus_test_for_ks_and_burden}
@@ -48,25 +48,24 @@ in which the test statistic follows a $\chi^2$-distribution with $4$ degrees of 
 I designate this combined test KS-Burden.
 
 Implementation of the KS, Burden and KS-Burden was done in C++ and can be found at \url{https://github.com/rmporsch/ksburden}.
-This repository also includes associated scripts and programs to repeated simulations described within this manuscript.
 
 \subsection{Simulation Study}
 \label{sub:simulation_study}
 
 In contrast to most previous simulation studies investigating the statistical properties of rare variant association tests, I made use of actual sequencing data.
-Thus, genotypes were not simulated but acquired from previous association studies.
+Thus, genotypes were not simulated but acquired from a previous association study.
 The main aim of using real data is to accurately reflect the diversity of genes within the human genome as well as limitations commonly encountered in sequencing-based studies.
 Most gene based tests are confronted with a variety of small and medium gene lengths which is often not reflected in the original power estimations.
 Hence I will make use of a large sequenced sample to investigate the statistical properties of the KS and KS-Burden tests.
 
-\subsubsection{The Seed population: The Hirschsprung data}
+\subsubsection{The Seed Population: The Hirschsprung Data}
 \label{ssub:The_Seed_population:_The_Hirschsprung_data}
 Hirschsprung disease (HSCR) is a rare congenital disorder occurring in about one in $5,000$ births~\cite{Amiel2001}.
-The present sample contains 464 cases as well as 498 controls analyzed by whole-genome sequencing (36.6X median read depth).
+The present sample contains $464$ cases as well as $498$ controls analyzed by whole-genome sequencing (36.6X median read depth).
 All patients are sporadic cases with known family history of HSCR and were recruited in China ($n=341$) and Hanoi, Vietnam ($n=102$).
 Controls were obtained from same or nearby cities in order to match the subpopulation of patients.
 Samples were excluded due to failure in heterozygosity (an excessive amount of heterozygous genotypes in a sample can indicate potential genotyping problems), gender accordance, duplications, and relatedness.
-Population outliers, e.i. samples which were not of Chinese or Vietnamese descent, were removed by PCA resulting in a final set of 443 cases and 493 controls.
+Population outliers, e.i. samples which were not of Chinese or Vietnamese descent, were removed by PCA resulting in a final set of $443$ cases and $493$ controls.
 Furthermore, genotype level quality control was applied with KGGseq~\cite{Li2012b} and genotypes with quality less than 20 ($GQ<20$) or covered by less than 8 reads ($DP<8$) were excluded.
 In addition, variants with call rate $<0.9$ or those violating Hardy-Weinberg equilibrium ($p<10^{-5}$) were removed.
 This resulted in a final call set of 33.5 million (M) SNVs and 3.3M indels, the majority of which are novel (61.5\% for SNVs and 68.7\% for indels). 
@@ -84,16 +83,16 @@ The number of rare variants per gene ranged from $3$ to $491$ with a median of $
 
 \subsubsection{Simulation Framework}
 \label{ssub:Simulation_Framework}
-From the set of $16,510$ genes I selected 50 genes at random which had at least 3 or more rare variants. 
+From the set of $16,510$ genes I selected 50 genes at random which had at least 8 or more rare variants. 
 Mutation were defined as rare if the minor allele frequency (MAF) was below or equal 1\%. 
-Within $p$ rare variants of a gene I assigned causal status to $p_1 \ldots p_t$ positions, in which $t$ represents the total number of causal variants.
+Within $P$ rare variants of a gene I assigned causal status to $p_1 \ldots p_t$ positions, in which $t$ represents the total number of causal variants.
 For simplicity I assigned the causal cluster at the beginning of the gene.
 Within these simulations I gradually increased the size of the causal cluster to eventually cover the whole gene. 
 
 The phenotype was simulated via a liability threshold model.
 Hence the phenotype $Y_i$ of the $i^{th}$ subject was generated via
 $Y = G\times E' + \epsilon$
-in which $G$ is the standardized genotype matrix of $n=1000$ subjects with $p$ variants.
+in which $G$ is the standardized genotype matrix of $n=936$ subjects with $P$ variants.
 $E$ is the effect size vector of size $1\times p$ and $\epsilon$ is a standard normally-distributed error term with a mean of $0$ and a standard deviation of $\sqrt{1-h^2}$, in which $h^2$ is the assumed heritability or the genetic effect on the liability distribution.
 The effect $h$ was uniformly distributed across all causal variants.
 I assigned case status for each subjects whose $Y_i$ was above a certain liability threshold, $q$.
