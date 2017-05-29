@@ -70,8 +70,8 @@ This has led to the desire to use multiple genetic variants in order to improve 
 Assume $J$ variants in $n$ subjects (indexed by $i$) were measured ($G_{i1}, G_{i2}, \ldots , G_{iJ}$),
 an exposure $X_i$ ,as well as an outcome $Y_i$.
 Further, the potential confounder $U_i$ is unknown. 
-Within the causal model of MR the exposure is a function of the genetic variant, confounder, and an independent error, $\epsilon_i^X$. 
-The effect of each variant $j$ on the exposure is represented by $\gamma_j$.
+Within the causal model of MR the exposure is a function of the genetic variant, confounder, as well as an independent error, $\epsilon_i^X$. 
+Furthermore, $\gamma_j$ represents the effect of each variant $j$ on the exposure.
 The outcome, on the other hand, is the result of the linear function of the genetic variants, the exposure, the confounder, as well as an error term ($\epsilon_i^Y$).
 Then the estimate of the causal effect between exposure and outcome is $\beta$, while $\alpha_j$ represents the undesired but potential direct effect between the genetic variant $j$ on the outcome:
 \begin{equation} \label{eq:rm_basic}
@@ -85,7 +85,7 @@ These assumed relationships of this causal model are displayed in Figure~\ref{fi
   \centering
   \resizebox{0.5\textwidth}{!}{\input{ukb_psychiatric/figures/causalilty.tex}}
   \caption[Causal Model]{Causal Model.
-    If a genetic variant $G_j$ affects the exposure $X$, it can be used as an instrumental variable to investigate the causal effect of exposure $X$ on the outcome $Y$.
+    Given a genetic variant $G_j$ influences the exposure $X$, it can be used as an instrumental variable to investigate the causal effect of exposure $X$ on the outcome $Y$.
     However,this model assumes that the instrumental variable $G_j$ influences the outcome $Y$ only via the exposure $X$.
     Hence assuming that $\alpha_j=0$, $\gamma_j\neq0$ and that $G_j$ does not influence $Y$ via a third variable $U$. 
     The dotted lines indicate potential assumptions violations.
