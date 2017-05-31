@@ -2,17 +2,16 @@
 \label{sec:method_ksburden}
 
 Assume $P$ genetic variants (indexed by $p$) and a dichotomous phenotype obtained on $n$ subjects (indexed by $i$).
-For the $i$th subject,   $\bm{G_i} = (G_{i1}, G_{i2},\ldots , G_{iP})$ and $y_i$ are the genotypes and phenotype. respectively.
-In addition, let $G_{ip} = 0, 1,$ or $2$ represent the number of rare alleles at variant $p$.
+For the $i$th subject,   $\bm{G_i} = (G_{i1}, G_{i2},\ldots , G_{iP})$ and $y_i$ are the genotypes and phenotype respectively.
+In addition, let $G_{ip} = 0, 1$ or $2$ represent the number of rare alleles at variant $p$.
 
-One can then calculate the \acrfull{ECDF} for both cases ($F_{A(G)}$) and controls ($F_{U(G)}$) or any other dichotomous phenotype.
-The ecdf is a monotonic step function, increasing from $0$ at the first position of the gene, to $1$ at the last position of the gene.
+One can then calculate the \acrfull{ECDF}, a monotonic step function, for both cases ($F_{A(G)}$) and controls ($F_{U(G)}$) or any other dichotomous phenotype which increases from $0$ to $1$ from the first to the last position of the gene.
 Thus one can define the \acrlong{ECDF} $F(x)$ for $G$ at a fixed position $x$ as
 \begin{equation}
   F(x) = \frac{1}{\Gamma} \sum^x_{p=1}\sum^n_{i=1}G_{ip}
 \end{equation}
 in which $\Gamma = \sum^P_{p=1}\sum^n_{i=1} G_{ip}$.
-The KS statistic $K$ is defined as the supremum of the absolute difference between the two empirical distribution functions:
+The two-sample KS statistic $K$ is defined as the supremum of the absolute difference between the two empirical distribution functions:
 \begin{equation}
 	K_{KS} = \sup_x | F_A(x) - F_U(x) |
 \end{equation}
