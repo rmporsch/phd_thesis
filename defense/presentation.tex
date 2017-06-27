@@ -1,4 +1,19 @@
 \documentclass{beamer}
+\usepackage{csquotes}
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning,shapes.geometric, calc}
+\usepackage{amsmath}
+\usepackage{listings, xcolor}
+\usepackage{lmodern}
+\usepackage{adjustbox}
+\usepackage{booktabs}
+\usepackage{colortbl}
+\usepackage{caption}
+\usepackage{icomma}
+\usepackage{bigstrut}
+\usepackage{geometry}
+\usepackage{subfigure}
+
 \usetheme{metropolis}           % Use metropolis theme
 \title{Development and Application of Quantitative Methods to Explore the Genetic Architecture of Human Aggresssion}
 \date{\today}
@@ -9,11 +24,249 @@
 	\tableofcontents
 
   \section{Introduction}
+
+  \begin{frame}{What is Aggression?}
+    \begin{center}
+      \begin{displayquote}[\cite{Geen2001}]
+      Aggression is the delivery of an aversive stimulus from one person to another, with intent to harm and with an expectation of causing such harm, when the other person is motivated to escape or avoid the stimulus
+    \end{displayquote}
+    \end{center}
+  \end{frame}
+
+  \begin{frame}[t]{Evolutionary Theory}
+    \begin{center}
+      \scalebox{0.7}{\input{../introduction/figure/stabilizingSelectionSchematic.tex}}
+      The benefit of aggressive behavior is countered by its cost.
+    \end{center}
+  \end{frame}
+
+  \begin{frame}[t]{Heritability and the Genetic Architecture}
+    \begin{columns}
+      \begin{column}{0.3\textwidth}
+        \scalebox{0.5}{\input{../introduction/figure/placiticty.tex}}
+        \scalebox{0.5}{\input{../introduction/figure/gene_env_interaction.tex}}
+      \end{column}
+      \begin{column}{0.7\textwidth}
+        \begin{center}
+          Heritability: 50\%-80\%~\cite{Porsch2016}
+        \end{center}
+        \begin{itemize}
+          \item no genome-wide significant signal~\cite{Vassos2014}
+          \item strong phenotypical heterogeneity, low sample size 
+          \item gene based analysis suggest \textit{AVPRI1A} 
+          \item gene-environment interaction: \textit{MAOA}
+        \end{itemize}
+      \end{column}
+    \end{columns}
+    
+  \end{frame}
+
   \section{Longitudinal Heritability of Childhood Aggression}
+
+  \begin{frame}[t]{Sample and Methods}
+    \begin{columns}
+      \begin{column}{0.5\textwidth}
+        \textbf{The Netherlands Twin Register (NTR):}\\
+        \begin{itemize}
+          \item ages 7, 10 and 12
+          \item Child Behavior Checklist (CBCL)
+          \item 10,765 twin pairs
+        \end{itemize}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+        \textbf{Twin Early Development study (TEDS):}\\
+        \begin{itemize}
+          \item ages 7, 9 and 12
+          \item Strength and Difficulties Questionnaire (SDQ)
+          \item 6,897 twin pairs
+        \end{itemize}
+      \end{column}
+    \end{columns}
+    \begin{center}
+      \scalebox{0.5}{\input{../longHera/figure/cholesky.tex}}
+    \end{center}
+  \end{frame}
+
+  \begin{frame}[t]{Results}
+    \begin{columns}
+      \begin{column}{0.5\textwidth}
+    \begin{center}
+      \includegraphics[width=1\linewidth]{plots/varianceComponents.pdf}
+    \end{center}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+   \begin{center}
+      \includegraphics[width=1\linewidth]{plots/partionedGeneticComponents.pdf}
+   \end{center} 
+      \end{column}
+    \end{columns}
+    \begin{itemize}
+      \item heritability ranges between 42\% and 78\%
+      \item genetic factors at T1 are major contributor to the genetic
+variance at T2 and T3
+      \item genetic contribution of T1 is larger in NTR
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}[t]{Stability of Aggression}
+    \textbf{High Stability of Genetic Factors:} \\
+				Genetic Correlation NTR:\@ $0.76-0.85$ \\
+				Genetic Correlation TEDS:\@ $0.64-0.77$ \\
+        \vfill
+			\adjustbox{max height=\dimexpr\textheight-2.5cm\relax,
+				max width=\textwidth}{
+				\input{plots/geneticCor.tex}
+			} 
+  \end{frame}
+
+  \begin{frame}[t]{Model Comparison}
+    \begin{itemize}
+      \item Quantitative sex effects present in both studies, although small
+        \begin{itemize}
+          \item setting parameters to be equal ($NTR: \chi^2_{18}=187.77, P< 0.0001; TEDS: \chi^2_{18}=177.28, P<0.0001$) 
+          \item sex specific scalar model  ($NTR: \chi^2_{15}=101.63, P< 0.0001; TEDS: \chi^2_{15}=45.15, P<0.0001$)
+        \end{itemize}
+      \item Significant effects for common environmental factors
+        \begin{itemize}
+          \item $NTR: \chi^2_{12}=127.77, P<0.0001; TEDS: \chi^2_{12}=177.28, P<0.0001$
+        \end{itemize}
+      \item Studies differ significantly
+        \begin{itemize}
+          \item setting NTR's parameters to be proportional of TEDS's estimate ($\chi^2_{30}=435.07, P< 0.0001$)
+        \end{itemize}
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}[t]{Conclusion}
+    \begin{itemize}
+      \item Childhood aggression is a stable trait
+      \item Genetic factors are the major source of stability
+      \item Individual differences can be mostly accounted by genetic factors
+      \item Significant sex differences (mostly common environment), although of small effect
+      \item Shared environmental influence are present, especially in boys
+      \item Absence of large sex differences is good news for large scale GWAS
+    \end{itemize}	
+  \end{frame}
+
   \section{GWASs on Aggression and Risk Taking}
+
+  \begin{frame}[t]{Samples and Phenotype}
+    \small
+        \textbf{Impulsive Aggression:}
+        \begin{displayquote}
+          Have you ever had a period of time lasting at least two days when you were so irritable that you found yourself shouting at people or starting fights or arguments?
+        \end{displayquote}
+        \textbf{Risk Taking:}
+        \begin{displayquote}
+          Would you describe yourself as someone who takes risks?
+        \end{displayquote}
+        \resizebox{\textwidth}{!}{\input{../ukb_assoc/tables/descriptive.tex}}
+  \end{frame}
+
+  \begin{frame}[t]{Phenotype}
+    \begin{center}
+
+      \begin{columns}
+        \begin{column}{0.5\textwidth}
+          \includegraphics[width=1\linewidth]{../ukb_assoc/figure/phenotype/descriptives_plots.pdf}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+          \begin{itemize}
+            {\small
+            \item (A) Standardized effect of sex (male=positive, female=negative) on phenotypes. 
+            \item (B) Standardized effect of age on phenotypes.
+            \item (C) Barplot of neuroticism.
+            \item (D) Barplot of alcohol intake.
+            }
+        \end{itemize}
+      \end{column}
+    \end{columns}
+  \end{center}
+\end{frame}
+
+\begin{frame}[t]{Phenotypic Correlation}
+  \begin{center}
+  \includegraphics[width=0.6\linewidth]{../ukb_assoc/figure/phenotype/corr_plot_ci.pdf} 
+  \end{center}
+\end{frame}
+
   \subsection{Associations}
+
+  \begin{frame}[t]{Genetic Factors}
+    \tiny
+    \begin{columns}
+      \begin{column}{0.6\textwidth}
+        \includegraphics[width=1\linewidth]{../ukb_assoc/figure/manhatten_plots/agg_manhatten_color_2_A.jpeg} \\
+        \includegraphics[width=1\linewidth]{../ukb_assoc/figure/manhatten_plots/risk_manhatten_color_B.jpeg}\\
+        {\tiny
+          (A) Impulsive Aggression;
+          (B) Risk Taking
+        }
+        \begin{itemize}
+          \item \textbf{no} genome-wide significant signal in aggression
+          \item \textbf{two} genome-wide signals in risk taking
+          \item replicating previous findings~\cite{}
+        \end{itemize}
+        \resizebox{\textwidth}{!}{\input{../ukb_assoc/tables/lead_snps/lead_snp_2040.tex}}
+      \end{column}
+      \begin{column}{0.4\textwidth}
+        \includegraphics[width=0.8\linewidth, page=1]{{../ukb_assoc/figure/locuszoom/chr6_26759903-27759115}.pdf} \\
+        \textbf{rs9379971}\\
+        intronic variant with no known phenotypical association
+        \includegraphics[width=0.8\linewidth, page=1]{{../ukb_assoc/figure/locuszoom/chr3_85055567-86052757}.pdf} \\
+        \textbf{rs13084531}\\
+        intronic variant related to \textit{CADM2}; previously associated with executive functions
+      \end{column}
+    \end{columns}
+    %\resizebox{\textwidth}{!}{\input{../ukb_assoc/tables/risk_cFDR.tex}}
+  \end{frame}
+
   \subsection{Genetic Correlations}
+
+  \begin{frame}[t]{Conditional False Discovery Rate}
+    \includegraphics[width=1\linewidth]{../ukb_assoc/figure/cFDR/agg_cond.jpeg} \\
+    \includegraphics[width=1\linewidth]{../ukb_assoc/figure/cFDR/risk_cond.jpeg}\\
+    %Conditional QQ plots for both risk taking and aggression. 
+    %Panels A--C present the  QQ-plots for impulsive aggression,
+    %conditional on the remaining phenotypes given threshold $p\leq0.1$, $p\leq0.01$, $p\leq0.001$ respectively.
+    %Similarly, panels D--F are the  QQ-plots for risk taking, conditional on the remaining phenotypes across the three thresholds
+  \end{frame}
+
+  \begin{frame}[t]{Genetic Correlations}
+  \includegraphics[width=0.8\linewidth]{../ukb_assoc/figure/genetic_corr/gcorr_plot_circle_full_se.pdf}
+  \end{frame}
+
+  \begin{frame}[t]{Results}
+    
+  \end{frame}
+
   \section{Causal Inference between Aggression and Psychiatric Disorders}
+
+  \begin{frame}[t]{Sample and Methods}
+    
+  \end{frame}
+
+  \begin{frame}[t]{Results}
+    
+  \end{frame}
+
   \section{Distributional Differences of Rare Variants}
+
+  \begin{frame}[t]{Idea and Methods}
+    
+  \end{frame}
+
+  \begin{frame}[t]{Results and Discussion}
+    
+  \end{frame}
+
+  \section{Discussion}
+
+  \begin{frame}[t]{Discussion}
+    
+  \end{frame}
   
+  
+  
+\bibliography{/home/robert/Documents/library.bib}
 \end{document}
