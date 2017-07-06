@@ -225,7 +225,7 @@ variance at T2 and T3
 
   \begin{frame}[t]{Conditional False Discovery Rate}
     \includegraphics[width=1\linewidth]{../ukb_assoc/figure/cFDR/agg_cond.jpeg} \\
-    \includegraphics[width=1\linewidth]{../ukb_assoc/figure/cFDR/risk_cond.jpeg}\\
+    \includegraphics[width=1\linewidth]{../ukb_assoc/figure/cFDR/risk_cond.jpeg}
     %Conditional QQ plots for both risk taking and aggression. 
     %Panels A--C present the  QQ-plots for impulsive aggression,
     %conditional on the remaining phenotypes given threshold $p\leq0.1$, $p\leq0.01$, $p\leq0.001$ respectively.
@@ -233,40 +233,166 @@ variance at T2 and T3
   \end{frame}
 
   \begin{frame}[t]{Genetic Correlations}
-  \includegraphics[width=0.8\linewidth]{../ukb_assoc/figure/genetic_corr/gcorr_plot_circle_full_se.pdf}
+    \tiny
+    \begin{center}
+      \includegraphics[width=0.6\linewidth]{../ukb_assoc/figure/genetic_corr/gcorr_plot_circle_full_se.pdf}
+    \end{center}
+  \begin{itemize}
+    \item considerable genetic correlation between \textbf{Aggression} and \textbf{Risk Taking} as well as \textbf{Neuroticism}
+    \item \textbf{medium} correlations between \textbf{Smoking} and \textbf{Risk Taking}
+    \item \textbf{negative} correaltions between \textbf{Alcohol} consumption and \textbf{Aggression}
+  \end{itemize}
   \end{frame}
 
-  \begin{frame}[t]{Results}
-    
+  \begin{frame}[t]{Discussion}
+    \begin{itemize}
+      \item identification of two signals in risk taking
+      \item \textit{no} genome-wide significant findings in aggression
+      \item considerable genetic overlap across phenotypes
+      \item larger sample size required
+    \end{itemize} 
   \end{frame}
 
   \section{Causal Inference between Aggression and Psychiatric Disorders}
 
-  \begin{frame}[t]{Sample and Methods}
+  \begin{frame}[t]{Motivation}
     
   \end{frame}
 
-  \begin{frame}[t]{Results}
-    
+  \begin{frame}[t]{Genetic Correlations}
+  \includegraphics[width=0.8\linewidth]{../ukb_psychiatric/figures/combined_corr.pdf}
+  \begin{columns}[T]
+    \tiny
+    \begin{column}[T]{0.5\textwidth}
+      \textbf{Impulsive Aggression (A):}\\
+      \begin{itemize}
+        \item considerable genetic correlation between \textbf{aggression} and \textbf{depression}
+        \item some correlation between aggression and schizophrenia
+      \end{itemize}
+    \end{column}
+    \begin{column}[T]{0.5\textwidth}
+      \textbf{Risk Taking (B):}\\
+      \begin{itemize}
+        \item some correaltion between biploar and schizophrenia
+        \item no genetic correaltion with depression
+      \end{itemize}
+    \end{column}
+  \end{columns}
+  \end{frame}
+
+  \begin{frame}[t]{Mendelian Randomization}
+    \tiny
+    \begin{columns}[T]
+      \begin{column}[T]{0.6\textwidth}
+        \centering
+        \includegraphics[width=0.99\linewidth]{../ukb_psychiatric/figures/overall_mr_effect.pdf}
+      \end{column}
+      \begin{column}[T]{0.5\textwidth}
+
+        \textbf{Impulsive Aggression (A):}\\
+        \begin{itemize}
+          \item some indication of a causal relationship between \textbf{depressive symptoms $\rightarrow$ aggression } 
+          \item as well as \textbf{schizophrenia $\rightarrow$ aggression}
+        \end{itemize}
+
+        \textbf{Risk Taking (B):}\\
+        \begin{itemize}
+          \item potential causal indication of \\ \textbf{schizophrenia $\rightarrow$ risk taking} 
+        \end{itemize}
+
+        \begin{block}{\tiny Evaluation}
+          \begin{itemize}
+            \item large confidence interval of MR-Egger
+            \item caution at interpreting results
+            \item \textbf{sensitvity analysis} required
+          \end{itemize}
+        \end{block} 
+      \end{column}
+    \end{columns}
+  \end{frame}
+
+  \begin{frame}[t]{Evalutation of MR}
+    \tiny
+    \begin{columns}[T]
+      \begin{column}[T]{0.6\textwidth}
+        \includegraphics[width=0.99\linewidth]{../ukb_psychiatric/figures/sensitvity_plot.pdf}
+      \end{column}
+      \begin{column}[T]{0.4\textwidth}
+        \begin{itemize}
+          \item consinderable pleiotropic effect at \textbf{depressive $\rightarrow$ aggression symptoms} (see A and C)
+          \item no pleiotropic effects in the causal connection between SZ on aggression and risk taking 
+        \end{itemize}
+      \end{column}
+    \end{columns}
+  \end{frame}
+
+  \begin{frame}[t]{Discussion}
+    \begin{itemize}
+      \item \textbf{large} genetic correlations between \textbf{aggresion} and \textbf{depression}
+      \item some indication of a causal relationship of \textbf{schizophrenia} $\rightarrow$ \textbf{risk taking} \& \textbf{aggression}
+      \item pleiotropic effects between \textbf{aggression} and \textbf{depression} 
+      \item importance of testing the underlying assumptions of MR
+    \end{itemize} 
   \end{frame}
 
   \section{Distributional Differences of Rare Variants}
 
-  \begin{frame}[t]{Idea and Methods}
-    
+  \begin{frame}[t]{Motivation}
+    \begin{itemize}
+      \item Causal rare variants might be clustered
+      \item Current rare variants tests do not take positional information into account
+    \end{itemize} 
+  \end{frame}
+
+  \begin{frame}[t]{Methods}
+    \tiny
+    \begin{columns}
+      \begin{column}{0.5\textwidth}
+        \includegraphics[width=0.9\linewidth]{plots/ks_example.pdf}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+        \begin{itemize}
+          \item \textbf{ecdf} for both cases ($F_{A(G)}$) and controls ($F_{U(G)}$) from the first to the last position of the gene 
+            \begin{equation}
+              F(x) = \frac{1}{\Gamma} \sum^x_{p=1}\sum^n_{i=1}G_{ip}
+            \end{equation}
+            in which $\Gamma = \sum^P_{p=1}\sum^n_{i=1} G_{ip}$.
+          \item One can then calculate the \textbf{KS-test} statistic:
+            \begin{equation}
+              K_{KS} = \sup_x | F_A(x) - F_U(x) |
+            \end{equation}
+          \item one can further combine \textbf{KS} and \textbf{Burden} test (called \textbf{KS-Burden})
+        \end{itemize}
+      \end{column}
+    \end{columns}
+    \begin{center}
+      P-values were computed with a permutation-based appraoch
+      \begin{equation}
+        p_{per} = \frac{\sum^B_{b=1} I(K_b \geq k)+1}{b+1}
+      \end{equation}
+      in which $K_b$ is the test statistic of the $b^{th}$ permuted sample and $k$ is the observed test statistic.
+    \end{center}
   \end{frame}
 
   \begin{frame}[t]{Results and Discussion}
-    
+    \tiny
+    \includegraphics[width=0.8\linewidth]{../ksburden/figures/combined_power_analysis.pdf}
+    \begin{itemize}
+      \item KS-Burden outperfroms SKAT independent of cluster size $\gamma$
+      \item KS perfroms poorly when $\gamma=1$
+      \item KS tests outperforms existing tests in low $\gamma$
+      \item empirical independence of KS and Burden test
+      \item application to UKB's impulsive aggression resulted in no genome-wide significant findings
+    \end{itemize}
   \end{frame}
 
   \section{Discussion}
 
   \begin{frame}[t]{Discussion}
-    
+
   \end{frame}
-  
-  
-  
-\bibliography{/home/robert/Documents/library.bib}
-\end{document}
+
+
+
+  \bibliography{/home/robert/Documents/library.bib}
+  \end{document}
