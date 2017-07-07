@@ -1,0 +1,27 @@
+\begin{tikzpicture}[
+  scale=5,
+  axis/.style={very thick, ->}
+  ]
+
+  \draw[axis] (-0.1,0) -- (1.1,0);
+
+  \draw[axis] (-0.1,-0.3) -- (1.1,-0.3);
+
+  \foreach \i in {0,1,..., 21}{
+    \pgfmathsetmacro{\pos}{random(0,100)/100}
+    \draw (\pos,0) -- (\pos, 0.05);
+  }
+
+  \foreach \i in {0,1,..., 10}{
+    \pgfmathsetmacro{\pos}{random(0,10)/110}
+    \draw (\pos,-0.3) -- (\pos, -0.25);
+  }
+  \foreach \i in {11,12,..., 21}{
+    \pgfmathsetmacro{\pos}{random(11,100)/100}
+    \draw (\pos,-0.3) -- (\pos, -0.25);
+  }
+
+  \node[align=left, color=blue] at (-0.3, 0) {Controls};
+  \node[align=left, color=red] at (-0.3, -0.3) {Cases};
+
+\end{tikzpicture}
