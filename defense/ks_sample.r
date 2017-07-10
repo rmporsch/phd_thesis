@@ -20,3 +20,7 @@ example_plot <- dd %>%
   theme_classic()
 
 #ggsave("./plots/ks_example.pdf", example_plot)
+
+dd %>%
+  sample_n(100) %>%
+  ggplot(., aes(x=position, y=controls)) + geom_rug()
