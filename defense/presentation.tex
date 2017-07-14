@@ -117,6 +117,8 @@
     max width=\textwidth}{
     \input{plots/geneticCor.tex}
   } 
+  \vfill
+  {\centering \textit{Male (Bottom); Female (Top)} }
 \end{frame}
 
 \begin{frame}[t]{Model Comparison}
@@ -160,7 +162,7 @@
   \begin{displayquote}
     Would you describe yourself as someone who takes risks?
   \end{displayquote}
-  \resizebox{\textwidth}{!}{\input{../ukb_assoc/tables/descriptive.tex}}
+  \resizebox{\textwidth}{!}{\input{../poster/tables/descriptive_ukb.tex}}
 \end{frame}
 
 \begin{frame}[t]{Phenotype}
@@ -224,12 +226,32 @@
 \subsection{Genetic Correlations}
 
 \begin{frame}[t]{Conditional False Discovery Rate}
+  \small
+  \begin{itemize}
+    \item Pleiotropy informed conditional False Discovery Rate was used to identify additional genetic loci
+    \item Conditional QQ plots: 
+      \begin{itemize}
+        \small
+        \item ecdf of p-values of $P_1$ conditional on p-values of $P_2$ given threshold $\gamma$
+      \end{itemize}
+    \item Conditional FDR:\\
+      \begin{equation}
+        FDR(p_1|p_2)=\pi_0(p_2)p_1/F(p_1|p_2)
+      \end{equation}
+      in which $F(p_1|p_2) =  ecdf(p_1|p_2)$ and $\pi_0(p_2)$ is the assumed proportion of null variants (assumed to be 1) 
+    \item cFDR identifies \textit{rs570682061} in risk taking conditional on smoking status
+  \end{itemize}
+\end{frame}
+\begin{frame}[t]{Conditional False Discovery Rate}
+  \tiny
   \includegraphics[width=1\linewidth]{../ukb_assoc/figure/cFDR/agg_cond.jpeg} \\
   \includegraphics[width=1\linewidth]{../ukb_assoc/figure/cFDR/risk_cond.jpeg}
   %Conditional QQ plots for both risk taking and aggression. 
   %Panels A--C present the  QQ-plots for impulsive aggression,
   %conditional on the remaining phenotypes given threshold $p\leq0.1$, $p\leq0.01$, $p\leq0.001$ respectively.
   %Similarly, panels D--F are the  QQ-plots for risk taking, conditional on the remaining phenotypes across the three thresholds
+  \vfill
+  {\centering \textit{Conditional QQ-plot for (A-C) impulsive aggression and (D-F) risk taking. (A,D) $p\leq0.1$, (B,E) $p\leq0.01$, (C,F) $p\leq0.001$}}
 \end{frame}
 
 \begin{frame}[t]{Genetic Correlations}
@@ -260,7 +282,7 @@
   \textbf{Motivation:}
   \begin{itemize}
     \item Comorbidity between aggressive behavior and psychiatric disorders 
-    \item Extend of genetic overlap unexplored
+    \item Extent of genetic overlap unexplored
     \item Unclear direction of causal relationships
   \end{itemize}
   \begin{columns}[T]
@@ -339,6 +361,8 @@
   \begin{columns}[T]
     \begin{column}[T]{0.6\textwidth}
       \includegraphics[width=0.99\linewidth]{../ukb_psychiatric/figures/sensitvity_plot.pdf}
+      \vfill
+      \textit{MR-Egger intercept for (A) aggression and (B) risk taking. Funnel Plots for (C) Depressive Symptoms, (D) MDD, (E) SZ on impulsive aggression. (F) Funnel Plot of SZ on risk taking.}
     \end{column}
     \begin{column}[T]{0.4\textwidth}
       \begin{itemize}
@@ -456,6 +480,13 @@
 \end{frame}
 
 \begin{frame}[t]{Thank you}
+
+  \begin{center}
+  \textbf{Supervisors:} \\
+    Stacey S. Cherny\\
+    Pak C. Sham\\
+    Maria Mercedes Garcia-Barcel\'o
+  \end{center}
   
 \end{frame}
 
