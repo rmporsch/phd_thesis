@@ -15,7 +15,7 @@
 \usepackage{subfigure}
 
 \usetheme{metropolis}           % Use metropolis theme
-\title{Development and Application of Quantitative Methods to Explore the Genetic Architecture of Human Aggresssion}
+\title{Development and Application of Quantitative Methods to Explore the Genetic Architecture of Human Aggression}
 \date{\today}
 \author{Robert M. Porsch}
 \institute{Department of Psychiatry}
@@ -24,10 +24,10 @@
 \tableofcontents
 
 \section{Introduction}
-
+%[\cite{Geen2001}]
 \begin{frame}{What is Aggression?}
   \begin{center}
-    \begin{displayquote}[\cite{Geen2001}]
+    \begin{displayquote}
       Aggression is the delivery of an aversive stimulus from one person to another, with intent to harm and with an expectation of causing such harm, when the other person is motivated to escape or avoid the stimulus
     \end{displayquote}
   \end{center}
@@ -39,27 +39,6 @@
     The benefit of aggressive behavior is countered by its cost.
   \end{center}
 \end{frame}
-
-%\begin{frame}[t]{Heritability and the Genetic Architecture}
-%  \begin{columns}
-%    \begin{column}{0.3\textwidth}
-%      \scalebox{0.5}{\input{../introduction/figure/placiticty.tex}}
-%      \scalebox{0.5}{\input{../introduction/figure/gene_env_interaction.tex}}
-%    \end{column}
-%    \begin{column}{0.7\textwidth}
-%      \begin{center}
-%        Heritability: 50\%-80\%~\cite{Porsch2016}
-%      \end{center}
-%      \begin{itemize}
-%        \item no genome-wide significant signal~\cite{Vassos2014}
-%        \item strong phenotypical heterogeneity, low sample size 
-%        \item gene based analysis suggest \textit{AVPRI1A} 
-%        \item gene-environment interaction: \textit{MAOA}
-%      \end{itemize}
-%    \end{column}
-%  \end{columns}
-%
-%\end{frame}
 
 \section{Longitudinal Heritability of Childhood Aggression}
 
@@ -83,28 +62,26 @@
     \end{column}
   \end{columns}
   \begin{center}
-    \scalebox{0.5}{\input{../longHera/figure/cholesky.tex}}
+    \scalebox{0.7}{\input{../longHera/figure/cholesky.tex}}
   \end{center}
 \end{frame}
 
 \begin{frame}[t]{Results}
+  \small
   \begin{columns}
     \begin{column}{0.5\textwidth}
       \begin{center}
-        \includegraphics[width=1\linewidth]{plots/varianceComponents.pdf}
+        \includegraphics[width=1.15\linewidth]{plots/varianceComponents.pdf}
       \end{center}
     \end{column}
     \begin{column}{0.5\textwidth}
       \begin{center}
-        \includegraphics[width=1\linewidth]{plots/partionedGeneticComponents.pdf}
+        \includegraphics[width=1.13\linewidth]{plots/partionedGeneticComponents.pdf}
       \end{center} 
     \end{column}
   \end{columns}
   \begin{itemize}
-    \item heritability ranges between 42\% and 78\%
-    \item genetic factors at T1 are major contributor to the genetic
-      variance at T2 and T3
-    \item genetic contribution of T1 is larger in NTR
+    \item Heritability ranges between 42\% and 78\%
   \end{itemize}
 \end{frame}
 
@@ -119,24 +96,6 @@
   } 
   \vfill
   {\centering \textit{Male (Bottom); Female (Top)} }
-\end{frame}
-
-\begin{frame}[t]{Model Comparison}
-  \begin{itemize}
-    \item Quantitative sex effects present in both studies, although small
-      \begin{itemize}
-        \item setting parameters to be equal ($NTR: \chi^2_{18}=187.77, P< 0.0001; TEDS: \chi^2_{18}=177.28, P<0.0001$) 
-        \item sex specific scalar model  ($NTR: \chi^2_{15}=101.63, P< 0.0001; TEDS: \chi^2_{15}=45.15, P<0.0001$)
-      \end{itemize}
-    \item Significant effects for common environmental factors
-      \begin{itemize}
-        \item $NTR: \chi^2_{12}=127.77, P<0.0001; TEDS: \chi^2_{12}=177.28, P<0.0001$
-      \end{itemize}
-    \item Studies differ significantly
-      \begin{itemize}
-        \item setting NTR's parameters to be proportional of TEDS's estimate ($\chi^2_{30}=435.07, P< 0.0001$)
-      \end{itemize}
-  \end{itemize}
 \end{frame}
 
 \begin{frame}[t]{Conclusion}
@@ -168,17 +127,17 @@
 \begin{frame}[t]{Phenotype}
   \begin{center}
 
-    \begin{columns}
-      \begin{column}{0.5\textwidth}
+    \begin{columns}[T]
+      \begin{column}[T]{0.65\textwidth}
         \includegraphics[width=1\linewidth]{../ukb_assoc/figure/phenotype/descriptives_plots.pdf}
       \end{column}
-      \begin{column}{0.5\textwidth}
+      \begin{column}[T]{0.35\textwidth}
         \begin{itemize}
-          {\small
-          \item (A) Standardized effect of sex (male=positive, female=negative) on phenotypes. 
-          \item (B) Standardized effect of age on phenotypes.
-          \item (C) Barplot of neuroticism.
-          \item (D) Barplot of alcohol intake.
+          {\tiny
+          \item (A) Standardized effect of sex (male=1, female=0) 
+          \item (B) Standardized effect of age
+          \item (C) Barplot of neuroticism
+          \item (D) Barplot of alcohol
           }
       \end{itemize}
     \end{column}
@@ -188,7 +147,7 @@
 
 \begin{frame}[t]{Phenotypic Correlation}
   \begin{center}
-    \includegraphics[width=0.6\linewidth]{../ukb_assoc/figure/phenotype/corr_plot_ci.pdf} 
+    \includegraphics[width=0.8\linewidth]{../ukb_assoc/figure/phenotype/corr_plot_ci.pdf} 
   \end{center}
 \end{frame}
 
@@ -207,15 +166,15 @@
       \begin{itemize}
         \item \textbf{no} genome-wide significant signal in aggression
         \item \textbf{two} genome-wide signals in risk taking
-        \item replicating previous findings~\cite{}
+        \item replicating previous findings
       \end{itemize}
       \resizebox{\textwidth}{!}{\input{../ukb_assoc/tables/lead_snps/lead_snp_2040.tex}}
     \end{column}
     \begin{column}{0.4\textwidth}
-      \includegraphics[width=0.8\linewidth, page=1]{{../ukb_assoc/figure/locuszoom/chr6_26759903-27759115}.pdf} \\
+      \includegraphics[width=0.9\linewidth, page=1]{{../ukb_assoc/figure/locuszoom/chr6_26759903-27759115}.pdf} \\
       \textbf{rs9379971}\\
       intronic variant with no known phenotypical association
-      \includegraphics[width=0.8\linewidth, page=1]{{../ukb_assoc/figure/locuszoom/chr3_85055567-86052757}.pdf} \\
+      \includegraphics[width=0.9\linewidth, page=1]{{../ukb_assoc/figure/locuszoom/chr3_85055567-86052757}.pdf} \\
       \textbf{rs13084531}\\
       intronic variant related to \textit{CADM2}; previously associated with executive functions
     \end{column}
@@ -257,28 +216,23 @@
 \begin{frame}[t]{Genetic Correlations}
   \tiny
   \begin{center}
-    \includegraphics[width=0.6\linewidth]{../ukb_assoc/figure/genetic_corr/gcorr_plot_circle_full_se.pdf}
+    \includegraphics[width=0.8\linewidth]{../ukb_assoc/figure/genetic_corr/gcorr_plot_circle_full_se.pdf}
   \end{center}
-  \begin{itemize}
-    \item considerable genetic correlation between \textbf{Aggression} and \textbf{Risk Taking} as well as \textbf{Neuroticism}
-    \item \textbf{medium} correlations between \textbf{Smoking} and \textbf{Risk Taking}
-    \item \textbf{negative} correlations between \textbf{Alcohol} consumption and \textbf{Aggression}
-  \end{itemize}
 \end{frame}
 
 \begin{frame}[t]{Discussion}
   \begin{itemize}
-    \item identification of two signals in risk taking
-    \item \textit{no} genome-wide significant findings in aggression
-    \item considerable genetic overlap across phenotypes
-    \item larger sample size required
+    \item Identification of two signals in risk taking
+    \item \textit{No} genome-wide significant findings in aggression
+    \item Considerable genetic overlap across phenotypes
+    \item Larger sample size or better phenotyping required
   \end{itemize} 
 \end{frame}
 
 \section{Causal Inference between Aggression and Psychiatric Disorders}
 
 \begin{frame}[t]{Motivation}
-  \small
+  \tiny
   \textbf{Motivation:}
   \begin{itemize}
     \item Comorbidity between aggressive behavior and psychiatric disorders 
@@ -287,42 +241,42 @@
   \end{itemize}
   \begin{columns}[T]
     \begin{column}[T]{0.5\textwidth}
-      \begin{block}{\small Mendelian Randomization (MR)}
+      \begin{block}{\tiny Mendelian Randomization (MR)}
+        \tiny
         \begin{itemize}
           \item MR infers potential causal effects from observational data 
-          \item natural randomized control trial
-          \item can make use of GWAS summary statistics
+          \item Natural randomized control trial
         \end{itemize}
+        \begin{center}
+          \resizebox{0.8\textwidth}{!}{\input{plots/causality.tex}}
+        \end{center}
      \end{block} 
     \end{column}
     \begin{column}[T]{0.5\textwidth}
-      \begin{block}{\small Sensitivity Analysis}
-      \item MR assumes no presence of pleiotropic effects
-      \item Sensitivity analysis can test underlying assumptions post-hoc
+      \begin{block}{\tiny Sensitivity Analysis}
+        \begin{itemize}
+          \tiny
+          \item MR assumes no presence of pleiotropic effects
+          \item Sensitivity analysis can test underlying assumptions post-hoc
+        \end{itemize}
       \end{block}
+      \begin{block}{\tiny Psychiatric Disorders}
+        \tiny
+        \begin{itemize}
+          \item Bipolar disorder (BP) 
+          \item Depressive Symptoms (DS) 
+          \item Major Depressve Disorder (MDD) 
+          \item Schizophrenia (SZ) 
+        \end{itemize}
+    \end{block}
     \end{column}
   \end{columns}
 \end{frame}
 
 \begin{frame}[t]{Genetic Correlations}
-  \includegraphics[width=0.8\linewidth]{../ukb_psychiatric/figures/combined_corr.pdf}
-  \begin{columns}[T]
-    \tiny
-    \begin{column}[T]{0.5\textwidth}
-      \textbf{Impulsive Aggression (A):}\\
-      \begin{itemize}
-        \item considerable genetic correlation between \textbf{aggression} and \textbf{depression}
-        \item some correlation between aggression and schizophrenia
-      \end{itemize}
-    \end{column}
-    \begin{column}[T]{0.5\textwidth}
-      \textbf{Risk Taking (B):}\\
-      \begin{itemize}
-        \item some correlation between bipolar and schizophrenia
-        \item no genetic correlation with depression
-      \end{itemize}
-    \end{column}
-  \end{columns}
+  \tiny
+  \includegraphics[width=0.99\linewidth]{../ukb_psychiatric/figures/combined_corr.pdf} \\
+  (A) Impulsive Aggression; (B) Risk Taking
 \end{frame}
 
 \begin{frame}[t]{Mendelian Randomization}
@@ -336,8 +290,9 @@
 
       \textbf{Impulsive Aggression (A):}\\
       \begin{itemize}
-        \item some indication of a causal relationship between \textbf{depressive symptoms $\rightarrow$ aggression } 
-        \item as well as \textbf{schizophrenia $\rightarrow$ aggression}
+        \item some indication of a causal relationship between\\
+          \textbf{depressive symptoms $\rightarrow$ aggression }  \\
+        \textbf{schizophrenia $\rightarrow$ aggression}
       \end{itemize}
 
       \textbf{Risk Taking (B):}\\
@@ -345,40 +300,23 @@
         \item potential causal indication of \\ \textbf{schizophrenia $\rightarrow$ risk taking} 
       \end{itemize}
 
-      \begin{block}{\tiny Evaluation}
-        \begin{itemize}
-          \item large confidence interval of MR-Egger
-          \item caution at interpreting results
-          \item \textbf{sensitivity analysis} required
-        \end{itemize}
-      \end{block} 
+      \textbf{Sensitivity Analysis:}\\
+      \includegraphics[width=0.99\linewidth]{../ukb_psychiatric/figures/cropped_sensitvity_plot.pdf} \\
+      \textit{MR-Egger intercept for (A) aggression and (B) risk taking.}
     \end{column}
   \end{columns}
-\end{frame}
-
-\begin{frame}[t]{Evaluation of MR}
-  \tiny
-  \begin{columns}[T]
-    \begin{column}[T]{0.6\textwidth}
-      \includegraphics[width=0.99\linewidth]{../ukb_psychiatric/figures/sensitvity_plot.pdf}
-      \vfill
-      \textit{MR-Egger intercept for (A) aggression and (B) risk taking. Funnel Plots for (C) Depressive Symptoms, (D) MDD, (E) SZ on impulsive aggression. (F) Funnel Plot of SZ on risk taking.}
-    \end{column}
-    \begin{column}[T]{0.4\textwidth}
       \begin{itemize}
-        \item considerable pleiotropic effect at \textbf{depressive $\rightarrow$ aggression symptoms} (see A and C)
-        \item no pleiotropic effects in the causal connection between SZ on aggression and risk taking 
+        \item Considerable pleiotropic effect at \textbf{depressive $\rightarrow$ aggression symptoms} (see A and C)
+        \item No pleiotropic effects in the causal connection between SZ on aggression and risk taking 
       \end{itemize}
-    \end{column}
-  \end{columns}
 \end{frame}
 
 \begin{frame}[t]{Discussion}
   \begin{itemize}
-    \item \textbf{large} genetic correlations between \textbf{aggression} and \textbf{depression}
-    \item some indication of a causal relationship of \textbf{schizophrenia} $\rightarrow$ \textbf{risk taking} \& \textbf{aggression}
-    \item pleiotropic effects between \textbf{aggression} and \textbf{depression} 
-    \item importance of testing the underlying assumptions of MR
+    \item \textbf{Large} genetic correlations between \textbf{aggression} and \textbf{depression}
+    \item Some indication of a causal relationship of \textbf{schizophrenia} $\rightarrow$ \textbf{risk taking} \& \textbf{aggression}
+    \item Pleiotropic effects between \textbf{aggression} and \textbf{depression} 
+    \item Importance of testing the underlying assumptions of MR
   \end{itemize} 
 \end{frame}
 
@@ -389,7 +327,6 @@
     \item Position of rare variants are often neglected in rare variant tests
     \item Causal rare variants might be clustered
     \item Located in protein functional domains or gene-regulatory elements
-    \item Current rare variants tests do not take positional information into account
   \end{itemize} 
   \input{plots/cluster.tex}
 \end{frame}
@@ -428,11 +365,12 @@
   \tiny
   \includegraphics[width=0.8\linewidth]{../ksburden/figures/combined_power_analysis.pdf}
   \begin{itemize}
-    \item KS-Burden outperforms SKAT independent of cluster size $\gamma$
+    \item $r^2$ indicates the total variance the gene explains
+    \item KS-Burden outperforms SKAT independent of cluster size ($\gamma$)
     \item KS performs poorly when $\gamma=1$
     \item KS tests outperforms existing tests in low $\gamma$
-    \item empirical independence of KS and Burden test
-    \item application to UKB's impulsive aggression resulted in no genome-wide significant findings
+    \item Empirical independence of KS and Burden test
+    \item Application to UKB's impulsive aggression resulted in no genome-wide significant findings
   \end{itemize}
 \end{frame}
 
@@ -443,9 +381,9 @@
     \item Heritability:\\
       Twin Studies: 50\% to 80\% \\
       GWAS: 5\%
-    \item differences in instruments, differences in methodology
-    \item missing heritability not of utmost importance
-    \item considerable genetic correlations among behavioral phenotypes
+    \item Differences in instruments, differences in methodology
+    \item Missing heritability not of utmost importance
+    \item Considerable genetic correlations among behavioral phenotypes
   \end{itemize}
 \end{frame}
 
@@ -456,8 +394,8 @@
      \textbf{Common Variants:}
      \begin{itemize}
        \item SNP associated with \textit{CADM2}
-       \item limited sample size for impulsive aggression
-       \item aggression is a very heterogeneous phenotype
+       \item Limited sample size for impulsive aggression
+       \item Aggression is a very heterogeneous phenotype
      \end{itemize}
    \end{column}
    \begin{column}[T]{0.5\textwidth}
@@ -473,9 +411,9 @@
 
 \begin{frame}[t]{Mendelian Randomization}
   \begin{itemize}
-    \item suggests a causal connection between schizophrenia and aggression \& risk taking
-    \item careful examination of underlying assumption required
-    \item independent replication of findings needed
+    \item Suggests a causal connection between schizophrenia and aggression \& risk taking
+    \item Careful examination of underlying assumption required
+    \item Independent replication of findings needed
   \end{itemize}
 \end{frame}
 
@@ -485,7 +423,7 @@
   \textbf{Supervisors:} \\
     Stacey S. Cherny\\
     Pak C. Sham\\
-    Maria Mercedes Garcia-Barcel\'o
+    Maria-Mercedes Garcia-Barcel\'o
   \end{center}
   
 \end{frame}
