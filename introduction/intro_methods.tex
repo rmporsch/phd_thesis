@@ -384,6 +384,116 @@ The test statistic is defined as
 The test is robust to groupings of protective and damaging effects within the same region.
 However,  SKAT suffers from a reduction in statistical power in cases of high proportions of causal variants of the same direction, as compared to the burden test~\cite{Derkach2013a}.
 
+\section{Mendelian Randomization}
+\label{sec:joint_association_study}
+
+\subsection{General Methodology}
+\label{sub:General_Methedology}
+
+\acrfull{mr} allows  inferring potential causal effects from observational data in the presence of confounding factors. 
+It allows us to assess whether a specific risk factor (exposure) has a causal effect on a disease (outcome).
+MR makes use of measured variation in genetic variants with known association to a modifiable exposure, also called instrument.
+Thus it assumes that certain genetic variants are associated with the exposure, and not with the outcome, except through the exposure.
+Commonly, genetic variants with well known effect on the exposure are used and can be seen as a natural randomized control trial since genotypes are passed randomly from parents to offspring.
+MR is based on a number of assumptions, most importantly that there is no direct relation between genetic variant and outcome as well as any other confounder.
+However, the use of single variants within an MR often results in underpowered studies~\cite{Bowden2015} since the effect of an given common SNP on any phenotype is usually small.
+This has led to the desire to use multiple genetic variants in order to improve statistical power to estimate causal effects between exposure and outcome.
+
+Assume $J$ variants in $n$ subjects (indexed by $i$) were measured ($G_{i1}, G_{i2}, \ldots , G_{iJ}$),
+an exposure $X_i$ ,as well as an outcome $Y_i$.
+Further, the potential confounder $U_i$ is unknown. 
+Within the causal model of MR the exposure is a function of the genetic variant, confounder, as well as an independent error, $\epsilon_i^X$. 
+Furthermore, $\gamma_j$ represents the effect of each variant $j$ on the exposure.
+The outcome, on the other hand, is the result of the linear function of the genetic variants, the exposure, the confounder, as well as an error term ($\epsilon_i^Y$).
+Then the estimate of the causal effect between exposure and outcome is $\beta$, while $\alpha_j$ represents the undesired but potential direct effect between the genetic variant $j$ on the outcome:
+\begin{equation} \label{eq:rm_basic}
+  \begin{split}
+    X_i &= \sum^J_{j=1} \gamma_jG_{ij} + U_i + \epsilon_i^X \\
+    Y_i &= \sum^J_{j=1} \alpha_jG_{ij} + \beta X_i + U_i + \epsilon_i^Y \\
+  \end{split}
+\end{equation}
+These assumed relationships of this causal model are displayed in Figure~\ref{fig:causal}.
+\begin{figure}[!h]
+  \centering
+  \resizebox{0.5\textwidth}{!}{\input{ukb_psychiatric/figures/causalilty.tex}}
+  \caption[Causal Model]{Causal Model.
+    Given a genetic variant $G_j$ influences the exposure $X$, it can be used as an instrumental variable to investigate the causal effect of exposure $X$ on the outcome $Y$.
+    However,this model assumes that the instrumental variable $G_j$ influences the outcome $Y$ only via the exposure $X$.
+    Hence assuming that $\alpha_j=0$, $\gamma_j\neq0$ and that $G_j$ does not influence $Y$ via a third variable $U$. 
+    The dotted lines indicate potential assumptions violations.
+  }\label{fig:causal}
+\end{figure}
+Should $G_j$ be independent of confounder $U$,
+as well as associated with exposure $X$ and independent of outcome $y$ conditional on $X$, then variant $j$ is a valid instrument for $X$.
+
+The reduced-form equation~\cite{Bowden2015} of Equation~\ref{eq:rm_basic}, relating outcome with $G_j$, can be written as
+\begin{equation}
+	\begin{split}
+		Y_i &= \Gamma_j G_{ij} + \epsilon_{ij}^{'Y} \\
+		&= (\alpha_j + \beta\gamma_j)G_{ij} + \epsilon_{ij}^{'Y}
+	\end{split}
+\end{equation}
+One can then estimate the causal effect $\beta$ with the help of the Wald method~\cite{Wald1940},
+by dividing the effect of variant $j$ on the outcome (denoted as $\hat{\Gamma_j}$) by the effect on the exposure (denoted as $\hat{\gamma_j}$).
+Assuming that $\alpha=0$, then the causal effect $\beta$ is
+\begin{equation} \label{eq:causal_estiamte}
+	\beta = \frac{\beta\gamma_j}{\gamma_j}= \frac{\Gamma_j}{\gamma_j}
+\end{equation}
+
+However, single variants often have inadequate statistical power, so one can extend Equation~\ref{eq:causal_estiamte} to multiple variants as a weighted average of multiple ratio estimates across uncorrelated genetic variants~\cite{Bowden2015}:
+\begin{equation} \label{eq:IVW}
+  \frac{\sum^J_{j=1} \hat{\gamma}_j^2\sigma_{Yj}^{-2} \hat{\beta}_j}
+  {\sum^J_{j=1} \hat{\gamma}_j^2\sigma_{Yj}^{-2}}
+\end{equation}
+in which $\hat{\beta}_j = \frac{\hat{\Gamma}_j}{\hat{\gamma}_j}$ and the weight $\sigma_{Yj}$ is the standard error of the outcome on the $jth$ variant.
+
+Often one cannot assume that $\alpha_j = 0$.
+In this case the Wald ratio estimate of variant $j$ will equal the true causal effect plus the error $\frac{\alpha_j}{\gamma_j}$~\cite{Bowden2015}. 
+Hence in the presence of $\alpha_j \neq 0$, Equation~\ref{eq:IVW} is re-written as
+\begin{equation} \label{eq:TSLSbias}
+  \beta + \frac{\sum^J_{j=1} \gamma_j^2\sigma_{Y_j}^{-2} \alpha_j}
+  {\sum^J_{j=1} \gamma_j^2\sigma_{Y_j}^{-2}} = \beta + Bias(\alpha, \gamma)
+\end{equation}
+Importantly, this implies that the assumed independence between genetic variants with the outcome $y$ conditional on $X$ holds if the bias term has a mean of zero.
+Based on these general assumptions and characteristics of Mendelian randomization, numerous different methods have been proposed.
+
+\subsection{Applied MR Methods}
+\label{sub:Used_Methods}
+
+Due to differences in robustness in regards to various potential assumption violations~\citet{Burgess2016}, it is recommended that several different MR methods be used in order to assess potential causal relationships.
+The estimated causal effects can then be judged over all  applied models.
+Further, a sensitivity analysis of each MR analysis can be performed to investigate validity of the underlying assumptions~\cite{Burgess2016}.
+A sensitivity analysis investigates the validity of the causal inference by MR since it is implausible that all selected SNPs satisfy the instrumental variable assumption~\cite{Burgess2016}.
+This is commonly done by assessing directional pleiotropy via funnel plots, investigating heterogeneity, as well as testing the reverse direction of causality and linearity.
+
+Within this study I used five separate methods.
+That is, the \acrfull{ivm}, the weighted median method, as well as MR-Egger regression~\cite{Bowden2015}.
+Further I applied classical meta analysis methods with fixed~\cite{Nelson2015a} and random effects~\cite{Ahmad2015a}.
+Overall, these methods differ in their robustness to pleiotropy (or the effect non-null effect of $\alpha_j$) as well as statistical power.
+
+The IVM has been described already in the previous section (see Equation~\ref{eq:IVW}).
+The method, while having greater statistical power than other methods, assumes that all used variants are valid instruments.
+Thus IVM is especially susceptible to presence of pleiotropy~\cite{Burgess2015b}.
+In contrast, the weighted median method first estimates the causal effect for each variant separately weighted by the inverse variance. 
+Following, estimates are then ranked and the median of this distribution is used to represent the estimated causal effect between exposure and outcome.
+This simple approach has the benefit that if at least 50\% of variants are valid instruments it will give consistent causal estimates.
+However, this comes with a lose in precision~\cite{Bowden2015}.
+
+MR-Egger is a newer method which relaxes the assumption of $\alpha_j=0$, instead  assuming that the correlation between $\alpha_j$ and $\gamma_j$ is $0$.
+Under this assumption, the bias (see Equation~\ref{eq:TSLSbias}) is inversely proportional to $\gamma_j$ and variants with stronger instrument strength (large $\gamma_j$) will on average be closer to the true causal effect.
+MR-egger makes use of this by regressing $\hat{\Gamma}_j$ on $\hat{\gamma}_j$:
+\begin{equation}\label{eq:egger}
+  \hat{\Gamma}_j = \beta_{0E} + \beta_{E} \hat{\gamma}_j
+\end{equation}
+Interestingly, $H_0$ of the intercept $\beta_E$ then gives an indication of the overall average pleiotropy.
+Thus MR-egger uses a relatively relaxed assumption but comes with the cost of  considerably lower statistical power~\cite{Bowden2015}.
+
+Finally, a fixed meta-analysis was used which assumes that the estimated effects $\beta_j$ are equal across assessed variants~\cite{Burgess2015b}.
+However, this might not be the case in practice since it assumes that all selected instruments are valid.
+In addition, variants might have different effects on the outcome which is not exclusively directed thought the exposure. 
+In contrast, mixed-effect models do not assume equal effect across genetic variants~\cite{Burgess2015b}.
+Specifically, in contrast to fixed effect model where the effect of each instrument $\beta_j$ is modeled as normally distributed with a  mean $\beta_j = \beta$ and variance $\sigma_{Y_j}^2$, a mixed-effect model assumes additionally that also $\beta_j$ is normally distributed with a mean of $\mu_\beta$ with variance $\phi^2$.
+
 To summarise, variance-components tests are generally more powerful than burden tests if a region has many non-causal variants or when the effects of a genomic region are bi-directional.
 In contrast, burden tests perform better in scenarios where most causal variants have the same direction of effect.
 This has led to the development of omnibus tests to combine burden and variance component tests, most notably SKAT-O~\cite{Lee2012}.
