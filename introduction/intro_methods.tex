@@ -19,10 +19,10 @@ Much later Francis Galton was one of the first persons to use twins in order to 
 However, only when~\citet{Simens1924} discovered the two distinct types of twins, namely \acrfull{mz} and \acrfull{dz} twins, twin studies became an established instrument in the investigation of genetic factors in humans.
 
 MZ twins develop from a single fertilized egg and therefore share all of their genetic makeup.
-On the other hand, \acrshort{dz} twins develop from two fertilized eggs and share only 50\% of segregating genetic variants.
+On the other hand, \acrshort{dz} twins develop from two fertilized eggs and share, on average, only 50\% of segregating genetic variants.
 This distinction forms the basis of all twin studies and allows use of structural equations relating observed trait and theorized underlying genetic and environmental effects.
 
-In addition, genetic effects can be further distinguished between additive genetic effects (A) which represent the accumulated effect of all genetic variations and dominant (D) effects which represents interaction on the same genetic locus.
+In addition, genetic effects can be further distinguished between additive genetic effects (A) which represent the accumulated effect of all individual alleles across the genome and dominant (D) effects which represents interaction on the same genetic locus.
 Environmental components are differentiated into shared environment (C) and unique environment (E).
 Therefore, the total variance of any particular trait is $P = A+D+C+E$.
 
@@ -39,7 +39,8 @@ This is also called Falconer's formula (see Formula~\ref{eq:falcon}) and can be 
 \end{align}
 
 However, while the above is attractive it its simplicity, today's twin studies use \acrfull{sem} to model genetic and environment effects.
-SEM is more flexible in modeling specific hypotheses, such as testing for sex differences as well  handling multivariate data~\cite{Rijsdijk2002}.
+SEM is more flexible in modeling specific hypotheses, such as testing for sex differences as well handling multivariate data~\cite{Rijsdijk2002}.
+Furthermore, Falconer's method is not able to distinguish between additive and non-additive genetic factors.
 
 Figure~\ref{fig:ace} displays such a classical path-based model.
 Variables within a SEM can be separated into latent and observed variables.
@@ -48,7 +49,7 @@ These variables are not directly observed but are inferred from actual measured 
 Observed variables are commonly displayed in cornered boxes.
 The correlations among A and C are represented by the double headed arrows.
 The causal paths $a$, $c$, and $e$ represent the effect of the components on the trait $T$, and the square of these estimates represent the variance accounted for by each of the corresponding latent factors.
-However, effects of $D$ cannot be simultaneously estimated with $A$, and two separate models need to be constructed.
+However, effects of $D$ cannot be simultaneously estimated with $C$.
 
 \begin{figure}[htpb]
   \centering
@@ -56,6 +57,7 @@ However, effects of $D$ cannot be simultaneously estimated with $A$, and two sep
   \caption[ACE Model]{
     Basic ACE model.
     This basic model contains the latent variables A, C and E for twin 1 and 2, as well as the observed variable T with the mean $\mu$.
+    The model assumes a MZ and DZ twin correlation of $1$ and $0.5$ respectivly.
   }\label{fig:ace}
 \end{figure}
 
@@ -75,15 +77,41 @@ and
     \frac{1}{2}a^2 + c^2 & a^2 + c^2 + e^2
   \end{pmatrix}
 \end{equation}
-Modern SEM software are able to estimate parameters by minimising the goodness-of-fit statistic between the observed and predicted covariance matrices~\cite{Boker2011}.
-Most commonly this is done via a maximum-likelihood function.
-Furthermore, the overall goodness-of-fit of the model relative to a perfect fit, meaning that all covariances are estimated, is measured by a likelihood ratio square statistic ($\chi^2$).
+Modern SEM software is able to estimate parameters by minimising the goodness-of-fit statistic between the observed and predicted covariance matrices~\cite{Boker2011}.
+Previously this has been done via a maximum-likelihood function.
+However, commonly data contains missing values and the raw observed covariance matrix might not contain all information.
+Thus many studies use the full information maximum-likelihood (FIML) function to estimate parameters.
+
+Given the matrix $X$ of size $n\times p$, in which $n$ represent the number of subjects and $p$ the number of observed variables, then the $-2\log$ likelihood of a give row $i$ is
+\begin{equation}\label{eq:fiml}
+  \mathcal{L}_i = k_i \ln(2\pi) + \ln(|\sum_i|) + (X_i - M_i)\sum_i^{-1}(X_i -M_i)^{T} 
+\end{equation}
+in which $k_i$ is the count of non-missing observations in row $i$, $\sum_i$ is the filtered model-implied covariance matrix, and $M_i$ is the filtered mean vector.
+The filtered mean vector and covariance matrix is how FIML handles missing values at $X_i$.
+For example, given a model-implied mean row vector $M=(4.3, 5.3, 1.2)$ and the row $X_i=(NA, 2, 0.4)$, in which $NA$ indicates a missing value, then the filtered row mean vector is $M_i = (5.4, 1.2)$. 
+The $-2\log$ of the whole data can then be calculated as
+\begin{equation}
+  \mathcal{L} = \sum^n_{i=1} \mathcal{L}_i
+\end{equation}
+
+The overall goodness-of-fit of the model relative to a perfect fit, meaning that all covariances are estimated, is measured by a likelihood ratio square statistic ($\chi^2$).
 Therefore, should we fail to reject the null hypothesis that our model in Figure~\ref{fig:ace} is different from a perfect fitted model we have reason to assume that our genetic model fits the data.
 
 The use of SEM allows for great flexibility and a variety of models to be estimated.
 In the past few decades numerous twin studies on a variety of traits have been performed.
 It not only allowed testing for the differences in the genetic architecture between the sexes but also examining how influence of genetic factors change over age.
-However, due to the new advances in molecular technology,  more research has  shifted to \acrfull{gwas}.
+In addition, Falconer's method is only able to approximate the broad sense heritabiltiy and is unable to distinguish between $A$ and $D$.
+
+However, it is important to keep in mind the assumptions underlying twin modeling.
+Indeed, twin models generally assume that twins do not differ from the general population and that mating occurs at random.
+Furthermore, it is assumed that MZ and DZ twin pairs share their corresponding environment to the same degree and that the effect of gene-environment interactions are small~\cite{Rijsdijk2002}.
+
+Especially the equal environment assumption (EEA) has come under scrutiny~\cite{Martin1997}. 
+Indeed, various studies have shown that MZ twins have higher correlations across a variety of environments than DZ twins~\cite{Loehlin1976}.
+Thus suggesting a violation of the underlying assumption.
+Nevertheless, these environments often fail to have an effect on behavioral outcomes~\cite{Lytton1977} and a number of other studies have found no violation of EEA~\cite{Rijsdijk2002,Tuvblad2011a,Freitag2010,Derks2006}
+
+However, due to the new advances in molecular technology, more research has shifted to \acrfull{gwas}.
 Hence, in the next section I will outline the methods applied in GWAS\@.
 
 \section{Association Studies of Common Variants}
@@ -92,7 +120,7 @@ Hence, in the next section I will outline the methods applied in GWAS\@.
 Large-scale genomic association studies have enabled researchers to investigate specific genetic factors associated with a certain trait.
 Hence, while twin studies were only able to give an estimate of the total contribution of genetic factors on a phenotype, association studies are able to elucidate the specific molecular basis of complex traits.
 Specifically, these genome-wide association studies utilize common \acrfull{snp} and other genetic variants, to identify specific genetic markers associated with a certain trait.
-Common variants are usually genetic variations with a frequency $\ge 1\%$, also called \acrfull{maf}.
+Common variants are usually genetic variations with a frequency $\ge 1\%$.
 
 \paragraph{What is a \acrfull{snp}}
 \label{par:what_are_snp}
