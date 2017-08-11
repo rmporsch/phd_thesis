@@ -24,11 +24,11 @@ This distinction forms the basis of all twin studies and allows use of structura
 
 In addition, genetic effects can be further distinguished between additive genetic effects (A) which represent the accumulated effect of all individual alleles across the genome and dominant (D) effects which represents interaction on the same genetic locus.
 Environmental components are differentiated into shared environment (C) and unique environment (E).
-Therefore, the total variance of any particular trait is $P = A+D+C+E$.
+Therefore, the total variance of any particular trait is $V_P = A+D+C+E$.
 
-Since one can assume different correlations between MZ ($r_{MZ}$) and DZ ($r_{DZ}$) twin pairs one can estimate components of $P$.
+Since one can assume different correlations between MZ ($r_{MZ}$) and DZ ($r_{DZ}$) twin pairs one can estimate components of $V_P$.
 While the correlations between twins within C and E are the same in both MZ and DZ twins, namely $1$ and $0$, respectively,
-MZ twins have a correlation of $1$ for both A and D, while DZ pairs have a correlation of $\frac{1}{2}$ and $\frac{1}{4}$, respectively.
+MZ twins are assumed to have a correlation of $1$ for both A and D, while DZ pairs have a correlation of $\frac{1}{2}$ and $\frac{1}{4}$, on average respectively.
 Therefore differences within MZ twins can be attributed to E alone.
 Further, when we assume that DZ and MZ twins are exposed to the same degree of similarity within their environment, the differences in similarity between MZ and DZ twins is an estimate of all the genetic contribution to the phenotypic variance (i.e. including additive, dominant, and epistatic effects).
 This is also called Falconer's formula (see Formula~\ref{eq:falcon}) and can be used to estimate broad sense heritability, also denoted as $H^2$:
@@ -100,79 +100,44 @@ Therefore, should we fail to reject the null hypothesis that our model in Figure
 The use of SEM allows for great flexibility and a variety of models to be estimated.
 In the past few decades numerous twin studies on a variety of traits have been performed.
 It not only allowed testing for the differences in the genetic architecture between the sexes but also examining how influence of genetic factors change over age.
-In addition, Falconer's method is only able to approximate the broad sense heritabiltiy and is unable to distinguish between $A$ and $D$.
+In addition, Falconer's method is only able to approximate the broad sense heritability and is unable to distinguish between $A$ and $D$.
 
-However, it is important to keep in mind the assumptions underlying twin modeling.
-Indeed, twin models generally assume that twins do not differ from the general population and that mating occurs at random.
-Furthermore, it is assumed that MZ and DZ twin pairs share their corresponding environment to the same degree and that the effect of gene-environment interactions are small~\cite{Rijsdijk2002}.
+However, it is important to keep in mind that twin models make a few fundamental assumptions.
+Generally these models assume that twins do not differ from the general population and that mating occurs at random.
+Furthermore, it is assumed that MZ and DZ twin pairs share their corresponding environment to the same degree, also called equal environment assumption (EEA), and that the effect of gene-environment interactions are small~\cite{Rijsdijk2002}.
 
-Especially the equal environment assumption (EEA) has come under scrutiny~\cite{Martin1997}. 
+A number of studies have investigated and tested these underlying assumptions.
+Especially the EEA has been questioned~\cite{Martin1997}. 
 Indeed, various studies have shown that MZ twins have higher correlations across a variety of environments than DZ twins~\cite{Loehlin1976}.
 Thus suggesting a violation of the underlying assumption.
-Nevertheless, these environments often fail to have an effect on behavioral outcomes~\cite{Lytton1977} and a number of other studies have found no violation of EEA~\cite{Rijsdijk2002,Tuvblad2011a,Freitag2010,Derks2006}
+Nevertheless, these environments often fail to have an effect on behavioral outcomes~\cite{Lytton1977}.
+Furthermore, a number of statistical tests, examining the EEA violations, were unable to detect any major violations~\cite{Rijsdijk2002,Tuvblad2011a,Freitag2010,Derks2006}.
+Thus suggesting that the assumptions underlying twin modeling hold.
 
-However, due to the new advances in molecular technology, more research has shifted to \acrfull{gwas}.
-Hence, in the next section I will outline the methods applied in GWAS\@.
+However, despite the numerous benefits of twin modeling, new advances in molecular technology has shifted research towards the identification of specific genetic loci.
+In the following section I will outline the basics of the beginnings of molecular genetics with the introduction of linkage studies.
+I will then describe the basics of \acrfull{gwas} and the more recently developed \acrfull{ngs}.
 
-\section{Association Studies of Common Variants}
-\label{sec:association_studies_of_common_variants}
+\section{Linkage Studies}
+\label{sec:linkage_studies}
 
-Large-scale genomic association studies have enabled researchers to investigate specific genetic factors associated with a certain trait.
-Hence, while twin studies were only able to give an estimate of the total contribution of genetic factors on a phenotype, association studies are able to elucidate the specific molecular basis of complex traits.
-Specifically, these genome-wide association studies utilize common \acrfull{snp} and other genetic variants, to identify specific genetic markers associated with a certain trait.
-Common variants are usually genetic variations with a frequency $\ge 1\%$.
-
-However, only recently studies were able to examine the effect of SNPs on a specific trait.
-Previous efforts made use of genome-wide linkage studies to identify disease causing mutations.
+Previous efforts to identify specific genetic markers associated with certain diseases made use of linkage studies.
 Linkage studies make use of the fact that many genes, which are in close proximity to each other, are inherited together during meiosis.
 The method is use to identify genetic markers which co-segregate with a particular gene of interest.
-This allows to easily track a certain gene throughout a family.
-Thus the presents of the maker in affected, but absents healthy family members allows the identification of causing genes~\cite{DawnTeare2005}. 
-This classical genetic method has been been successful in  identifying many monogenic diseases~\cite{Londin2013}.
+This allows to easily track genes throughout a family.
+Thus the presents of the maker in affected, but absents healthy family members allows the identification of disease associated genes~\cite{DawnTeare2005}. 
+This classical genetic method has been been successful in identifying many monogenic diseases~\cite{Londin2013}.
+
 However, due to the low resolution linkage studies have not been very successful in identifying risk loci for more complex phenotypes.
 Thus modern genetic studies make use genotyping arrays to identify specific SNPs associated with diseases and other phenotypes.
-
-\paragraph{What is a \acrfull{snp}}
-\label{par:what_are_snp}
 SNPs are variations within the genome at  specific positions and may underly differences in traits and disease susceptibility. 
 For example, the replacement of the nucleotide cytosine (C) with thymine (T) at a certain position within a stretch of DNA is considered a \acrfull{snp}.
+However, the concept of linkage does also extent to SNPs, also called \acrfull{ld}.
 
-Association analysis of common genetic variants is usually only applied to investigate potential genetic markers of common traits and disorders, while different strategies are applied for rare diseases.
-Indeed assessments of families whose members are disproportional affected with a rare genetic disorder, such as Huntigton's disease or cystic fibrosis, were able to identify a number of disease-causing variants~\cite{Kerem1989}.
-However, while this method was initially successful with a number of other rare disorders, common disorders, such as heart disease, psychiatric disorders, as well as others, fared not that well,  
-implying that common and rare disorders have a different genetic architecture~\cite{Hirschhorn2005a}.
-This resulted in the conceptualization of the common disease common variant hypothesis.
+\section{Linkage Disequilibrium}
+\label{sec:linkage_disequilibrium}
 
-
-\subsection{Common Disease Common Variant Hypothesis}
-\label{sub:common_versus_rare_genetic_variants}
-
-The common disease common variant hypothesis suggests that common disorders are affected by genetic variations which are also common in the population~\cite{Schork2010}.
-This hypothesis, while simplistic, has some profound implications.
-
-Importantly it is unlikely that common variants will have a high penetrance and are the lone disease-causing mutations.
-For example, a common variant with a frequency of 45\% that directly causes a disorder would mean that also 45\% of the population would be affected by the disease.
-This is unlikely to be the case and it is more likely that a given SNP only has a small effect on the disease.
-This in turn also implies that multiple common variants affect a common disorder.
-For example, twin studies have estimated the heritability of aggressive behavior at 50\%.
-If a single SNP has only a small effect on the phenotype, then the total genetic risk must be distributed across multiple common genetic variants.
-Figure~\ref{fig:rare_comon} displays the spectrum of genetic affects and allele frequency.
-\begin{figure}[htpb]
-  \centering
-  \includegraphics[width=0.8\linewidth]{{introduction/figure/journal.pcbi.1002822.g001}.png}
-  \caption[Spectrum of Disease Allele Effects]{Spectrum of Disease Allele Effects~\cite{Bush2012}.}\label{fig:rare_comon}
-\end{figure}
-
-Overall, the common disease common variant hypothesis has been tested numerous times~\cite{Bush2012}.
-Most common SNPs identified in the last 10 years are of small effect and most common disorders have multiple risk alleles~\cite{Welter2014,Schork2010}, suggesting that the hypothesis holds true. 
-However this does imply that all genetic contributions to a common disorder are due to common variants alone.
-Indeed, there have been some successful genetic associations of common variants in rare disorders.
-For example,~\cite{Garcia-Barcelo2009a} identified 2 common SNPs associated with Hirschsprung's disease, a rare congenital disorder (2.8 per 10,000 births).
-
-\subsection{Linkage Disequilibrium}
-\label{sub:linkage_disequilibrium}
-
-Before explaining the concept of association studies in more detail it is important to mention \acrfull{ld}.
+Indeed, before outlying the concept of modern association studies in more detail it is important to mention \acrfull{ld}.
 LD is `the nonrandom association of alleles at different loci'~\cite{Slatkin2008} and forms a marker of the population genetic mechanism that is at play within our genome.
 For example, two loci are said to be in high LD when allele $A$ at one loci co-occurs with allele $B$ at a different loci at a higher frequency then one would expect if the two loci were independent.
 Hence the level of LD can be quantified as $D_{AB}=p_{AB} - p_{A}p_{B}$ in which in which $p_{AB}$ is the frequency that $A$ and $B$ occurs together wile $p_A$ and $p_B$ is the frequency of $A$ and $B$, respectively.
@@ -207,7 +172,7 @@ fourth, the association is due to confounding errors such as population stratifi
 
 The association between a SNP $g$ and a trait $y$, as well as additional $p$ covariates $\bm{U}$, of an individual $i$ can be expressed as a generalized linear regression model for a continuous or binary phenotype:
 \begin{equation}
-  g(E(y_i)) = \beta_0 + \beta_1g_i + \bm{\beta_u}\bm{U_i'} + \epsilon
+  g(E(y_i)) = \beta_0 + \beta_1g_i + \bm{\beta_u}\bm{U_i'}
 \end{equation}
 in which $\beta_0$ is the intercept (commonly ignored in GWAS settings) and $\beta_1$ the regression coefficient of a particular SNP\@.
 The vector $\bm{\beta_u}$ of size $1\times p$ are the regression coefficients of $p$ covariates to adjust for potential confounding factors.
@@ -225,6 +190,41 @@ An additive model assumes a linear increase in risk for each additional allele c
 Thus if the risk of \textit{Aa} is $k$ then the risk doubles ($2k$) for \textit{AA}. 
 Despite these different models, GWAS commonly uses an additive model only since it has appropriate statistical power to detect dominant effects as well.
 Nevertheless, an additive model has reduced power for potential recessive effects~\cite{Bush2012}.
+
+\section{Common Disease Common Variant Hypothesis}
+\label{sec:common_versus_rare_genetic_variants}
+
+Large-scale genomic association studies have enabled researchers to investigate specific genetic factors associated with a certain trait.
+Hence, while twin studies were only able to give an estimate of the total contribution of genetic factors on a phenotype, association studies are able to elucidate the specific molecular basis of complex traits.
+Specifically, these genome-wide association studies utilize common \acrfull{snp} and other genetic variants, to identify specific genetic markers associated with a certain trait.
+Common variants are usually genetic variations with a frequency $\ge 1\%$.
+
+Association analysis of common genetic variants is usually only applied to investigate potential genetic markers of common traits and disorders, while different strategies are applied for rare diseases.
+Indeed assessments of families whose members are disproportional affected with a rare genetic disorder, such as Huntigton's disease or cystic fibrosis, were able to identify a number of disease-causing variants~\cite{Kerem1989}.
+However, while this method was initially successful with a number of other rare disorders, common disorders, such as heart disease, psychiatric disorders, as well as others, fared not that well,  
+implying that common and rare disorders have a different genetic architecture~\cite{Hirschhorn2005a}.
+This resulted in the conceptualization of the common disease common variant hypothesis.
+The common disease common variant hypothesis suggests that common disorders are affected by genetic variations which are also common in the population~\cite{Schork2010}.
+This hypothesis, while simplistic, has some profound implications.
+
+Importantly it is unlikely that common variants will have a high penetrance and are the lone disease-causing mutations.
+For example, a common variant with a frequency of 45\% that directly causes a disorder would mean that also 45\% of the population would be affected by the disease.
+This is unlikely to be the case and it is more likely that a given SNP only has a small effect on the disease.
+This in turn also implies that multiple common variants affect a common disorder.
+For example, twin studies have estimated the heritability of aggressive behavior at 50\%.
+If a single SNP has only a small effect on the phenotype, then the total genetic risk must be distributed across multiple common genetic variants.
+Figure~\ref{fig:rare_comon} displays the spectrum of genetic affects and allele frequency.
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=0.8\linewidth]{{introduction/figure/journal.pcbi.1002822.g001}.png}
+  \caption[Spectrum of Disease Allele Effects]{Spectrum of Disease Allele Effects~\cite{Bush2012}.}\label{fig:rare_comon}
+\end{figure}
+
+Overall, the common disease common variant hypothesis has been tested numerous times~\cite{Bush2012}.
+Most common SNPs identified in the last 10 years are of small effect and most common disorders have multiple risk alleles~\cite{Welter2014,Schork2010}, suggesting that the hypothesis holds true. 
+However this does imply that all genetic contributions to a common disorder are due to common variants alone.
+Indeed, there have been some successful genetic associations of common variants in rare disorders.
+For example,~\cite{Garcia-Barcelo2009a} identified 2 common SNPs associated with Hirschsprung's disease, a rare congenital disorder (2.8 per 10,000 births).
 
 \subsection{Population Stratification}
 \label{ssec:population_stratification}
