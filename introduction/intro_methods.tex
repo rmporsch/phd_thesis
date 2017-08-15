@@ -347,15 +347,16 @@ While a single reason for the missing heritability seems unlikely it is still an
 
 \subsection{Genetic Correlations}
 \label{sub:genetic_correlations_method}
+
 The development of both LD-score regression and GCTA have enabled recent research to uncover the genetic correlations among a variety of different traits, even when the two traits are measured on different people.
 However, genetic correlation can arise from a multitude of different sources.
 Figure~\ref{fig:genetic_correlation} shows 4 different ways genetic correlation can arise.
 First and foremost, genetic correlation can arise if two traits are caused by the same genetic factors (see Figure~\ref{fig:pleiotropy}).
 Second, a genetic factor  causes phenotype 1 and that phenotype can in turn cause phenotype 2 (see mediated pleiotropy in Figure~\ref{fig:mediated_pleiotropy}).
 Third, genetic correlation can also arise from assortative mating as shown in Figure~\ref{fig:assortative_mating}.
-Assortative mating is a non-random mating pattern within a population.
-For example, consider two traits which share no causal variant.
-Trait 1 is desirable in males while trait 2 is desirable in females.
+Assortative mating is a non-random mating pattern within a population and can lead to a genetic correlation between two traits.
+For example, consider two traits which share no initial causal variant.
+Trait 1 is desirable in males while trait 2 is desirable in females, hence resulting in an increase in offspring who harbour the causal variants of both traits.
 Over a few generation this will result in LD between causal variants of trait 1 and 2 despite sharing no initial causal SNPs, resulting in a genetic correlation. 
 Fourth, also parental effect can result in genetic corrections as displayed in Figure~\ref{fig:parental_effects}.
 Specifically, genetic components cause trait $1$ in the parents which influences the child's environment which in turn results in trait 2. 
@@ -387,6 +388,7 @@ Nevertheless, the genetic correlations estimated by LD-score and GCTA are unable
 
 To conclude, during the last few years large gains have been made in fostering our understanding of heritability and genetic correlations with the development of GCTA and LD-score regression.
 While these tools are able to estimate heritability and genetic correlations of a number of traits it remains difficult to distinguish between different sources of genetic correlations.
+Furthermore, GCTA and LD-score regression do not take rare variants or structural variations into account, thus are suffering from similar limitations as typical GWASs.
 
 \section{Association Studies on Rare Variants}
 \label{sec:association_studies_on_rare_varitants}
@@ -417,6 +419,7 @@ where $\hat{\mu_i}$ is the estimated mean under $H_0: \beta = 0 $ and is obtaine
 
 \subsection{Burden Test}
 \label{sub:burden_test}
+
 The simplest approach, called the burden test, tests the weighted sum of computed scores:
 \begin{equation}\label{eq:burden}
   Q = {(\sum^{m}_{j=1} w_{j} S_{j})}^2
@@ -438,24 +441,29 @@ The test statistic is defined as
 The test is robust to groupings of protective and damaging effects within the same region.
 However,  SKAT suffers from a reduction in statistical power in cases of high proportions of causal variants of the same direction, as compared to the burden test~\cite{Derkach2013a}.
 
+To summarise, variance-components tests are generally more powerful than burden tests if a region has many non-causal variants or when the effects of a genomic region are bi-directional.
+In contrast, burden tests perform better in scenarios where most causal variants have the same direction of effect.
+This has led to the development of omnibus tests to combine burden and variance component tests, most notably SKAT-O~\cite{Lee2012}.
+
 \section{Mendelian Randomization}
 \label{sec:joint_association_study}
-
-\subsection{General Methodology}
-\label{sub:General_Methedology}
 
 \acrfull{mr} allows  inferring potential causal effects from observational data in the presence of confounding factors. 
 It allows us to assess whether a specific risk factor (exposure) has a causal effect on a disease (outcome).
 MR makes use of measured variation in genetic variants with known association to a modifiable exposure, also called instrument.
 Thus it assumes that certain genetic variants are associated with the exposure, and not with the outcome, except through the exposure.
-Commonly, genetic variants with well known effect on the exposure are used and can be seen as a natural randomized control trial since genotypes are passed randomly from parents to offspring.
+Commonly, genetic variants with well known effects on the exposure are used and can be seen as a natural randomized control trial since alleles are passed randomly from parents to offspring.
 MR is based on a number of assumptions, most importantly that there is no direct relation between genetic variant and outcome as well as any other confounder.
 However, the use of single variants within an MR often results in underpowered studies~\cite{Bowden2015} since the effect of an given common SNP on any phenotype is usually small.
 This has led to the desire to use multiple genetic variants in order to improve statistical power to estimate causal effects between exposure and outcome.
 
+
+\subsection{General Methodology}
+\label{sub:General_Methedology}
+
 Assume $J$ variants in $n$ subjects (indexed by $i$) were measured ($G_{i1}, G_{i2}, \ldots , G_{iJ}$),
 an exposure $X_i$ ,as well as an outcome $Y_i$.
-Further, the potential confounder $U_i$ is unknown. 
+Further, potential confounders $U_i$ are unknown. 
 Within the causal model of MR the exposure is a function of the genetic variant, confounder, as well as an independent error, $\epsilon_i^X$. 
 Furthermore, $\gamma_j$ represents the effect of each variant $j$ on the exposure.
 The outcome, on the other hand, is the result of the linear function of the genetic variants, the exposure, the confounder, as well as an error term ($\epsilon_i^Y$).
@@ -511,7 +519,7 @@ Hence in the presence of $\alpha_j \neq 0$, Equation~\ref{eq:IVW} is re-written 
 Importantly, this implies that the assumed independence between genetic variants with the outcome $y$ conditional on $X$ holds if the bias term has a mean of zero.
 Based on these general assumptions and characteristics of Mendelian randomization, numerous different methods have been proposed.
 
-\subsection{Applied MR Methods}
+\subsection{MR Methods}
 \label{sub:Used_Methods}
 
 Due to differences in robustness in regards to various potential assumption violations~\citet{Burgess2016}, it is recommended that several different MR methods be used in order to assess potential causal relationships.
@@ -520,9 +528,9 @@ Further, a sensitivity analysis of each MR analysis can be performed to investig
 A sensitivity analysis investigates the validity of the causal inference by MR since it is implausible that all selected SNPs satisfy the instrumental variable assumption~\cite{Burgess2016}.
 This is commonly done by assessing directional pleiotropy via funnel plots, investigating heterogeneity, as well as testing the reverse direction of causality and linearity.
 
-Within this study I used five separate methods.
+There are five commonly used MR methods.
 That is, the \acrfull{ivm}, the weighted median method, as well as MR-Egger regression~\cite{Bowden2015}.
-Further I applied classical meta analysis methods with fixed~\cite{Nelson2015a} and random effects~\cite{Ahmad2015a}.
+Further a number of applied classical meta analysis methods with fixed~\cite{Nelson2015a} and random effects~\cite{Ahmad2015a} can be applied.
 Overall, these methods differ in their robustness to pleiotropy (or the effect non-null effect of $\alpha_j$) as well as statistical power.
 
 The IVM has been described already in the previous section (see Equation~\ref{eq:IVW}).
@@ -534,12 +542,13 @@ This simple approach has the benefit that if at least 50\% of variants are valid
 However, this comes with a lose in precision~\cite{Bowden2015}.
 
 MR-Egger is a newer method which relaxes the assumption of $\alpha_j=0$, instead  assuming that the correlation between $\alpha_j$ and $\gamma_j$ is $0$.
+Thus MR-Egger relaxes the pleiotropic assumptions and allows variants to exhibit pleiotropic effects as long as this effect, across all used instrument, equals to zero.
 Under this assumption, the bias (see Equation~\ref{eq:TSLSbias}) is inversely proportional to $\gamma_j$ and variants with stronger instrument strength (large $\gamma_j$) will on average be closer to the true causal effect.
 MR-egger makes use of this by regressing $\hat{\Gamma}_j$ on $\hat{\gamma}_j$:
 \begin{equation}\label{eq:egger}
   \hat{\Gamma}_j = \beta_{0E} + \beta_{E} \hat{\gamma}_j
 \end{equation}
-Interestingly, $H_0$ of the intercept $\beta_E$ then gives an indication of the overall average pleiotropy.
+Interestingly, $H_0$ of the intercept $\beta_E$ then gives an indication of the overall directional pleiotropy.
 Thus MR-egger uses a relatively relaxed assumption but comes with the cost of  considerably lower statistical power~\cite{Bowden2015}.
 
 Finally, a fixed meta-analysis was used which assumes that the estimated effects $\beta_j$ are equal across assessed variants~\cite{Burgess2015b}.
@@ -548,14 +557,11 @@ In addition, variants might have different effects on the outcome which is not e
 In contrast, mixed-effect models do not assume equal effect across genetic variants~\cite{Burgess2015b}.
 Specifically, in contrast to fixed effect model where the effect of each instrument $\beta_j$ is modeled as normally distributed with a  mean $\beta_j = \beta$ and variance $\sigma_{Y_j}^2$, a mixed-effect model assumes additionally that also $\beta_j$ is normally distributed with a mean of $\mu_\beta$ with variance $\phi^2$.
 
-To summarise, variance-components tests are generally more powerful than burden tests if a region has many non-causal variants or when the effects of a genomic region are bi-directional.
-In contrast, burden tests perform better in scenarios where most causal variants have the same direction of effect.
-This has led to the development of omnibus tests to combine burden and variance component tests, most notably SKAT-O~\cite{Lee2012}.
 \bigskip
-
 To conclude, I have outlined various statistical methods to investigate the genetic contribution of aggressive behavior.
 I have described the commonly applied twin model to estimate the contribution of genetic and environmental effects.
 Further, I outlined the principles of genome wide association studies as well as the use of GCTA and LD-score to estimate the narrow sense heritability from common SNPs.
+In addition, I have described principles and common methods used in Mendelian Randomization studies.
 Finally, I have described two commonly-used rare variant tests as well as their pros and cons.
 
 In the next chapter I will present an investigation of the longitudinal heritability of childhood aggression with the use of two large twin cohorts. 
