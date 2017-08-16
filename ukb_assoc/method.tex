@@ -22,11 +22,13 @@ Participants were asked to answer the following question:
 \begin{displayquote}
   Have you ever had a period of time lasting at least two days when you were so irritable that you found yourself shouting at people or starting fights or arguments?
 \end{displayquote}
-The phenotype has a relatively high missingness rate within analysed subjects ($67.984\%$) with $40,861$ subjects answering `no' whhile $9,397$ answered `yes'.
+The phenotype has a relatively high missingness rate within analysed subjects ($67.984\%$) with $40,861$ subjects answering `no' while $9,397$ answered `yes'.
+However, the missingness was not the result of subjects refusal to answer the question but by design.
+Specially only a randomly select subset of all participants were asked the above quoted question.
 
 \subsubsection{Risk Taking}
 \label{ssub:risk_taking}
-Risk taking is a single item instrument which subjects answer with either yes or no.
+Risk taking is a single item instrument that subjects answer with either yes or no.
 Participants were asked to answer the following question:
 \begin{displayquote}
   Would you describe yourself as someone who takes risks?
@@ -38,11 +40,11 @@ In total $107,011$ subjects answered `yes', while $39,435$ answered `no' (see Ta
 \label{ssub:sec_pheno}
 
 Neuroticism was measured using the \acrfull{epq-r-s}~\cite{Eysenck1985}. 
-The questionnaires is a 12 item long instrument in which respondents answer either `yes' (scored as 1), or `no' (scored as 0),
+The questionnaire is a 12 item long instrument in which respondents answer either `yes' (scored as 1), or `no' (scored as 0),
 resulting in a total neuroticism score between 0 and 12.
 Alcohol consumption was measured with a likert-scale.
 Participants were asked to indicate their usual alcohol intake from either `Daily or almost daily' (scored as 6), `Three or four times a week' (scored as 5), `Once or twice a week' (scored as 4), `One to three times a month' (scored as 3), `Special occasions only' (scored as 2), or `Never' (scored as 1).
-Smoking status was obtained by asking participants if they ever have smoked (scored 1 for `yes' and 0 for `no').
+Smoking status was obtained by asking participants if they have ever smoked (scored 1 for `yes' and 0 for `no').
 
 
 \begin{table}[!htpb]
@@ -51,7 +53,7 @@ Smoking status was obtained by asking participants if they ever have smoked (sco
   \caption[Sample Size and Missingness of UK Biobank]{
     Sample size and missingness across Caucasians and non-Caucasians participants.
     Missingness indicates the percentage of participants who were not phenotyped for a particular trait.
-    The Caucasian sample represents all participants which were used to conduct the genome wide association study.
+    The Caucasian sample represents all participants who were used to conduct the genome wide association study.
 }\label{tab:descriptive_gwas} 
 \end{table}
 
@@ -67,9 +69,10 @@ Further variants which did not pass a Hardy-Weinberg equilibrium test threshold 
 Thus leaving $8,802,909$ genetic variants for further analysis.
 
 In addition I only included participants with `white European' ancestry identified by a k-mean cluster of the first four principal components of genotype data.
+Samples with second degree cousins or closer were also removed from the analysis.
 The total number of participants remaining after quality control of genotype are displayed in Table~\ref{tab:descriptive_gwas}.
 
-Association analysis of autosomal SNPs was performed with Plink~\cite{Purcell2007,Chang2015} with age, sex, genotype array chip, and the first 10 principal components as covariants.
+Association analysis of autosomal SNPs was performed with Plink~\cite{Purcell2007,Chang2015} with age, sex, genotype array chip, and the first 10 principal components as covariats.
 
 \subsection{Identification of Lead SNPs}
 \label{sub:Clumping}
@@ -78,14 +81,14 @@ Lead SNPs were identified using clumping.
 Clumping is the process of grouping SNPs within a given genomic window and level of LD together.
 Various thresholds and window sizes can be used.
 Within this study the more commonly $250kb$ window region was applied.
-SNPs were considered to be within the same LD group when passing an threshold of $r^2 \ge 0.2$.
-The SNPs with the lowest p-value within each group was considered the lead SNPs.
+SNPs were considered to be within the same LD group when passing a threshold of $r^2 \ge 0.2$.
+The SNPs with the lowest p-value within each group were considered the lead SNPs.
 
 \subsection{Conditional False Discovery Rate}
 \label{sub:conditional_false_discovery_rate}
 
 Pleiotropy informed \acrfull{cfdr} was used to identify additional genetic loci associated with risk taking or impulsive aggression. 
-In principle, cFDR makes use of pleiotropic effect between two phenotypes to increase statistical power.
+In principle, cFDR makes use of the pleiotropic effect between two phenotypes to increase statistical power.
 Within this analysis I computed the empirical cumulative distribution function on nominal p-values of phenotype A conditional on p-values of phenotype B passing a given threshold~\cite{Andreassen2013}.
 Further, I applied genomic control to all nominal p-values using the genomic inflation factor $\lambda_{GC}$.
 This was done by converting p-values to z-scores, estimating the median z-score for each GWAS, and dividing the squared median z-score by the expected median of a $\chi^2$-distribution  with $df=1$.

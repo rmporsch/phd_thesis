@@ -33,8 +33,8 @@ In contrast, summary statistics of a population based GWAS on depressive symptom
 
 The same genomic analysis was applied as in Chapter~\ref{cha:assocation_study_in_agggressive_behavior_and_risk_taking}.
 This study made use of the imputed genetic data of the UK Biobank, compromising $\sim73$ million SNPs, short indels, and larger structural variations of $152,249$ subjects.
-Individuals were genotyped on two different custom genotype arrays, namely the UL BiLEVE as well as the UK Biobank Axiom array from Affymetrix. 
-UL BiLEVE was used for most samples ($102,325$), while the array chip from Affymetrix, which was optimised to support genotype imputation, was used for the remaining participants. 
+Individuals were genotyped on two different custom genotype arrays, namely the UK BiLEVE as well as the UK Biobank Axiom array from Affymetrix. 
+UK BiLEVE was used for most samples ($102,325$), while the array chip from Affymetrix, which was optimised to support genotype imputation, was used for the remaining participants. 
 Quality control and imputation was performed by the UK Biobank~\cite{Marchini2015}.
 However, I further conducted additional quality control.
 Variants whose missing call rate exceeded 10\% as well as those with minor allele frequency below 1\% were excluded.
@@ -52,10 +52,12 @@ Association analysis of autosomal SNPs was performed with Plink~\cite{Purcell200
 Summary statistics of above-described psychiatric studies were obtained from LD-Hub~\cite{ZHENG2016} and test statistics for aggression and risk raking, computed in the previous chapter, were used in order to estimate genetic correlations across phenotypes using LD-score regression~\cite{Bulik-Sullivan2015a}.
 Multiple testing was addressed with the more stringent Bonferroni correction.
 
+\subsection{Mendelian Randomization}
+\label{sub:Selection_of_Intstuments}
 
-\subsubsection{Selection of Instruments}
-\label{ssub:Selection_of_Intstuments}
-
+\acrfull{mr} allows  inferring potential causal effects from observational data in the presence of confounding factors. 
+It allows us to assess whether a specific risk factor (exposure) has a causal effect on a disease (outcome).
+MR makes use of measured variation in genetic variants with known association to a modifiable exposure, also called instrument (see Section~\ref{sec:joint_association_study}).
 In the absence of specific biological knowledge of individual SNPs, the choice of instrumental variables for a Mendelian randomization  is primarily statistically-motivated.
 In this case, assumptions of MR are only assessed post-hoc and one cannot speak of a \textit{true} Mendelian randomization~\cite{Burgess2016a}.
 Nevertheless, these statistically-driven MR, also called `joint association study'~\cite{Burgess2016a}, can provide suggestive evidence for causal effects.
