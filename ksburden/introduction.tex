@@ -1,14 +1,14 @@
 \section{Introduction}
 \label{sec:introduction_ksburden}
 
-As outlined in Section~\ref{cha:methods_applied_in_genetic_studies_on_humans}, rare variants have been suspected to explain at least part of the missing heritability.
+As outlined in Section~\ref{cha:methods_applied_in_genetic_studies_on_humans}, rare variants have been suspected of explaining at least part of the missing heritability.
 However, commonly applied genotyping arrays used in GWAS are often unable to detect rare variants.
 Specifically, array genotyping chips often only tag a few million SNPs.
 Since LD is usually low across rare variants, imputation methods have difficulties recovering the missing SNPs, resulting in poor imputation quality of rare variants.
 In contrast, sequencing based techniques are not limited by these problems and are able to identify rare variants, but come with a higher price tag.
 Only recently whole genome and exome sequencing have become cheaper, providing rich opportunities to study the relationship between rare genetic variants and complex human traits~\cite{Goodwin2016}.
 
-Considerable effort has been spent to develop and deploy statistical methods to discover important causal relationships between rare variants and complex traits~\cite{Morris2010,Zeng2014,Daye2012,Manuscript2013}.
+Considerable effort has been spent in developing and deploying statistical methods to discover important causal relationships between rare variants and complex traits~\cite{Morris2010,Zeng2014,Daye2012,Manuscript2013}.
 In genome-wide association studies (GWAS), single variants are associated with the trait in question.
 This approach is largely unfeasible in rare variants due to their low frequency~\cite{Lee2014}.
 Thus most approaches have been focused on combining multiple rare variants in order to increase statistical power.
@@ -41,5 +41,5 @@ These methods rely on kernel distance clustering and are mostly computationally 
 
 I am here proposing a way to assess the differences in spatial organization by assessing the distributional differences of rare variants between cases and controls.
 To do so I make use of the well-known \acrfull{ks} test.
-I demonstrate, through extensive simulation, that this new methods outperform commonly used tests, such as SKAT and burden when the assumptions of the KS-test hold true.
+I demonstrate, through extensive simulation, that this new method outperforms commonly used tests, such as SKAT and burden test when the assumptions of the KS-test hold true.
 Furthermore, I combine the KS and burden test to provide an omnibus approach to gene-based tests while providing empirical evidence for their independence.

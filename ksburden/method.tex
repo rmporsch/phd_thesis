@@ -19,7 +19,7 @@ The two-sample KS statistic $K$ is defined as the supremum of the absolute diffe
 While the KS test is distribution-free when $F$ is continuous, this is not the case with discrete data, such as allele count.
 Indeed, application of the Kolmogorov distribution to obtain critical values for $K$ for discrete data yields conservative estimates~\cite{Walsh1963,Conover1972}. 
 \citet{Conover1972} proposed an alternative way to obtain critical values given a hypothesized discrete distribution function.
-However, this approach is not feasible with samples sizes $>30$.
+However, this approach is not feasible with samples sizes $>30$ since it aims to compute exact p-values.
 Therefore, I applied a permutation-based approach to estimate p-values as 
 \begin{equation}
   p_{per} = \frac{\sum^B_{b=1} I(K_b \geq k)+1}{b+1}
@@ -56,6 +56,7 @@ Thus, genotypes were not simulated but acquired from a previous association stud
 The main aim of using real data is to accurately reflect the diversity of genes within the human genome as well as limitations commonly encountered in sequencing-based studies.
 Most gene based tests are confronted with a variety of small and medium gene lengths which is often not reflected in the original power estimations.
 Hence I will make use of a large sequenced sample to investigate the statistical properties of the KS and KS-Burden tests.
+This sample contains patients affected with Hirschsprung disease as well as healthy controls.
 
 \subsubsection{The Seed Population: The Hirschsprung Data}
 \label{ssub:The_Seed_population:_The_Hirschsprung_data}
@@ -82,11 +83,16 @@ The number of rare variants per gene ranged from $3$ to $491$ with a median of $
 
 \subsubsection{Simulation Framework}
 \label{ssub:Simulation_Framework}
+
 From the set of $16,510$ genes I selected 50 genes at random which had at least 8 or more rare variants. 
-Mutation were defined as rare if the minor allele frequency (MAF) was below or equal 1\%. 
-Within $P$ rare variants of a gene I assigned causal status to $p_1 \ldots p_t$ positions, in which $t$ represents the total number of causal variants.
-For simplicity I assigned the causal cluster at the beginning of the gene.
-Within these simulations I gradually increased the size of the causal cluster to eventually cover the whole gene. 
+Variants were defined as rare if the minor allele frequency (MAF) was below or equal 1\%. 
+
+Next I defined size and attributes of causal clusters $\gamma$.
+For simplicity I assigned the causal cluster at the beginning of the gene which size is proportional to the total number of rare variants present.
+Specifically, within $P$ rare variants in a given gene I assigned causal status to $p_1 \ldots p_t$ positions, in which $t$ represents the total number of causal variants.
+The number of causal variants $t$ depends on the cluster size $\gamma$.
+For example, given $\gamma=0.1$ and a gene with $100$ rare variants causal status would be assigned to the first $10$ variants.  
+Only risk increasing variants were simulated.
 
 The phenotype was simulated via a liability threshold model.
 Hence the phenotype $Y_i$ of the $i^{th}$ subject was generated via
@@ -94,7 +100,8 @@ $Y = G\times E' + \epsilon$
 in which $G$ is the standardized genotype matrix of $n=936$ subjects with $P$ variants.
 $E$ is the effect size vector of size $1\times p$ and $\epsilon$ is a standard normally-distributed error term with a mean of $0$ and a standard deviation of $\sqrt{1-h^2}$, in which $h^2$ is the assumed heritability or the genetic effect on the liability distribution.
 The effect $h$ was uniformly distributed across all causal variants.
-I assigned case status for each subjects whose $Y_i$ was above a certain liability threshold, $q$.
+Thus the effect $h$ represents the effect of the whole gene.
+I assigned case status for each subject whose $Y_i$ was above a certain liability threshold, $q$.
 Any subject above $q$ was assigned case status, while the remaining subjects were deemed to be controls.
 This process was repeated until $500$ cases and an equal number of controls were collected.
 
@@ -103,7 +110,7 @@ This process was repeated until $500$ cases and an equal number of controls were
 The KS-Burden test was further applied to the UK Biobank to investigate distributional differences of rare variants between aggressive and non-aggressive individuals.
 As described in the previous chapter, the UK Biobank is a chip-array data set.
 Generally, genotyped data are not applicable for rare variant testing due to the low imputation quality of low frequency variants.
-However, given a very large sample size, imputation quality  gradually improves thus allowing the investigations of rare variants.
+However, given a very large sample size, imputation quality  gradually improves thus allowing the investigation of rare variants.
 Indeed, the UK Biobank, with over $150,000$ samples, is relatively large.
 As can be seen in Figure~\ref{fig:imputation}, imputation quality is acceptable for variants with a frequency between 1\% and 0.1\%, given the commonly-used quality score cut-off of $0.2$,
 providing sufficient high quality variants to investigate potential distributional differences.

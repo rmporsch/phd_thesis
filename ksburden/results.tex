@@ -22,14 +22,14 @@ Both burden tests, CMC and Burden, demonstrated a monotonic increase in statisti
 Omnibus tests, that is SKAT-O and KS-Burden, are relatively unaffected by the change in $\gamma$ and KS-Burden is able to outperform SKAT-O across scenarios.
 However, while the mean power of SKAT-O remains rather stable across all scenarios, KS-Burden has a slight reduction in power at $\gamma=0.2$.
 
-Assessment of the correlation between test statistics of KS and Burden test across assessed genes was with $r=0.03$ small.
+Assessment of the correlation between KS and Burden test statistics across assessed genes was small ($r=0.03$).
 Thus providing some evidence for the independence of both tests. %TODO need to check this correlation again 
 
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=1.0\linewidth]{ksburden/figures/combined_power_analysis.pdf}
-  \caption[Estimated Mean Statistical Power]{Estimated mean statistical power for five different causal cluster size $\gamma$ over selected 50 genes.
-    (A--C) Different power estiamtions for each rare variant association test for $r^2=0.002, 0.006, 0.009$.
+  \caption[Estimated Mean Statistical Power]{Estimated mean statistical power for five different causal cluster of size $\gamma$ across 50 genes.
+    (A--C) Different power estimations for each rare variant association test for $r^2=0.002, 0.006, 0.009$.
     The percentage of causal mutations $\gamma$ are on the corresponding x-axis, while empirical power is on the y-axis.
     (D) Relative change in empirical power over changes in $\gamma$ for each assessed test.\label{fig:simulatedGeneRealData}}
 \end{figure}

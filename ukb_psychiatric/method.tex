@@ -67,3 +67,12 @@ Summary statistics were obtained from 4 different GWAS covering schizophrenia~\c
 Only LD pruned variants (no pairwise LD $r^2>0.01$ in a 500kb region) were selected as instruments with $p\leq 5\times 10^{-5}$.
 Variants were then harmonized with summary statistics computed from the UK Biobank on risk taking and impulsive aggression. 
 MR analysis was performed with MR-Base~\cite{Hemani2016}.
+
+Here it is important to note that selected variants of psychiatric disorders might be primary associations (directly causing the trait), or are associations with some latent trait that influence aggression/risk taking as well as psychiatric disorders.
+While direct associations are in line with the underlying assumptions of MR, possible associations with one or more confounding factor would violate these assumptions. 
+
+Similar the direction of effect between the exposure and outcome can be tested with the help of the Steiger test~\cite{Steiger1980}.
+In general, the test examines if the variance explained by the instrument SNPs in the outcome is less than that within the exposure. 
+However, the test might not be reliable if either outcome or exposure have been poorly measured.
+Thus SNPs might simply explain little variance due to a low quality instrument. 
+Hence interpretation of the Steiger test should be done with care and in respect to potential limitations.
