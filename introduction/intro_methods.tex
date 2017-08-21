@@ -34,8 +34,8 @@ Further, when we assume that DZ and MZ twins are exposed to the same degree of s
 This is also called Falconer's formula (see Formula~\ref{eq:falcon}) and can be used to approximate the broad sense heritability, also denoted as $H^2$:
 \begin{align}
   H^2 &= 2(r_{MZ}-r_{DZ}) \label{eq:falcon} \\ 
-  C &= r_{MZ} - H^2  \\
-  E &= 1 - r_{MZ}  
+  C &= r_{MZ}-H^2  \\
+  E &= 1-r_{MZ}  
 \end{align}
 
 However, while the above is attractive it its simplicity, today's twin studies use \acrfull{sem} to model genetic and environment effects.
@@ -47,15 +47,14 @@ Variables within a SEM can be separated into latent and observed variables.
 Additive genetic (A), common environment (C) and unique environment (E) are latent variables.
 These variables are not directly observed but are inferred from actual measured variables.
 Observed variables are commonly displayed in cornered boxes.
-The correlations among A and C are represented by the double headed arrows.
+The correlations among A and C are represented by the double-headed arrows.
 The causal paths $a$, $c$, and $e$ represent the effect of the components on the trait $T$, and the square of these estimates represent the variance accounted for by each of the corresponding latent factors.
 However, effects of $D$ cannot be simultaneously estimated with $C$.
 
 \begin{figure}[htpb]
   \centering
   \scalebox{0.6}{\input{introduction/figure/ACE.tex}}
-  \caption[ACE Model]{
-    Basic ACE model.
+  \caption[ACE Model]{Basic ACE model.
     This basic model contains the latent variables A, C and E for twin 1 and 2, as well as the observed variable T with the mean $\mu$.
     The model assumes a MZ and DZ twin correlation of $1$ and $0.5$ respectivly.
   }\label{fig:ace}
@@ -84,7 +83,7 @@ Therefore, many studies use the full information maximum-likelihood (FIML) funct
 
 Given the matrix $X$ of size $n\times p$, in which $n$ represent the number of subjects and $p$ the number of observed variables, then the $-2\log$ likelihood of a give row $i$ is
 \begin{equation}\label{eq:fiml}
-  \mathcal{L}_i = k_i \ln(2\pi) + \ln(|\sum_i|) + (X_i - M_i)\sum_i^{-1}(X_i -M_i)^{T} 
+  \mathcal{L}_i = k_i \ln(2\pi) + \ln(|\sum_i|) + (X_i-M_i)\sum_i^{-1}(X_i-M_i)^{T} 
 \end{equation}
 in which $k_i$ is the count of non-missing observations in row $i$, $\sum_i$ is the filtered model-implied covariance matrix, and $M_i$ is the filtered mean vector.
 The filtered mean vector and covariance matrix is how FIML handles missing values at $X_i$.
@@ -102,14 +101,14 @@ It not only allowed testing for the differences in the genetic architecture betw
 In addition, Falconer's method is only able to approximate the broad sense heritability and is unable to distinguish between $A$ and $D$.
 However, it is important to keep in mind that twin models make a few fundamental assumptions.
 Indeed, twin models assume that twin pairs do not differ from the general population and that mating occurs at random.
-Furthermore, it is assumed that the effect of gene-environment interactions are small and that MZ and DZ twin pairs share their corresponding environment to the same degree, also called equal environment assumption (EEA)~\cite{Rijsdijk2002}.
+Furthermore, it is assumed that the effect of gene-environment interactions are small and that MZ and DZ twin pairs share their corresponding environment to the same degree, also called \acrfull{eea}~\cite{Rijsdijk2002}.
 
-Especially the EEA has come under more closer scrutiny in previous research~\cite{Martin1997}. 
+Especially the EEA has come under closer scrutiny in previous research~\cite{Martin1997}. 
 Indeed, various studies have shown that MZ twins have higher correlations across a variety of environments than DZ twins~\cite{Loehlin1976}.
 Thus suggesting a violation of the underlying assumption.
 Nevertheless, these environments often fail to have an effect on behavioral outcomes~\cite{Lytton1977}.
 Furthermore, a number of statistical tests, examining the EEA violations, were unable to detect any major violations~\cite{Rijsdijk2002,Tuvblad2011a,Freitag2010,Derks2006}.
-Thus there are strong indication that the assumptions which underline twin modeling hold.
+Thus, there are strong indication that the assumptions which underline twin modeling hold.
 
 Despite the numerous benefits of twin modeling, new advances in molecular technology has shifted research towards the identification of specific genetic loci.
 In the following section I will outline the basics methods applied to molecular based association studies.
@@ -124,7 +123,7 @@ These microarrays are able to detect polymorphism within a set of individuals.
 Specially, GWASs typically focus on \acrfull{snp}.
 SNPs are variations within the genome at specific positions and may underly differences in traits and disease susceptibility. 
 For example, the replacement of the nucleotide cytosine (C) with thymine (T) at a certain position within a stretch of DNA is considered a \acrfull{snp}.
-Thus if one type of variant (also called allele) at a specific loci is significantly more frequent in cases than in controls, one speaks of an association.  
+Thus, if one type of variant (also called allele) at a specific loci is significantly more frequent in cases than in controls, one speaks of an association.  
 
 \subsection{Association Test}
 \label{sub:association_test}
@@ -141,24 +140,24 @@ The link function $g(.)$ is a logit function for binary traits, while for quanti
 Genotypes of each SNP can be organized to represent dominant, recessive, multiplicative, as well as additive models~\cite{Bush2012}.
 For example, assuming at a given position the two alleles are \textit{A} and \textit{a}.
 In a dominant model (for \textit{A}) disease risk increases for having one or two copies of \textit{A} over no copies of \textit{A}.
-Thus the risk $k$ is the same for \textit{Aa} and \textit{AA}.
+Thus, the risk $k$ is the same for \textit{Aa} and \textit{AA}.
 In contrast, a recessive model (for \textit{A}) requires at least two copies of the risk allele \textit{A}.
 The multiplicative model (for \textit{A}) expects a squared increase in risk.
 If the risk of having the \textit{A} allele is $k$ then the risk of two copies of the same allele is $k^2$.
 An additive model assumes a linear increase in risk for each additional allele copy.
-Thus if the risk of \textit{Aa} is $k$ then the risk doubles ($2k$) for \textit{AA}. 
+Thus, if the risk of \textit{Aa} is $k$ then the risk doubles ($2k$) for \textit{AA}. 
 Despite these different models, GWAS commonly uses an additive model only since it has good statistical power to detect dominant effects as well.
 Nevertheless, an additive model has reduced power for potential recessive effects~\cite{Bush2012}.
 
-A statistical significant association between a allele and a specific trait does not necessary suggest a causal relationship.
+A statistical significant association between an allele and a specific trait does not necessary suggest a causal relationship.
 Indeed, it is important to point out that loci are not necessary independent from each other, but can be in \acrfull{ld} with each other.
 
-\subsection{Linkage Disequilibrium}
+\subsection{\acrfull{ld}}
 \label{sub:linkage_disequilibrium}
 
 LD is `the nonrandom association of alleles at different loci'~\cite{Slatkin2008} and forms a marker of the population genetic mechanism that is at play within our genome.
-For example, two loci are said to be in high LD when allele $A$ at one loci co-occurs with allele $B$ at a different loci at a higher frequency then one would expect if the two loci were independent.
-Hence the level of LD can be quantified as $D_{AB}=p_{AB} - p_{A}p_{B}$ in which in which $p_{AB}$ is the frequency that $A$ and $B$ occurs together wile $p_A$ and $p_B$ is the frequency of $A$ and $B$, respectively.
+For example, two loci are said to be in high LD when allele $A$ at one locus co-occurs with allele $B$ at a different locus at a higher frequency then one would expect if the two loci were independent.
+Hence, the level of LD can be quantified as $D_{AB}=p_{AB}-p_{A}p_{B}$ in which $p_{AB}$ is the frequency that $A$ and $B$ occurs together wile $p_A$ and $p_B$ is the frequency of $A$ and $B$, respectively.
 If $D_{AB} \neq 0$, A and B are said to be in linkage disequilibrium, otherwise the two alleles are in linkage equilibrium ($D_{AB}=0$).
 Nevertheless, $D_{AB}$ depends on the frequencies of the alleles in questions and is therefore not always convenient.
 Therefore, LD between two loci is commonly measured in two different ways. 
@@ -187,6 +186,7 @@ fourth, the association is due to confounding errors such as population stratifi
 
 This makes the identification of causal variants as well as the design of GWASs difficult.
 However, while the underlying LD structure of the human genome is relatively complicated one can estimate statistical power analytically in a simple additive model with equal cases and controls.
+
 Given an observed genetic marker and an unobserved causal variant, then
 \begin{equation}\label{eq:causal}
   E[\chi^2] \prop N\gamma^2p(1-p)r^2
@@ -194,12 +194,12 @@ Given an observed genetic marker and an unobserved causal variant, then
 in which $\chi^2$ is the chi-square statistic for a given marker, $N$ is the number of cases and controls, $\gamma$ is the effect size, $p$ is the frequency of the risk variant, and $r^2$ the LD between the marker and the causal variant.
 
 Therefore, variants will low LD to the causal variants have less statistical power.
-Indeed, equation~\ref{eq:causal} demonstrates that when given a small effect ($N\gamma^2p(1-p) < 10$) even a large LD ($0.8  < r^2 \leq 1$) results in inadequate statistical power.
+Indeed, equation~\ref{eq:causal} demonstrates that when given a small effect ($N\gamma^2p(1-p) < 10$), even a large LD ($0.8  < r^2 \leq 1$) results in inadequate statistical power.
 This points to an important limitation of GWAS.
-While common variants (usually alleles with a frequency of $>5\%$) have often considerable LD with other loci, LD across rare variants is small.
+While common variants (usually alleles with a frequency of $>5\%$) have often considerable LD with other loci, LD of rare variants is small.
 Therefore, considerable reducing statistical power of single rare variant associations.
 In addition, DNA microarrays commonly only assess common SNPs.
-Hence most GWAS do not aim to identify rare variant associations, but focus only on common genetic loci.
+Hence, most GWAS do not aim to identify rare variant associations, but focus only on common genetic loci.
 
 \subsection{Common Disease Common Variant Hypothesis}
 \label{sub:common_versus_rare_genetic_variants}
@@ -253,7 +253,7 @@ Indeed, other methods include the genomic control factor (see Section~\ref{sub:c
 \subsection{Multiple Testing}
 \label{ssec:multiple_testing}
 
-Testing a numerous genetic variants without adjusting the significance threshold $\alpha$ results in a number of falsely associated variants.
+Testing numerous genetic variants without adjusting the significance threshold $\alpha$ results in a number of falsely associated variants.
 Therefore, adjustment of the significance threshold is necessary.
 For example, one could simply adjust $\alpha$ by the number of tests performed (Bonferroni threshold).
 However, this would result in an overly conservative threshold and in a number of false negative associations~\cite{Benjamini1995} since computed test statistics are not independent due to LD\@.
@@ -271,7 +271,7 @@ While there are multiple possible confounding factors, such as population strati
 \label{sec:heritability_and_genetic_correlation}
 
 As already described above, studies on twins were able to assess the heritability of traits, or the proportion of variance due to additive genetic effects, by considering the MZ and DZ twin correlations.
-Interestingly, a number of methods have also been developed to assess narrow sense heritability, or the additive genetic effect from genotyped data.
+Interestingly, a number of methods have also been developed to assess narrow sense heritability from genotype data.
 Several methods have been proposed in the past, most notably \acrfull{gcta} and LD-score regression.
 
 \subsection{\acrfull{gcta}}
@@ -302,31 +302,31 @@ Hence, LD-score regression has been developed to estimate SNP heritability on su
 
 LD-score regression makes use of the previously outlined LD among tagged and causal SNPs.
 Test statistics of SNPs in high LD with the causal variant will be elevated proportional to their LD\@.
-Thus the more genetic variation a SNP tags the higher the probability that it will tag a causal variant.
+Thus, the more genetic variation a SNP tags the higher the probability that it will tag a causal variant.
 LD-score regression makes use of this relationship and regresses the estimated $\chi^2$ from the association study on the LD-score, which measures the overall LD of variant $j = 1, \ldots, M$ as $\ell_j = \sum^M_{k=1} r^2_{jk}$. 
 The slope of this regression can then be interpreted as an estimate of heritability~\cite{Bulik-Sullivan2015}.
-Similarly, if we replace the $\chi^2$ of a single study by the product of the z-scores of two separate studies and regress it onto $\ell_j \sqrt{N_{1}N_{2}}$, which $N_1$ and $N_2$ represent the corresponding sample sizes of trait one and two, the slope can be interpreted as the genetic covariance between trait 1 and 2~\cite{Bulik-Sullivan2015a}.
+Similarly, if we replace the $\chi^2$ of a single study by the product of the z-scores of two separate studies and regress it onto $\ell_j \sqrt{N_{1}N_{2}}$, in which $N_1$ and $N_2$ represent the corresponding sample sizes of trait one and two, the slope can be interpreted as the genetic covariance between trait 1 and 2~\cite{Bulik-Sullivan2015a}.
 
 \subsection{The Missing Heritability Problem}
 \label{sub:missing_heritability}
 
 Interestingly, the variance explained by known genetic variants and the heritability estimations from twin studies show considerable discrepancy.
-This is commonly called the `Missing Heritability Problem'~\cite{Vineis2010} and a  number of reasons have been suggested for the discrepancy between estimates in twin studies and those in GWAS\@.
+This is commonly called the `Missing Heritability Problem'~\cite{Vineis2010} and a  number of reasons have been suggested to explain the these differneces.
 
-It has been suggested that the missing heritability can be found in variants with smaller effects.
-Indeed, current GWASs have often not the necessary statistical power to detect variants with small effect sizes and an increase in sample size has resulted in a number of newly identified variants across different disorders \cite{Kathiresan2009,Ahmed2009,Zeggini2008}.
-\citet{Manolio2009} suggested that natural selection might be responsible for keeping effect sizes of complex traits low by removing variants with larger effects.
-Therefore decreasing efficient detection in GWASs.
+For example, it has been suggested that the missing heritability can be found in, yet unidentified, variants with small effects.
+Indeed, current GWASs have often not the necessary statistical power to detect variants with small effect sizes.
+An increase in sample size has resulted in a number of newly identified variants across different disorders~\cite{Kathiresan2009,Ahmed2009,Zeggini2008,Manolio2009}.
+Thus suggesting a number of unidentified variants across various traits.
 
-Importantly, GWASs typically only consider common variants and rare variants might account for the missing heritability.
-While most rare variants have little or no effect on traits, some rare variants have very large effects.
-Indeed, a study on height found that while most common variants only had small effects, some rare genetic variants resulted in a large increase in height of up to $2cm$~\cite{Marouli2017}.
+Another potential source of the missing heritability is seen in rare variants.
+Indeed, GWASs typically only consider common variants and rarely consider variants below a frequency of 5\%.
+While most rare variants have little or no impact on a given traits, some rare variants have very large effects.
+For example, a study on height found that while most common variants only had small effects, some rare genetic variants resulted in a large increase in height of up to $2cm$~\cite{Marouli2017}.
 This would indicate that rare variants can have a profound effect on common traits, suggesting that heritability estimates using common variants alone might be biased downward.
-Furthermore past studies might have only incompletely identified causal variants.
-A number of genes which harbour common variants of medium effect might also include a number of rare variants of large effects~\cite{Manolio2009}. 
+Furthermore, past studies might have only incompletely identified causal variants, since a number of genes which harbour common variants of medium effect might also include a number of rare variants of large effects~\cite{Manolio2009}. 
 
-Also epistasis is hardly tested in most studies and could account for the missing heritability.
-Indeed complex gene-gene interaction have been shown in a number of experimental studies in  animals~\cite{Zuk24012012}.
+Also, epistasis is hardly tested in most studies and could account for the missing heritability.
+Indeed, complex gene-gene interaction have been shown in a number of experimental studies in  animals~\cite{Zuk24012012}.
 Therefore, suggesting that epistatic effects might play a major role in humans as well.
 However, models which include gene-gene or even gene-gene-gene and higher order interactions are very computational intensive and require large datasets~\cite{Lippert2013}.
 Furthermore, one would expect that the effect of very strong gene-gene interaction would also be partially present in the main effects of the corresponding loci.
@@ -335,12 +335,12 @@ In addition to gene-gene interaction, rare and low effect variants one also need
 Copy number variations (CNV), such as insertions and deletions, and copy neutral variations (inversions and translocations) might contribute to the missing heritability problem~\cite{Zarrei2015}.
 However, most current studies do not examine structural variations and only recently methods have been developed to explore these variations.
 Unfortunately current algorithms show large inconsistencies in detected structural variations~\cite{Pirooznia2015}.
-Indeed,in their review~\citet{Li2013a} pointed out that the high signal-to-noise ratio as well as the short reads in next-generation sequencing technology displays a serious challenge to current methods.
-Hence it remains unclear if structural variations might help to explain the missing heritability.
+Indeed, in their review~\citet{Li2013a} pointed out that the high signal-to-noise ratio as well as the short reads in next-generation sequencing technology displays a serious challenge to current methods.
+Hence, it remains unclear if structural variations might help to explain the missing heritability.
 
-At last it is is also possible that assumptions in twin studies might be violated and estimates are too high.
+At last, it is also possible that assumptions in twin studies might be violated and estimates are too high.
 In particular, studies on twins assume that shared environmental factors influence MZ and DZ twins to the same extent.
-One can argue that MZ twins are treated by parents, teachers, and peers differently resulting in a potential violation of the this equal environments assumption. 
+One can argue that MZ twins are treated by parents, teachers, and peers differently resulting in a potential violation of the equal environment assumption. 
 However, while previous research suggest that the equal environment assumption might not be strictly valid, the induced bias is likely to be small~\cite{Derks2006,Felson2014}
 
 While a single reason for the missing heritability seems unlikely it is still an ongoing research objective to account for the differences.
@@ -351,13 +351,14 @@ While a single reason for the missing heritability seems unlikely it is still an
 The development of both LD-score regression and GCTA have enabled recent research to uncover the genetic correlations among a variety of different traits, even when the two traits are measured on different people.
 However, genetic correlation can arise from a multitude of different sources.
 Figure~\ref{fig:genetic_correlation} shows 4 different ways genetic correlation can arise.
+
 First and foremost, genetic correlation can arise if two traits are caused by the same genetic factors (see Figure~\ref{fig:pleiotropy}).
 Second, a genetic factor  causes phenotype 1 and that phenotype can in turn cause phenotype 2 (see mediated pleiotropy in Figure~\ref{fig:mediated_pleiotropy}).
 Third, genetic correlation can also arise from assortative mating as shown in Figure~\ref{fig:assortative_mating}.
 Assortative mating is a non-random mating pattern within a population and can lead to a genetic correlation between two traits.
 For example, consider two traits which share no initial causal variant.
 Trait 1 is desirable in males while trait 2 is desirable in females, hence resulting in an increase in offspring who harbour the causal variants of both traits.
-Over a few generation this will result in LD between causal variants of trait 1 and 2 despite sharing no initial causal SNPs, resulting in a genetic correlation. 
+Over a few generations this will result in LD between causal variants of trait 1 and 2 despite sharing no initial causal SNPs, resulting in a genetic correlation. 
 Fourth, also parental effect can result in genetic corrections as displayed in Figure~\ref{fig:parental_effects}.
 Specifically, genetic components cause trait $1$ in the parents which influences the child's environment which in turn results in trait 2. 
 Nevertheless, the genetic correlations estimated by LD-score and GCTA are unable to distinguish between the possible sources of genetic correlations.
@@ -410,7 +411,7 @@ Assuming that $y_i$ for subject $i$ with mean $\mu_i$ follows a distribution in 
 \end{equation}
 in which $h(\mu) = \mu$ or $h(\mu) = logit(\mu)$.
 The regression coefficients of the covariates and allele counts are $\alpha = (\alpha_1, \ldots, \alpha_q)$ as well as $\beta = (\beta_1, \ldots, \beta_m)$, respectively.
-The covariates are denoted as $X_i = (X_{i1}, \ldots, X_{iq})'$ and the allele counts as $G_{i1}, \ldots, G_{im}$.
+Covariates are denoted as $X_i = (X_{i1}, \ldots, X_{iq})'$ and the allele counts as $G_{i1}, \ldots, G_{im}$.
 The score statistic of the marginal model for variant $j$ is then
 \begin{equation}
   S_j = \sum^n_{i=1} G_{ij}(y_i-\hat{\mu_i})
@@ -425,7 +426,7 @@ The simplest approach, called the burden test, tests the weighted sum of compute
   Q = {(\sum^{m}_{j=1} w_{j} S_{j})}^2
 \end{equation}
 in which $w_j$ is the weight for variant $j$.
-Weights can be define by functional annotations, allele frequency, or other means.
+Weights can be defined by functional annotations, allele frequency, or other means.
 The test assumes that all variants  have the same direction of effect.
 This is a rather strong assumption and violations result in a loss in statistical power~\cite{Derkach2013a}.
 
@@ -451,10 +452,10 @@ This has led to the development of omnibus tests to combine burden and variance 
 \acrfull{mr} allows  inferring potential causal effects from observational data in the presence of confounding factors. 
 It allows us to assess whether a specific risk factor (exposure) has a causal effect on a disease (outcome).
 MR makes use of measured variation in genetic variants with known association to a modifiable exposure, also called instrument.
-Thus it assumes that certain genetic variants are associated with the exposure, and not with the outcome, except through the exposure.
-Commonly, genetic variants with well known effects on the exposure are used and can be seen as a natural randomized control trial since alleles are passed randomly from parents to offspring.
+Thus, it assumes that certain genetic variants are associated with the exposure, and not with the outcome, except through the exposure.
+Commonly, genetic variants with well-known effects on the exposure are used and can be seen as a natural randomized control trial since alleles are passed randomly from parents to offspring.
 MR is based on a number of assumptions, most importantly that there is no direct relation between genetic variant and outcome as well as any other confounder.
-However, the use of single variants within an MR often results in underpowered studies~\cite{Bowden2015} since the effect of an given common SNP on any phenotype is usually small.
+However, the use of single variants within an MR often results in underpowered studies~\cite{Bowden2015} since the effect of a given common SNP on any phenotype is usually small.
 This has led to the desire to use multiple genetic variants in order to improve statistical power to estimate causal effects between exposure and outcome.
 
 
@@ -480,8 +481,8 @@ These assumed relationships of this causal model are displayed in Figure~\ref{fi
   \resizebox{0.5\textwidth}{!}{\input{ukb_psychiatric/figures/causalilty.tex}}
   \caption[Causal Model]{Causal Model.
     Given a genetic variant $G_j$ influences the exposure $X$, it can be used as an instrumental variable to investigate the causal effect of exposure $X$ on the outcome $Y$.
-    However,this model assumes that the instrumental variable $G_j$ influences the outcome $Y$ only via the exposure $X$.
-    Hence assuming that $\alpha_j=0$, $\gamma_j\neq0$ and that $G_j$ does not influence $Y$ via a third variable $U$. 
+    However, this model assumes that the instrumental variable $G_j$ influences the outcome $Y$ only via the exposure $X$.
+    Hence, assuming that $\alpha_j=0$, $\gamma_j\neq0$ and that $G_j$ does not influence $Y$ via a third variable $U$. 
     The dotted lines indicate potential assumptions violations.
   }\label{fig:causal}
 \end{figure}
@@ -511,18 +512,18 @@ in which $\hat{\beta}_j = \frac{\hat{\Gamma}_j}{\hat{\gamma}_j}$ and the weight 
 
 Often one cannot assume that $\alpha_j = 0$.
 In this case the Wald ratio estimate of variant $j$ will equal the true causal effect plus the error $\frac{\alpha_j}{\gamma_j}$~\cite{Bowden2015}. 
-Hence in the presence of $\alpha_j \neq 0$, Equation~\ref{eq:IVW} is re-written as
+Hence, in the presence of $\alpha_j \neq 0$, Equation~\ref{eq:IVW} is re-written as
 \begin{equation} \label{eq:TSLSbias}
   \beta + \frac{\sum^J_{j=1} \gamma_j^2\sigma_{Y_j}^{-2} \alpha_j}
   {\sum^J_{j=1} \gamma_j^2\sigma_{Y_j}^{-2}} = \beta + Bias(\alpha, \gamma)
 \end{equation}
 Importantly, this implies that the assumed independence between genetic variants with the outcome $y$ conditional on $X$ holds if the bias term has a mean of zero.
-Based on these general assumptions and characteristics of Mendelian randomization, numerous different methods have been proposed.
+Based on these general assumptions and characteristics of Mendelian randomization, numerous methods have been proposed.
 
 \subsection{MR Methods}
 \label{sub:Used_Methods}
 
-Due to differences in robustness in regards to various potential assumption violations~\citet{Burgess2016}, it is recommended that several different MR methods be used in order to assess potential causal relationships.
+Due to differences in robustness regarding various potential assumption violations~\citet{Burgess2016}, it is recommended that several MR methods be used in order to assess potential causal relationships.
 The estimated causal effects can then be judged over all  applied models.
 Further, a sensitivity analysis of each MR analysis can be performed to investigate validity of the underlying assumptions~\cite{Burgess2016}.
 A sensitivity analysis investigates the validity of the causal inference by MR since it is implausible that all selected SNPs satisfy the instrumental variable assumption~\cite{Burgess2016}.
@@ -535,28 +536,29 @@ Overall, these methods differ in their robustness to pleiotropy (or the effect n
 
 The IVM has been described already in the previous section (see Equation~\ref{eq:IVW}).
 The method, while having greater statistical power than other methods, assumes that all used variants are valid instruments.
-Thus IVM is especially susceptible to presence of pleiotropy~\cite{Burgess2015b}.
+Thus, IVM is especially susceptible to presence of pleiotropy~\cite{Burgess2015b}.
 In contrast, the weighted median method first estimates the causal effect for each variant separately weighted by the inverse variance. 
 Following, estimates are then ranked and the median of this distribution is used to represent the estimated causal effect between exposure and outcome.
 This simple approach has the benefit that if at least 50\% of variants are valid instruments it will give consistent causal estimates.
-However, this comes with a lose in precision~\cite{Bowden2015}.
+However, this comes with a reduction in precision~\cite{Bowden2015}.
 
 MR-Egger is a newer method which relaxes the assumption of $\alpha_j=0$, instead  assuming that the correlation between $\alpha_j$ and $\gamma_j$ is $0$.
-Thus MR-Egger relaxes the pleiotropic assumptions and allows variants to exhibit pleiotropic effects as long as this effect, across all used instrument, equals to zero.
+Thus, MR-Egger relaxes the pleiotropic assumptions and allows variants to exhibit pleiotropic effects as long as this effect, across all used instrument, equals to zero.
 Under this assumption, the bias (see Equation~\ref{eq:TSLSbias}) is inversely proportional to $\gamma_j$ and variants with stronger instrument strength (large $\gamma_j$) will on average be closer to the true causal effect.
 MR-egger makes use of this by regressing $\hat{\Gamma}_j$ on $\hat{\gamma}_j$:
 \begin{equation}\label{eq:egger}
   \hat{\Gamma}_j = \beta_{0E} + \beta_{E} \hat{\gamma}_j
 \end{equation}
 Interestingly, $H_0$ of the intercept $\beta_E$ then gives an indication of the overall directional pleiotropy.
-Thus MR-egger uses a relatively relaxed assumption but comes with the cost of  considerably lower statistical power~\cite{Bowden2015}.
+Thus, MR-egger uses a relatively relaxed assumption but comes with the cost of  considerably lower statistical power~\cite{Bowden2015}.
 
-Finally, a fixed meta-analysis was used which assumes that the estimated effects $\beta_j$ are equal across assessed variants~\cite{Burgess2015b}.
+Finally, a fixed meta-analysis can be used which assumes that the estimated effects $\beta_j$ are equal across assessed variants~\cite{Burgess2015b}.
 However, this might not be the case in practice since it assumes that all selected instruments are valid.
 In addition, variants might have different effects on the outcome which is not exclusively directed thought the exposure. 
 In contrast, mixed-effect models do not assume equal effect across genetic variants~\cite{Burgess2015b}.
 Specifically, in contrast to fixed effect model where the effect of each instrument $\beta_j$ is modeled as normally distributed with a  mean $\beta_j = \beta$ and variance $\sigma_{Y_j}^2$, a mixed-effect model assumes additionally that also $\beta_j$ is normally distributed with a mean of $\mu_\beta$ with variance $\phi^2$.
 
+Taken together, these methods allow inferring potential causal effect from the exposure to the outcome.
 \bigskip
 To conclude, I have outlined various statistical methods to investigate the genetic contribution of aggressive behavior.
 I have described the commonly applied twin model to estimate the contribution of genetic and environmental effects.
