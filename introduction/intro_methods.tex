@@ -83,9 +83,9 @@ Therefore, many studies use the full information maximum-likelihood (FIML) funct
 
 Given the matrix $X$ of size $n\times p$, in which $n$ represent the number of subjects and $p$ the number of observed variables, then the $-2\log$ likelihood of a give row $i$ is
 \begin{equation}\label{eq:fiml}
-  \mathcal{L}_i = k_i \ln(2\pi) + \ln(|\sum_i|) + (X_i-M_i)\sum_i^{-1}(X_i-M_i)^{T} 
+  \mathcal{L}_i = k_i \ln(2\pi) + \ln(|\Sigma_i|) + (X_i-M_i)\Sigma_i^{-1}(X_i-M_i)^{T} 
 \end{equation}
-in which $k_i$ is the count of non-missing observations in row $i$, $\sum_i$ is the filtered model-implied covariance matrix, and $M_i$ is the filtered mean vector.
+in which $k_i$ is the count of non-missing observations in row $i$, $\Sigma_i$ is the filtered model-implied covariance matrix, and $M_i$ is the filtered mean vector.
 The filtered mean vector and covariance matrix is how FIML handles missing values at $X_i$.
 For example, given a model-implied mean row vector $M=(4.3, 5.3, 1.2)$ and the row $X_i=(NA, 2, 0.4)$, in which $NA$ indicates a missing value, then the filtered row mean vector is $M_i = (5.4, 1.2)$. 
 The $-2\log$ of the whole data can then be calculated as
@@ -112,9 +112,9 @@ Thus, there are strong indication that the assumptions which underline twin mode
 
 Despite the numerous benefits of twin modeling, new advances in molecular technology has shifted research towards the identification of specific genetic loci.
 In the following section I will outline the basics methods applied to molecular based association studies.
-This will include a description of \acrfull{gwas} as well rare variant tests.
+This will include a description of Genome Wide Association Studies as well rare variant tests.
 
-\section{\acrfull{gwas}}
+\section{Genome Wide Association Study (GWAS)}
 \label{sec:gwas}
 
 \acrfull{gwas} investigate a set of genetic variants across different individual in order to identify genetic loci associated with a certain trait.
@@ -163,6 +163,7 @@ Nevertheless, $D_{AB}$ depends on the frequencies of the alleles in questions an
 Therefore, LD between two loci is commonly measured in two different ways. 
 That is $D'$ and $r^2$.
 \citet{Lewontin1964} suggested to use
+
 \begin{equation}\label{eq:dprime}
   D' = D/D_{\min}
 \end{equation}
@@ -189,7 +190,7 @@ However, while the underlying LD structure of the human genome is relatively com
 
 Given an observed genetic marker and an unobserved causal variant, then
 \begin{equation}\label{eq:causal}
-  E[\chi^2] \prop N\gamma^2p(1-p)r^2
+  E \lbrack \chi^2 \rbrack \propto N\gamma^2p(1-p)r^2
 \end{equation}
 in which $\chi^2$ is the chi-square statistic for a given marker, $N$ is the number of cases and controls, $\gamma$ is the effect size, $p$ is the frequency of the risk variant, and $r^2$ the LD between the marker and the causal variant.
 
@@ -207,7 +208,7 @@ Hence, most GWAS do not aim to identify rare variant associations, but focus onl
 Association analysis of common genetic variants is usually only applied to investigate potential genetic markers of common traits and disorders, while different strategies are applied for rare diseases.
 Indeed, assessments of families whose members are disproportional affected with a rare genetic disorder, such as Huntington's disease or cystic fibrosis, were able to identify a number of disease-causing variants~\cite{Kerem1989}.
 However, while this method was initially successful with a number of other rare disorders, common disorders, such as heart disease, psychiatric disorders, as well as others, fared not that well,  
-implying that common and rare disorders have a different genetic architecture~\cite{Hirschhorn2005a}.
+implying that common and rare disorders have a different genetic architecture~\cite{Hirschhorn2005}.
 This resulted in the conceptualization of the common disease common variant hypothesis.
 The common disease common variant hypothesis suggests that common disorders are affected by genetic variations which are also common in the population~\cite{Schork2010}.
 This hypothesis, while simplistic, has some profound implications.
@@ -221,7 +222,7 @@ If a single SNP has only a small effect on the phenotype, then the total genetic
 Figure~\ref{fig:rare_comon} displays the spectrum of genetic affects and allele frequency.
 \begin{figure}[htpb]
   \centering
-  \includegraphics[width=0.8\linewidth]{{introduction/figure/journal.pcbi.1002822.g001}.png}
+  \includegraphics[width=0.8\linewidth]{introduction/figure/maf_effectsize.png}
   \caption[Spectrum of Disease Allele Effects]{Spectrum of Disease Allele Effects~\cite{Bush2012}.}\label{fig:rare_comon}
 \end{figure}
 
@@ -531,7 +532,7 @@ This is commonly done by assessing directional pleiotropy via funnel plots, inve
 
 There are five commonly used MR methods.
 That is, the \acrfull{ivm}, the weighted median method~\cite{Bowden2016}, as well as MR-Egger regression~\cite{Bowden2015}.
-Further a number of applied classical meta analysis methods with fixed~\cite{Nelson2015a} and random effects~\cite{Ahmad2015a} can be applied.
+Further a number of applied classical meta analysis methods with fixed~\cite{Nelson2015a} and random effects~\cite{Ahmad2015} can be applied.
 Overall, these methods differ in their robustness to pleiotropy (or the effect non-null effect of $\alpha_j$) as well as statistical power.
 
 The IVM has been described already in the previous section (see Equation~\ref{eq:IVW}).
