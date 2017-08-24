@@ -1,7 +1,7 @@
 \documentclass[12pt]{book}
 \usepackage{amsmath}
 \usepackage[margin=35mm]{geometry}
-\usepackage[acronym,automake]{glossaries}
+\usepackage[acronym,automake,toc]{glossaries}
 \usepackage[hidelinks]{hyperref}
 %\hypersetup{colorlinks=false}
 
@@ -32,7 +32,7 @@ clearlang=true
 \usepackage{bm}
 %\linespread{1.5}
 \usepackage{subfiles}
-%\usepackage[notbib,nottoc]{tocbibind}
+\usepackage[notbib,nottoc]{tocbibind}
 \usepackage{floatrow}
 \newfloatcommand{capbtabbox}{table}[][\FBwidth]
 
@@ -63,7 +63,6 @@ clearlang=true
 \pagenumbering{gobble}
 \clearpage\null\newpage
 \subfile{dedication.tex}
-\pagenumbering{roman}
 \clearpage\null\newpage
 \subfile{declaration.tex}
 \clearpage\null\newpage
@@ -71,6 +70,7 @@ clearlang=true
 \clearpage\null\newpage
 \subfile{publications.tex}
 \tableofcontents
+\pagenumbering{roman}
 %\clearpage
 \listoffigures
 \listoftables
